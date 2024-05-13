@@ -183,14 +183,14 @@
                 <div class="box-activity">
                     <div class="text-activity underline">
                         <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                            <span><?= $activity->activity_name; ?><img src="docs/activity-new.gif"></span>
+                            <span><?= $activity->activity_name; ?><img src="docs/activity-new.gif">
                         </a>
                     </div>
                     <a class="underline" href="<?php echo site_url('Pages/activity_detail/' . $activity->activity_id); ?>">
 
                     </a>
                     &nbsp;
-                    <?php
+                    <!-- <?php
                     // วันที่ของข่าว
                     $activity_date = new DateTime($activity->activity_date);
 
@@ -208,10 +208,10 @@
                         // แสดงรูปภาพ
                         echo '<img src="docs/activity-new.gif">';
                     }
-                    ?>
+                    ?> -->
                 </div>
                 <div class="row">
-                    <div class="col-6 mt-3">
+                    <div class="col-7 mt-3">
                         <span class="span-time-home "><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
                                 fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
                                 <path
@@ -240,7 +240,7 @@
                             ?>
                             น.</span> -->
                     </div>
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="font-12 underline d-flex justify-content-end mt-4">
                             <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -313,8 +313,8 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
-                                                <span class="text-news-time">
+                                            <div class="d-flex justify-content-start">
+                                                <span class="text-news-time" style="padding-left: 30px;">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth
                                                     $date = new DateTime($news->news_date);
@@ -326,6 +326,7 @@
                                                     ?>
                                                 </span>
                                             </div>
+
                                         </div>
                                         <div class="col-2" style="margin-top: -27px;">
                                             <?php
@@ -417,7 +418,7 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
+                                            <div class="d-flex justify-content-start ">
                                                 <span class="text-news-time">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth
@@ -478,7 +479,7 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
+                                            <div class="d-flex justify-content-start">
                                                 <span class="text-news-time">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth
@@ -535,7 +536,7 @@
     <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
         <span class="font-header-home">งานจัดซื้อจัดจ้าง</span>
     </div>
-    <div id="myDIV2"class="underline" style="margin-top: 20px;">
+    <div id="myDIV2" class="underline" style="margin-top: 20px;">
         <div class="tab-container2 d-flex justify-content-center">
             <div class="tab-link" onclick="openTab('tab1')">
                 <!-- <img src="docs/news_button.png" alt="Tab 1"> -->
@@ -576,7 +577,7 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
+                                            <div class="d-flex justify-content-start">
                                                 <span class="text-news-time">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth
@@ -699,7 +700,7 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
+                                            <div class="d-flex justify-content-start">
                                                 <span class="text-news-time">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth
@@ -761,7 +762,7 @@
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-10">
-                                            <div class="d-flex justify-content-end ">
+                                            <div class="d-flex justify-content-start">
                                                 <span class="text-news-time">
                                                     <?php
                                                     // ในการใช้งาน setThaiMonth

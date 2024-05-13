@@ -516,11 +516,13 @@
   /* ******************************************************************************* */
 
   .nav-text-color-2 {
-    background-image: linear-gradient(to top, #F9B502, #FADB8d, #FDCE34);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+    /* text-align: center; */
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
 
   /* background: linear-gradient(to bottom,
@@ -532,7 +534,7 @@
       ); */
 
   .navbar2 {
-    background-image: url('<?php echo base_url("docs/s.navbar-stick2.png"); ?>');
+    /* background-image: url('<?php echo base_url("docs/s.navbar-stick2.png"); ?>'); */
     background-repeat: no-repeat;
     background-size: 100%;
     height: 164px;
@@ -720,7 +722,8 @@
     padding-top: 10px;
   }
 
-  .active-public, .public-button:hover {
+  .active-public,
+  .public-button:hover {
     background-image: url('<?php echo base_url("docs/public_button-hover.png"); ?>');
     width: 379px;
     height: 70px;
@@ -734,7 +737,8 @@
     padding-top: 10px;
   }
 
-  .active-new, .new-button:hover {
+  .active-new,
+  .new-button:hover {
     background-image: url('<?php echo base_url("docs/news_button-hover.png"); ?>');
     width: 379px;
     height: 70px;

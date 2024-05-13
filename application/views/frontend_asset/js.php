@@ -34,34 +34,27 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
-    // active public ********************************************************************
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("myDIV");
-    var btns = header.getElementsByClassName("public-button");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var currentActive = header.querySelector(".public-button.active-public");
-            if (currentActive) {
-                currentActive.classList.remove("active-public");
-            }
-            this.classList.add("active-public");
-        });
+    // active  ********************************************************************************
+    function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
+        var header = document.getElementById(containerId);
+        var btns = header.getElementsByClassName(buttonClassName);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var currentActive = header.querySelector("." + buttonClassName + "." + activeClassName);
+                if (currentActive) {
+                    currentActive.classList.remove(activeClassName);
+                }
+                this.classList.add(activeClassName);
+            });
+        }
     }
-    //*********************************************************************************
-    // active new ********************************************************************
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("myDIV2");
-    var btns = header.getElementsByClassName("new-button");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var currentActive = header.querySelector(".new-button.active-new");
-            if (currentActive) {
-                currentActive.classList.remove("active-new");
-            }
-            this.classList.add("active-new");
-        });
-    }
-    //*********************************************************************************
+
+    // เรียกใช้ฟังก์ชันสำหรับทั้ง 2 กรณี
+    addClickListenerToButtons("myDIV", "public-button", "active-public");
+    addClickListenerToButtons("myDIV2", "new-button", "active-new");
+
+    // *****************************************************************************************
+
     // รูปภาพ preview *********************************************************************
     $(document).ready(function () {
         lightbox.option({

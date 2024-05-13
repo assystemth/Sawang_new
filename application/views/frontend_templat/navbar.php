@@ -1,10 +1,11 @@
 <style>
     #navbar2 {
-        background-image: url('<?php echo base_url("docs/s.navbar-stick2.png"); ?>');
+        /* background-image: url('<?php echo base_url("docs/header_announce.png"); ?>'); */
+        background: linear-gradient(180deg, #6D2F48 0%, #7F3E55 39.39%, #CC818D 100%);
         background-repeat: no-repeat;
         background-size: 100%;
-        height: 164px;
-        width: 706px;
+        height: 80px;
+        width: 1680px;
         margin-left: 50%;
         transform: translateX(-50%);
         display: none;
@@ -128,21 +129,30 @@
     <div class="container">
         <!-- <div class="collapse navbar-collapse d-flex justify-content-center"> -->
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
+        <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link mx-3 nav-text-color-2" aria-current="page" href="<?php echo site_url('Home'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick1.png"); ?>" style="position: absolute; top: 41%; left: 124px;">
+                    <span class="">หน้าหลัก</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-3 nav-text-color-2" href="<?php echo site_url('Pages/all_web'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick2.png"); ?>" style="position: absolute; top: 41%; left: 306px;">
+                    <a class="nav-link mx-3 nav-text-color-2" aria-current="page" href="<?php echo site_url('Home'); ?>">
+                    <span class="">ข้อมูลทั่วไป</span>
+                    
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link mx-3 nav-text-color-2" aria-current="page" href="<?php echo site_url('Pages/all_web'); ?>">
+                    <span class="">ผังเว็บไซต์</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-3 nav-text-color-2" href="<?php echo site_url('Home/login'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick3.png"); ?>" style="position: absolute; top: 41%; left: 512px;"></a>
+                    <a class="nav-link mx-3 nav-text-color-2" aria-current="page" href="<?php echo site_url('Home/login'); ?>">
+                    <span class="">เข้าสู่ระบบ</span>
+                    </a>
                 </li>
+               
             </ul>
         </div>
     </div>
