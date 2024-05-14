@@ -913,10 +913,11 @@
     background-size: 100%;
     display: none;
     position: absolute;
-    width: 1280px;
+    width: 1920px;
     height: 584px;
     z-index: 2;
-    margin-left: 3px;
+    margin-top: 60px;
+    /* margin-left: 3px; */
   }
 
   .dropdown-content ul {
