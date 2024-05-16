@@ -28,6 +28,34 @@
     </div> -->
 </div>
 
+<div class="welcome-btm">
+    <div class="text-center" style="padding-top:15.5%;">
+        <span class="font-welcome-btm">องค์การบริหารส่วนตำบลสว่าง</span>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="welcome-btm-text-run">
+            <div class="row">
+                <div class="col-2">
+                    <span class="font-left-text-run">ประกาศ</span>
+                </div>
+                <div class="col-10">
+                    <div class="tab-container">
+                        <?php
+                        $news = $this->HotNews_model->hotnews_frontend();
+
+                        echo '<div class="text-run-update">';
+                        foreach ($news as $item) {
+                            echo '<p>' . $item->hotNews_text . '</p>';
+                        }
+                        echo '</div>';
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- <div class="tab-container">
     <div class="rectangle1"><span class="news-update">&nbsp;<i>ข่าวสารอัพเดต</i></span></div>
     <div class="rectangle2"></div>
@@ -38,7 +66,7 @@
 
 <div class="bg-main">
     <!-- แทบวิ่ง  -->
-    <img src="docs/s.item-news-top3.png" width="290" height="88" style="position: absolute; z-index: 2; margin-top: -7px;">
+    <!-- <img src="docs/s.item-news-top3.png" width="290" height="88" style="position: absolute; z-index: 2; margin-top: -7px;">
 
     <div class="tab-container">
         <?php
@@ -50,7 +78,7 @@
         }
         echo '</div>';
         ?>
-    </div>
+    </div> -->
 
     <!-- วิสัยทัศน์  -->
     <div class="vision mt-5">
@@ -1082,7 +1110,7 @@
                         <?php foreach ($qPublicize_ita as $index => $img_publicize_ita) { ?>
                             <div class="carousel-item <?= ($index === 0) ? "active" : ""; ?>" data-bs-interval="3000">
                                 <a href="<?= $img_publicize_ita->publicize_ita_link; ?>" target="_blank">
-                                    <img src="docs\img\<?= $img_publicize_ita->publicize_ita_img; ?>" class="d-block "style="height: 550px; width: 320px;">
+                                    <img src="docs\img\<?= $img_publicize_ita->publicize_ita_img; ?>" class="d-block " style="height: 550px; width: 320px;">
                                 </a>
                             </div>
                         <?php } ?>
@@ -1284,7 +1312,7 @@
                         </div>
                         <div class="d-flex justify-content-end mt-3">
                             <!-- <button type="submit" id="loginBtn" class="btn" disabled><img src="<?php echo base_url("docs/s.btn-sent.png"); ?>"></button> -->
-                            <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" id="loginBtn" class="btn g-recaptcha" ><img src="<?php echo base_url("docs/s.btn-sent.png"); ?>"></button>
+                            <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" id="loginBtn" class="btn g-recaptcha"><img src="<?php echo base_url("docs/s.btn-sent.png"); ?>"></button>
                         </div>
                     </form>
                 </div>

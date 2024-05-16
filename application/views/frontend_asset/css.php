@@ -26,232 +26,14 @@
   body {
     padding: 0;
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: "Noto Sans Thai Looped", sans-serif;
   }
 
   main {
-    margin: 0 auto;
-    padding: 0;
     width: 100%;
-    max-width: 1280px;
-    /* กำหนดความกว้างสูงสุดที่ 1280px */
+    max-width: 1920px;
     height: auto;
   }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 280px) and (max-width: 319px) {
-    main {
-      transform: scale(0.22);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 320px) and (max-width: 359px) {
-    main {
-      transform: scale(0.25);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 360px) and (max-width: 374px) {
-    main {
-      transform: scale(0.285);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 375px) and (max-width: 379px) {
-    main {
-      transform: scale(0.295);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 380px) and (max-width: 411px) {
-    main {
-      transform: scale(0.31);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 412px) and (max-width: 419px) {
-    main {
-      transform: scale(0.325);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับโทรศัพท์ */
-  @media (min-width: 420px) and (max-width: 450px) {
-    main {
-      transform: scale(0.336);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 451px) and (max-width: 480px) {
-    main {
-      transform: scale(0.36);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับ iPad และ Tablet */
-  @media (min-width: 481px) and (max-width: 539px) {
-    main {
-      transform: scale(0.4);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับ iPad และ Tablet */
-  @media (min-width: 540px) and (max-width: 546px) {
-    main {
-      transform: scale(0.422);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 547px) and (max-width: 640px) {
-    main {
-      transform: scale(0.45);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 711px) {
-    main {
-      transform: scale(0.5);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับ iPad และ Tablet */
-  @media (min-width: 712px) and (max-width: 767px) {
-    main {
-      transform: scale(0.56);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 7.9 นิ้ว */
-  @media (min-width: 768px) and (max-width: 818px) {
-    main {
-      transform: scale(0.6);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 9.7 นิ้ว */
-  @media (min-width: 819px) and (max-width: 911px) {
-    main {
-      transform: scale(0.64);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 912px) and (max-width: 1023px) {
-    main {
-      transform: scale(0.72);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 10 นิ้ว */
-  @media (min-width: 1024px) and (max-width: 1076px) {
-    main {
-      transform: scale(0.8);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1077px) and (max-width: 1080px) {
-    main {
-      transform: scale(0.85);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-  @media (min-width: 1081px) and (max-width: 1119px) {
-    main {
-      transform: scale(0.83);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1120px) and (max-width: 1140px) {
-    main {
-      transform: scale(0.85);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1141px) and (max-width: 1170px) {
-    main {
-      transform: scale(0.86);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1171px) and (max-width: 1199px) {
-    main {
-      transform: scale(0.88);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1200px) and (max-width: 1220px) {
-    main {
-      transform: scale(0.9);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1221px) and (max-width: 1250px) {
-    main {
-      transform: scale(0.92);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1250px) and (max-width: 1289px) {
-    main {
-      transform: scale(0.95);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
 
   /* color-all color สีทั้งหมด ****************************************************** */
   .white {
@@ -275,7 +57,6 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
     font-size: 20.098px;
     font-style: normal;
     font-weight: 500;
@@ -320,28 +101,72 @@
   }
 
   .welcome {
-    background-image: url('<?php echo base_url("docs/s.welcome3.gif"); ?>');
+    background-image: url('<?php echo base_url("docs/s.welcome.png"); ?>');
     background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: -182px;
+    background-size: 100% 100%;
     z-index: 1;
-    width: 1280px;
-    height: 690px;
+    width: 1920px;
+    height: 767px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .welcome-btm {
+    background-image: url('<?php echo base_url("docs/s.welcome-btm2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+    width: 1920px;
+    height: 487px;
+    position: relative;
+    margin-top: 515px;
+  }
+
+  .font-welcome-btm {
+    color: #724118;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .welcome-btm-text-run {
+    background-image: url('<?php echo base_url("docs/s.welcome-btm-text-run.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+    width: 1609px;
+    height: 61px;
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .font-left-text-run {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 80px;
   }
 
 
   .tab-container {
     /* background-image: url('<?php echo base_url("docs/s.run-text1.png"); ?>'); */
-    background: #fff;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 72px;
-    width: 1200px;
+    /* background: #fff; */
+    /* background-repeat: no-repeat; */
+    /* background-size: 100%; */
+    height: 61px;
+    width: 1340px;
     /* top: -100px; */
     position: relative;
     overflow: hidden;
+    margin-left: -4px;
     z-index: 1;
-    margin-left: 79px;
+    margin-top: 5px;
   }
 
   .text-run-update {
@@ -357,7 +182,10 @@
     /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
     z-index: 1;
     animation: textRunUpdate 35s linear infinite;
-    font-size: 30px;
+    font-size: 32px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 300;
   }
 
   @keyframes textRunUpdate {
@@ -468,7 +296,7 @@
 
   .text-activity {
     color: #523003;
-    font-family: Kanit;
+
     font-size: 18.263px;
     font-style: normal;
     font-weight: 300;
@@ -495,7 +323,7 @@
     margin-top: -5px;
   }
 
-  .dropdown-content {
+  /* .dropdown-content {
     background-image: url('<?php echo base_url("docs/s.bg-nav-content-3.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -510,8 +338,6 @@
   .dropdown-content ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* แบ่งออกเป็น 3 columns ที่มีขนาดเท่ากัน */
-
   }
 
   .dropdown-content a {
@@ -519,7 +345,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
+  } */
 
   .no-bullets {
     list-style: none;
@@ -547,7 +373,7 @@
   .mar-left-12 {
     margin-left: 12%;
   }
-  
+
   .mar-left-10 {
     margin-left: 10%;
   }
@@ -575,6 +401,7 @@
   .mar-left-4 {
     margin-left: 4%;
   }
+
   .mar-left-3 {
     margin-left: 3%;
   }
@@ -691,7 +518,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -702,7 +529,7 @@
 
   .text-news-time {
     color: #000;
-    font-family: Kanit;
+
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -783,7 +610,7 @@
   .text-travel {
     color: #FFE072;
     -webkit-text-stroke: 1px black;
-    font-family: Kanit;
+
     font-size: 36.024px;
     font-style: normal;
     font-weight: 600;
@@ -822,7 +649,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 6.671px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
@@ -833,7 +660,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 2.668px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 25.35px;
     font-style: normal;
     font-weight: 500;
@@ -867,7 +694,7 @@
   .font-view {
     color: #693708;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -880,7 +707,7 @@
 
   .card-view {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 14.764px;
     font-style: normal;
     font-weight: 400;
@@ -901,7 +728,7 @@
   .font-q-a-home-head {
     color: #693708;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -916,7 +743,7 @@
 
   .font-q-a-home-form {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -936,7 +763,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
@@ -962,7 +789,7 @@
   .font-like {
     color: #693708;
     text-shadow: 0px 0px 5.678px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -990,7 +817,7 @@
   .font-like-label {
     color: #693708;
     text-shadow: 0px 1.334px 2.668px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1125,7 +952,7 @@
   .font-footer {
     color: #693708;
     text-align: center;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     line-height: 33.366px;
@@ -1400,7 +1227,7 @@
     color: #FFF;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1412,7 +1239,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1495,7 +1322,7 @@
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 30px;
     font-style: normal;
     font-weight: 600;
@@ -1508,7 +1335,7 @@
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
@@ -1520,7 +1347,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1532,7 +1359,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1541,7 +1368,7 @@
 
   .font-laws-head {
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -1551,7 +1378,7 @@
 
   .font-laws-content {
     color: #000;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1577,7 +1404,7 @@
   .red-font {
     color: #F00;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -1590,7 +1417,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1602,7 +1429,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -1616,7 +1443,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1628,7 +1455,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -1641,7 +1468,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1653,7 +1480,7 @@
     color: #693708;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1665,7 +1492,7 @@
 
   .font-ita-head {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1675,7 +1502,7 @@
 
   .font-ita-content {
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1688,7 +1515,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 21.438px;
     font-style: normal;
     font-weight: 500;
@@ -1701,7 +1528,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 20.098px;
     font-style: normal;
     font-weight: 500;
@@ -1714,7 +1541,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 21.438px;
     font-style: normal;
     font-weight: 300;
@@ -1725,7 +1552,7 @@
   .font-contact-1 {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 26.895px;
     font-style: normal;
     font-weight: 300;
@@ -1737,7 +1564,7 @@
     color: #000;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 24.205px;
     font-style: normal;
     font-weight: 300;
@@ -1749,7 +1576,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 26.895px;
     font-style: normal;
     font-weight: 600;
@@ -1759,7 +1586,7 @@
 
   .font-pages-heads-img {
     color: #523003;
-    font-family: Kanit;
+
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -1769,7 +1596,7 @@
 
   .font-pages-details-img {
     color: #6C757D;
-    font-family: Kanit;
+
     font-size: 15.5px;
     font-style: normal;
     font-weight: 300;
@@ -1781,7 +1608,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1791,7 +1618,7 @@
 
   .font-page-detail-time-img {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -1801,7 +1628,7 @@
 
   .font-page-detail-content-img {
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1811,7 +1638,7 @@
 
   .font-page-detail-view-img {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1824,7 +1651,7 @@
     text-align: right;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+
     font-size: 20.053px;
     font-style: normal;
     font-weight: 400;
@@ -1834,7 +1661,7 @@
 
   .font-pages-content {
     color: #000;
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -1844,7 +1671,7 @@
 
   .font-otop-head {
     color: #000;
-    font-family: Kanit;
+
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -1853,7 +1680,7 @@
 
   .font-otop-content {
     color: #000;
-    font-family: Kanit;
+
     font-size: 24.116px;
     font-style: normal;
     font-weight: 300;
@@ -1866,7 +1693,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -1879,7 +1706,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 24.116px;
     font-style: normal;
     font-weight: 500;
@@ -1890,7 +1717,7 @@
   .font-head-all-web {
     color: #FFC23B;
     text-align: center;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -1901,7 +1728,7 @@
   .font-content-all-web {
     color: #000;
     text-align: center;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1912,7 +1739,7 @@
   .font-e-service-complain {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -1925,7 +1752,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 18.762px;
     font-style: normal;
     font-weight: 300;
@@ -1939,7 +1766,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 17px;
     font-style: normal;
     font-weight: 500;
@@ -1948,7 +1775,7 @@
 
   .font-flcp-sd {
     color: var(--, #6D758F);
-    font-family: Kanit;
+
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -1956,7 +1783,7 @@
   }
 
   .font-color-flcp {
-    font-family: Kanit;
+
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -1965,7 +1792,7 @@
 
   .font-time-flcp {
     color: #000;
-    font-family: Kanit;
+
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -2064,7 +1891,7 @@
 
   .span-time-pages-img {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -2079,7 +1906,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -2091,7 +1918,7 @@
 
   .span-time-pages-news {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -2108,7 +1935,7 @@
 
   .span-time-q-a {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 16.078px;
     font-style: normal;
     font-weight: 400;
@@ -2632,7 +2459,7 @@
 
   select.custom-select {
     color: #693708;
-    font-family: Kanit;
+
     font-size: 20.102px;
     font-style: normal;
     font-weight: 500;
@@ -2694,7 +2521,7 @@
     color: #000;
     text-align: center;
     text-shadow: 0.536px 0.536px 0.536px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -2703,7 +2530,7 @@
 
   .font-gi-content {
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -2712,7 +2539,7 @@
 
   .font-gi-target {
     color: #000;
-    font-family: Kanit;
+
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2766,7 +2593,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -2781,7 +2608,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+
   }
 
   .bg-ita-color {
@@ -2926,7 +2753,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+    
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -2939,7 +2766,7 @@
 
   .font-ita-content-detail {
     color: #000;
-    font-family: Kanit;
+
     font-size: 20px;
     font-style: normal;
     padding-left: 150px;

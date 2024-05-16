@@ -6,27 +6,145 @@
         background-size: 100%; */
         height: 80px;
         width: 1920px;
-        margin-left: 50%;
-        transform: translateX(-50%);
         display: none;
         position: fixed;
         top: 0;
         left: 0;
         transition: top 0.3s ease-in-out;
+        font-size: 24px;
+        padding-left: 120px;
+
     }
 
     #navbar2:hover {
         top: 0;
     }
 
-    body:not(:hover) #navbar2 {
-        top: -164px;
-    }
-
     @media screen and (max-width: 1200px) {
         #navbar2 {
             display: none;
         }
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    /* ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    } */
+
+    li {
+        float: left;
+    }
+
+    li a,
+    .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a,
+    .dropdown .dropbtn {
+        position: relative;
+    }
+
+    /* เส้นใต้สำหรับ li a เท่านั้น */
+    ul>li>a:hover::after,
+    ul>li.dropdown:hover .dropbtn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        /* ระยะห่างของเส้นจากตัวอักษร */
+        height: 2px;
+        /* ความหนาของเส้น */
+        background: linear-gradient(180deg, #F9A602 2.64%, #F5C728 78.74%, #F5D033 97.76%);
+        /* สีของเส้น */
+        transform: scaleX(1);
+        transition: transform 0.3s;
+    }
+
+    ul>li>a::after,
+    ul>li.dropdown .dropbtn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        /* ระยะห่างของเส้นจากตัวอักษร */
+        height: 2px;
+        /* ความหนาของเส้น */
+        background-color: transparent;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+    }
+
+    li.dropdown {
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        /* display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1; */
+
+        background-image: url('<?php echo base_url("docs/s.bg-nav-content-3.jpg"); ?>');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        display: none;
+        position: fixed;
+        width: 1920px;
+        height: 584px;
+        z-index: 2;
+        left: 0;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .font-head-navbar-letf-logo1 {
+        background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .font-head-navbar-letf-logo2 {
+        color: #F6F6F6;
+        text-align: center;
+        font-size: 17.5px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
     }
 
     .search {
@@ -126,27 +244,73 @@
     }
 </style>
 <nav class="navbar navbar2 navbar-expand-lg navbar-dark navbar-center sticky-top" id="navbar2">
-    <div class="container">
-        <!-- <div class="collapse navbar-collapse d-flex justify-content-center"> -->
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link mx-3 nav-text-color-2" aria-current="page" href="<?php echo site_url('Home'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick1.png"); ?>" style="position: absolute; top: 41%; left: 124px;">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3 nav-text-color-2" href="<?php echo site_url('Pages/all_web'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick2.png"); ?>" style="position: absolute; top: 41%; left: 306px;">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3 nav-text-color-2" href="<?php echo site_url('Home/login'); ?>">
-                        <img src="<?php echo base_url("docs/s.btn-stick3.png"); ?>" style="position: absolute; top: 41%; left: 512px;"></a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ul>
+        <li style="margin-left: 15px;"><a href="#">หน้าหลัก</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">โครงสร้างบุคลากร</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">บริการประชาชน</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">แผนงาน</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">การดำเนินงาน</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">มาตรการภายใน</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">ผังเว็บไซต์</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+        <li class="dropdown" style="margin-left: 15px;">
+            <a href="javascript:void(0)" class="dropbtn">เข้าสู่ระบบ</a>
+            <div class="dropdown-content">
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+            </div>
+        </li>
+    </ul>
 </nav>
 
 
@@ -197,28 +361,100 @@
         document.getElementById('searchImage').src = imageUrl;
     }
 </script>
-
-<div style="position: relative; width: 1280px; ">
-    <img src="<?php echo base_url("docs/s.navbar-top5.png"); ?>">
-    <a href="<?php echo site_url('Home'); ?>" onmouseover="changeImage(`<?php echo base_url('docs/s.item-nav-top1-hover.png'); ?>`)" onmouseout="restoreImage(`<?php echo base_url('docs/item-nav-top1.png'); ?>`)">
-        <img src="<?php echo base_url("docs/item-nav-top1.png"); ?>" alt="" style="position: absolute; top: 10%; left: 58%;">
-    </a>
-    <a href="<?php echo site_url('Pages/all_web'); ?>" onmouseover="changeImage(`<?php echo base_url('docs/s.item-nav-top2-hover.png'); ?>`)" onmouseout="restoreImage(`<?php echo base_url('docs/item-nav-top2.png'); ?>`)">
-        <img src="<?php echo base_url("docs/item-nav-top2.png"); ?>" alt="" style="position: absolute; top: 10%; left: 70%;">
-    </a>
-    <a href="<?php echo site_url('Home/login'); ?>" onmouseover="changeImage(`<?php echo base_url('docs/s.item-nav-top3-hover.png'); ?>`)" onmouseout="restoreImage(`<?php echo base_url('docs/item-nav-top3.png'); ?>`)">
-        <img src="<?php echo base_url("docs/item-nav-top3.png"); ?>" alt="" style="position: absolute; top: 10%; left: 84%;">
-    </a>
-    <div class="search">
-        <a href="#" id="searchShow" onclick="toggleSearch()">
-            <img id="searchImage" src="<?php echo base_url("docs/search.png"); ?>" style="position: absolute; top: 10%; left: 84%;" onmouseover="changeImage('<?php echo base_url('docs/search-hover.png'); ?>')" onmouseout="restoreImage('<?php echo base_url('docs/search.png'); ?>')">
-        </a>
-        <div id="searchContainer" style="display: none;">
-            <div class="gcse-search"></div>
+<div class="d-flex justify-content-start">
+    <div style="position: absolute; margin: 25px 25px; z-index: 2;">
+        <div class="row">
+            <div class="col-5">
+                <img src="docs/s.logo-navbar.png">
+            </div>
+            <div class="col-7">
+                <span class="font-head-navbar-letf-logo1">อบต. สว่าง</span><br>
+                <span class="font-head-navbar-letf-logo2">อ.โพนทอง จ.ร้อยเอ็ด</span>
+            </div>
         </div>
     </div>
 </div>
 
+<div class="d-flex justify-content-end">
+    <div style="position: absolute; margin-top:25px; z-index: 2;">
+        <!-- <img src="<?php echo base_url("docs/s.navbar-fixed.png"); ?>"> -->
+        <ul style="font-size: 24px;">
+            <li><a href="#">หน้าหลัก</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">โครงสร้าง</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">บริการ</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">แผนงาน</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">การดำเนินงาน</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">มาตรการภายใน</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">ผังเว็บไซต์</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">เข้าสู่ระบบ</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                </div>
+            </li>
+        </ul>
+        <div class="search">
+            <a href="#" id="searchShow" onclick="toggleSearch()">
+                <img id="searchImage" src="<?php echo base_url("docs/search.png"); ?>" style="position: absolute; top: 10%; left: 84%;" onmouseover="changeImage('<?php echo base_url('docs/search-hover.png'); ?>')" onmouseout="restoreImage('<?php echo base_url('docs/search.png'); ?>')">
+            </a>
+            <div id="searchContainer" style="display: none;">
+                <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 // ฟังก์ชัน setThaiMonth อยู่นอก foreach loop
