@@ -170,63 +170,209 @@
       transform: scale(0.58);
     }
   }
+
   @media (min-width: 1150px) and (max-width: 1179px) {
     main {
       transform: scale(0.60);
     }
   }
+
   @media (min-width: 1180px) and (max-width: 1199px) {
     main {
-      transform: scale(0.61);
+      transform: scale(0.62);
     }
   }
 
   /* สำหรับจอ 10.2 นิ้ว */
-  @media (min-width: 1200px) and (max-width: 1319px) {
+  @media (min-width: 1200px) and (max-width: 1229px) {
     main {
       transform: scale(0.625);
     }
   }
 
-  @media (min-width: 1320px) and (max-width: 1365px) {
+  @media (min-width: 1230px) and (max-width: 1259px) {
     main {
-      transform: scale(0.7);
+      transform: scale(0.64);
+    }
+  }
+
+  @media (min-width: 1260px) and (max-width: 1279px) {
+    main {
+      transform: scale(0.66);
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1309px) {
+    main {
+      transform: scale(0.67);
+    }
+  }
+
+  @media (min-width: 1310px) and (max-width: 1339px) {
+    main {
+      transform: scale(0.69);
+    }
+  }
+
+  @media (min-width: 1340px) and (max-width: 1369px) {
+    main {
+      transform: scale(0.70);
     }
   }
 
   /* สำหรับจอ 10.5 นิ้ว */
-  @media (min-width: 1366px) and (max-width: 1419px) {
+  @media (min-width: 1370px) and (max-width: 1399px) {
     main {
       transform: scale(0.71);
     }
   }
 
+  @media (min-width: 1400px) and (max-width: 1419px) {
+    main {
+      transform: scale(0.73);
+    }
+  }
+
   /* สำหรับจอ 11 นิ้ว */
-  @media (min-width: 1420px) and (max-width: 1519px) {
+  @media (min-width: 1420px) and (max-width: 1459px) {
     main {
       transform: scale(0.74);
     }
   }
 
-  @media (min-width: 1520px) and (max-width: 1620px) {
+  @media (min-width: 1460px) and (max-width: 1499px) {
     main {
-      transform: scale(0.8);
+      transform: scale(0.76);
     }
   }
 
-  @media (min-width: 1619px) and (max-width: 1720px) {
+  /* ส่วนนี้ลงไปปรับทีละ 19 เพิ่มสเกลที่ละ 0.015 px */
+  @media (min-width: 1500px) and (max-width: 1519px) {
     main {
-      transform: scale(0.85);
+      transform: scale(0.785);
     }
   }
 
-  @media (min-width: 1720px) and (max-width: 1819px) {
+  @media (min-width: 1520px) and (max-width: 1539px) {
     main {
-      transform: scale(0.9);
+      transform: scale(0.795);
     }
   }
 
-  /* สำหรับจอ 12.9 นิ้ว */
+  @media (min-width: 1540px) and (max-width: 1559px) {
+    main {
+      transform: scale(0.805);
+    }
+  }
+
+  @media (min-width: 1560px) and (max-width: 1579px) {
+    main {
+      transform: scale(0.815);
+    }
+  }
+
+  @media (min-width: 1580px) and (max-width: 1599px) {
+    main {
+      transform: scale(0.825);
+    }
+  }
+
+  @media (min-width: 1600px) and (max-width: 1619px) {
+    main {
+      transform: scale(0.835);
+    }
+  }
+
+  @media (min-width: 1620px) and (max-width: 1639px) {
+    main {
+      transform: scale(0.845);
+    }
+  }
+
+  @media (min-width: 1640px) and (max-width: 1659px) {
+    main {
+      transform: scale(0.855);
+    }
+  }
+
+  @media (min-width: 1660px) and (max-width: 1679px) {
+    main {
+      transform: scale(0.865);
+    }
+  }
+
+  @media (min-width: 1680px) and (max-width: 1699px) {
+    main {
+      transform: scale(0.875);
+    }
+  }
+
+  @media (min-width: 1700px) and (max-width: 1719px) {
+    main {
+      transform: scale(0.885);
+    }
+  }
+
+  @media (min-width: 1720px) and (max-width: 1739px) {
+    main {
+      transform: scale(0.895);
+    }
+  }
+
+  @media (min-width: 1740px) and (max-width: 1759px) {
+    main {
+      transform: scale(0.905);
+    }
+  }
+
+  @media (min-width: 1760px) and (max-width: 1779px) {
+    main {
+      transform: scale(0.915);
+    }
+  }
+
+  @media (min-width: 17ค0px) and (max-width: 1799px) {
+    main {
+      transform: scale(0.925);
+    }
+  }
+
+  @media (min-width: 1800px) and (max-width: 1819px) {
+    main {
+      transform: scale(0.935);
+    }
+  }
+
+  @media (min-width: 1820px) and (max-width: 1839px) {
+    main {
+      transform: scale(0.945);
+    }
+  }
+
+  @media (min-width: 1840px) and (max-width: 1859px) {
+    main {
+      transform: scale(0.955);
+    }
+  }
+
+  @media (min-width: 1860px) and (max-width: 1879px) {
+    main {
+      transform: scale(0.965);
+    }
+  }
+
+  @media (min-width: 1880px) and (max-width: 1899px) {
+    main {
+      transform: scale(0.975);
+    }
+  }
+
+  @media (min-width: 1900px) and (max-width: 1919px) {
+    main {
+      transform: scale(0.985);
+    }
+  }
+
   @media (min-width: 1920) {
     main {
       transform: scale(1);
