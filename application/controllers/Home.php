@@ -38,17 +38,17 @@ class Home extends CI_Controller
 		// โหลดข้อมูลอื่น ๆ ก่อน
 		$data = $this->loadOtherData();
 
-		// // โหลด API หลังจากโหลดข้อมูลอื่น ๆ เสร็จแล้ว
-		// $apiData = $this->loadApiData();
+		// โหลด API หลังจากโหลดข้อมูลอื่น ๆ เสร็จแล้ว
+		$apiData = $this->loadApiData();
 
-		// // ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
-		// if ($apiData !== FALSE) {
-		// 	// รวมข้อมูลทั้งหมด
-		// 	$data['json_data'] = $apiData;
-		// } else {
-		// 	// ถ้า API ใช้งานไม่ได้ ไม่ต้องส่งข้อมูลไปที่หน้า home
-		// 	$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
-		// }
+		// ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
+		if ($apiData !== FALSE) {
+			// รวมข้อมูลทั้งหมด
+			$data['json_data'] = $apiData;
+		} else {
+			// ถ้า API ใช้งานไม่ได้ ไม่ต้องส่งข้อมูลไปที่หน้า home
+			$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
+		}
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
