@@ -362,11 +362,11 @@
     }
 
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        grid: {
-            rows: 2,
-        },
-        spaceBetween: 30,
+        slidesPerView: 5,
+        // grid: {
+        //     rows: 2,
+        // },
+        // spaceBetween: 30,
         navigation: {
             nextEl: '.custom-button-next',
             prevEl: '.custom-button-prev',
