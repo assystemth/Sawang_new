@@ -26,13 +26,211 @@
   body {
     padding: 0;
     margin: 0;
+    height: 2000px;
     font-family: "Noto Sans Thai Looped", sans-serif;
   }
 
   main {
-    width: 100%;
-    max-width: 1920px;
+    margin: 0 auto;
+    transform-origin: top left;
+    width: 1920px;
+  }
+
+  .crop {
+    margin: 0 auto;
+    padding: 0;
+    width: 1680px;
     height: auto;
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (max-width: 279) {
+    main {
+      transform: scale(0.1);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 280px) and (max-width: 319px) {
+    main {
+      transform: scale(0.146);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 320px) and (max-width: 359px) {
+    main {
+      transform: scale(0.167);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 360px) and (max-width: 374px) {
+    main {
+      transform: scale(0.19);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 375px) and (max-width: 379px) {
+    main {
+      transform: scale(0.195);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 380px) and (max-width: 411px) {
+    main {
+      transform: scale(0.205);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 412px) and (max-width: 419px) {
+    main {
+      transform: scale(0.215);
+    }
+  }
+
+  /* สำหรับโทรศัพท์ */
+  @media (min-width: 420px) and (max-width: 480px) {
+    main {
+      transform: scale(0.225);
+    }
+  }
+
+  /* สำหรับ iPad และ Tablet */
+  @media (min-width: 481px) and (max-width: 539px) {
+    main {
+      transform: scale(0.4);
+    }
+  }
+
+  /* สำหรับ iPad และ Tablet */
+  @media (min-width: 540px) and (max-width: 546px) {
+    main {
+      transform: scale(0.282);
+    }
+  }
+
+  @media (min-width: 547px) and (max-width: 640px) {
+    main {
+      transform: scale(0.29);
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 711px) {
+    main {
+      transform: scale(0.33);
+    }
+  }
+
+  /* สำหรับ iPad และ Tablet */
+  @media (min-width: 712px) and (max-width: 767px) {
+    main {
+      transform: scale(0.371);
+    }
+  }
+
+  /* สำหรับจอ 7.9 นิ้ว */
+  @media (min-width: 768px) and (max-width: 818px) {
+    main {
+      transform: scale(0.4);
+    }
+  }
+
+  /* สำหรับจอ 9.7 นิ้ว */
+  @media (min-width: 819px) and (max-width: 911px) {
+    main {
+      transform: scale(0.425);
+    }
+  }
+
+  @media (min-width: 912px) and (max-width: 1023px) {
+    main {
+      transform: scale(0.475);
+    }
+  }
+
+  /* สำหรับจอ 10 นิ้ว */
+  @media (min-width: 1024px) and (max-width: 1076px) {
+    main {
+      transform: scale(0.53);
+    }
+  }
+
+  @media (min-width: 1077px) and (max-width: 1119px) {
+    main {
+      transform: scale(0.558);
+    }
+  }
+
+  @media (min-width: 1120px) and (max-width: 1149px) {
+    main {
+      transform: scale(0.58);
+    }
+  }
+  @media (min-width: 1150px) and (max-width: 1179px) {
+    main {
+      transform: scale(0.60);
+    }
+  }
+  @media (min-width: 1180px) and (max-width: 1199px) {
+    main {
+      transform: scale(0.61);
+    }
+  }
+
+  /* สำหรับจอ 10.2 นิ้ว */
+  @media (min-width: 1200px) and (max-width: 1319px) {
+    main {
+      transform: scale(0.625);
+    }
+  }
+
+  @media (min-width: 1320px) and (max-width: 1365px) {
+    main {
+      transform: scale(0.7);
+    }
+  }
+
+  /* สำหรับจอ 10.5 นิ้ว */
+  @media (min-width: 1366px) and (max-width: 1419px) {
+    main {
+      transform: scale(0.71);
+    }
+  }
+
+  /* สำหรับจอ 11 นิ้ว */
+  @media (min-width: 1420px) and (max-width: 1519px) {
+    main {
+      transform: scale(0.74);
+    }
+  }
+
+  @media (min-width: 1520px) and (max-width: 1620px) {
+    main {
+      transform: scale(0.8);
+    }
+  }
+
+  @media (min-width: 1619px) and (max-width: 1720px) {
+    main {
+      transform: scale(0.85);
+    }
+  }
+
+  @media (min-width: 1720px) and (max-width: 1819px) {
+    main {
+      transform: scale(0.9);
+    }
+  }
+
+  /* สำหรับจอ 12.9 นิ้ว */
+  @media (min-width: 1920) {
+    main {
+      transform: scale(1);
+    }
   }
 
   /* color-all color สีทั้งหมด ****************************************************** */
@@ -91,14 +289,14 @@
     margin-left: 23%;
   } */
 
-  .full-screen-img {
+  /* .full-screen-img {
     background-image: url('<?php echo base_url("docs/chang.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 1080px;
     width: 1920px;
     margin-top: -10%;
-  }
+  } */
 
   .welcome {
     background-image: url('<?php echo base_url("docs/s.welcome.png"); ?>');
@@ -108,8 +306,6 @@
     width: 1920px;
     height: 767px;
     position: absolute;
-    top: 0;
-    left: 0;
   }
 
   .welcome-btm {
@@ -1102,7 +1298,7 @@
     padding-left: 150px;
     padding-right: 30px;
     /* margin-top: -200px; */
-    z-index: 5 ;
+    z-index: 5;
   }
 
   .custom-button-prev {
@@ -3122,5 +3318,4 @@
     width: 334px;
     height: 74px;
   }
-
 </style>

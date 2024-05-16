@@ -8,8 +8,6 @@
         width: 1920px;
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
         transition: top 0.3s ease-in-out;
         font-size: 24px;
         padding-left: 120px;
