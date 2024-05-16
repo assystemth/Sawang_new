@@ -8,173 +8,244 @@
     <link rel="icon" href="<?php echo base_url("docs/logo.png"); ?>" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet" />
 </head>
 <style>
     body {
+        background-image: url(docs/bg-main11.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         height: 100vh;
+        overflow: hidden;
+    }
+
+
+    .fadein4 {
+        -webkit-animation: fadein 4s linear forwards;
+        animation: fadein 4s linear forwards;
+    }
+
+    .fadein6 {
+        -webkit-animation: fadein 6s linear forwards;
+        animation: fadein 6s linear forwards;
+    }
+
+    .fadein8 {
+        -webkit-animation: fadein 8s linear forwards;
+        animation: fadein 8s linear forwards;
+    }
+
+    @-webkit-keyframes fadein {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .moveup4 {
+        animation: MoveUp 4s ease forwards;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+
+    @keyframes MoveUp {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-290px);
+        }
+    }
+
+    .moveup4delay {
+        animation: MoveUp 4s ease forwards;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        animation-delay: 1s;
+    }
+
+    .moveup6delay {
+        animation: MoveUp 4s ease forwards;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        animation-delay: 2s;
+    }
+
+    @keyframes MoveUp {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-290px);
+        }
+    }
+
+    .star {
+        position: absolute;
+        top: -20px;
+        width: 30px;
+        /* ปรับขนาดของภาพตามต้องการ */
+        height: 30px;
+        /* ปรับขนาดของภาพตามต้องการ */
+        background-image: url("docs/lightv2.png");
+        /* เพิ่ม URL ของภาพที่ต้องการแสดง */
+        background-size: cover;
+        /* ให้ภาพปรับขนาดให้พอดีกับขนาดของ .star */
+        animation: star 3s linear forwards;
+        z-index: 1;
+    }
+
+    @keyframes star {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(80vh) rotate(0deg);
+            opacity: 0;
+        }
+    }
+
+    .textfild {
+        background-image: url(docs/textfill14.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        /* เปลี่ยนเป็น cover */
+        width: 100%;
+        max-width: 719px;
+        height: 34vh;
+        -webkit-animation: fadein 6s linear forwards;
+        animation: fadein 6s linear forwards;
+        z-index: 10;
+    }
+
+    .font-content {
+        font-size: 1.2vw;
+        font-family: charm;
+        color: #c1940b;
+        text-shadow: 0.3px 0 0 #d0a879, 0 0.3px 0 #d0a879, -0.3px 0 0 #d0a879,
+            0 -0.3px 0 #d0a879;
     }
 </style>
+</head>
 
 <body>
+    <div class="row" style="padding-top: 11vh;">
+        <div class="col-sm-6" style="margin-left: 4vw; ">
+            <div class="cloud">
+                <img class="fadein4" src="docs/w10v3.png" style="width: 50vw; max-width: 888px; height: auto; z-index: 10; position: absolute; object-fit: cover;">
+            </div>
+            <!-- <div class="fadein4" style="padding-left: 760px; margin-top: -15px; z-index: 12">
+                <img class="fadein4" src="docs/tpj.png" />
+            </div> -->
+        </div>
+        <div class="col-sm-5 text-center" style="padding-top: 1vh">
+            <div class="fadein4">
+                <img src="docs/logo-w10.png" style="width: 12vw; max-width: 231px; height: auto; z-index: 10; position: relative; object-fit: cover; margin-right: 2vw;" />
+            </div>
 
-    <div id="image-container" class="position-relative text-center">
-        <img id="special-image" class="img-fluid">
-        <div class="buttons position-absolute top-50 start-50 translate-middle">
-            <script>
-                const currentYear = new Date().getFullYear(); // ดึงปีปัจจุบัน
-                const holiday1Start = new Date(currentYear + "-01-06"); // วันเด็ก
-                const holiday1End = new Date(currentYear + "-01-15");
-                const holiday2Start = new Date(currentYear + "-02-16"); // วันมาฆบูชา
-                const holiday2End = new Date(currentYear + "-02-26");
-                const holiday3Start = new Date(currentYear + "-04-01"); // วันจักรี
-                const holiday3End = new Date(currentYear + "-04-08");
-                const holiday4Start = new Date(currentYear + "-04-09"); // วันสงกรานต์
-                const holiday4End = new Date(currentYear + "-04-18");
-                const holiday5Start = new Date(currentYear + "-04-27"); // วันฉัตรมงคล
-                const holiday5End = new Date(currentYear + "-05-05");
-                const holiday6Start = new Date(currentYear + "-05-06"); // วันพืชมงคล
-                const holiday6End = new Date(currentYear + "-05-12");
-                const holiday7Start = new Date(currentYear + "-05-15"); // วันวิสาขบูชา
-                const holiday7End = new Date(currentYear + "-05-24");
-                const holiday8Start = new Date(currentYear + "-05-27"); // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสุทิดา พัชรสุธาพิมลลักษณ พระบรมราชินี
-                const holiday8End = new Date(currentYear + "-06-05");
-                const holiday9Start = new Date(currentYear + "-07-24"); // วันเฉลิมพระชนมพรรษาพระบาทสมเด็จพระวชิรเกล้าเจ้าอยู่หัว
-                const holiday9End = new Date(currentYear + "-07-30");
-                const holiday10Start = new Date(currentYear + "-07-14"); // วันอาสาฬหบูชา
-                const holiday10End = new Date(currentYear + "-07-20");
-                const holiday11Start = new Date(currentYear + "-07-21"); // วันเข้าพรรษา
-                const holiday11End = new Date(currentYear + "-07-23");
-                const holiday12Start = new Date(currentYear + "-08-05"); // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง
-                const holiday12End = new Date(currentYear + "-08-14");
-                const holiday13Start = new Date(currentYear + "-010-06"); // วันนวมินทรมหาราช
-                const holiday13End = new Date(currentYear + "-10-15");
-                const holiday14Start = new Date(currentYear + "-10-16"); // วันปิยมหาราช
-                const holiday14End = new Date(currentYear + "-10-25");
-                const holiday15Start = new Date(currentYear + "-11-08"); // วันลอยกระทง
-                const holiday15End = new Date(currentYear + "-11-17");
-                const holiday16Start = new Date(currentYear + "-11-28"); // วันคล้ายวันพระบรมราชสมภพ พระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร
-                const holiday16End = new Date(currentYear + "-12-07");
-                const holiday17Start = new Date(currentYear + "-12-08"); // วันรัฐธรรมนูญ
-                const holiday17End = new Date(currentYear + "-12-12");
-                const holiday18Start = new Date(currentYear + "-12-25"); // วันขึ้นปีใหม่
-                const holiday18End = new Date(currentYear + "-01-02");
-                const holidayAllStart = new Date(currentYear + "-01-06"); // all
-                const holidayAllEnd = new Date(currentYear + "-12-15");
-                const today = new Date();
-
-                if (window.innerWidth < 600) {
-                    window.location.href = '<?= base_url('Home') ?>';
-                } else if ((today >= holiday1Start && today <= holiday1End) || (today >= holiday2Start && today <= holiday2End) ||
-                    (today >= holiday3Start && today <= holiday3End) || (today >= holiday4Start && today <= holiday4End) ||
-                    (today >= holiday5Start && today <= holiday5End) || (today >= holiday6Start && today <= holiday6End) ||
-                    (today >= holiday7Start && today <= holiday7End) || (today >= holiday8Start && today <= holiday8End) ||
-                    (today >= holiday9Start && today <= holiday9End) || (today >= holiday10Start && today <= holiday10End) ||
-                    (today >= holiday11Start && today <= holiday11End) || (today >= holiday12Start && today <= holiday12End) ||
-                    (today >= holiday13Start && today <= holiday13End) || (today >= holiday14Start && today <= holiday14End) ||
-                    (today >= holiday15Start && today <= holiday15End) || (today >= holiday16Start && today <= holiday16End) ||
-                    (today >= holiday17Start && today <= holiday17End) || (today >= holiday18Start && today <= holiday18End) || (today >= holidayAllStart && today <= holidayAllEnd)) {
-                    if (today >= holiday1Start && today <= holiday1End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/kid.jpg"; // วันเด็ก
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday2Start && today <= holiday2End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/makabucha.jpg"; // วันมาฆบูชา
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday3Start && today <= holiday3End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/6apr.jpg"; // วันจักรี
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday4Start && today <= holiday4End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/songkran.gif"; // วันสงกรานต์
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday5Start && today <= holiday5End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/4may.jpg"; // วันฉัตรมงคล
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday6Start && today <= holiday6End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/puechmongkol.jpg"; // วันพืชมงคล
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday7Start && today <= holiday7End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/wisakabucha.jpg"; // วันวิสาขบูชา
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday8Start && today <= holiday8End) {
-                        document.getElementById("special-image").src = "https://assystem.co.th/Day/Sawang/3june.jpg"; // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสุทิดา พัชรสุธาพิมลลักษณ พระบรมราชินี
-                        // document.write('<a href="' + '<?= base_url('Home') ?>' + '"><img src="docs/to-web.png" alt="เข้าสู่เว็บไซต์" style="width: 17vw; height: auto; margin: 0 auto; margin-top: 250%;"></a>');
-                        document.write('<div style="display: flex; justify-content: space-between; margin-left:33%; ">');
-                        document.write('<a target="_blank" href="' + 'https://wellwishes.royaloffice.th/' + ' "style="width: 35vw; height: 30vh; margin: 0 auto; margin-top: 50%;" ></a>');
-                        document.write('<a href="' + '<?= base_url('Home') ?>' + '"  style="width: 50vw; height: 30vh; margin: 0 auto; margin-top: 50%; "></a>');
-                        document.write('</div>');
-                    } else if (today >= holiday9Start && today <= holiday9End) {
-                        document.getElementById("special-image").src = "https://assystem.co.th/Day/Sawang/dad.jpg"; // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสุทิดา พัชรสุธาพิมลลักษณ พระบรมราชินี
-                        // document.write('<a href="' + '<?= base_url('Home') ?>' + '"><img src="docs/to-web.png" alt="เข้าสู่เว็บไซต์" style="width: 17vw; height: auto; margin: 0 auto; margin-top: 250%;"></a>');
-                        document.write('<div style="display: flex; justify-content: space-between; margin-left:33%; ">');
-                        document.write('<a target="_blank" href="' + 'https://wellwishes.royaloffice.th/' + ' "style="width: 40vw; height: 30vh; margin: 0 auto; margin-top: 50%;" ></a>');
-                        document.write('<a href="' + '<?= base_url('Home') ?>' + '"  style="width: 50vw; height: 30vh; margin: 0 auto; margin-top: 50%; "></a>');
-                        document.write('</div>');
-                    } else if (today >= holiday10Start && today <= holiday10End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/asarahabucha.jpg"; // วันอาสาฬหบูชา
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday11Start && today <= holiday11End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/kaupunsa.jpg"; // วันเข้าพรรษา
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday12Start && today <= holiday12End) {
-                        document.getElementById("special-image").src = "https://assystem.co.th/Day/Sawang/12aug.jpg"; // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง
-                        // document.write('<a href="' + '<?= base_url('Home') ?>' + '"><img src="docs/to-web.png" alt="เข้าสู่เว็บไซต์" style="width: 17vw; height: auto; margin: 0 auto; margin-top: 250%;"></a>');
-                        document.write('<div style="display: flex; justify-content: space-between; margin-left:33%; ">');
-                        document.write('<a target="_blank" href="' + 'https://wellwishes.royaloffice.th/' + ' "style="width: 35vw; height: 30vh; margin: 0 auto; margin-top: 50%;" ></a>');
-                        document.write('<a href="' + '<?= base_url('Home') ?>' + '"  style="width: 50vw; height: 30vh; margin: 0 auto; margin-top: 50%; "></a>');
-                        document.write('</div>');
-                    } else if (today >= holiday13Start && today <= holiday13End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/13oct.jpg"; // วันนวมินทรมหาราช
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday14Start && today <= holiday14End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/23oct.jpg"; // วันปิยมหาราช
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday15Start && today <= holiday15End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/loykratong.jpg"; // วันลอยกระทง
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday16Start && today <= holiday16End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/5dec.jpg"; // วันคล้ายวันพระบรมราชสมภพ พระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday17Start && today <= holiday17End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/10dec.jpg"; // วันรัฐธรรมนูญ
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holiday18Start && today <= holiday18End) {
-                        const specialImage = document.getElementById("special-image");
-                        specialImage.src = "https://assystem.co.th/Day/Sawang/newyear.jpg"; // วันขึ้นปีใหม่
-                        specialImage.addEventListener("click", goToHome);
-                    } else if (today >= holidayAllStart && today <= holidayAllEnd) {
-                        document.getElementById("special-image").src = "https://assystem.co.th/Day/Sawang/dad.jpg"; // วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าสุทิดา พัชรสุธาพิมลลักษณ พระบรมราชินี
-                        // document.write('<a href="' + '<?= base_url('Home') ?>' + '"><img src="docs/to-web.png" alt="เข้าสู่เว็บไซต์" style="width: 17vw; height: auto; margin: 0 auto; margin-top: 250%;"></a>');
-                        document.write('<div style="display: flex; justify-content: space-between; margin-left:33%; ">');
-                        document.write('<a target="_blank" href="' + 'https://wellwishes.royaloffice.th/' + ' "style="width: 40vw; height: 30vh; margin: 0 auto; margin-top: 50%;" ></a>');
-                        document.write('<a href="' + '<?= base_url('Home') ?>' + '"  style="width: 50vw; height: 30vh; margin: 0 auto; margin-top: 50%; "></a>');
-                        document.write('</div>');
-                    }
-                } else {
-                    window.location.href = '<?= base_url('Home') ?>';
-                }
-                function goToHome() {
-                    window.location.href = '<?= base_url('Home') ?>';
-                }
-            </script>
-
+            <div class="fadein4" style=" z-index: 10; position: relative; ">
+                <div class="textfild text-center">
+                    <span class="font-content">
+                        <br />
+                        &nbsp;เฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัว<br />
+                        เนื่องในโอกาสพระราชพิธีมหามงคลเฉลิมพระชนมพรรษา ๖ รอบ
+                        <br />๒๘ กรกฎาคม ๒๕๖๗ <br />ขอพระราชทานถวายพระพรชัยมงคล
+                        ทรงพระเจริญยิ่งยืนนาน <br />ด้วยเกล้าด้วยกระหม่อม ขอเดชะ
+                        <br />ข้าพระพุทธเจ้า คณะผู้บริหาร สมาชิกสภา พนักงานส่วนตำบลและพนักงานจ้าง
+                        <br />องค์การบริหารส่วนตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+
+    <div class="row fadein6 text-center" style="z-index: 100; position: relative; padding-top: 3vh;">
+        <div class="col-sm-6 d-flex justify-content-end">
+            <!-- <img src="docs/sign.png" width="280" height="84" /> -->
+            <a href="http://forking.moi.go.th/page/index.php" target="_blank" onmouseover="changeImage('docs/main-inname-hover.png')" onmouseout="restoreImage('docs/main-inname.png')">
+                <img id="searchImage" src="docs/main-inname.png" style="width: 25vw; max-width: 280px; height: auto; z-index: 10; position: relative; object-fit: cover;" />
+            </a>
+        </div>
+        <div class="col-sm-6 d-flex justify-content-start">
+            <a href="<?php echo site_url('Home'); ?>" onmouseover="changeImage2('docs/main-inweb-hover.png')" onmouseout="restoreImage2('docs/main-inweb.png')">
+                <img id="searchImage2" src="docs/main-inweb.png" style="width: 25vw; max-width: 280px; height: auto; z-index: 10; position: relative; object-fit: cover;" />
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function stars() {
+            let e = document.createElement("div");
+            let size = Math.random() * 12;
+            let duration = Math.random() * 3;
+
+            e.setAttribute("class", "star");
+            document.body.appendChild(e);
+
+            e.style.left = Math.random() * (innerWidth - 100) + "px"; // ปรับให้ไม่เกินขอบทางขวา 800px
+            e.style.fontSize = 12 + size + "px";
+            e.style.animationDuration = 4 + duration + "s";
+
+            setTimeout(function() {
+                document.body.removeChild(e);
+            }, 5000);
+        }
+
+        setInterval(function() {
+            stars();
+        }, 100);
+
+        // ฟังก์ชันเปลี่ยนรูปภาพเมื่อ hover
+        function changeImage(imageUrl) {
+            document.getElementById("searchImage").src = imageUrl;
+        }
+
+        // ฟังก์ชันคืนค่ารูปภาพเดิมเมื่อเม้าส์ออกจากลิงก์
+        function restoreImage(originalUrl) {
+            document.getElementById("searchImage").src = originalUrl;
+        }
+        // ฟังก์ชันเปลี่ยนรูปภาพเมื่อ hover
+        function changeImage2(imageUrl) {
+            document.getElementById("searchImage2").src = imageUrl;
+        }
+
+        // ฟังก์ชันคืนค่ารูปภาพเดิมเมื่อเม้าส์ออกจากลิงก์
+        function restoreImage2(originalUrl) {
+            document.getElementById("searchImage2").src = originalUrl;
+        }
+
+        // Function to check screen width and redirect to home controller if less than 600px
+        function checkScreenWidthAndRedirect() {
+            if (window.innerWidth < 600) {
+                window.location.href = "<?php echo site_url('Home'); ?>";
+            }
+        }
+
+        // Call the function initially
+        checkScreenWidthAndRedirect();
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkScreenWidthAndRedirect);
+    </script>
 </body>
 
 </html>

@@ -29,30 +29,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Noto Sans Thai Looped", sans-serif;
   }
 
   main {
     margin: 0 auto;
     padding: 0;
     width: 100%;
-    max-width: 1680px;
+    max-width: 1280px;
     /* กำหนดความกว้างสูงสุดที่ 1280px */
     height: auto;
   }
 
   /* สำหรับโทรศัพท์ */
-  @media (min-width: 280px) and (max-width: 290px) {
+  @media (min-width: 280px) and (max-width: 319px) {
     main {
-      transform: scale(0.17);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 291px) and (max-width: 318px) {
-    main {
-      transform: scale(0.185);
+      transform: scale(0.22);
       transform-origin: top left;
       height: 2000px;
     }
@@ -61,7 +52,7 @@
   /* สำหรับโทรศัพท์ */
   @media (min-width: 320px) and (max-width: 359px) {
     main {
-      transform: scale(0.205);
+      transform: scale(0.25);
       transform-origin: top left;
       height: 2000px;
     }
@@ -70,7 +61,7 @@
   /* สำหรับโทรศัพท์ */
   @media (min-width: 360px) and (max-width: 374px) {
     main {
-      transform: scale(0.214);
+      transform: scale(0.285);
       transform-origin: top left;
       height: 2000px;
     }
@@ -79,25 +70,25 @@
   /* สำหรับโทรศัพท์ */
   @media (min-width: 375px) and (max-width: 379px) {
     main {
-      transform: scale(0.224);
+      transform: scale(0.295);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
   /* สำหรับโทรศัพท์ */
-  @media (min-width: 380px) and (max-width: 410px) {
+  @media (min-width: 380px) and (max-width: 411px) {
     main {
-      transform: scale(0.231);
+      transform: scale(0.31);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
   /* สำหรับโทรศัพท์ */
-  @media (min-width: 411px) and (max-width: 419px) {
+  @media (min-width: 412px) and (max-width: 419px) {
     main {
-      transform: scale(0.245);
+      transform: scale(0.325);
       transform-origin: top left;
       height: 2000px;
     }
@@ -106,7 +97,7 @@
   /* สำหรับโทรศัพท์ */
   @media (min-width: 420px) and (max-width: 450px) {
     main {
-      transform: scale(0.257);
+      transform: scale(0.336);
       transform-origin: top left;
       height: 2000px;
     }
@@ -114,55 +105,14 @@
 
   @media (min-width: 451px) and (max-width: 480px) {
     main {
-      transform: scale(0.275);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 481px) and (max-width: 512px) {
-    main {
-      transform: scale(0.302);
+      transform: scale(0.36);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
   /* สำหรับ iPad และ Tablet */
-  @media (min-width: 513px) and (max-width: 539px) {
-    main {
-      transform: scale(0.317);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับ iPad และ Tablet */
-  @media (min-width: 540px) and (max-width: 546px) {
-    main {
-      transform: scale(0.320);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 547px) and (max-width: 600px) {
-    main {
-      transform: scale(0.353);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 601) and (max-width: 640px) {
-    main {
-      transform: scale(0.37);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 711px) {
+  @media (min-width: 481px) and (max-width: 539px) {
     main {
       transform: scale(0.4);
       transform-origin: top left;
@@ -171,7 +121,15 @@
   }
 
   /* สำหรับ iPad และ Tablet */
-  @media (min-width: 712px) and (max-width: 767px) {
+  @media (min-width: 540px) and (max-width: 546px) {
+    main {
+      transform: scale(0.422);
+      transform-origin: top left;
+      height: 2000px;
+    }
+  }
+
+  @media (min-width: 547px) and (max-width: 640px) {
     main {
       transform: scale(0.45);
       transform-origin: top left;
@@ -179,17 +137,7 @@
     }
   }
 
-  /* สำหรับจอ 7.9 นิ้ว */
-  @media (min-width: 768px) and (max-width: 819px) {
-    main {
-      transform: scale(0.46);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 9.7 นิ้ว */
-  @media (min-width: 819px) and (max-width: 850px) {
+  @media (min-width: 641px) and (max-width: 711px) {
     main {
       transform: scale(0.5);
       transform-origin: top left;
@@ -197,112 +145,34 @@
     }
   }
 
-  @media (min-width: 851px) and (max-width: 869px) {
+  /* สำหรับ iPad และ Tablet */
+  @media (min-width: 712px) and (max-width: 767px) {
     main {
-      transform: scale(0.512);
+      transform: scale(0.56);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
-  @media (min-width: 870px) and (max-width: 911px) {
+  /* สำหรับจอ 7.9 นิ้ว */
+  @media (min-width: 768px) and (max-width: 818px) {
     main {
-      transform: scale(0.537);
+      transform: scale(0.6);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
-  @media (min-width: 912px) and (max-width: 952px) {
+  /* สำหรับจอ 9.7 นิ้ว */
+  @media (min-width: 819px) and (max-width: 911px) {
     main {
-      transform: scale(0.559);
+      transform: scale(0.64);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
-  @media (min-width: 953px) and (max-width: 987px) {
-    main {
-      transform: scale(0.578);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 986px) and (max-width: 1020px) {
-    main {
-      transform: scale(0.585);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 10 นิ้ว */
-  @media (min-width: 1021px) and (max-width: 1055px) {
-    main {
-      transform: scale(0.608);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1051px) and (max-width: 1076px) {
-    main {
-      transform: scale(0.625);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1077px) and (max-width: 1080px) {
-    main {
-      transform: scale(0.639);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1081px) and (max-width: 1120px) {
-    main {
-      transform: scale(0.66);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1121px) and (max-width: 1140px) {
-    main {
-      transform: scale(0.66);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1141px) and (max-width: 1180px) {
-    main {
-      transform: scale(0.7);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1181px) and (max-width: 1199px) {
-    main {
-      transform: scale(0.7);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1200px) and (max-width: 1220px) {
-    main {
-      transform: scale(0.7);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1221px) and (max-width: 1250px) {
+  @media (min-width: 912px) and (max-width: 1023px) {
     main {
       transform: scale(0.72);
       transform-origin: top left;
@@ -310,32 +180,8 @@
     }
   }
 
-  @media (min-width: 1250px) and (max-width: 1289px) {
-    main {
-      transform: scale(0.74);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-
-  @media (min-width: 1290px) and (max-width: 1315px) {
-    main {
-      transform: scale(0.78);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1316px) and (max-width: 1345px) {
-    main {
-      transform: scale(0.78);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1346px) and (max-width: 1365px) {
+  /* สำหรับจอ 10 นิ้ว */
+  @media (min-width: 1024px) and (max-width: 1076px) {
     main {
       transform: scale(0.8);
       transform-origin: top left;
@@ -343,25 +189,22 @@
     }
   }
 
-  /* สำหรับจอ 10.5 นิ้ว */
-  @media (min-width: 1366px) and (max-width: 1419px) {
+  @media (min-width: 1077px) and (max-width: 1080px) {
     main {
-      transform: scale(0.82);
+      transform: scale(0.85);
+      transform-origin: top left;
+      height: 2000px;
+    }
+  }
+  @media (min-width: 1081px) and (max-width: 1119px) {
+    main {
+      transform: scale(0.83);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
-  /* สำหรับจอ 11 นิ้ว */
-  @media (min-width: 1420px) and (max-width: 1469px) {
-    main {
-      transform: scale(0.843);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1470px) and (max-width: 1480px) {
+  @media (min-width: 1120px) and (max-width: 1140px) {
     main {
       transform: scale(0.85);
       transform-origin: top left;
@@ -369,7 +212,15 @@
     }
   }
 
-  @media (min-width: 1481px) and (max-width: 1519px) {
+  @media (min-width: 1141px) and (max-width: 1170px) {
+    main {
+      transform: scale(0.86);
+      transform-origin: top left;
+      height: 2000px;
+    }
+  }
+
+  @media (min-width: 1171px) and (max-width: 1199px) {
     main {
       transform: scale(0.88);
       transform-origin: top left;
@@ -377,7 +228,7 @@
     }
   }
 
-  @media (min-width: 1520px) and (max-width: 1569px) {
+  @media (min-width: 1200px) and (max-width: 1220px) {
     main {
       transform: scale(0.9);
       transform-origin: top left;
@@ -385,98 +236,17 @@
     }
   }
 
-  @media (min-width: 1570px) and (max-width: 1580px) {
+  @media (min-width: 1221px) and (max-width: 1250px) {
     main {
-      transform: scale(0.929);
+      transform: scale(0.92);
       transform-origin: top left;
       height: 2000px;
     }
   }
 
-  @media (min-width: 1581px) and (max-width: 1600px) {
+  @media (min-width: 1250px) and (max-width: 1289px) {
     main {
-      transform: scale(0.93);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1601px) and (max-width: 1679px) {
-    main {
-      transform: scale(0.97);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1680px) and (max-width: 1685px) {
-    main {
-      transform: scale(1);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1686px) and (max-width: 1690px) {
-    main {
-      transform: scale(1);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1691px) and (max-width: 1720px) {
-    main {
-      transform: scale(1);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1721px) and (max-width: 1750px) {
-    main {
-      transform: scale(1.2);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1751px) and (max-width: 1785px) {
-    main {
-      transform: scale(1.05);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1851px) and (max-width: 1880px) {
-    main {
-      transform: scale(1.1);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1881px) and (max-width: 1900px) {
-    main {
-      transform: scale(1.2);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  @media (min-width: 1901px) and (max-width: 1919px) {
-    main {
-      transform: scale(1.3);
-      transform-origin: top left;
-      height: 2000px;
-    }
-  }
-
-  /* สำหรับจอ 12.9 นิ้ว */
-  @media (min-width: 1920) {
-    main {
-      transform: scale(1.4);
+      transform: scale(0.95);
       transform-origin: top left;
       height: 2000px;
     }
@@ -516,13 +286,11 @@
   /* ******************************************************************************* */
 
   .nav-text-color-2 {
-    color: #FFF;
-    /* text-align: center; */
-    font-family: "Noto Looped Thai UI";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    background-image: linear-gradient(to top, #F9B502, #FADB8d, #FDCE34);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   }
 
   /* background: linear-gradient(to bottom,
@@ -533,21 +301,21 @@
         #1A2541 100%
       ); */
 
-  .navbar2 {
-    /* background-image: url('<?php echo base_url("docs/s.navbar-stick2.png"); ?>'); */
+  /* .navbar2 {
+    background-image: url('<?php echo base_url("docs/s.navbar-stick2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 164px;
     width: 706px;
     margin-left: 23%;
-  }
+  } */
 
   .full-screen-img {
     background-image: url('<?php echo base_url("docs/chang.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 1080px;
-    width: 1680px;
+    width: 1920px;
     margin-top: -10%;
   }
 
@@ -557,8 +325,8 @@
     background-size: 100%;
     margin-top: -182px;
     z-index: 1;
-    width: 1680px;
-    height: 1000px;
+    width: 1280px;
+    height: 690px;
   }
 
 
@@ -603,20 +371,20 @@
   }
 
   .bg-main {
-    background-image: url('<?php echo base_url("docs/bg-main.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-main8.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 1000px;
-    width: 1680px;
+    height: 4770px;
+    width: 1280px;
     z-index: 1;
   }
 
   .vision {
-    background-image: url('<?php echo base_url("docs/s.bg-vision4.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-vision3.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 1000px;
-    width: 1680px;
+    height: 770px;
+    width: 1280px;
     z-index: 1;
   }
 
@@ -636,200 +404,20 @@
   }
 
   .carousel-item img {
-    width: 775px;
+    width: 1035px;
     /* กำหนดความกว้างเป็น 500px */
-    height: 436px;
+    height: 582px;
     /* จัดกลางรูปภาพใน Carousel */
 
   }
 
   .content-banner {
-    /* margin-right: 120px; */
-    /* margin-left: 5%; */
+    margin-right: 120px;
+    margin-left: 5%;
     z-index: 1;
     position: relative;
     top: 20px;
   }
-
-  .banner-cartoon {
-    margin-right: 120px;
-    margin-left: 7%;
-    z-index: 1;
-    /* top: 20px; */
-    margin-top: 115px;
-    background-image: url('<?php echo base_url("docs/banner_cartoon.png"); ?>');
-    width: 775px;
-    height: 337px;
-
-  }
-
-  .font-banner-cartoon {
-    color: #210B00;
-    text-align: center;
-    font-family: Kanit;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .banner-calendar {
-    /* margin-right: 120px;
-    margin-left: 7%; */
-    z-index: 1;
-    /* top: 20px; */
-    margin-top: 65px;
-    background-image: url('<?php echo base_url("docs/banner_manage.png"); ?>');
-    width: 100%;
-    height: 436px;
-    background-repeat: no-repeat;
-  }
-
-  .banner-button-green {
-    z-index: 1;
-    margin-left: 7%;
-    /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green.png"); ?>');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 71px;
-  }
-
-  .banner-button-green:hover {
-    z-index: 1;
-    margin-left: 7%;
-    /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green_over.png"); ?>');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 71px;
-  }
-
-  .font-banner-button-green {
-    color: #FFF;
-    text-align: center;
-    font-family: "Noto Looped Thai UI";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  .public-button {
-    background-image: url('<?php echo base_url("docs/public_button.png"); ?>');
-    width: 379px;
-    height: 70px;
-    padding-top: 10px;
-  }
-
-  .active-public,
-  .public-button:hover {
-    background-image: url('<?php echo base_url("docs/public_button-hover.png"); ?>');
-    width: 379px;
-    height: 70px;
-    padding-top: 10px;
-  }
-
-  .new-button {
-    background-image: url('<?php echo base_url("docs/news_button.png"); ?>');
-    width: 379px;
-    height: 70px;
-    padding-top: 10px;
-  }
-
-  .active-new,
-  .new-button:hover {
-    background-image: url('<?php echo base_url("docs/news_button-hover.png"); ?>');
-    width: 379px;
-    height: 70px;
-    padding-top: 10px;
-  }
-
-  .font-public-button {
-    color: #fff;
-    margin-left: 65px;
-    font-size: 33px;
-  }
-
-  .font-new-button {
-    color: #fff;
-    margin-left: 30px;
-    font-size: 30px;
-  }
-
-
-  .button-actifity-all {
-    color: #fff;
-    z-index: 1;
-    /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/activity_see_all.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-  .button-actifity-all:hover {
-    color: #600145;
-    z-index: 1;
-    /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/activity_see_all_over.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-  .button-new-all {
-    color: #fff;
-    z-index: 1;
-    /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/public_see_all.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-  .button-new-all:hover {
-    color: #600145;
-    z-index: 1;
-    /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/public_see_all_over.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-  .button-new2-all {
-    color: #FFF;
-    z-index: 1;
-    /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/news_see_all.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-  .button-new2-all:hover {
-    color: #C09C6A;
-    z-index: 1;
-    /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/news_see_all_over.png"); ?>');
-    background-repeat: no-repeat;
-    width: 184px;
-    height: 55px;
-    padding-top: 8px;
-  }
-
-
-  .weather {
-    padding: 30px 100px;
-  }
-
-
 
   .frame-main {
     position: absolute;
@@ -851,29 +439,29 @@
   }
 
   .bg-activity2 {
-    background-image: url('<?php echo base_url("docs/bg-activity.png"); ?>');
+    background-image: url('<?php echo base_url("docs/bg-activity2.png"); ?>');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 1000px;
-    width: 1680px;
+    height: 650px;
+    width: 1166px;
     margin: auto;
     /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
+    margin-top: 200px;
 
   }
 
   .card-activity {
     border-radius: 24px;
     background-color: #FDF5E1;
-    height: 316px;
-    width: 248px;
+    height: 295px;
+    width: 232px;
     border: 2px solid #EABA48;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   }
 
   .card-activity img {
-    /* width: 245px;
-    height: 182px;
+    /* width: 230px;
+    height: 169px;
     border-radius: 24px 24px 0 0; */
     margin-left: -11px;
   }
@@ -913,11 +501,10 @@
     background-size: 100%;
     display: none;
     position: absolute;
-    width: 1920px;
+    width: 1280px;
     height: 584px;
     z-index: 2;
-    margin-top: 60px;
-    /* margin-left: 3px; */
+    margin-left: 3px;
   }
 
   .dropdown-content ul {
@@ -960,7 +547,7 @@
   .mar-left-12 {
     margin-left: 12%;
   }
-
+  
   .mar-left-10 {
     margin-left: 10%;
   }
@@ -988,7 +575,6 @@
   .mar-left-4 {
     margin-left: 4%;
   }
-
   .mar-left-3 {
     margin-left: 3%;
   }
@@ -1013,87 +599,16 @@
     text-decoration: none;
   }
 
-  .bg-public-news {
-    background-image: url('<?php echo base_url("docs/bg_public.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1000px;
-    width: 1680px;
-    margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
-
-  }
-
-  .bg-public-news2 {
-    background-image: url('<?php echo base_url("docs/bg-new.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1000px;
-    width: 1680px;
-    margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
-
-  }
-
-  .bg-otop {
-    background-image: url('<?php echo base_url("docs/bg-otop-travel.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1000px;
-    width: 1680px;
-    margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
-
-  }
-
-  .otop-box {
-    background-image: url('<?php echo base_url("docs/otop_travel_box.png"); ?>');
-    width: 334px;
-    height: 74px;
-  }
-
-  .font-text-run {
-    color: #FFF;
-    font-family: "Noto Looped Thai UI";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
-
   .bg-news2 {
-    background-image: url('<?php echo base_url("docs/bg-new.png"); ?>');
+    background-image: url('<?php echo base_url("docs/bg-new2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center center;
-    height: 1000px;
-    width: 1680px;
+    height: 1070px;
+    width: 1920px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .font-header-home {
-    color: #FFF;
-    text-align: center;
-    -webkit-text-stroke-width: 1;
-    -webkit-text-stroke-color: #2C013B;
-    /* font-family: "Noto Looped Thai UI"; */
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  .font-all-home {
-    font-family: "Noto Looped Thai UI";
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
   }
 
   .content-news-bg {
@@ -1121,21 +636,20 @@
 
   .tab-container2 {
     display: flex;
-    margin-left: 20px;
   }
 
   .tab-link {
     cursor: pointer;
     padding: 15px 30px;
     /* border: 1px solid #ccc; */
-    margin-left: -30px;
+    margin-left: -60px;
   }
 
   .tab-link-two {
     cursor: pointer;
     padding: 15px 30px;
     /* border: 1px solid #ccc; */
-    margin-left: -30px;
+    margin-left: -60px;
   }
 
   .tab-content {
@@ -1157,13 +671,16 @@
   }
 
   .content-news-detail {
-    width: 1540px;
+    background-color: #FFF2BE;
     height: 54px;
+    flex-shrink: 0;
     padding: 20px 45px;
-    border-radius: 34px;
-    border: 0.5px solid #ECB23F;
-    background: rgba(255, 242, 190, 0.50);
-    margin-top: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 2px solid #ECB23F;
+    margin-bottom: 40px;
+    margin-top: -25px;
   }
 
   .text-news {
@@ -1194,7 +711,7 @@
     /* 138.889% */
   }
 
-  /* .bg-otop {
+  .bg-otop {
     background-image: url('<?php echo base_url("docs/s.bg-otop2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -1203,16 +720,10 @@
     height: 711px;
     margin: 0;
     padding: 0;
-  } */
-
-  .otop-content {
-    padding-top: 5%;
   }
 
-  .otop-bg-yellow {
-    background-image: url('<?php echo base_url("docs/otop_bg_icon_yellow.png"); ?>');
-    width: 266px;
-    height: 230px;
+  .otop-content {
+    padding-top: 25%;
   }
 
   .zoom-otop:hover img {
@@ -1223,11 +734,11 @@
   }
 
   .bg-travel {
-    background-image: url('<?php echo base_url("docs/bg-travel.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-travel5.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 1680px;
-    height: 1000px;
+    width: 1280px;
+    height: 734px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2341,13 +1852,11 @@
   }
 
   .font-otop-content {
-    color: #FFF;
-    text-align: center;
-    text-shadow: 1.334px 1.334px 1.334px rgba(0, 0, 0, 0.25);
-    font-family: "Noto Looped Thai UI";
-    font-size: 24px;
+    color: #000;
+    font-family: Kanit;
+    font-size: 24.116px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 300;
     line-height: normal;
   }
 

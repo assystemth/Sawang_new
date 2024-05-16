@@ -2,8 +2,7 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 <script src="<?= base_url('asset/'); ?>boostrap/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- awesome  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
@@ -14,8 +13,8 @@
 <!-- reCAPTCHA2  -->
 <script src="https://www.google.com/recaptcha/api.js?hl=th"></script>
 
-<!-- reCAPTCHA 3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x"></script>
+  <!-- reCAPTCHA 3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x"></script>
 
 <!-- chart พาย  -->
 <script src="<?= base_url('asset/'); ?>rpie.js"></script>
@@ -34,29 +33,8 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
-    // active  ********************************************************************************
-    function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
-        var header = document.getElementById(containerId);
-        var btns = header.getElementsByClassName(buttonClassName);
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                var currentActive = header.querySelector("." + buttonClassName + "." + activeClassName);
-                if (currentActive) {
-                    currentActive.classList.remove(activeClassName);
-                }
-                this.classList.add(activeClassName);
-            });
-        }
-    }
-
-    // เรียกใช้ฟังก์ชันสำหรับทั้ง 2 กรณี
-    addClickListenerToButtons("myDIV", "public-button", "active-public");
-    addClickListenerToButtons("myDIV2", "new-button", "active-new");
-
-    // *****************************************************************************************
-
     // รูปภาพ preview *********************************************************************
-    $(document).ready(function () {
+    $(document).ready(function() {
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true
@@ -64,7 +42,7 @@
     });
     // **************************************************************************************
     // กดแล้วเปลี่ยนรูป navbar กลาง *********************************************************************
-    $(document).ready(function () {
+    $(document).ready(function() {
         function changeImage(src, element) {
             element.attr('src', src);
         }
@@ -78,12 +56,12 @@
             var dropdownContent = clickedButton.next('.dropdown-content');
 
             // รีเซ็ตรูปทุก button ใน dropdown เป็นรูปปกติ
-            $('.dropdown-trigger img[data-active-src]').each(function () {
+            $('.dropdown-trigger img[data-active-src]').each(function() {
                 restoreImage($(this).data('non-active-src'), $(this));
             });
 
             // เปลี่ยนรูปของ button ที่ถูกคลิกเป็นรูป active
-            clickedButton.find('img[data-active-src]').each(function () {
+            clickedButton.find('img[data-active-src]').each(function() {
                 changeImage($(this).data('active-src'), $(this));
             });
         }
@@ -91,13 +69,13 @@
         $('.dropdown-trigger').on('click', handleButtonClick);
 
         // สร้าง Event Listener สำหรับส่วนที่ไม่ใช่ button
-        $(document).on('click', function (event) {
+        $(document).on('click', function(event) {
             var target = $(event.target);
 
             // ตรวจสอบว่าคลิกอยู่นอกเขตของ button หรือไม่
             if (!target.closest('.dropdown-container').length) {
                 // คืนค่ารูปภาพเดิม
-                $('.dropdown-trigger img[data-active-src]').each(function () {
+                $('.dropdown-trigger img[data-active-src]').each(function() {
                     restoreImage($(this).data('non-active-src'), $(this));
                 });
             }
@@ -124,20 +102,20 @@
     // });
     // v3 ล่าสุด
     function onSubmit(token) {
-        document.getElementById("reCAPTCHA3").submit();
-    }
+     document.getElementById("reCAPTCHA3").submit();
+   }
     // ****************************************************************************
 
     // ตัวเลื่อนด้านล่างสุด หน้า home ******************************************************
-    $(document).ready(function () {
+    $(document).ready(function() {
         $(".slick-carousel").slick({
             slidesToShow: 4,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 5000,
             arrows: true,
-            prevArrow: '<img src="docs/otop_travel_back.png" class="slick-prev">',
-            nextArrow: '<img src="docs/otop_travel_next.png" class="slick-next">',
+            prevArrow: '<img src="docs/s.previous-travel.png" class="slick-prev">',
+            nextArrow: '<img src="docs/s.next-travel.png" class="slick-next">',
         });
     });
     // ****************************************************************************
@@ -145,9 +123,9 @@
     // กดแล้วเปลี่ยนหน้า *******************************************************
 
     // เพิ่ม event listener สำหรับการเลือกประเภทของการร้องเรียน
-    $(document).ready(function () {
+    $(document).ready(function() {
         // เพิ่ม event listener สำหรับการเลือกประเภทของการร้องเรียน
-        $('#ChangPagesComplain').change(function () {
+        $('#ChangPagesComplain').change(function() {
             var selectedValue = $(this).val();
             console.log('Selected Value:', selectedValue);
 
@@ -183,23 +161,23 @@
     // ****************************************************************************
 
     // แสดงรูปภาพใหญ่ *******************************************************
-    $(function () {
+    $(function() {
         "use strict";
 
-        $(".popup img").click(function () {
+        $(".popup img").click(function() {
             var $src = $(this).attr("src");
             $(".show").fadeIn();
             $(".img-show img").attr("src", $src);
         });
 
-        $("span, .overlay").click(function () {
+        $("span, .overlay").click(function() {
             $(".show").fadeOut();
         });
 
     });
 
     // JavaScript to adjust popup position on scroll
-    document.addEventListener('scroll', function () {
+    document.addEventListener('scroll', function() {
         var imgShow = document.querySelector('.show .img-show');
         imgShow.style.top = window.innerHeight / 2 + window.scrollY + 'px';
     });
@@ -274,7 +252,7 @@
 
 
     // news ข่าว tab-link *******************************************************
-    $(document).ready(function () {
+    $(document).ready(function() {
         // เรียกใช้ฟังก์ชัน openTab เพื่อให้ Tab 1 เป็น active ทันทีหลังจากโหลดหน้าเว็บ
         openTab('tab1');
     });
@@ -287,17 +265,17 @@
         $('#' + tabId).show();
 
         // ทำการเปลี่ยนรูปภาพทุก tab-link เป็นรูปปกติ
-        $('.tab-link img').each(function () {
+        $('.tab-link img').each(function() {
             $(this).attr('src', $(this).attr('src').replace('-hover.png', '.png'));
         });
 
         // ทำการเปลี่ยนรูปภาพของ tab-link ที่ถูกคลิกเป็นรูป active
-        $('.tab-link[onclick="openTab(\'' + tabId + '\')"] img').attr('src', function (_, oldSrc) {
+        $('.tab-link[onclick="openTab(\'' + tabId + '\')"] img').attr('src', function(_, oldSrc) {
             return oldSrc.replace('.png', '-hover.png');
         });
     }
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         // เรียกใช้ฟังก์ชัน openTabTwo เพื่อให้ Tab 1 เป็น active ทันทีหลังจากโหลดหน้าเว็บ
         openTabTwo('tabtwo1');
     });
@@ -310,24 +288,24 @@
         $('#' + tabId).show();
 
         // ทำการเปลี่ยนรูปภาพทุก tab-link เป็นรูปปกติ
-        $('.tab-link-two img').each(function () {
+        $('.tab-link-two img').each(function() {
             $(this).attr('src', $(this).attr('src').replace('-hover.png', '.png'));
         });
 
         // ทำการเปลี่ยนรูปภาพของ tab-link ที่ถูกคลิกเป็นรูป active
-        $('.tab-link-two[onclick="openTabTwo(\'' + tabId + '\')"] img').attr('src', function (_, oldSrc) {
+        $('.tab-link-two[onclick="openTabTwo(\'' + tabId + '\')"] img').attr('src', function(_, oldSrc) {
             return oldSrc.replace('.png', '-hover.png');
         });
     }
     // *****************************************************************************
 
     // navbar กิจกรรม / ผลงาน *******************************************************
-    $(document).ready(function () {
-        $('.dropdown-trigger').each(function () {
+    $(document).ready(function() {
+        $('.dropdown-trigger').each(function() {
             var dropdownTrigger = $(this);
             var dropdownContent = dropdownTrigger.next(); // Assuming the dropdown is a sibling element
 
-            dropdownTrigger.on('click', function () {
+            dropdownTrigger.on('click', function() {
                 if (dropdownContent.css('display') === 'block') {
                     dropdownContent.css('display', 'none');
                 } else {
@@ -335,7 +313,7 @@
                 }
             });
 
-            $(document).on('click', function (e) {
+            $(document).on('click', function(e) {
                 if (!dropdownContent.is(e.target) && !dropdownTrigger.is(e.target) && dropdownContent.has(e.target).length === 0 && dropdownTrigger.has(e.target).length === 0) {
                     dropdownContent.css('display', 'none');
                 }
@@ -357,8 +335,8 @@
     }
 
     // ความพึงพอใจเว็บ กดไลค์ like
-    $(document).ready(function () {
-        $('#confirmButton').click(function () {
+    $(document).ready(function() {
+        $('#confirmButton').click(function() {
             // แสดงส่วนที่คุณต้องการ
             $('#submitSection').show();
             // ซ่อนปุ่ม "ยืนยัน"
@@ -404,7 +382,7 @@
     var customButtonNext = document.querySelector('.custom-button-next');
 
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('save_success')) { ?>
             Swal.fire({
                 // position: 'top-end',
@@ -416,7 +394,7 @@
         <?php } ?>
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('save_error')) { ?>
             Swal.fire({
                 icon: 'error',
@@ -427,7 +405,7 @@
         <?php } ?>
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('save_maxsize')) { ?>
             Swal.fire({
                 icon: 'error',
@@ -438,7 +416,7 @@
         <?php } ?>
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('del_success')) { ?>
             Swal.fire({
                 // position: 'top-end',
@@ -450,7 +428,7 @@
         <?php } ?>
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('save_again')) { ?>
             Swal.fire({
                 icon: 'warning',
@@ -461,7 +439,7 @@
         <?php } ?>
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('password_mismatch')) { ?>
             Swal.fire({
                 icon: 'warning',

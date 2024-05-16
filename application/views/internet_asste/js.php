@@ -2,21 +2,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+
 <!-- sweetalert 2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- chart พาย  -->
 <script src="<?= base_url('asset/'); ?>rpie.js"></script>
-
-<!-- Include Morris.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-<!-- Include Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <!-- sb-admin-2 -->
 <!-- Bootstrap core JavaScript-->
@@ -49,9 +41,67 @@
 <!-- รูปภาพ preview -->
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
-<!-- w3school -->
+<!-- chart w3school -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<!-- chart google -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 <script>
+  // dropdown report e-gp *********************************************************************
+  function showChartPurchase(chartId, year) {
+    // ซ่อนทุก chart ก่อน
+    document.querySelectorAll('.chang_chart_purchase').forEach(container => {
+      container.style.display = 'none';
+    });
+
+    // แสดง chart ที่เลือก
+    document.getElementById(chartId).style.display = 'block';
+
+    // เปลี่ยนข้อความในปุ่ม dropdown เป็นปีที่เลือก
+    document.getElementById('dropdownMenuLinkPurchase').innerText = 'ปีงบประมาณ ' + year;
+  }
+
+  function showChartType(chartId, year) {
+    // ซ่อนทุก chart ก่อน
+    document.querySelectorAll('.chang_chart_type').forEach(container => {
+      container.style.display = 'none';
+    });
+
+    // แสดง chart ที่เลือก
+    document.getElementById(chartId).style.display = 'block';
+
+    // เปลี่ยนข้อความในปุ่ม dropdown เป็นปีที่เลือก
+    document.getElementById('dropdownMenuLinkType').innerText = 'ปีงบประมาณ ' + year;
+  }
+
+  function showChartStatus(chartId, year) {
+    // ซ่อนทุก chart ก่อน
+    document.querySelectorAll('.chang_chart_status').forEach(container => {
+      container.style.display = 'none';
+    });
+
+    // แสดง chart ที่เลือก
+    document.getElementById(chartId).style.display = 'block';
+
+    // เปลี่ยนข้อความในปุ่ม dropdown เป็นปีที่เลือก
+    document.getElementById('dropdownMenuLinkStatus').innerText = 'ปีงบประมาณ ' + year;
+  }
+
+  function showChart(chartId, year) {
+    // ซ่อนทุก chart ก่อน
+    document.querySelectorAll('.chang_tmt_budjet').forEach(container => {
+      container.style.display = 'none';
+    });
+
+    // แสดง chart ที่เลือก
+    document.getElementById(chartId).style.display = 'block';
+
+    // เปลี่ยนข้อความในปุ่ม dropdown เป็นปีที่เลือก
+    document.getElementById('dropdownMenuLinkBudget').innerText = 'ปีงบประมาณ ' + year;
+  }
+
+  // **************************************************************************************
+
   // รูปภาพ preview *********************************************************************
   $(document).ready(function() {
     lightbox.option({
@@ -177,3 +227,87 @@
     <?php } ?>
   });
 </script>
+<!-- <script>
+    // setup 
+    const data = {
+        labels: ['จำนวนเงินรวม', 'ระหว่างดำเนินการ', 'จำนวนเงินรวม', 'สิ้นสุดสัญญา'],
+        datasets: [{
+            label: 'A',
+            data: [18, 5],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 21, 0.2)',
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 21, 1)'
+            ],
+            hoverBackgroundColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 21, 1)'
+            ],
+        }, {
+            label: 'A',
+            data: [11, 20],
+            backgroundColor: [
+                'rgba(255, 26, 255, 0.2)',
+                'rgba(255, 26, 104, 0.2)'
+
+            ],
+            borderColor: [
+                'rgba(255, 26, 255, 1)',
+                'rgba(255, 26, 104, 1)'
+            ],
+            hoverBackgroundColor: [
+                'rgba(255, 26, 255, 1)',
+                'rgba(255, 26, 104, 1)'
+            ],
+        }]
+    };
+
+    const doughnutLabel = {
+        id: 'doughnutLabel',
+        beforeDataSetsDraw(chart, args, pluginOptions) {
+            const {
+                ctx,
+                data
+            } = chart;
+
+            ctx.save();
+            const xCoor = chart.getDatasetMeta(0).data[0].x;
+            const yCoor = chart.getDatasetMeta(0).data[0].y;
+            ctx.font = 'bold 10px sans-serif';
+            ctx.fillStyle = 'rgba(255, 26, 255, 1)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(`A`, xCoor, yCoor);
+        }
+    }
+
+    // config 
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            borderWidth: 1,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+            }
+        },
+        plugins: [doughnutLabel]
+    };
+
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+
+</script> -->

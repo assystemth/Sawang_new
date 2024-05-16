@@ -556,7 +556,7 @@ class News_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_news');
         $this->db->where('tbl_news.news_status', 'show');
-        $this->db->limit(9);
+        $this->db->limit(8);
         $this->db->order_by('tbl_news.news_date', 'DESC');
         $query = $this->db->get();
         return $query->result();

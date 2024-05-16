@@ -411,7 +411,7 @@ class Announce_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_announce');
         $this->db->where('tbl_announce.announce_status', 'show');
-        $this->db->limit(9);
+        $this->db->limit(8);
         $this->db->order_by('tbl_announce.announce_date', 'DESC');
         $query = $this->db->get();
         return $query->result();

@@ -35,12 +35,14 @@
                     <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn7v3.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
                 </a>
                 <br>
-                <a class="navbar-link" data-image-src="<?php echo base_url("docs/intranet/s.nav-intranet-btn-hover8v3.png"); ?>" href="<?php echo site_url('Intra_report'); ?>">
-                    <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn8v3.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
+                <a class="navbar-link" data-image-src="<?php echo base_url("docs/intranet/s.nav-intranet-btn-hover8.1v3.png"); ?>" href="<?php echo site_url('Intra_egp'); ?>">
+                    <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn8.1v3.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
                 </a>
-                <a class="navbar-link" data-image-src="<?php echo base_url("docs/intranet/s.nav-intranet-btn-hover8v3.png"); ?>" href="<?php echo site_url('Intra_egp'); ?>">
-                    <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn8v3.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
+                <br>
+                <a class="navbar-link" data-image-src="<?php echo base_url("docs/intranet/s.nav-intranet-btn-hover8.2v3.png"); ?>" href="<?php echo site_url('Intra_report'); ?>">
+                    <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn8.2v3.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
                 </a>
+                <br>
                 <a class="navbar-link" data-image-src="<?php echo base_url("docs/intranet/s.nav-intranet-btn-hover9v2.png"); ?>" href="<?php echo site_url('Intra_it'); ?>">
                     <img src="<?php echo base_url("docs/intranet/s.nav-intranet-btn9v2.png"); ?>" width="100%" height="100%" style="padding-top: 5%;">
                 </a>

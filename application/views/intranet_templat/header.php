@@ -13,7 +13,7 @@
 <script src="https://kit.fontawesome.com/9d1d9a82d2.js" crossorigin="anonymous"></script> -->
     <link rel="icon" href="<?php echo base_url("docs/logo.png"); ?>" type="image/x-icon">
 
-    <title>เทศบาลดอนโมง - ระบบอินทราเน็ต</title>
+    <title>องค์การบริหารส่วนตำบลสว่าง - ระบบอินทราเน็ต</title>
     <!-- boostrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- icon -->
@@ -38,9 +38,14 @@
     <!-- Custom styles for this page -->
     <link href="<?= base_url(); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-      <!-- รูปภาพ preview -->
-  <link href="<?= base_url('asset/'); ?>lightbox2/src/css/lightbox.css" rel="stylesheet">
-  
+    <!-- รูปภาพ preview -->
+    <link href="<?= base_url('asset/'); ?>lightbox2/src/css/lightbox.css" rel="stylesheet">
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+
 </head>
 
 <body>
@@ -67,7 +72,7 @@
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="row" style="width: 220px;">
-                        <div class="col-6" >
+                        <div class="col-6">
                             <span class="font-header-name limit-font-one"><?php echo $this->session->userdata('m_fname'); ?>&nbsp;<?php echo $this->session->userdata('m_lname'); ?></span>
                             <span class="font-rank-name limit-font-one">
                                 <?php

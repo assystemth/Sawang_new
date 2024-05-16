@@ -411,7 +411,7 @@ class Order_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_order');
         $this->db->where('tbl_order.order_status', 'show');
-        $this->db->limit(9);
+        $this->db->limit(8);
         $this->db->order_by('tbl_order.order_date', 'DESC');
         $query = $this->db->get();
         return $query->result();

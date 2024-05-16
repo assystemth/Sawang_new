@@ -1,7 +1,8 @@
 <?php
 
 // Function to convert Thai date text to datetime format
-function convertThaiDateToDatetime($textDate) {
+function convertThaiDateToDatetime($textDate)
+{
     // Map Thai month abbreviations to English month names
     $thaiMonths = array(
         'ม.ค' => 'Jan',
@@ -40,7 +41,7 @@ function convertThaiDateToDatetime($textDate) {
         // Debugging: Output the input text date and the result of the regular expression match
         echo "Input Text Date: " . $textDate . "<br>";
         echo "Regular Expression Result: " . (preg_match('/(\d{1,2}) (\w{3}) (\d{2})(?: (\d{2}):(\d{2}))?/', $textDate, $matches) ? "Matched" : "Not Matched") . "<br>";
-        
+
         // If the regular expression does not match, handle the error here
         // For example, you can set default values or return an error message
         echo "Failed to extract date components from the input text date.";
@@ -64,10 +65,9 @@ function convertThaiDateToDatetime($textDate) {
         // Convert DateTime object to another format if needed
         $outputFormat = 'Y-m-d H:i:s'; // Output format with date and time
         $formattedDateTime = $dateTime->format($outputFormat);
-        
+
         // Return the formatted datetime
         return $formattedDateTime;
-
     } else {
         // Return an error message if the conversion failed
         return "Failed to convert the text date to datetime.";
@@ -89,7 +89,8 @@ if (isset($data['result']) && is_array($data['result'])) {
     $results = $data['result'];
 
     // Function to flatten nested arrays and combine keys
-    function flattenArray($array, $prefix = '') {
+    function flattenArray($array, $prefix = '')
+    {
         $result = [];
         foreach ($array as $key => $value) {
             if (is_array($value)) {
@@ -120,7 +121,7 @@ if (isset($data['result']) && is_array($data['result'])) {
             }, array_keys($row)),
             $row
         );
-    
+
         // Convert Thai date text to datetime format for specific fields
         $fieldsToConvert = ['announce_date', 'transaction_date', 'contract_contract_date', 'contract_contract_finish_date'];
         foreach ($fieldsToConvert as $field) {
@@ -135,7 +136,8 @@ if (isset($data['result']) && is_array($data['result'])) {
     // echo "</pre>";
 
     // Function to display data in HTML table format
-    function displayDataInTable($data) {
+    function displayDataInTable($data)
+    {
         // Start table
         echo "<table border='1'>";
 
@@ -165,4 +167,3 @@ if (isset($data['result']) && is_array($data['result'])) {
 } else {
     echo "No data found.";
 }
-?>

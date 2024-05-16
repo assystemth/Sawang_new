@@ -411,7 +411,7 @@ class P_reb_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_p_reb');
         $this->db->where('tbl_p_reb.p_reb_status', 'show');
-        $this->db->limit(9);
+        $this->db->limit(8);
         $this->db->order_by('tbl_p_reb.p_reb_date', 'DESC');
         $query = $this->db->get();
         return $query->result();

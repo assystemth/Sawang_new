@@ -59,7 +59,7 @@
                                     น.</span>
                             </div>
                             <div style="padding-bottom: 10px;">
-                                <span class=" font-otop-content three-line-ellipsis"><?= $rs->otop_detail; ?></span>
+                                <span class=" font-otop-content"><?= $rs->otop_detail; ?></span>
                             </div>
                             <div class="font-otop-content">
                                 <span>ประเภทสินค้า : <?= $rs->otop_type; ?></span><br>

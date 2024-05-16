@@ -411,7 +411,7 @@ class P_rpo_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_p_rpo');
         $this->db->where('tbl_p_rpo.p_rpo_status', 'show');
-        $this->db->limit(9);
+        $this->db->limit(8);
         $this->db->order_by('tbl_p_rpo.p_rpo_date', 'DESC');
         $query = $this->db->get();
         return $query->result();

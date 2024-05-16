@@ -149,6 +149,7 @@ class Member_backend extends CI_Controller
 	{
 		// print_r($_POST);
 		$this->member_model->deldata($m_id);
+		$this->session->set_flashdata('del_success', TRUE);
 		redirect('member_backend', 'refresh');
 	}
 
