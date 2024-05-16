@@ -198,21 +198,14 @@
     }
   }
 
-  .bg-main {
-    background-image: url('<?php echo base_url("docs/s.bg-main8.jpg"); ?>');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 4770px;
-    width: 1280px;
-    z-index: 1;
-  }
+
 
   .vision {
-    background-image: url('<?php echo base_url("docs/s.bg-vision3.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-vision4.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 770px;
-    width: 1280px;
+    height: 1000px;
+    width: 1680px;
     z-index: 1;
   }
 
@@ -232,20 +225,200 @@
   }
 
   .carousel-item img {
-    width: 1035px;
+    width: 775px;
     /* กำหนดความกว้างเป็น 500px */
-    height: 582px;
+    height: 436px;
     /* จัดกลางรูปภาพใน Carousel */
 
   }
 
   .content-banner {
-    margin-right: 120px;
-    margin-left: 5%;
+    /* margin-right: 120px; */
+    /* margin-left: 5%; */
     z-index: 1;
     position: relative;
     top: 20px;
   }
+
+  .banner-cartoon {
+    margin-right: 120px;
+    margin-left: 15%;
+    z-index: 1;
+    /* top: 20px; */
+    margin-top: 115px;
+    background-image: url('<?php echo base_url("docs/banner2_ Cartoon.png"); ?>');
+    width: 582px;
+    height: 297px;
+
+  }
+
+  .font-banner-cartoon {
+    color: #210B00;
+    text-align: center;
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .banner-calendar {
+    /* margin-right: 120px; */
+    /* margin-left: 5%; */
+    z-index: 1;
+    /* top: 20px; */
+    margin-top: 65px;
+    background-image: url('<?php echo base_url("docs/banner_manage.png"); ?>');
+    width: 100%;
+    height: 436px;
+    background-repeat: no-repeat;
+  }
+
+  .banner-button-green {
+    z-index: 1;
+    margin-left: 7%;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/banner_button_green.png"); ?>');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 71px;
+  }
+
+  .banner-button-green:hover {
+    z-index: 1;
+    margin-left: 7%;
+    /* margin-top: 65px; */
+    background-image: url('<?php echo base_url("docs/banner_button_green_over.png"); ?>');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 71px;
+  }
+
+  .font-banner-button-green {
+    color: #FFF;
+    text-align: center;
+    font-family: "Noto Looped Thai UI";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .public-button {
+    background-image: url('<?php echo base_url("docs/public_button.png"); ?>');
+    width: 379px;
+    height: 70px;
+    padding-top: 10px;
+  }
+
+  .active-public,
+  .public-button:hover {
+    background-image: url('<?php echo base_url("docs/public_button-hover.png"); ?>');
+    width: 379px;
+    height: 70px;
+    padding-top: 10px;
+  }
+
+  .new-button {
+    background-image: url('<?php echo base_url("docs/news_button.png"); ?>');
+    width: 379px;
+    height: 70px;
+    padding-top: 10px;
+  }
+
+  .active-new,
+  .new-button:hover {
+    background-image: url('<?php echo base_url("docs/news_button-hover.png"); ?>');
+    width: 379px;
+    height: 70px;
+    padding-top: 10px;
+  }
+
+  .font-public-button {
+    color: #fff;
+    margin-left: 65px;
+    font-size: 33px;
+  }
+
+  .font-new-button {
+    color: #fff;
+    margin-left: 30px;
+    font-size: 30px;
+  }
+
+
+  .button-actifity-all {
+    color: #600145;
+    z-index: 1;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all_over.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+  .button-actifity-all:hover {
+    color: #fff;
+    z-index: 1;
+    /* margin-top: 65px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+  .button-new-all {
+    color: #fff;
+    z-index: 1;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+  .button-new-all:hover {
+    color: #600145;
+    z-index: 1;
+    /* margin-top: 65px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all_over.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+  .button-new2-all {
+    color: #600145;
+    z-index: 1;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all_over.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+  .button-new2-all:hover {
+    color: #FFF;
+    z-index: 1;
+    /* margin-top: 65px; */
+    background-image: url('<?php echo base_url("docs/activity_see_all.png"); ?>');
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 55px;
+    padding-top: 8px;
+  }
+
+
+  .weather {
+    padding: 30px 100px;
+  }
+
+
 
   .frame-main {
     position: absolute;
@@ -266,37 +439,27 @@
     margin-top: 200px;
   }
 
-  .bg-activity2 {
-    background-image: url('<?php echo base_url("docs/bg-activity2.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 650px;
-    width: 1166px;
-    margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    margin-top: 200px;
 
-  }
 
   .card-activity {
     border-radius: 24px;
     background-color: #FDF5E1;
-    height: 295px;
-    width: 232px;
+    height: 316px;
+    width: 248px;
     border: 2px solid #EABA48;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   }
 
   .card-activity img {
-    /* width: 230px;
-    height: 169px;
+    /* width: 245px;
+    height: 182px;
     border-radius: 24px 24px 0 0; */
     margin-left: -11px;
   }
 
   .text-activity {
     color: #523003;
-
+    font-family: Kanit;
     font-size: 18.263px;
     font-style: normal;
     font-weight: 300;
@@ -323,21 +486,24 @@
     margin-top: -5px;
   }
 
-  /* .dropdown-content {
+  .dropdown-content {
     background-image: url('<?php echo base_url("docs/s.bg-nav-content-3.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     display: none;
     position: absolute;
-    width: 1280px;
+    width: 1920px;
     height: 584px;
     z-index: 2;
-    margin-left: 3px;
+    margin-top: 60px;
+    /* margin-left: 3px; */
   }
 
   .dropdown-content ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    /* แบ่งออกเป็น 3 columns ที่มีขนาดเท่ากัน */
+
   }
 
   .dropdown-content a {
@@ -345,7 +511,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  } */
+  }
 
   .no-bullets {
     list-style: none;
@@ -426,16 +592,65 @@
     text-decoration: none;
   }
 
+  .font-text-run {
+    color: #737373;
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
   .bg-news2 {
-    background-image: url('<?php echo base_url("docs/bg-new2.png"); ?>');
+    background-image: url('<?php echo base_url("docs/bg-new.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center center;
-    height: 1070px;
-    width: 1920px;
+    height: 1000px;
+    width: 1680px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .font-header-activity {
+    color: #2C013B;
+    text-align: center;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-header-home {
+    color: #2C013B;
+    text-shadow: -1px 0 #fff, 0 2px #fff,
+      2px 0 #fff, 0 -1px #fff;
+    font-family: Kanit;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .font-header-otop {
+    color: #FFF;
+    text-align: center;
+    -webkit-text-stroke: 1px #000;
+    /* ขนาดและสีของกรอบตัวหนังสือ */
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-all-home {
+    font-family: "Noto Looped Thai UI";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 
   .content-news-bg {
@@ -463,20 +678,21 @@
 
   .tab-container2 {
     display: flex;
+    margin-left: 20px;
   }
 
   .tab-link {
     cursor: pointer;
     padding: 15px 30px;
     /* border: 1px solid #ccc; */
-    margin-left: -60px;
+    margin-left: -30px;
   }
 
   .tab-link-two {
     cursor: pointer;
     padding: 15px 30px;
     /* border: 1px solid #ccc; */
-    margin-left: -60px;
+    margin-left: -30px;
   }
 
   .tab-content {
@@ -498,16 +714,45 @@
   }
 
   .content-news-detail {
-    background-color: #FFF2BE;
+    width: 1540px;
     height: 54px;
-    flex-shrink: 0;
     padding: 20px 45px;
-    font-size: 26px;
-    font-weight: bold;
-    border-radius: 15px;
-    border: 2px solid #ECB23F;
-    margin-bottom: 40px;
-    margin-top: -25px;
+    border-radius: 34px;
+    border: 0.5px solid #ECB23F;
+    background: rgba(255, 242, 190, 0.50);
+    margin-top: 15px;
+  }
+
+  .content-news-detail:hover {
+    width: 1540px;
+    height: 54px;
+    padding: 20px 45px;
+    border-radius: 34px;
+    border: 0.5px solid #ECB23F;
+    background: rgba(255, 255, 230, 0.50);
+    backdrop-filter: blur(3px);
+    margin-top: 15px;
+  }
+
+  .content-news2-detail {
+    width: 1540px;
+    height: 54px;
+    padding: 20px 45px;
+    border-radius: 34px;
+    border: 0.702px solid var(--02, #ECB23F);
+    background: rgba(255, 242, 190, 0.50);
+    margin-top: 15px;
+  }
+
+  .content-news2-detail:hover {
+    width: 1540px;
+    height: 54px;
+    padding: 20px 45px;
+    border-radius: 34px;
+    border: 0.5px solid #ECB23F;
+    background: rgba(255, 255, 230, 0.50);
+    backdrop-filter: blur(3px);
+    margin-top: 15px;
   }
 
   .text-news {
@@ -518,7 +763,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -529,7 +774,7 @@
 
   .text-news-time {
     color: #000;
-
+    font-family: Kanit;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -538,7 +783,7 @@
     /* 138.889% */
   }
 
-  .bg-otop {
+  /* .bg-otop {
     background-image: url('<?php echo base_url("docs/s.bg-otop2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -547,10 +792,16 @@
     height: 711px;
     margin: 0;
     padding: 0;
-  }
+  } */
 
   .otop-content {
-    padding-top: 25%;
+    padding-top: 5%;
+  }
+
+  .otop-bg-yellow {
+    background-image: url('<?php echo base_url("docs/otop_bg_icon_yellow.png"); ?>');
+    width: 266px;
+    height: 230px;
   }
 
   .zoom-otop:hover img {
@@ -561,11 +812,11 @@
   }
 
   .bg-travel {
-    background-image: url('<?php echo base_url("docs/s.bg-travel5.png"); ?>');
+    background-image: url('<?php echo base_url("docs/bg-travel.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 1280px;
-    height: 734px;
+    width: 1680px;
+    height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -610,7 +861,7 @@
   .text-travel {
     color: #FFE072;
     -webkit-text-stroke: 1px black;
-
+    font-family: Kanit;
     font-size: 36.024px;
     font-style: normal;
     font-weight: 600;
@@ -649,7 +900,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 6.671px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
@@ -660,7 +911,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 2.668px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 25.35px;
     font-style: normal;
     font-weight: 500;
@@ -694,7 +945,7 @@
   .font-view {
     color: #693708;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -707,7 +958,7 @@
 
   .card-view {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 14.764px;
     font-style: normal;
     font-weight: 400;
@@ -728,7 +979,7 @@
   .font-q-a-home-head {
     color: #693708;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -743,7 +994,7 @@
 
   .font-q-a-home-form {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -763,7 +1014,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
@@ -789,7 +1040,7 @@
   .font-like {
     color: #693708;
     text-shadow: 0px 0px 5.678px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -817,7 +1068,7 @@
   .font-like-label {
     color: #693708;
     text-shadow: 0px 1.334px 2.668px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -840,17 +1091,17 @@
 
   /* swipper link icon ************************************************** */
   .swiper {
-    background-image: url('<?php echo base_url("docs/s.bg-link.png"); ?>');
+    /* background-image: url('<?php echo base_url("docs/s.bg-link.png"); ?>'); */
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    width: 1000px;
+    width: 1280px;
     height: 715px;
-    padding-top: 280px;
+    padding-top: 320px;
     padding-bottom: 280px;
-    padding-left: 60px;
+    padding-left: 150px;
     padding-right: 30px;
-    margin-top: -200px;
+    /* margin-top: -200px; */
     z-index: 5;
   }
 
@@ -952,7 +1203,7 @@
   .font-footer {
     color: #693708;
     text-align: center;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     line-height: 33.366px;
@@ -1227,7 +1478,7 @@
     color: #FFF;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1239,7 +1490,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1322,7 +1573,7 @@
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 30px;
     font-style: normal;
     font-weight: 600;
@@ -1335,7 +1586,7 @@
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
@@ -1347,7 +1598,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1359,7 +1610,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1368,7 +1619,7 @@
 
   .font-laws-head {
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -1378,7 +1629,7 @@
 
   .font-laws-content {
     color: #000;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1404,7 +1655,7 @@
   .red-font {
     color: #F00;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -1417,7 +1668,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1429,7 +1680,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -1443,7 +1694,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1455,7 +1706,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -1468,7 +1719,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1480,7 +1731,7 @@
     color: #693708;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1492,7 +1743,7 @@
 
   .font-ita-head {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1502,7 +1753,7 @@
 
   .font-ita-content {
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1515,7 +1766,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 21.438px;
     font-style: normal;
     font-weight: 500;
@@ -1528,7 +1779,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 20.098px;
     font-style: normal;
     font-weight: 500;
@@ -1541,7 +1792,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 21.438px;
     font-style: normal;
     font-weight: 300;
@@ -1552,7 +1803,7 @@
   .font-contact-1 {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 26.895px;
     font-style: normal;
     font-weight: 300;
@@ -1564,7 +1815,7 @@
     color: #000;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 24.205px;
     font-style: normal;
     font-weight: 300;
@@ -1576,7 +1827,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 26.895px;
     font-style: normal;
     font-weight: 600;
@@ -1586,7 +1837,7 @@
 
   .font-pages-heads-img {
     color: #523003;
-
+    font-family: Kanit;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -1596,7 +1847,7 @@
 
   .font-pages-details-img {
     color: #6C757D;
-
+    font-family: Kanit;
     font-size: 15.5px;
     font-style: normal;
     font-weight: 300;
@@ -1608,7 +1859,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1618,7 +1869,7 @@
 
   .font-page-detail-time-img {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -1628,7 +1879,7 @@
 
   .font-page-detail-content-img {
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -1638,7 +1889,7 @@
 
   .font-page-detail-view-img {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1651,7 +1902,7 @@
     text-align: right;
     leading-trim: both;
     text-edge: cap;
-
+    font-family: Kanit;
     font-size: 20.053px;
     font-style: normal;
     font-weight: 400;
@@ -1661,7 +1912,7 @@
 
   .font-pages-content {
     color: #000;
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -1671,7 +1922,7 @@
 
   .font-otop-head {
     color: #000;
-
+    font-family: Kanit;
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -1679,11 +1930,13 @@
   }
 
   .font-otop-content {
-    color: #000;
-
-    font-size: 24.116px;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 1.334px 1.334px 1.334px rgba(0, 0, 0, 0.25);
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 600;
     line-height: normal;
   }
 
@@ -1693,7 +1946,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -1706,7 +1959,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 24.116px;
     font-style: normal;
     font-weight: 500;
@@ -1717,7 +1970,7 @@
   .font-head-all-web {
     color: #FFC23B;
     text-align: center;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -1728,7 +1981,7 @@
   .font-content-all-web {
     color: #000;
     text-align: center;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -1739,7 +1992,7 @@
   .font-e-service-complain {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -1752,7 +2005,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 18.762px;
     font-style: normal;
     font-weight: 300;
@@ -1766,7 +2019,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 17px;
     font-style: normal;
     font-weight: 500;
@@ -1775,7 +2028,7 @@
 
   .font-flcp-sd {
     color: var(--, #6D758F);
-
+    font-family: Kanit;
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -1783,7 +2036,7 @@
   }
 
   .font-color-flcp {
-
+    font-family: Kanit;
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -1792,7 +2045,7 @@
 
   .font-time-flcp {
     color: #000;
-
+    font-family: Kanit;
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -1891,7 +2144,7 @@
 
   .span-time-pages-img {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -1906,7 +2159,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
+    font-family: Kanit;
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -1918,7 +2171,7 @@
 
   .span-time-pages-news {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -1935,7 +2188,7 @@
 
   .span-time-q-a {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 16.078px;
     font-style: normal;
     font-weight: 400;
@@ -2459,7 +2712,7 @@
 
   select.custom-select {
     color: #693708;
-
+    font-family: Kanit;
     font-size: 20.102px;
     font-style: normal;
     font-weight: 500;
@@ -2521,7 +2774,7 @@
     color: #000;
     text-align: center;
     text-shadow: 0.536px 0.536px 0.536px rgba(0, 0, 0, 0.25);
-
+    font-family: Kanit;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -2530,7 +2783,7 @@
 
   .font-gi-content {
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -2539,7 +2792,7 @@
 
   .font-gi-target {
     color: #000;
-
+    font-family: Kanit;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2593,7 +2846,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-
+    font-family: kanit;
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -2608,7 +2861,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-
+    font-family: kanit;
   }
 
   .bg-ita-color {
@@ -2753,7 +3006,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    
+    font-family: kanit;
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -2766,7 +3019,7 @@
 
   .font-ita-content-detail {
     color: #000;
-
+    font-family: Kanit;
     font-size: 20px;
     font-style: normal;
     padding-left: 150px;
@@ -2776,4 +3029,100 @@
     font-size: 20px;
     text-shadow: 1px 1px #ccc;
   }
+
+
+  .bg-banner {
+    background-image: url('<?php echo base_url("docs/bg-banner.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 1000px;
+    width: 1920px;
+    z-index: 1;
+  }
+
+  .bg-activity2 {
+    background-image: url('<?php echo base_url("docs/bg-activity2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  .bg-public-news {
+    background-image: url('<?php echo base_url("docs/bg-public2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  .bg-public-news2 {
+    background-image: url('<?php echo base_url("docs/bg-news2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  .bg-otop {
+    background-image: url('<?php echo base_url("docs/bg-otop-travel2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+
+  .bg-service {
+    background-image: url('<?php echo base_url("docs/bg-e-service.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  .bg-link {
+    background-image: url('<?php echo base_url("docs/footer2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  .service-cartoon {
+    background-image: url('<?php echo base_url("docs/e-service-cartoon.png"); ?>');
+    width: 539px;
+    height: 179px;
+  }
+
+  .otop-box {
+    background-image: url('<?php echo base_url("docs/otop_travel_box.png"); ?>');
+    width: 334px;
+    height: 74px;
+  }
+
 </style>
