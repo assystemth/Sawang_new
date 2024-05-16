@@ -1092,24 +1092,23 @@
   /* swipper link icon ************************************************** */
   .swiper {
     /* background-image: url('<?php echo base_url("docs/s.bg-link.png"); ?>'); */
-    background-size: 100%;
+    /* background-size: 100%; */
     background-position: center;
-    background-repeat: no-repeat;
-    width: 1280px;
-    height: 715px;
-    padding-top: 320px;
+    /* background-repeat: no-repeat; */
+    width: 1680px;
+    height: auto;
+    padding-top: 70px;
     padding-bottom: 280px;
     padding-left: 150px;
     padding-right: 30px;
     /* margin-top: -200px; */
-    z-index: 5;
+    z-index: 5 ;
   }
 
   .custom-button-prev {
     position: absolute;
     left: -5px;
-    /* ปรับตำแหน่งตามที่คุณต้องการ */
-    top: 50%;
+    top: 25%;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 100;
@@ -1118,8 +1117,7 @@
   .custom-button-next {
     position: absolute;
     right: -8px;
-    /* ปรับตำแหน่งตามที่คุณต้องการ */
-    top: 50%;
+    top: 25%;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 100;
