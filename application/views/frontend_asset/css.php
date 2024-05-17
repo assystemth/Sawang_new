@@ -630,7 +630,7 @@
     z-index: 1;
     margin-left: 7%;
     /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green_over.png"); ?>');
+    background-image: url('<?php echo base_url("docs/banner_button_green_hover.png"); ?>');
     background-repeat: no-repeat;
     width: 100%;
     height: 71px;
@@ -1270,42 +1270,14 @@
     margin-bottom: 20%;
   }
 
-  .bg-view {
-    border-radius: 19.306px;
-    background: rgba(255, 255, 255, 0.70);
-    width: 369px;
-    height: 329px;
-    flex-shrink: 0;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
-  }
-
-  .head-view {
-    padding: 10px;
-    padding-top: 15px;
-  }
-
-  .font-view {
-    color: #693708;
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  .content-view {
-    margin-top: -50px;
-  }
-
   .card-view {
-    color: #693708;
-    font-family: Kanit;
-    font-size: 14.764px;
+    color: #000;
+    font-family: Inter;
+    font-size: 12px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 22.146px;
-    /* 150% */
+    font-weight: 300;
+    line-height: 23.393px;
+    /* 194.942% */
   }
 
   .bg-q-a {
@@ -1362,67 +1334,6 @@
     font-weight: 300;
     line-height: 7.975px;
     /* 78.491% */
-  }
-
-  .bg-like {
-    border-radius: 19.306px;
-    background: rgba(255, 255, 255, 0.70);
-    box-shadow: 0px 0px 5.678px 0px rgba(0, 0, 0, 0.25);
-    width: 370px;
-    height: 330px;
-    flex-shrink: 0;
-    margin-top: 35px;
-  }
-
-  .head-like {
-    padding: 10px;
-    padding-top: 20px;
-  }
-
-  .font-like {
-    color: #693708;
-    text-shadow: 0px 0px 5.678px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  .content-like {
-    padding-top: 25px;
-    padding-left: 40px;
-  }
-
-  .border-like {
-    border: 1.334px solid #693708;
-    /* ให้ border เป็นสีที่โปร่ง */
-  }
-
-
-
-  .form-check {
-    width: 100%;
-    height: 100%;
-    font-size: 28px;
-  }
-
-  .font-like-label {
-    color: #693708;
-    text-shadow: 0px 1.334px 2.668px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 33.356px;
-  }
-
-  .progress-bar {
-    border-radius: 6.671px;
-    background: var(--unnamed, linear-gradient(180deg, #D39B2C -14.71%, #FAE370 18.72%, #F9CC42 52.2%, #FFF1A7 109.3%));
-    box-shadow: 0px 1.334px 1.334px 0px rgba(0, 0, 0, 0.10);
-    width: 57%;
-    height: 20px;
   }
 
   .green-border {
@@ -3145,7 +3056,9 @@
   }
 
   .mar-fb {
-    margin-top: 30px;
+    padding-top: 55px;
+    margin-left: 70px;
+    border-radius: 8px;
   }
 
   .mar-es-intra {
@@ -3463,5 +3376,274 @@
     background-image: url('<?php echo base_url("docs/otop_travel_box.png"); ?>');
     width: 334px;
     height: 74px;
+  }
+
+  .font-header-service {
+    color: #F27868;
+    text-align: center;
+    font-family: "Noto Looped Thai UI";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .service-box {
+    z-index: 1;
+    /* margin-left: 7%; */
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/eservice-menu.png"); ?>');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 116px;
+    margin-top: 5%;
+  }
+
+  .font-service {
+    color: #FFF;
+    -webkit-text-stroke-width: 0.4259740114212036;
+    -webkit-text-stroke-color: #000;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .font-service {
+    display: block;
+    /* ทำให้แน่ใจว่า span เป็น block เพื่อให้ margin-top มีผล */
+    margin-top: 1px;
+    /* ปรับขนาดตามที่ต้องการ */
+  }
+
+  .bg-qa {
+    z-index: 1;
+    /* margin-left: 7%; */
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/bg-qa.png"); ?>');
+    background-repeat: no-repeat;
+    width: 788px;
+    height: 648px;
+    /* margin-top: 5%; */
+  }
+
+  .bg-facebook {
+    z-index: 1;
+    /* margin-left: 7%; */
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/bg-facebook.png"); ?>');
+    background-repeat: no-repeat;
+    width: 447px;
+    height: 603px;
+    margin-top: 5%;
+  }
+
+  .bg-view {
+    z-index: 1;
+    margin-left: 15%;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/bg-view.png"); ?>');
+    background-repeat: no-repeat;
+    width: 360px;
+    height: 317px;
+    margin-top: 5%;
+  }
+
+  .bg-vote {
+    z-index: 1;
+    margin-left: 15%;
+    /* margin-top: 80px; */
+    background-image: url('<?php echo base_url("docs/bg-vote.png"); ?>');
+    background-repeat: no-repeat;
+    width: 360px;
+    height: 317px;
+    margin-top: -40px;
+  }
+
+  .bg-qa-list {
+    background-image: url('<?php echo base_url("docs/bg-qa.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 788px;
+    height: 648px;
+    margin: auto;
+    padding: 95px 22px;
+  }
+
+  .bg-content-qa-list {
+    padding: 0 16.529px;
+    align-items: center;
+    gap: 38.018px;
+    align-self: stretch;
+    border-radius: 82.647px;
+    border: 1px solid #025A59;
+    background: #FFF;
+    width: 647px;
+    height: 40px;
+    margin-left: 50px;
+    position: relative;
+    /* ทำให้แน่ใจว่า service-box ใช้การจัดตำแหน่งสัมพัทธ์ */
+    top: 50px;
+    /* ขยับตำแหน่งลงมา 20px */
+    transition: background 0.3s ease, border-color 0.3s ease; /* เพิ่ม transition */
+  }
+
+  .bg-content-qa-list:hover {
+    background: #F1F3F9; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    background: rgba(255, 255, 230, 0.50);
+    border-color: #025A59; /* เปลี่ยนสีขอบเมื่อ hover */
+}
+
+  .bt-qa-all {
+    background-image: url('<?php echo base_url("docs/qa-all.png"); ?>');
+    width: 86px;
+    height: 47px;
+  }
+
+  .bt-qa-add {
+    background-image: url('<?php echo base_url("docs/qa-add.png"); ?>');
+    width: 77px;
+    height: 43px;
+  }
+
+  .font-header-qa {
+    color: #7B62F9;
+    text-align: center;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 46.41px;
+    /* 165.749% */
+  }
+
+  .font-bt-qa {
+    color: #000;
+    text-shadow: 0px 1.2px 2.399px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 29.991px;
+    /* 187.444% */
+  }
+
+  .font-view {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgba(159, 218, 255, 0.30);
+    font-family: Kanit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .content-view {
+    margin-top: -20px;
+  }
+
+  .head-view {
+    padding: 10px;
+    padding-top: 80px;
+  }
+
+  .font-like {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgba(159, 218, 255, 0.30);
+    font-family: Kanit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .head-like {
+    padding: 10px;
+    padding-top: 80px;
+  }
+
+  .content-like {
+    padding-top: 25px;
+    padding-left: 40px;
+  }
+
+  .border-like {
+    border-radius: 34px;
+    border: 1.2px solid #FFF;
+  }
+
+  .form-check {
+    width: 25;
+    height: 24px;
+    font-size: 16px;
+    margin-left: 50px;
+  }
+
+  .font-like-label {
+    color: #000;
+    text-shadow: 0px 1.2px 2.399px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 29.991px;
+    /* 187.444% */
+  }
+
+  .progress-bar {
+    border-radius: 34px;
+    background: var(--Line-Y, linear-gradient(358deg, #FFDB51 -6.6%, #FF9300 105.68%));
+    box-shadow: 0px 1.2px 1.2px 0px rgba(0, 0, 0, 0.10);
+    width: 84.212px;
+    height: 9.474px;
+    flex-shrink: 0;
+  }
+
+  .font-link {
+    color: #000;
+    text-align: center;
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 33.366px;
+    /* 139.024% */
+  }
+
+  .font-footer2 {
+    color: #693708;
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 33.366px;
+    /* 139.024% */
+  }
+
+  .font-footer3 {
+    color: #693708;
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 33.366px;
+  }
+
+  .link-footer {
+    margin-top: 665px;
+    margin-left: 180px;
+  }
+
+  .font-nav {
+    color: #FFF;
+    font-size: 20px;
+  }
+
+  .font-nav:hover {
+    color: #724118;
+    font-size: 20px;
   }
 </style>

@@ -1,9 +1,9 @@
-<div class="image-slide-stick-mid">
+<!-- <div class="image-slide-stick-mid">
     <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" rel="noopener noreferrer">
         <img src="docs/eit-slide-mid.png">
     </a>
     <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
-</div>
+</div> -->
 
 <div class="welcome">
 
@@ -205,64 +205,64 @@
             <span class="font-header-activity">กิจกรรม</span>
         </div>
         <div class="row d-flex justify-content-center">
-                <?php foreach ($qActivity as $activity) { ?>
-                    <div class="card-activity col-2 mx-4" style="margin-top: 40px;">
-                        <?php if (!empty($activity->activity_img)) : ?>
+            <?php foreach ($qActivity as $activity) { ?>
+                <div class="card-activity col-2 mx-4" style="margin-top: 40px;">
+                    <?php if (!empty($activity->activity_img)) : ?>
+                        <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
+                            <img src="<?php echo base_url('docs/img/' . $activity->activity_img); ?>" width="245px" height="182px" style="border-radius: 24px 24px 0 0;">
+                        </a>
+                    <?php else : ?>
+                        <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
+                            <img src="<?php echo base_url('docs/coverphoto.png'); ?>">
+                        </a>
+                    <?php endif; ?>
+                    <br>
+                    <div class="box-activity">
+                        <div class="text-activity underline">
                             <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                                <img src="<?php echo base_url('docs/img/' . $activity->activity_img); ?>" width="245px" height="182px" style="border-radius: 24px 24px 0 0;">
+                                <span><?= $activity->activity_name; ?>
                             </a>
-                        <?php else : ?>
-                            <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                                <img src="<?php echo base_url('docs/coverphoto.png'); ?>">
-                            </a>
-                        <?php endif; ?>
-                        <br>
-                        <div class="box-activity">
-                            <div class="text-activity underline">
-                                <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                                    <span><?= $activity->activity_name; ?>
-                                </a>
-                            </div>
-                            <a class="underline" href="<?php echo site_url('Pages/activity_detail/' . $activity->activity_id); ?>">
-
-                            </a>
-                            &nbsp;
-                            <?php
-                            // วันที่ของข่าว
-                            $activity_date = new DateTime($activity->activity_date);
-
-                            // วันที่ปัจจุบัน
-                            $current_date = new DateTime();
-
-                            // คำนวณหาความต่างของวัน
-                            $interval = $current_date->diff($activity_date);
-                            $days_difference = $interval->days;
-
-                            // ถ้ามากกว่า 30 วัน ให้ซ่อนไว้
-                            if ($days_difference > 30) {
-                                // ไม่แสดงรูปภาพ
-                            } else {
-                                // แสดงรูปภาพ
-                                echo '<img src="docs/activity-new.gif">';
-                            }
-                            ?>
                         </div>
-                        <div class="row">
-                            <div class="col-7 mt-3">
-                                <span class="span-time-home "><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
-                                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
-                                    </svg>
-                                    <?php
-                                    // ในการใช้งาน setThaiMonth
-                                    $date = new DateTime($activity->activity_date);
-                                    $day_th = $date->format('d');
-                                    $month_th = setThaiMonth($date->format('F')); // เรียกใช้ setThaiMonth สำหรับชื่อเดือน
-                                    $year_th = $date->format('Y') + 543; // เพิ่มขึ้น 543 ปี
-                                    $formattedDate = "$day_th $month_th $year_th"; // วันที่และเดือนเป็นภาษาไทย
-                                    echo $formattedDate;
-                                    ?>
-                                </span>
-                                <!-- <span class="span-time-home">
+                        <a class="underline" href="<?php echo site_url('Pages/activity_detail/' . $activity->activity_id); ?>">
+
+                        </a>
+                        &nbsp;
+                        <?php
+                        // วันที่ของข่าว
+                        $activity_date = new DateTime($activity->activity_date);
+
+                        // วันที่ปัจจุบัน
+                        $current_date = new DateTime();
+
+                        // คำนวณหาความต่างของวัน
+                        $interval = $current_date->diff($activity_date);
+                        $days_difference = $interval->days;
+
+                        // ถ้ามากกว่า 30 วัน ให้ซ่อนไว้
+                        if ($days_difference > 30) {
+                            // ไม่แสดงรูปภาพ
+                        } else {
+                            // แสดงรูปภาพ
+                            echo '<img src="docs/activity-new.gif">';
+                        }
+                        ?>
+                    </div>
+                    <div class="row">
+                        <div class="col-7 mt-3">
+                            <span class="span-time-home "><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
+                                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
+                                </svg>
+                                <?php
+                                // ในการใช้งาน setThaiMonth
+                                $date = new DateTime($activity->activity_date);
+                                $day_th = $date->format('d');
+                                $month_th = setThaiMonth($date->format('F')); // เรียกใช้ setThaiMonth สำหรับชื่อเดือน
+                                $year_th = $date->format('Y') + 543; // เพิ่มขึ้น 543 ปี
+                                $formattedDate = "$day_th $month_th $year_th"; // วันที่และเดือนเป็นภาษาไทย
+                                echo $formattedDate;
+                                ?>
+                            </span>
+                            <!-- <span class="span-time-home">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
                                 class="bi bi-clock-fill" viewBox="0 0 16 16">
                                 <path
@@ -274,21 +274,21 @@
                             echo $formattedTime;
                             ?>
                             น.</span> -->
-                            </div>
-                            <div class="col-5">
-                                <div class="font-12 underline d-flex justify-content-end mt-4">
-                                    <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
-                                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
-                                        </svg>เปิดดู : <span><?= $activity->activity_view; ?></span>
-                                    </a>
-                                </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="font-12 underline d-flex justify-content-end mt-4">
+                                <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                    </svg>เปิดดู : <span><?= $activity->activity_view; ?></span>
+                                </a>
                             </div>
                         </div>
-
                     </div>
-                <?php } ?>
-            </div>
+
+                </div>
+            <?php } ?>
+        </div>
         <div class="d-flex justify-content-center underline" style="margin-top: 80px;">
             <a href="<?php echo site_url('pages/activity'); ?>">
                 <div class="button-actifity-all">
@@ -933,9 +933,219 @@
 
 <div class="bg-service">
     <div class="crop">
-        <div class="d-flex justify-content-center" style="padding-top: 3%;">
-            <div class="service-cartoon">
+        <div class="" style="margin-left: 500px; padding-top: 2%;">
+            <div class="service-cartoon d-flex justify-content-center" style="padding: 40px 0px 0px 130px;">
+                <span class="font-header-service">One Stop e-Service</span>
+            </div>
+        </div>
+        <div class="service-content underline">
+            <div class="row">
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/adding_complain'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 30px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">แจ้งเรื่อง ร้องเรียน</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/adding_corruption'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 50px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">แจ้งเรื่องทุจริต</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/adding_suggestions'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 30px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">รับฟังความคิดเห็น</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/q_a'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 40px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">กระทู้ ถาม-ตอบ</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/adding_esv_ods'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 25px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">ยื่นเอกสารออนไลน์</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>">
+                        <div class="service-box" style="padding: 50px 0px 0px 25px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
+                            <span class="font-service">แบบฟอร์ม e-Book</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="bg-qa">
+                        <div class="" style="padding-top: 40px; margin-left: 340px;">
+                            <span class="font-header-qa">กระดานสนทนา กระทู้ถาม-ตอบ</span>
+                        </div>
+                        <?php foreach ($qQ_a as $rs) { ?>
+                            <div class="bt-content-qa-list">
+                                <div class="bg-content-qa-list mt-2">
+                                    <a href="<?php echo site_url('Pages/q_a_chat/' . $rs->q_a_id); ?>">
+                                        <div class="row">
+                                            <div class="col-9 one-line-ellipsis" style="padding-top: 7px;">
+                                                <span class="font-qa-list-content ">
+                                                    <?= $rs->q_a_msg; ?>
+                                                </span>
+                                            </div>
+                                            <div class="col-3 one-line-ellipsis" style="padding-top: 8px;">
+                                                <span class="font-qa-list-content-name">ผู้ตั้งกระทู้ :
+                                                    <?= $rs->q_a_by; ?>y
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <div class="d-flex justify-content-end" style="padding-top: 80px; margin-right: 115px;">
+                            <div class="mx-4">
+                                <a href="<?php echo site_url('pages/q_a'); ?>">
+                                    <div class="bt-qa-all" style="padding: 7px">
+                                        <span class="font-bt-qa">ดูทั้งหมด</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="<?php echo site_url('pages/addding_q_a'); ?>">
+                                <div class="bt-qa-add" style="padding: 7px">
+                                    <span class="font-bt-qa">เพิ่มกระทู้</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="bg-facebook">
+                        <div class="mar-fb">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100068445171570&tabs=timeline&width=331&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="292" height="468" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg-view">
+                        <div class="head-view text-center ">
+                            <span class="font-view">จำนวนผู้เข้าชมเว็บไซต์</span>
+                        </div>
+                        <div class="content-view">
+                            <div class="mypiechart text-center mt-4">
+                                <canvas id="myCanvas" width="84px" height="83px"></canvas>
+                            </div>
+                            <div class="row" style="margin-top: -5px;">
+                                <div class="col-6">
+                                    <div class="card-view" style="margin-left: 55px;" id="card1"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                            <path d="M1.38084 17.2849C1.38084 17.2849 0 17.2849 0 15.9041C0 14.5232 1.38084 10.3807 8.28502 10.3807C15.1892 10.3807 16.57 14.5232 16.57 15.9041C16.57 17.2849 15.1892 17.2849 15.1892 17.2849H1.38084ZM8.28502 8.99987C9.38369 8.99987 10.4374 8.56343 11.2142 7.78655C11.9911 7.00968 12.4275 5.95602 12.4275 4.85736C12.4275 3.75869 11.9911 2.70503 11.2142 1.92816C10.4374 1.15129 9.38369 0.714844 8.28502 0.714844C7.18636 0.714844 6.1327 1.15129 5.35583 1.92816C4.57895 2.70503 4.14251 3.75869 4.14251 4.85736C4.14251 5.95602 4.57895 7.00968 5.35583 7.78655C6.1327 8.56343 7.18636 8.99987 8.28502 8.99987Z" fill="#73AF49" />
+                                        </svg></i><span style="padding: 3%;">ออนไลน์</span><span style="padding-left: 15px;"><?php echo $onlineUsersCount; ?>&nbsp;&nbsp;&nbsp;คน</span>
+                                    </div>
+                                    <div class="card-view" style="margin-left: 55px;" id="card1"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                            <path d="M1.38084 17.2849C1.38084 17.2849 0 17.2849 0 15.9041C0 14.5232 1.38084 10.3807 8.28502 10.3807C15.1892 10.3807 16.57 14.5232 16.57 15.9041C16.57 17.2849 15.1892 17.2849 15.1892 17.2849H1.38084ZM8.28502 8.99987C9.38369 8.99987 10.4374 8.56343 11.2142 7.78655C11.9911 7.00968 12.4275 5.95602 12.4275 4.85736C12.4275 3.75869 11.9911 2.70503 11.2142 1.92816C10.4374 1.15129 9.38369 0.714844 8.28502 0.714844C7.18636 0.714844 6.1327 1.15129 5.35583 1.92816C4.57895 2.70503 4.14251 3.75869 4.14251 4.85736C4.14251 5.95602 4.57895 7.00968 5.35583 7.78655C6.1327 8.56343 7.18636 8.99987 8.28502 8.99987Z" fill="#3CB5F2" />
+                                        </svg></i><span style="padding: 2%;">อาทิตย์นี้</span> <span style="padding-left: 5px;">
+                                            <?php if (!empty($onlineUsersWeek)) : ?>
+                                                <?php echo $onlineUsersWeek[0]->user_count; ?>
+                                            <?php else : ?>
+                                                0
+                                            <?php endif; ?>
+                                            &nbsp;คน
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-view" style="margin-left: -10px;" id="card1"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                            <path d="M1.38084 17.2849C1.38084 17.2849 0 17.2849 0 15.9041C0 14.5232 1.38084 10.3807 8.28502 10.3807C15.1892 10.3807 16.57 14.5232 16.57 15.9041C16.57 17.2849 15.1892 17.2849 15.1892 17.2849H1.38084ZM8.28502 8.99987C9.38369 8.99987 10.4374 8.56343 11.2142 7.78655C11.9911 7.00968 12.4275 5.95602 12.4275 4.85736C12.4275 3.75869 11.9911 2.70503 11.2142 1.92816C10.4374 1.15129 9.38369 0.714844 8.28502 0.714844C7.18636 0.714844 6.1327 1.15129 5.35583 1.92816C4.57895 2.70503 4.14251 3.75869 4.14251 4.85736C4.14251 5.95602 4.57895 7.00968 5.35583 7.78655C6.1327 8.56343 7.18636 8.99987 8.28502 8.99987Z" fill="#F29026" />
+                                        </svg></i><span style="padding: 1%;">วันนี้</span><span style="padding-left: 38px;"><?php echo $onlineUsersDay; ?>&nbsp;&nbsp;&nbsp;&nbsp;คน</span>
+                                    </div>
+                                    <div class="card-view" style="margin-left: -10px;" id="card1"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                            <path d="M1.38084 17.2849C1.38084 17.2849 0 17.2849 0 15.9041C0 14.5232 1.38084 10.3807 8.28502 10.3807C15.1892 10.3807 16.57 14.5232 16.57 15.9041C16.57 17.2849 15.1892 17.2849 15.1892 17.2849H1.38084ZM8.28502 8.99987C9.38369 8.99987 10.4374 8.56343 11.2142 7.78655C11.9911 7.00968 12.4275 5.95602 12.4275 4.85736C12.4275 3.75869 11.9911 2.70503 11.2142 1.92816C10.4374 1.15129 9.38369 0.714844 8.28502 0.714844C7.18636 0.714844 6.1327 1.15129 5.35583 1.92816C4.57895 2.70503 4.14251 3.75869 4.14251 4.85736C4.14251 5.95602 4.57895 7.00968 5.35583 7.78655C6.1327 8.56343 7.18636 8.99987 8.28502 8.99987Z" fill="#FF6652" />
+                                        </svg></i><span style="padding: 1%;">เดือนนี้</span> <span style="padding-left: 15px;"><?php echo $onlineUsersMonth; ?>&nbsp;&nbsp;&nbsp;&nbsp;คน</span>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-vote">
+                        <div class="head-like text-center ">
+                            <span class="font-like">แบบสอบถามความพึงพอใจ</span>
+                        </div>
+                        <div class="content-like">
+                            <div class="row">
+                                <div class="col-6" style="margin-top: -30px;">
+                                    <form action="<?php echo site_url('home/addLike'); ?>" id="reCAPTCHA3" method="post">
+                                        <div class="form-check">
+                                            <input class="form-check-input border-like" type="radio" value="ดีมาก" id="flexCheckDefault1" name="like_name" onclick="toggleCheckbox('flexCheckDefault1')" />
+                                            <label class="form-check-label font-like-label" for="ดีมาก">ดีมาก</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input border-like" type="radio" value="ดี" id="flexCheckDefault2" name="like_name" onclick="toggleCheckbox('flexCheckDefault2')" />
+                                            <label class="form-check-label font-like-label" for="ดี">ดี</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input border-like" type="radio" value="พอใช้" id="flexCheckDefault3" name="like_name" onclick="toggleCheckbox('flexCheckDefault3')" />
+                                            <label class="form-check-label font-like-label" for="ปานกลาง">ปานกลาง</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input border-like" type="radio" value="พอใช้" id="flexCheckDefault4" name="like_name" onclick="toggleCheckbox('flexCheckDefault4')" />
+                                            <label class="form-check-label font-like-label" for="พอใช้">พอใช้</label>
+                                        </div>
+                                        <!-- <button style="display: none;" type="button" class="btn"><img src="docs/s.btn-sent.png"></button> -->
+                                        <div id="submitSection">
+                                            <!-- <div class="g-recaptcha" data-sitekey="6LcKoPcnAAAAAKGgUMRtkBs6chDKzC8XOoVnaZg_" data-callback="enableSubmit"></div> -->
+                                            <div class="form-group row mt-3">
+                                                <div class="col-3">
+                                                </div>
+                                                <div class="col-9">
+                                                    <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><img src="docs/vote-sent.png"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-6" style="margin-left: -10%; margin-top: -30px;">
+                                    <div class="content-like-detail" style="display: none;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $countExcellent; ?>%;" aria-valuenow="<?= $countExcellent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span style="font-size: 16px;">&nbsp;<?= $countExcellent; ?></span>
+                                        </div>
+                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                            <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $countGood; ?>%;" aria-valuenow="<?= $countGood; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span style="font-size: 16px;">&nbsp;<?= $countGood; ?></span>
+                                        </div>
+                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                            <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $countAverage; ?>%;" aria-valuenow="<?= $countAverage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span style="font-size: 16px;">&nbsp;<?= $countAverage; ?></span>
+                                        </div>
+                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                            <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $countOkay; ?>%;" aria-valuenow="<?= $countOkay; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span style="font-size: 16px;">&nbsp;<?= $countOkay; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: -55px; margin-left: 170px;">
+                                    <a class="btn" onclick="showContentLikeDetail()"><img src="docs/vote-view.png"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -970,7 +1180,14 @@
             <div class="custom-button-next">
                 <img src="docs/s.next-travel.png" alt="Next">
             </div>
+
+        </div>
+        <div class="text-center" style="margin-top: -200px; margin-left: -40px">
+            <span class="font-link">องค์การบริหารส่วนตำบลสว่าง เลขที่ 232 หมู่ 4 ตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด 45110<br>
+                โทร 0-4303-9711 E-mail : saraban101@sawang.go.th</span>
+        </div>
+        <div class="link-footer">
+            <span class="font-footer2 underline">สงวนลิขสิทธิ์ 2567 โดย <a href="https://www.assystem.co.th/" target="_blank">บริษัท เอเอส ซิสเต็ม จำกัด</a> โทร 084-393-5580 </span>
         </div>
     </div>
-
 </div>

@@ -98,7 +98,7 @@
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1; */
 
-        background-image: url('<?php echo base_url("docs/s.bg-nav-content-3.jpg"); ?>');
+        background-image: url('<?php echo base_url("docs/bg-nav-content3.png"); ?>');
         background-repeat: no-repeat;
         background-size: 100%;
         display: none;
@@ -107,6 +107,7 @@
         height: 584px;
         z-index: 2;
         left: 0;
+        margin-top: -10px;
     }
 
     .dropdown-content a {
@@ -118,7 +119,7 @@
     }
 
     .dropdown-content a:hover {
-        background-color: #f1f1f1;
+        /* background-color: #f1f1f1; */
     }
 
     .dropdown:hover .dropdown-content {
@@ -134,6 +135,7 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+        z-index: 1;
     }
 
     .font-head-navbar-letf-logo2 {
@@ -243,71 +245,157 @@
 </style>
 <nav class="navbar navbar2 navbar-expand-lg navbar-dark navbar-center sticky-top" id="navbar2">
     <ul>
-        <li style="margin-left: 15px;"><a href="#">หน้าหลัก</a></li>
+        <li style="margin-left: 55px;"><a href="#">หน้าหลัก</a></li>
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <ul class="no-bullets mt-2" style="margin-left: 400px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/history'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ประวัติความเป็นมา</span></a></a>
+                        <a href="<?php echo site_url('Pages/gci'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ข้อมูลสภาพทั่วไป</span></a></a>
+                        <a href="<?php echo site_url('Pages/vision'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;วิสัยทัศน์และพันธกิจ</span></a></a>
+                        <a href="<?php echo site_url('Pages/authority'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;อำนาจหน้าที่</span></a></a>
+                        <a href="<?php echo site_url('Pages/mission'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ภารกิจและความรับผิดชอบ</span></a></a>
+                        <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
+
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/ci'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ข้อมูลชุมชน</span></a></a>
+                        <a href="<?php echo site_url('Pages/travel'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
+                        <a href="<?php echo site_url('Pages/otop'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน/สินค้า OTOP</span></a></a>
+                        <a href="<?php echo site_url('Pages/si'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">โครงสร้างบุคลากร</a>
             <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
+                <ul class="no-bullets mt-2" style="margin-left: 400px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">บริการประชาชน</a>
             <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
+                <ul class="no-bullets mt-2" style="margin-left: 400px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">แผนงาน</a>
             <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
+                <ul class="no-bullets mt-2" style="margin-left: 400px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/plan_pdl'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาท้องถิ่น</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_pc3y'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนอัตรากำลัง 3 ปี</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_pds3y'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากร 3 ปี</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_pdpa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากรประจำปี</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_dpy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการบริหารและพัฒนาทรัพยากรบุคคล ประจำปี</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_poa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการดำเนินงานประจำปี</span></a></a>
+
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/plan_pcra'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการจัดเก็บรายได้ประจำปี</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_pop'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนปฏิบัติการจัดซื้อจัดจ้าง</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_paca'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนปฏิบัติการป้องกันการทุจริต</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_psi'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนแม่บทสารสนเทศ</span></a></a>
+                        <a href="<?php echo site_url('Pages/plan_pmda'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนป้องกันและบรรเทาสาธารณภัยประจำปี</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">การดำเนินงาน</a>
             <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
+                <ul class="no-bullets mt-2" style="margin-left: 200px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/operation_reauf'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานติดตามและประเมินผลแผน</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_aca'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การปฏิบัติการป้องกันการทุจริต</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_mcc'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การจัดการเรื่องร้องเรียนการทุจริต</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_sap'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การปฏิบัติงานและการให้บริการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_pgn'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายไม่รับของขวัญ no gift policy</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_po'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การเปิดโอกาสให้มีส่วนร่วม</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_eco_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การเสริมสร้างวัฒนธรรมองค์กร</span></a></a>
+
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ITA การประเมินคุณธรรมและความโปร่งใส</span></a></a>
+                        <a href="<?php echo site_url('Pages/lpa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;LPA การประเมินประสิทธิภาพขององค์กร</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
+                    </div>
+                    <div class="dropdown-right">
+                        <a href="<?php echo site_url('Pages/operation_aa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กิจการสภา</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
+                        <a href="<?php echo site_url('Pages/operation_aditn'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบภายใน</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
+                        <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
+
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">มาตรการภายใน</a>
             <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
+                <ul class="no-bullets mt-2" style="margin-left: 400px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/order'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คำสั่ง</span></a></a>
+                        <a href="<?php echo site_url('Pages/announce'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ประกาศ</span></a></a>
+                        <a href="<?php echo site_url('Pages/mui'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;มาตรการภายใน</span></a></a>
+                        <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
+                        <a href="<?php echo site_url('Pages/km'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
+                        <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                    </div>
+                </ul>
             </div>
         </li>
-        <li class="dropdown" style="margin-left: 15px;">
-            <a href="javascript:void(0)" class="dropbtn">ผังเว็บไซต์</a>
-            <div class="dropdown-content">
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
-            </div>
-        </li>
-        <li class="dropdown" style="margin-left: 15px;">
+
+        <li style="margin-left: 15px;"><a href="<?php echo site_url('Pages/all_web'); ?>">ผังเว็บไซต์</a></li>
+
+
+        <li style="margin-left: 15px;"><a href="<?php echo site_url('Home/login'); ?>">เข้าสู่ระบบ</a></li>
+
+        <!-- <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">เข้าสู่ระบบ</a>
             <div class="dropdown-content">
                 <a href="#">Link 4</a>
                 <a href="#">Link 5</a>
                 <a href="#">Link 6</a>
             </div>
-        </li>
+        </li> -->
     </ul>
 </nav>
 
@@ -360,10 +448,10 @@
     }
 </script>
 <div class="d-flex justify-content-start">
-    <div style="position: absolute; margin: 25px 25px; z-index: 2;">
+    <div style="position: absolute; margin: 25px 25px; z-index: 3;">
         <div class="row">
             <div class="col-5">
-                <img src="docs/s.logo-navbar.png">
+                <img src="docs/logo2.png">
             </div>
             <div class="col-7">
                 <span class="font-head-navbar-letf-logo1">อบต. สว่าง</span><br>
@@ -381,67 +469,141 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 400px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/history'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ประวัติความเป็นมา</span></a></a>
+                            <a href="<?php echo site_url('Pages/gci'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ข้อมูลสภาพทั่วไป</span></a></a>
+                            <a href="<?php echo site_url('Pages/vision'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;วิสัยทัศน์และพันธกิจ</span></a></a>
+                            <a href="<?php echo site_url('Pages/authority'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;อำนาจหน้าที่</span></a></a>
+                            <a href="<?php echo site_url('Pages/mission'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ภารกิจและความรับผิดชอบ</span></a></a>
+                            <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
+
+                        </div>
+                        <div class="dropdown-center">
+                            <a href="<?php echo site_url('Pages/ci'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ข้อมูลชุมชน</span></a></a>
+                            <a href="<?php echo site_url('Pages/travel'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
+                            <a href="<?php echo site_url('Pages/otop'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน/สินค้า OTOP</span></a></a>
+                            <a href="<?php echo site_url('Pages/si'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">โครงสร้าง</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 400px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+
+                        </div>
+                        <div class="dropdown-center">
+                            <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">บริการ</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 400px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+
+                        </div>
+                        <div class="dropdown-center">
+                            <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">แผนงาน</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 400px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/plan_pdl'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาท้องถิ่น</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_pc3y'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนอัตรากำลัง 3 ปี</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_pds3y'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากร 3 ปี</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_pdpa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากรประจำปี</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_dpy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการบริหารและพัฒนาทรัพยากรบุคคล ประจำปี</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_poa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการดำเนินงานประจำปี</span></a></a>
+
+                        </div>
+                        <div class="dropdown-center">
+                            <a href="<?php echo site_url('Pages/plan_pcra'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนการจัดเก็บรายได้ประจำปี</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_pop'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนปฏิบัติการจัดซื้อจัดจ้าง</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_paca'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนปฏิบัติการป้องกันการทุจริต</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_psi'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนแม่บทสารสนเทศ</span></a></a>
+                            <a href="<?php echo site_url('Pages/plan_pmda'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนป้องกันและบรรเทาสาธารณภัยประจำปี</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">การดำเนินงาน</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 200px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/operation_reauf'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานติดตามและประเมินผลแผน</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_aca'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การปฏิบัติการป้องกันการทุจริต</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_mcc'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การจัดการเรื่องร้องเรียนการทุจริต</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_sap'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การปฏิบัติงานและการให้บริการ</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_pgn'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายไม่รับของขวัญ no gift policy</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_po'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การเปิดโอกาสให้มีส่วนร่วม</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_eco_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การเสริมสร้างวัฒนธรรมองค์กร</span></a></a>
+
+                        </div>
+                        <div class="dropdown-center">
+                            <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ITA การประเมินคุณธรรมและความโปร่งใส</span></a></a>
+                            <a href="<?php echo site_url('Pages/lpa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;LPA การประเมินประสิทธิภาพขององค์กร</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
+                        </div>
+                        <div class="dropdown-right">
+                            <a href="<?php echo site_url('Pages/operation_aa'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กิจการสภา</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
+                            <a href="<?php echo site_url('Pages/operation_aditn'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบภายใน</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
+                            <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">มาตรการภายใน</a>
                 <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
+                    <ul class="no-bullets mt-2" style="margin-left: 400px">
+                        <div class="dropdown-left">
+                            <a href="<?php echo site_url('Pages/order'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คำสั่ง</span></a></a>
+                            <a href="<?php echo site_url('Pages/announce'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ประกาศ</span></a></a>
+                            <a href="<?php echo site_url('Pages/mui'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;มาตรการภายใน</span></a></a>
+                            <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
+                            <a href="<?php echo site_url('Pages/km'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
+                            <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                        </div>
+                    </ul>
                 </div>
             </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">ผังเว็บไซต์</a>
-                <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">เข้าสู่ระบบ</a>
-                <div class="dropdown-content">
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                </div>
-            </li>
+            <li style="margin-left: 15px;"><a href="<?php echo site_url('Pages/all_web'); ?>">ผังเว็บไซต์</a></li>
+            <li style="margin-left: 15px;"><a href="<?php echo site_url('Home/login'); ?>">เข้าสู่ระบบ</a></li>
+
         </ul>
         <div class="search">
             <a href="#" id="searchShow" onclick="toggleSearch()">
