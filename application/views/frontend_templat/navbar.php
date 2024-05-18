@@ -106,8 +106,14 @@
         width: 1920px;
         height: 584px;
         z-index: 2;
-        left: 0;
+        left: 50%;
+        /* ย้าย dropdown ไปที่กึ่งกลางตามแนวนอน */
+        top: 380px;
+        /* ย้าย dropdown ไปที่กึ่งกลางตามแนวตั้ง */
+        transform: translate(-50%, -50%);
+        /* แก้ไขตำแหน่งให้เป็นตรงกลาง */
         margin-top: -10px;
+        /* ทำการปรับขึ้นให้ลงมา 10px */
     }
 
     .dropdown-content a {
@@ -241,6 +247,28 @@
         position: absolute;
         margin-left: -33px;
         margin-top: -18px;
+    }
+
+    ul.no-bullets {
+        list-style-type: none;
+        /* ลบ bullet points */
+        padding: 0;
+        /* ลบ padding ของ ul */
+        margin: 0;
+        /* ลบ margin ของ ul */
+    }
+
+    ul.no-bullets a {
+        display: block;
+        /* ทำให้ลิงก์เป็นบล็อก */
+        padding: 5px 0;
+        /* กำหนด padding ตามต้องการ */
+        margin: 0;
+        /* ลบ margin ของลิงก์ */
+        text-decoration: none;
+        /* ลบขีดเส้นใต้ของลิงก์ */
+        color: inherit;
+        /* ทำให้สีของลิงก์สืบทอดจากพ่อแม่ */
     }
 </style>
 <nav class="navbar navbar2 navbar-expand-lg navbar-dark navbar-center sticky-top" id="navbar2">
@@ -605,14 +633,14 @@
             <li style="margin-left: 15px;"><a href="<?php echo site_url('Home/login'); ?>">เข้าสู่ระบบ</a></li>
 
         </ul>
-        <div class="search">
+        <!-- <div class="search">
             <a href="#" id="searchShow" onclick="toggleSearch()">
                 <img id="searchImage" src="<?php echo base_url("docs/search.png"); ?>" style="position: absolute; top: 10%; left: 84%;" onmouseover="changeImage('<?php echo base_url('docs/search-hover.png'); ?>')" onmouseout="restoreImage('<?php echo base_url('docs/search.png'); ?>')">
             </a>
             <div id="searchContainer" style="display: none;">
                 <div class="gcse-search"></div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
