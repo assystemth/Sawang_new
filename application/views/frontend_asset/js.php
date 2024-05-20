@@ -33,6 +33,27 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+     // active  ********************************************************************************
+     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
+        var header = document.getElementById(containerId);
+        var btns = header.getElementsByClassName(buttonClassName);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var currentActive = header.querySelector("." + buttonClassName + "." + activeClassName);
+                if (currentActive) {
+                    currentActive.classList.remove(activeClassName);
+                }
+                this.classList.add(activeClassName);
+            });
+        }
+    }
+
+    // เรียกใช้ฟังก์ชันสำหรับทั้ง 2 กรณี
+    addClickListenerToButtons("myDIV", "public-button", "active-public");
+    addClickListenerToButtons("myDIV2", "new-button", "active-new");
+
+    // *****************************************************************************************
+
     // รูปภาพ preview *********************************************************************
     $(document).ready(function() {
         lightbox.option({
