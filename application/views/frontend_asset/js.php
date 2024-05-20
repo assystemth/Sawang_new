@@ -135,8 +135,8 @@
             autoplay: true,
             autoplaySpeed: 5000,
             arrows: true,
-            prevArrow: '<img src="docs/s.previous-travel.png" class="slick-prev">',
-            nextArrow: '<img src="docs/s.next-travel.png" class="slick-next">',
+            prevArrow: '<img src="docs/s.pre-home.png" class="slick-prev">',
+            nextArrow: '<img src="docs/s.next-home.png" class="slick-next">',
         });
     });
     // ****************************************************************************

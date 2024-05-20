@@ -98,22 +98,20 @@
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1; */
 
-        background-image: url('<?php echo base_url("docs/bg-nav-content3.png"); ?>');
+        background-image: url('<?php echo base_url("docs/bg-nav-content4.png"); ?>');
         background-repeat: no-repeat;
         background-size: 100%;
         display: none;
         position: fixed;
         width: 1920px;
-        height: 584px;
+        height: 480px;
         z-index: 2;
         left: 50%;
         /* ย้าย dropdown ไปที่กึ่งกลางตามแนวนอน */
-        top: 380px;
+        top: 260px;
         /* ย้าย dropdown ไปที่กึ่งกลางตามแนวตั้ง */
         transform: translate(-50%, -50%);
         /* แก้ไขตำแหน่งให้เป็นตรงกลาง */
-        margin-top: -10px;
-        /* ทำการปรับขึ้นให้ลงมา 10px */
     }
 
     .dropdown-content a {

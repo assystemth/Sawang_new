@@ -75,9 +75,36 @@
                         <img src="docs/weather_icon.png" alt="">
                     </div>
                     <div class="col-11 font-text-run" style="margin-top: 5px;">
-                        <marquee direction="left"> รายงานสภาวะอากาศ - ร้อยเอ็ด : อ.เมือง จ.ร้อยเอ็ด วันที่ : 27/04/2024 เวลา
-                            16:00 นาฬิกา อุณหภูมิ : 42.5 องศาเซลเซียส ความชื้นสัมพัทธ์ : 24 % ความกดอากาศ : 1000.10
-                            มิลลิบาร์ </marquee>
+                        <marquee direction="left">
+                            <?php echo $weather_data['channel']['item']['title']; ?>
+                            <?php
+                            if (!empty($weather_data)) {
+
+                                // ข้อความที่ต้องการจะลบ tag <br> ออก
+                                $description = $weather_data['channel']['item']['description'];
+
+                                // ใช้ str_replace() เพื่อแทนที่ tag <br> ด้วยช่องว่าง
+                                $description_without_br = str_replace('<br/>', ' ', $description);
+                                // หรือใช้สตริงว่างเพื่อลบออก
+                                // $description_without_br = str_replace('<br/>', '', $description);
+
+                                // แสดงข้อความที่ได้หลังจากลบ tag <br> ออกแล้ว
+                                echo $description_without_br;
+                            } else {
+                                echo "ไม่สามารถโหลดข้อมูลสภาพอากาศได้ในขณะนี้";
+                            }
+                            ?>
+                        </marquee>
+
+                        <!-- <?php if (!empty($weather_data)) : ?>
+                            <h2>รายงานสภาพอากาศ</h2>
+                            <h3><?php echo $weather_data['channel']['title']; ?></h3>
+                            <p><?php echo $weather_data['channel']['description']; ?></p>
+                            <p><?php echo $weather_data['channel']['item']['title']; ?></p>
+                            <div><?php echo $weather_data['channel']['item']['description']; ?></div>
+                        <?php else : ?>
+                            <p>ไม่สามารถโหลดข้อมูลสภาพอากาศได้ในขณะนี้</p>
+                        <?php endif; ?> -->
                     </div>
                 </div>
             </div>
@@ -858,12 +885,12 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-3" style="padding-top: 0;">
+                    <div class="col-3">
                         <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
                             <img src="docs\s.item-otop2.png">
                         </a>
                     </div>
-                    <div class="col-3" style="padding-top: 40px;">
+                    <div class="col-3">
                         <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
                             <img src="docs\s.item-otop3.png">
                         </a>
@@ -881,47 +908,31 @@
                 <span class="font-header-otop d-flex justify-content-center">สถานที่ท่องเที่ยว</span>
             </div>
         </div>
-        <div class="travel-content" style="margin-left: 300px;">
+        <div class="travel-content">
             <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;">
-                <?php foreach ($qTravel as $travel) { ?>
+                <?php
+                $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
+                $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
+                $i = 0;
+                foreach ($qTravel as $travel) {
+                    $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                    $class_text = $bg_classes_text[$i % 4]; // หมุนเวียนคลาสสำหรับข้อความ
+                ?>
                     <div class="text-center">
                         <a href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
-                            <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
+                            <div class="image-with-background <?php echo $class_img; ?>">
+                                <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
+                            </div>
                         </a>
                         <br>
-                        <div class="d-flex justify-content-center">
-                            <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
-                                <?php
-                                $imageName = '';
-                                switch ($travel->travel_id) {
-                                    case 1:
-                                        $imageName = 's.text-travel1.png';
-                                        break;
-                                    case 2:
-                                        $imageName = 's.text-travel2.png';
-                                        break;
-                                    case 3:
-                                        $imageName = 's.text-travel3.png';
-                                        break;
-                                    case 4:
-                                        $imageName = 's.text-travel4.png';
-                                        break;
-                                    case 5:
-                                        $imageName = 's.text-travel5.png';
-                                        break;
-                                    case 6:
-                                        $imageName = 's.text-travel6.png';
-                                        break;
-                                    default:
-                                        $imageName = 'default.jpg';
-                                        break;
-                                }
-                                ?>
-                                <img src="<?php echo base_url('docs/' . $imageName); ?>" alt="Image for ID <?php echo $travel->travel_id; ?>">
-                            </a>
-                        </div>
+                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                            <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
+                        </a>
                     </div>
-                <?php } ?>
+                <?php
+                    $i++;
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -1028,7 +1039,7 @@
                 <div class="col-3">
                     <div class="bg-facebook">
                         <div class="mar-fb">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100068445171570&tabs=timeline&width=331&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="292" height="468" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100068445171570&tabs=timeline&width=292&height=468&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="292" height="468" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1186,8 +1197,11 @@
             <span class="font-link">องค์การบริหารส่วนตำบลสว่าง เลขที่ 232 หมู่ 4 ตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด 45110<br>
                 โทร 0-4303-9711 E-mail : saraban101@sawang.go.th</span>
         </div>
-        <div class="link-footer">
-            <span class="font-footer2 underline">สงวนลิขสิทธิ์ 2567 โดย <a href="https://www.assystem.co.th/" target="_blank">บริษัท เอเอส ซิสเต็ม จำกัด</a> โทร 084-393-5580 </span>
-        </div>
+        <!-- <div class="link-footer">
+            <span class="font-footer2 underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c.961 0 1.641.633 1.729 1.512h1.295v-.088c-.094-1.518-1.348-2.572-3.03-2.572-2.068 0-3.269 1.377-3.269 3.638v1.073c0 2.267 1.178 3.603 3.27 3.603 1.675 0 2.93-1.02 3.029-2.467v-.093H9.875c-.088.832-.75 1.418-1.729 1.418-1.224 0-1.927-.891-1.927-2.461v-1.06c0-1.583.715-2.503 1.927-2.503" />
+                </svg> สงวนลิขสิทธิ์ 2567 โดย <a href="https://www.assystem.co.th/" target="_blank" style="font-weight: 1000;">บริษัท เอเอส ซิสเต็ม จำกัด</a> โทร <b style="font-weight: 1000;">084-393-5580</b> </span>
+        </div> -->
     </div>
 </div>

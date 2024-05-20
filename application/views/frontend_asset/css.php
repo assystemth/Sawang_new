@@ -1153,7 +1153,7 @@
     /* เพิ่มการเปลี่ยนแปลงด้วยการใช้ transition */
   }
 
-  .bg-travel {
+  /* .bg-travel {
     background-image: url('<?php echo base_url("docs/bg-travel.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -1162,43 +1162,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
   .travel-content {
-    max-width: 1050px;
+    max-width: 1360px;
     margin-top: 140px;
-    /* ปรับตามความต้องการ */
+    margin-left: 230px;
   }
 
   .slick-prev,
   .slick-next {
     position: absolute;
-    top: 48%;
+    top: 42%;
     transform: translateY(-50%);
     z-index: 1;
-    /* ตั้งค่า z-index เพื่อให้ปุ่มอยู่ข้างบนของเนื้อหา */
     cursor: pointer;
   }
 
   .slick-prev {
-    left: -60px;
-    /* ปรับระยะห่างด้านซ้าย */
+    left: -140px;
   }
 
+  /* .slick-prev:hover {
+    left: -140px;
+    background-image: url('<?php echo base_url("docs/otop_travel_box.png"); ?>');
+    width: 100%;
+  } */
+
   .slick-next {
-    right: -85px;
-    /* ปรับระยะห่างด้านขวา */
+    right: -50px;
   }
 
   .slick-carousel {
     margin: 20px 0;
-    /* ปรับระยะห่างด้านบนและด้านล่างของเนื้อหา */
   }
 
-  .slick-carousel img {
+  /* .slick-carousel img {
     margin-right: 50px;
-    /* ระยะห่างระหว่างรูปภาพ */
-  }
+  } */
 
   .text-travel {
     color: #FFE072;
@@ -1211,11 +1212,107 @@
     margin-left: -20px;
   }
 
-
+  .image-with-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .image-with-shadow-travel {
-    border-radius: 24px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 239px;
+    height: 239px;
+  }
+
+  /* เพิ่มคลาสสำหรับพื้นหลัง */
+  .travel-background-1 {
+    background-image: url('<?php echo base_url("docs/bg-travel-name-1.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 261px;
+    height: 261px;
+  }
+
+  .travel-background-2 {
+    background-image: url('<?php echo base_url("docs/bg-travel-name-2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 261px;
+    height: 261px;
+  }
+
+  .travel-background-3 {
+    background-image: url('<?php echo base_url("docs/bg-travel-name-3.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 261px;
+    height: 261px;
+  }
+
+  .travel-background-4 {
+    background-image: url('<?php echo base_url("docs/bg-travel-name-4.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 261px;
+    height: 261px;
+  }
+
+  .font-name-travel {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 1.334px 1.334px 1.334px rgba(0, 0, 0, 0.25);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  /* สไตล์สำหรับพื้นหลังของชื่อสถานที่ท่องเที่ยว */
+  .travel-name-1 {
+    background-image: url('<?php echo base_url("docs/icon-travel-name-1.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 252px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px; */
+  }
+
+  .travel-name-2 {
+    background-image: url('<?php echo base_url("docs/icon-travel-name-2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 252px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .travel-name-3 {
+    background-image: url('<?php echo base_url("docs/icon-travel-name-3.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 252px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .travel-name-4 {
+    background-image: url('<?php echo base_url("docs/icon-travel-name-4.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 252px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .up-down {
@@ -1428,16 +1525,15 @@
 
 
   .footer {
-    background-image: url('<?php echo base_url("docs/s.bg-footer.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-footer1.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: center center;
-    min-height: 425px;
-    width: 1280px;
-    position: relative;
-    z-index: 2;
-    /* เพิ่มบรรทัดนี้ */
-    margin-top: -350px;
+    min-height: 75px;
+    width: 1920px;
+    position: absolute;
+    z-index: 1;
+    padding-top: 25px;
+    padding-left: 20%;
   }
 
   .credit {
@@ -3355,10 +3451,10 @@
   }
 
   .bg-link {
-    background-image: url('<?php echo base_url("docs/footer2.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-links.png"); ?>');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 1000px;
+    height: 925px;
     width: 1920px;
     margin: auto;
     /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
@@ -3486,14 +3582,17 @@
     /* ทำให้แน่ใจว่า service-box ใช้การจัดตำแหน่งสัมพัทธ์ */
     top: 50px;
     /* ขยับตำแหน่งลงมา 20px */
-    transition: background 0.3s ease, border-color 0.3s ease; /* เพิ่ม transition */
+    transition: background 0.3s ease, border-color 0.3s ease;
+    /* เพิ่ม transition */
   }
 
   .bg-content-qa-list:hover {
-    background: #F1F3F9; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    background: #F1F3F9;
+    /* เปลี่ยนสีพื้นหลังเมื่อ hover */
     background: rgba(255, 255, 230, 0.50);
-    border-color: #025A59; /* เปลี่ยนสีขอบเมื่อ hover */
-}
+    border-color: #025A59;
+    /* เปลี่ยนสีขอบเมื่อ hover */
+  }
 
   .bt-qa-all {
     background-image: url('<?php echo base_url("docs/qa-all.png"); ?>');
