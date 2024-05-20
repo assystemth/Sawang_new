@@ -34,7 +34,7 @@
 
 <script>
      // active  ********************************************************************************
-     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
+    function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
         var header = document.getElementById(containerId);
         var btns = header.getElementsByClassName(buttonClassName);
         for (var i = 0; i < btns.length; i++) {
