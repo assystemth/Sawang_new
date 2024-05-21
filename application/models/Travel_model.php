@@ -693,7 +693,7 @@ class Travel_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_travel');
         $this->db->where('tbl_travel.travel_status', 'show');
-        $this->db->limit(9);
+        // $this->db->limit(9);
         $query = $this->db->get();
         return $query->result();
     }

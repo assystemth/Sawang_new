@@ -2,7 +2,7 @@
 
 <footer class="footer">
     <div class="row">
-        <div class="col-8">
+        <div class="col-9">
             <div class="">
                 <span class="font-footer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle-fill" viewBox="0 0 16 16">
@@ -11,7 +11,7 @@
                 </span>
             </div>
         </div>
-        <div class="col-4 mt-1" >
+        <div class="col-3 mt-1" >
             <!-- Histats.com  (div with counter) -->
             <div id="histats_counter"></div>
             <!-- Histats.com  START  (aync)-->

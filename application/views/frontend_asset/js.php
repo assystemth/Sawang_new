@@ -13,8 +13,8 @@
 <!-- reCAPTCHA2  -->
 <script src="https://www.google.com/recaptcha/api.js?hl=th"></script>
 
-  <!-- reCAPTCHA 3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x"></script>
+<!-- reCAPTCHA 3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x"></script>
 
 <!-- chart พาย  -->
 <script src="<?= base_url('asset/'); ?>rpie.js"></script>
@@ -33,12 +33,57 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
-     // active  ********************************************************************************
+    // สุ่มวิกระพริบ และแสดงผล ข่าวจัดซื้อจัดจ้าง  ********************************************************************************
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function applyRandomAnimation(element) {
+        const randomLeft = getRandomInt(0, 1920);
+        const randomDuration = getRandomInt(4, 6);
+
+        element.style.left = `${randomLeft}px`;
+        element.style.animation = `fadeInOut ${randomDuration}s infinite`;
+    }
+
+    document.querySelectorAll('.star-news-animation-1, .star-news-animation-2, .star-news-animation-3, .star-news-animation-4, .star-news-animation-5, .star-news-animation-6, .star-news-animation-7, .star-news-animation-8, .star-news-animation-9, .star-news-animation-10, .star-news-animation-11, .star-news-animation-12, .star-news-animation-13, .star-news-animation-14, .star-news-animation-15').forEach(applyRandomAnimation);
+
+    // สุ่มวิกระพริบ และแสดงผล ข่าวประชาสัมพันธ์  ********************************************************************************
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomizeAnimationDuration() {
+        var minSeconds = 5; // วินาทีต่ำสุดที่ต้องการ
+        var maxSeconds = 15; // วินาทีสูงสุดที่ต้องการ
+        var randomSeconds = getRandomInt(minSeconds, maxSeconds);
+        return randomSeconds + 's';
+    }
+
+    function randomizePosition(element) {
+        var maxWidth = 1920; // กำหนดขนาดความกว้างสูงสุด 1920px
+        var maxHeight = 1000; // กำหนดขนาดความสูงสูงสุด 1000px
+
+        var randomMarginLeft = getRandomInt(0, maxWidth - element.width);
+        var randomMarginTop = getRandomInt(0, maxHeight - element.height);
+
+        element.style.marginLeft = randomMarginLeft + 'px';
+        element.style.marginTop = randomMarginTop + 'px';
+    }
+
+    var animations = document.querySelectorAll('.dot-news-animation-1, .dot-news-animation-2, .dot-news-animation-3, .dot-news-animation-4, .dot-news-animation-5, .dot-news-animation-6, .dot-news-animation-7, .dot-news-animation-8, .dot-news-animation-9, .dot-news-animation-10, .dot-news-animation-11, .dot-news-animation-12, .dot-news-animation-13');
+    animations.forEach(function(animation) {
+        animation.style.animationDuration = randomizeAnimationDuration();
+        randomizePosition(animation);
+    });
+    //   ********************************************************************************
+
+    // active  ********************************************************************************
     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
         var header = document.getElementById(containerId);
         var btns = header.getElementsByClassName(buttonClassName);
         for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
+            btns[i].addEventListener("click", function() {
                 var currentActive = header.querySelector("." + buttonClassName + "." + activeClassName);
                 if (currentActive) {
                     currentActive.classList.remove(activeClassName);
@@ -123,8 +168,8 @@
     // });
     // v3 ล่าสุด
     function onSubmit(token) {
-     document.getElementById("reCAPTCHA3").submit();
-   }
+        document.getElementById("reCAPTCHA3").submit();
+    }
     // ****************************************************************************
 
     // ตัวเลื่อนด้านล่างสุด หน้า home ******************************************************
@@ -135,8 +180,8 @@
             autoplay: true,
             autoplaySpeed: 5000,
             arrows: true,
-            prevArrow: '<img src="docs/s.pre-home.png" class="slick-prev">',
-            nextArrow: '<img src="docs/s.next-home.png" class="slick-next">',
+            prevArrow: '<img src="docs/s.pre-home2.png" class="slick-prev">',
+            nextArrow: '<img src="docs/s.next-home2.png" class="slick-next">',
         });
     });
     // ****************************************************************************

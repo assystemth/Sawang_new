@@ -76,7 +76,13 @@
                     </div>
                     <div class="col-11 font-text-run" style="margin-top: 5px;">
                         <marquee direction="left">
-                            <?php echo $weather_data['channel']['item']['title']; ?>
+                            <?php
+                            if (!empty($weather_data) && isset($weather_data['channel']['item']['title'])) {
+                                echo $weather_data['channel']['item']['title'];
+                            } else {
+                                echo "กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ";
+                            }
+                            ?>
                             <?php
                             if (!empty($weather_data)) {
 
@@ -91,7 +97,7 @@
                                 // แสดงข้อความที่ได้หลังจากลบ tag <br> ออกแล้ว
                                 echo $description_without_br;
                             } else {
-                                echo "ไม่สามารถโหลดข้อมูลสภาพอากาศได้ในขณะนี้";
+                                echo "";
                             }
                             ?>
                         </marquee>
@@ -328,6 +334,19 @@
 
 
 <div class="bg-public-news">
+    <img class="dot-news-animation-1" src="docs/lightv2.png" width="35" height="35">
+    <img class="dot-news-animation-2" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-3" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-4" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-5" src="docs/lightv2.png" width="35" height="35">
+    <img class="dot-news-animation-6" src="docs/lightv2.png" width="50" height="50">
+    <img class="dot-news-animation-7" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-8" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-9" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-10" src="docs/lightv2.png" width="50" height="50">
+    <img class="dot-news-animation-11" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-12" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-13" src="docs/lightv2.png" width="25" height="25">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%;">
             <span class="font-header-home">งานประชาสัมพันธ์</span>
@@ -520,6 +539,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div id="tabtwo4" class="tab-content-two">
                     <?php foreach ($qAnnounce as $gw) { ?>
                         <div class="content-news2-detail">
@@ -586,8 +606,25 @@
 </div>
 
 <div class="bg-public-news2">
+    <div class="container-star-news-animation">
+        <img class="star-news-animation-1" src="docs/animation-star-1.png">
+        <img class="star-news-animation-2" src="docs/animation-star-2.png">
+        <img class="star-news-animation-3" src="docs/animation-star-3.png">
+        <img class="star-news-animation-4" src="docs/animation-star-3.png">
+        <img class="star-news-animation-5" src="docs/animation-star-1.png">
+        <img class="star-news-animation-6" src="docs/animation-star-1.png">
+        <img class="star-news-animation-7" src="docs/animation-star-2.png">
+        <img class="star-news-animation-8" src="docs/animation-star-2.png">
+        <img class="star-news-animation-9" src="docs/animation-star-1.png">
+        <img class="star-news-animation-10" src="docs/animation-star-1.png">
+        <img class="star-news-animation-11" src="docs/animation-star-2.png">
+        <img class="star-news-animation-12" src="docs/animation-star-2.png">
+        <img class="star-news-animation-13" src="docs/animation-star-3.png">
+        <img class="star-news-animation-14" src="docs/animation-star-1.png">
+        <img class="star-news-animation-15" src="docs/animation-star-2.png">
+    </div>
     <div class="crop">
-        <div class="d-flex justify-content-center" style="padding-top: 3%;">
+        <div class="d-flex justify-content-center" style="padding-top: 3%; ">
             <span class="font-header-home">งานจัดซื้อจัดจ้าง</span>
         </div>
         <div id="myDIV2" class="underline" style="margin-top: 20px;">
@@ -865,8 +902,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="bg-otop">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
@@ -876,30 +911,32 @@
         </div>
         <div class="otop-content">
             <div class="text-center">
-                <div class="row">
-                    <div class="col-3" style="margin-top: -50px;">
-                        <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
-                            <img src="docs\s.item-otop1.png">
-                            <div>
-
+                <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;">
+                    <?php
+                    $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
+                    $i = 0;
+                    foreach ($qOtop as $otop) {
+                        $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                    ?>
+                        <div class="text-center">
+                            <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                <div class="image-with-background <?php echo $class_img; ?>">
+                                    <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
+                                </div>
+                            </a>
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <div style="z-index: 2px; margin-top: -80px; margin-left:-60px; position: absolute;">
+                                    <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                        <span class="font-name-otop"><?= $otop->otop_name; ?></span>
+                                    </a>
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
-                            <img src="docs\s.item-otop2.png">
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
-                            <img src="docs\s.item-otop3.png">
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="<?php echo site_url('pages/otop'); ?>" class="zoom-otop">
-                            <img src="docs\s.item-otop4.png">
-                        </a>
-                    </div>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -1186,10 +1223,10 @@
             <!-- <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div> -->
             <div class="custom-button-prev">
-                <img src="docs/s.previous-travel.png" alt="Prev">
+                <img src="docs/s.pre-home2.png" alt="Prev">
             </div>
             <div class="custom-button-next">
-                <img src="docs/s.next-travel.png" alt="Next">
+                <img src="docs/s.next-home2.png" alt="Next">
             </div>
 
         </div>

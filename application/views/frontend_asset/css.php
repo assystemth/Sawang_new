@@ -1021,6 +1021,8 @@
   .tab-container2 {
     display: flex;
     margin-left: 20px;
+    z-index: 5 !important;
+    position: relative;
   }
 
   .tab-link {
@@ -1137,7 +1139,69 @@
   } */
 
   .otop-content {
-    padding-top: 5%;
+    padding-top: 130px;
+    max-width: 1360px;
+    margin-left: 220px;
+  }
+
+
+  .image-with-shadow-otop {
+    border-radius: 50%;
+    width: 103px;
+    height: 128px;
+    margin-top: -40px;
+
+  }
+
+  /* เพิ่มคลาสสำหรับพื้นหลัง */
+  .otop-background-1 {
+    background-image: url('<?php echo base_url("docs/bg-otop-name-1.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 266px;
+    height: 230px;
+    z-index: 1;
+  }
+
+  .otop-background-2 {
+    background-image: url('<?php echo base_url("docs/bg-otop-name-2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 266px;
+    height: 230px;
+    z-index: 1;
+
+  }
+
+  .otop-background-3 {
+    background-image: url('<?php echo base_url("docs/bg-otop-name-3.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 266px;
+    height: 230px;
+    z-index: 1;
+
+  }
+
+  .otop-background-4 {
+    background-image: url('<?php echo base_url("docs/bg-otop-name-4.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 266px;
+    height: 230px;
+    z-index: 1;
+
+  }
+
+  .font-name-otop {
+    color: #fff;
+    text-align: center;
+    text-shadow: 1.334px 1.334px 1.334px rgba(0, 0, 0, 0.25);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    z-index: 5;
   }
 
   .otop-bg-yellow {
@@ -1183,14 +1247,22 @@
     left: -140px;
   }
 
-  /* .slick-prev:hover {
+  .slick-prev:hover {
     left: -140px;
-    background-image: url('<?php echo base_url("docs/otop_travel_box.png"); ?>');
-    width: 100%;
-  } */
+    background-image: url('<?php echo base_url("docs/s.pre-home-hover.png"); ?>');
+    width: 55px;
+    height: 76px;
+  }
 
   .slick-next {
     right: -50px;
+  }
+
+  .slick-next:hover {
+    right: -50px;
+    background-image: url('<?php echo base_url("docs/s.next-home-hover.png"); ?>');
+    width: 55px;
+    height: 76px;
   }
 
   .slick-carousel {
@@ -1457,7 +1529,7 @@
 
   .custom-button-prev {
     position: absolute;
-    left: -5px;
+    left: -1px;
     top: 25%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -1466,11 +1538,21 @@
 
   .custom-button-next {
     position: absolute;
-    right: -8px;
+    right: -1px;
     top: 25%;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 100;
+  }
+
+  .custom-button-prev:hover img {
+    content: url('docs/s.pre-home-hover.png');
+    /* เปลี่ยนเป็นรูปภาพใหม่เมื่อ hover */
+  }
+
+  .custom-button-next:hover img {
+    content: url('docs/s.next-home-hover.png');
+    /* เปลี่ยนเป็นรูปภาพใหม่เมื่อ hover */
   }
 
   /* เปลี่ยนสีของ "swiper-pagination" เมื่อเป็นสถานะ "active" เป็นสีเหลือง */
@@ -3398,7 +3480,6 @@
     margin: auto;
     /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
     /* margin-top: 200px; */
-
   }
 
   .bg-public-news {
@@ -3408,9 +3489,124 @@
     height: 1000px;
     width: 1920px;
     margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
+  }
 
+  .dot-news-animation-1 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 370px; */
+    /* margin-left: 20px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-2 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 720px; */
+    /* margin-left: 68px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-3 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 40px; */
+    /* margin-left: 115px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-4 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 120px; */
+    /* margin-left: 300px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-5 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 732px; */
+    /* margin-left: 720px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-6 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 423px; */
+    /* margin-left: 1030px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-7 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 305px; */
+    /* margin-left: 1120px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-8 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 717px; */
+    /* margin-left: 1180px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-9 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 745px; */
+    /* margin-left: 1500px; */
+  }
+
+  .dot-news-animation-10 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 730px; */
+    /* margin-left: 1740px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-11 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 370px; */
+    /* margin-left: 1810px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-12 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 60px; */
+    /* margin-left: 1880px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-13 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 605px; */
+    /* margin-left: 1870px; */
+    z-index: 3;
+  }
+
+  /* แสงวิบวับ fade in fade out  */
+  @-webkit-keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.1;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 
   .bg-public-news2 {
@@ -3420,23 +3616,166 @@
     height: 1000px;
     width: 1920px;
     margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
+    z-index: 1;
+  }
+
+  .container-star-news-animation {
+    position: absolute;
+    width: 1920px;
+    height: 300px;
+    overflow: hidden;
+    z-index: 2 !important;
 
   }
 
+  .star-news-animation-1 {
+    position: absolute;
+
+    /* left: 100px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-2 {
+    position: absolute;
+    
+
+    /* left: 250px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-3 {
+    position: absolute;
+    
+
+    /* left: 465px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-4 {
+    position: absolute;
+    
+
+    /* left: 510px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-5 {
+    position: absolute;
+    
+
+    /* left: 655px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-6 {
+    position: absolute;
+    
+
+    /* left: 740px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-7 {
+    position: absolute;
+    
+
+    /* left: 715px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-8 {
+    position: absolute;
+    
+
+    /* left: 860px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-9 {
+    position: absolute;
+    
+
+    /* left: 1255px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-10 {
+    position: absolute;
+    
+
+    /* left: 1285px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-11 {
+    position: absolute;
+    
+
+    /* left: 1330px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-12 {
+    position: absolute;
+    
+
+    /* left: 100px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-13 {
+    position: absolute;
+    
+
+    /* left: 100px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-14 {
+    position: absolute;
+    
+
+    /* left: 100px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  .star-news-animation-15 {
+    position: absolute;
+    
+
+    /* left: 100px; */
+    /* animation: fadeInOut 4s infinite; */
+  }
+
+  @keyframes fadeInOut {
+
+    0%
+     {
+      top: -100px;
+      opacity: 0;
+    }
+
+    50% {
+      top: 150;
+      /* ตำแหน่งที่ลงมา */
+      opacity: 1;
+    }
+
+    100% {
+      top: 250px;
+      /* ตำแหน่งที่ออกไป */
+      opacity: 0;
+    }
+  }
+
   .bg-otop {
-    background-image: url('<?php echo base_url("docs/bg-otop-travel2.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-otop-travel.png"); ?>');
     background-repeat: no-repeat;
     background-size: cover;
     height: 1000px;
     width: 1920px;
     margin: auto;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
-
   }
-
 
   .bg-service {
     background-image: url('<?php echo base_url("docs/bg-e-service.png"); ?>');
