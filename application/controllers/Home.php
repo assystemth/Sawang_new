@@ -53,15 +53,15 @@ class Home extends CI_Controller
 			$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
 		}
 
-		// // โหลดข้อมูลจาก API
-		// $weatherData = $this->loadWeatherData();
+		// โหลดข้อมูลจาก API
+		$weatherData = $this->loadWeatherData();
 
-		// // ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
-		// if ($weatherData !== FALSE) {
-		// 	$data['weather_data'] = $weatherData;
-		// } else {
-		// 	$data['weather_data'] = [];
-		// }
+		// ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
+		if ($weatherData !== FALSE) {
+			$data['weather_data'] = $weatherData;
+		} else {
+			$data['weather_data'] = [];
+		}
 
 		// echo '<pre>';
 		// print_r($data['weather_data']);
@@ -163,47 +163,47 @@ class Home extends CI_Controller
 		return FALSE; // แก้ไขให้ฟังก์ชันนี้คืนค่า FALSE แทน []
 	}
 
-	// private function loadWeatherData()
-	// {
-	// 	// URL ของ API
-	// 	$api_url = 'https://www.tmd.go.th/api/xml/weather-report?stationnumber=48405';
+	private function loadWeatherData()
+	{
+		// URL ของ API
+		$api_url = 'https://www.tmd.go.th/api/xml/weather-report?stationnumber=48405';
 
-	// 	// ตั้งค่า options สำหรับการร้องขอ HTTP
-	// 	$options = [
-	// 		'http' => [
-	// 			'method' => 'GET',
-	// 			'ignore_errors' => true, // ละเว้นข้อผิดพลาด HTTP เพื่อจัดการเอง
-	// 			'timeout' => 10, // ตั้งค่า timeout เป็น 10 วินาที
-	// 		],
-	// 	];
+		// ตั้งค่า options สำหรับการร้องขอ HTTP
+		$options = [
+			'http' => [
+				'method' => 'GET',
+				'ignore_errors' => true, // ละเว้นข้อผิดพลาด HTTP เพื่อจัดการเอง
+				'timeout' => 10, // ตั้งค่า timeout เป็น 10 วินาที
+			],
+		];
 
-	// 	// สร้าง context สำหรับการร้องขอด้วย options ที่ตั้งไว้
-	// 	$context = stream_context_create($options);
+		// สร้าง context สำหรับการร้องขอด้วย options ที่ตั้งไว้
+		$context = stream_context_create($options);
 
-	// 	// ดึงข้อมูลจาก API โดยใช้ file_get_contents พร้อม context ที่ตั้งไว้
-	// 	$api_data = @file_get_contents($api_url, false, $context);
+		// ดึงข้อมูลจาก API โดยใช้ file_get_contents พร้อม context ที่ตั้งไว้
+		$api_data = @file_get_contents($api_url, false, $context);
 
-	// 	// ตรวจสอบว่าข้อมูลถูกดึงมาสำเร็จหรือไม่
-	// 	if ($api_data === FALSE) {
-	// 		// Log ข้อผิดพลาดหรือแคชข้อมูลเก่าเพื่อใช้ในกรณีที่การดึงข้อมูลล้มเหลว
-	// 		// echo 'Failed to fetch data from API.';
-	// 		return FALSE;
-	// 	}
+		// ตรวจสอบว่าข้อมูลถูกดึงมาสำเร็จหรือไม่
+		if ($api_data === FALSE) {
+			// Log ข้อผิดพลาดหรือแคชข้อมูลเก่าเพื่อใช้ในกรณีที่การดึงข้อมูลล้มเหลว
+			// echo 'Failed to fetch data from API.';
+			return FALSE;
+		}
 
-	// 	// แปลงข้อมูลจาก XML เป็น SimpleXMLElement
-	// 	$xml_data = @simplexml_load_string($api_data, "SimpleXMLElement", LIBXML_NOCDATA);
+		// แปลงข้อมูลจาก XML เป็น SimpleXMLElement
+		$xml_data = @simplexml_load_string($api_data, "SimpleXMLElement", LIBXML_NOCDATA);
 
-	// 	// ตรวจสอบว่าการแปลง XML เป็น Object สำเร็จหรือไม่
-	// 	if ($xml_data === FALSE) {
-	// 		echo 'Failed to decode XML data.';
-	// 		return FALSE;
-	// 	}
+		// ตรวจสอบว่าการแปลง XML เป็น Object สำเร็จหรือไม่
+		if ($xml_data === FALSE) {
+			echo 'Failed to decode XML data.';
+			return FALSE;
+		}
 
-	// 	// แปลง Object เป็น Array
-	// 	$json_data = json_decode(json_encode($xml_data), TRUE);
+		// แปลง Object เป็น Array
+		$json_data = json_decode(json_encode($xml_data), TRUE);
 
-	// 	return $json_data;
-	// }
+		return $json_data;
+	}
 
 	public function addLike()
 	{

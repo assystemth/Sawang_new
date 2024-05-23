@@ -18,7 +18,7 @@
         top: 0;
     }
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 768px) {
         #navbar2 {
             display: none;
         }
@@ -108,7 +108,7 @@
         z-index: 2;
         left: 50%;
         /* ย้าย dropdown ไปที่กึ่งกลางตามแนวนอน */
-        top: 260px;
+        top: 250px;
         /* ย้าย dropdown ไปที่กึ่งกลางตามแนวตั้ง */
         transform: translate(-50%, -50%);
         /* แก้ไขตำแหน่งให้เป็นตรงกลาง */
@@ -152,7 +152,7 @@
     }
 
     .search {
-        width: 250px;
+        width: 309px;
         position: absolute;
         top: -10%;
         left: 77%;
@@ -172,11 +172,11 @@
     }
 
     .gsc-search-button-v2 svg {
-        fill: #523003;
+        fill: #A4A4A4;
         /* ปรับสีของไอคอนเป็นสีขาว */
-        width: 20px;
+        width: 18px;
         /* ปรับขนาดของไอคอนเป็น 15px */
-        height: 20px;
+        height: 18px;
         /* ปรับขนาดของไอคอนเป็น 15px */
     }
 
@@ -214,7 +214,7 @@
     .gsc-control {
         font-family: arial, sans-serif;
         background-color: lightblue !important;
-        width: 500px;
+        width: 309px;
         border-radius: 3rem;
         padding: 7px 20px !important;
     }
@@ -243,8 +243,8 @@
         cursor: pointer;
         border-radius: 50%;
         position: absolute;
-        margin-left: -33px;
-        margin-top: -18px;
+        margin-left: -45px;
+        margin-top: -15px;
     }
 
     ul.no-bullets {
@@ -319,22 +319,30 @@
         <li class="dropdown" style="margin-left: 15px;">
             <a href="javascript:void(0)" class="dropbtn">บริการประชาชน</a>
             <div class="dropdown-content">
-                <ul class="no-bullets mt-2" style="margin-left: 400px">
+            <ul class="no-bullets mt-2" style="margin-left: 200px">
                     <div class="dropdown-left">
-                        <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/adding_suggestions'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ช่องทางรับฟังความคิดเห็น</span></a></a>
+                        <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
 
                     </div>
                     <div class="dropdown-center">
-                        <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
-                        <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
+                        <a href="<?php echo site_url('Pages/questions'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_ahs'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หลักประกันสุขภาพตำบลสว่าง</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
+                        <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
+                    </div>
+                    <div class="dropdown-right">
+                        <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                     </div>
                 </ul>
+
             </div>
         </li>
         <li class="dropdown" style="margin-left: 15px;">
@@ -495,7 +503,7 @@
             <li><a href="#">หน้าหลัก</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="margin-top: 80px;">
                     <ul class="no-bullets mt-2" style="margin-left: 400px">
                         <div class="dropdown-left">
                             <a href="<?php echo site_url('Pages/history'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ประวัติความเป็นมา</span></a></a>
@@ -518,7 +526,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">โครงสร้าง</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="margin-top: 80px;">
                     <ul class="no-bullets mt-2" style="margin-left: 400px">
                         <div class="dropdown-left">
                             <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
@@ -539,28 +547,36 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">บริการ</a>
-                <div class="dropdown-content">
-                    <ul class="no-bullets mt-2" style="margin-left: 400px">
-                        <div class="dropdown-left">
-                            <a href="<?php echo site_url('Pages/site_map'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนผังโครงสร้างรวม</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_executives'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คณะผู้บริหาร</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_council'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สมาชิกสภาตำบล</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
+                <div class="dropdown-content" style="margin-top: 80px;">
+                <ul class="no-bullets mt-2" style="margin-left: 200px">
+                    <div class="dropdown-left">
+                        <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                        <a href="<?php echo site_url('Pages/adding_suggestions'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ช่องทางรับฟังความคิดเห็น</span></a></a>
+                        <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
 
-                        </div>
-                        <div class="dropdown-center">
-                            <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_education'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองสวัสดิการสังคม</span></a></a>
-                            <a href="<?php echo site_url('Pages/p_audit'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หน่วยตรวจสอบภายใน</span></a></a>
-                        </div>
-                    </ul>
+                    </div>
+                    <div class="dropdown-center">
+                        <a href="<?php echo site_url('Pages/questions'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_ahs'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หลักประกันสุขภาพตำบลสว่าง</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
+                        <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
+                    </div>
+                    <div class="dropdown-right">
+                        <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
+                        <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
+                    </div>
+                </ul>
+
                 </div>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">แผนงาน</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="margin-top: 80px;">
                     <ul class="no-bullets mt-2" style="margin-left: 400px">
                         <div class="dropdown-left">
                             <a href="<?php echo site_url('Pages/plan_pdl'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาท้องถิ่น</span></a></a>
@@ -583,7 +599,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">การดำเนินงาน</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="margin-top: 80px;">
                     <ul class="no-bullets mt-2" style="margin-left: 200px">
                         <div class="dropdown-left">
                             <a href="<?php echo site_url('Pages/operation_reauf'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;รายงานติดตามและประเมินผลแผน</span></a></a>
@@ -616,7 +632,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">มาตรการภายใน</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="margin-top: 80px;">
                     <ul class="no-bullets mt-2" style="margin-left: 400px">
                         <div class="dropdown-left">
                             <a href="<?php echo site_url('Pages/order'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;คำสั่ง</span></a></a>

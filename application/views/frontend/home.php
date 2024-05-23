@@ -68,8 +68,8 @@
 
 <div class="bg-banner">
     <div class="crop">
-        <div class="row weather">
-            <div class="col-9">
+        <div class="row" style="padding-top: 30px; padding-bottom: 30px; ">
+            <div class="col-9" style="padding-left: 100px;" >
                 <div class="row">
                     <div class="col">
                         <img src="docs/weather_icon.png" alt="">
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex justify-content-end" style="width: 309px; margin-top: -5px;">
+            <div class="col-3" style="width: 350px; margin-top: -8px; margin-left: -20px;" >
                 <div class="gcse-search"></div>
             </div>
         </div>

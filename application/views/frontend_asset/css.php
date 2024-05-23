@@ -755,13 +755,6 @@
     padding-top: 8px;
   }
 
-
-  .weather {
-    padding: 30px 100px;
-  }
-
-
-
   .frame-main {
     position: absolute;
     z-index: 2;
