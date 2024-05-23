@@ -610,7 +610,7 @@
     z-index: 1;
     /* top: 20px; */
     margin-top: 65px;
-    background-image: url('<?php echo base_url("docs/banner_manage.png"); ?>');
+    /* background-image: url('<?php echo base_url("docs/banner_manage.png"); ?>'); */
     width: 100%;
     height: 436px;
     background-repeat: no-repeat;
