@@ -4161,4 +4161,186 @@
     color: #724118;
     font-size: 20px;
   }
+
+  .font-banner-link {
+    color: #FFF;
+    text-align: center;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+  }
+
+  .font-link-name {
+    color: #523003;
+    /* text-align: center; */
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-link-rank {
+    color: #523003;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-link-phone {
+    color: #523003;
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .background-ps {
+    border-radius: 20.969px;
+    box-shadow: 0px 2.467px 2.467px 0px rgba(0, 0, 0, 0.25);
+  }
+
+
+  .font-banner-link a {
+    position: relative;
+    z-index: 10;
+    /* Ensure links are on top */
+  }
+
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    justify-content: flex-start;
+    /* ขยับมาทางซ้าย */
+
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .weekdays,
+  .days {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .day,
+  .weekday {
+    width: 14.28%;
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .day {
+    /* border: 1px solid #ddd; */
+    color: black;
+    /* สีดำสำหรับตัวเลข */
+    width: 14%;
+    text-align: center;
+    padding: 5px 0;
+    /* ลดระยะห่างของวัน */
+    box-sizing: border-box;
+  }
+
+  /* .day:hover {
+    background-color: #FFD700;
+    border-radius: 50% 50%;
+
+  } */
+
+  .weekday {
+    /* background-color: #f0f0f0; */
+    font-weight: bold;
+  }
+
+  .prev-month,
+  .next-month {
+    color: #ccc;
+    /* สีเทาสำหรับวันของเดือนก่อนหน้าและถัดไป */
+  }
+
+  .current-day {
+    /* background-color: #ffeb3b; */
+    border: 1px solid #535353;
+    border-radius: 50% 50%;
+  }
+
+  .day:nth-child(7n+1) {
+    color: red;
+  }
+
+  .day:not(:nth-child(7n+1)) {
+    color: #76787A;
+  }
+
+  .font-calender {
+    color: #F19088;
+    text-align: center;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-calender2 {
+    color: #515151;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .detail-text {
+    display: block;
+    margin-left: 1em;
+    /* เพิ่มระยะห่างจากเครื่องหมาย &#183; */
+    word-break: break-word;
+    /* หรือใช้ word-wrap: break-word; */
+  }
+
+  .selected-day {
+    background-color: #FFD700;
+    /* สีพื้นหลัง */
+    color: #000;
+    /* สีข้อความ */
+    border-radius: 50%;
+    /* ทำให้ขอบโค้งมน */
+  }
+
+  .carousel-indicators button {
+    background-color: #007bff;
+    /* Change to your desired color */
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
+
+  .carousel-indicators .active {
+    background-color: #CD66C5;
+    /* Change to your desired color for the active indicator */
+  }
+  .carousel-indicators {
+    /* background-color: #000; */
+    /* Change to your desired color for the active indicator */
+  }
 </style>

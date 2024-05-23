@@ -125,12 +125,12 @@
                         <?php foreach ($qBanner as $index => $img_banner) { ?>
                             <div class="carousel-item <?= ($index === 0) ? "active" : ""; ?>" data-bs-interval="5000">
                                 <a href="<?= $img_banner->banner_link; ?>" target="_blank">
-                                    <img src="docs\img\<?= $img_banner->banner_img; ?>" class="d-block w-100">
+                                    <img src="docs/img/<?= $img_banner->banner_img; ?>" class="d-block w-100">
                                 </a>
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="carousel-indicators">
+                    <div class="carousel-indicators" style="bottom: -50px;">
                         <?php
                         foreach ($qBanner as $index => $img_banner) {
                             $active = ($index === 0) ? "active" : "";
@@ -147,6 +147,98 @@
             </div>
             <div class="col-6">
                 <div class="banner-calendar">
+                    <div id="link1" class="chang_tmt_budjet" style="background-image: url('docs/banner_manage2.png');  width: 775px; height: 436px;">
+                        <div class="row font-banner-link">
+                            <div class="col-6">
+                                <div style="padding: 5px;  margin-left: -170px;">
+                                    <a style="cursor: pointer;" onclick="showImage('link1')">ผู้บริหาร</a>
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <div style="padding: 5px; margin-left: -510px;">
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                </div>
+                            </div>
+                            <div id="carouselExampleAutoplaying" class="" data-bs-ride="carousel" style="z-index: 10;">
+                                <div class="carousel-inner">
+                                    <?php foreach ($qBackground_personnel as $index => $rs) { ?>
+                                        <div class="carousel-item <?= ($index === 0) ? "active" : ""; ?>" data-bs-interval="5000">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <img src="docs/img/<?= $rs->background_personnel_img; ?>" class="d-block w-60 background-ps" style="width: 192px; height: 234px; margin-top: 70px; margin-left: 70px;">
+                                                </div>
+                                                <div class="col-7" style="margin-top: 115px; margin-left: -60px;">
+                                                    <span class="font-link-name"><?= $rs->background_personnel_name; ?></span><br>
+                                                    <span class="font-link-rank"><?= $rs->background_personnel_rank; ?></span><br>
+                                                    <span class="font-link-phone">สายด่วน โทร <?= $rs->background_personnel_phone; ?></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <!-- <div class="carousel-indicators">
+                                    <?php foreach ($qBackground_personnel as $index => $rs) {
+                                        $active = ($index === 0) ? "active" : "";
+                                        echo '<button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="' . $index . '" class="' . $active . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
+                                    } ?>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="link2" class="chang_tmt_budjet" style="background-image: url('docs/banner_calendar.png');  width: 775px; height: 436px; display: none;">
+                        <div class="row font-banner-link">
+                            <div class="col-6">
+                                <div style="padding: 5px; margin-left: -170px">
+                                    <a style="cursor: pointer;" onclick="showImage('link1')">ผู้บริหาร</a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="padding: 5px; margin-left: -510px">
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6" style="z-index: 10; cursor: pointer;">
+                                    <div class="calendar">
+                                        <div class="calendar-header" style="margin-left: 250px;">
+                                            <a id="prevMonth" style="margin-left: 80px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="27" viewBox="0 0 19 27" fill="none">
+                                                    <path d="M18.3888 23.2622L18.3888 2.7622C18.3888 0.452202 15.7088 -0.837824 13.9088 0.612177L1.02878 10.9522C-0.351221 12.0622 -0.341202 14.1622 1.0488 15.2622L13.9288 25.4322C15.7388 26.8622 18.3888 25.5722 18.3888 23.2722V23.2622Z" fill="white" />
+                                                </svg>
+                                            </a>
+                                            <h3 id="monthYear"></h3>
+                                            <a id="nextMonth">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="27" viewBox="0 0 19 27" fill="none">
+                                                    <path d="M0 2.80127V23.3013C0 25.6113 2.68001 26.9013 4.48001 25.4513L17.36 15.1113C18.74 14.0013 18.73 11.9013 17.34 10.8013L4.45999 0.631292C2.64999 -0.798708 0 0.491295 0 2.7913V2.80127Z" fill="white" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="weekdays">
+                                            <div class="weekday" style="color: red">Sun</div>
+                                            <div class="weekday" style="color: #76787A">Mon</div>
+                                            <div class="weekday" style="color: #76787A">Tue</div>
+                                            <div class="weekday" style="color: #76787A">Wed</div>
+                                            <div class="weekday" style="color: #76787A">Thu</div>
+                                            <div class="weekday" style="color: #76787A">Fri</div>
+                                            <div class="weekday" style="color: #76787A">Sat</div>
+                                        </div>
+                                        <div class="days" id="days"></div>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 70px; padding: 0px 0px 0px 40px;">
+                                    <span class="font-calender">รายละเอียดกิจกรรม</span><br>
+
+                                    <div id="qCalender">
+                                        <!-- ข้อมูลกิจกรรมจะแสดงที่นี่เมื่อคลิกวันที่ -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-6 underline">

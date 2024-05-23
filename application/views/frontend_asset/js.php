@@ -33,6 +33,148 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    // ปฏิทิน ทั้งหมด ********************************************************************************
+    const monthYear = document.getElementById('monthYear');
+    const daysContainer = document.getElementById('days');
+    const prevMonthBtn = document.getElementById('prevMonth');
+    const nextMonthBtn = document.getElementById('nextMonth');
+    const calendar = document.querySelector('.calendar');
+    calendar.style.marginLeft = '30px'; // แก้ค่าตามต้องการ
+
+    let currentDate = new Date();
+    let selectedDayElement = null;
+    let qCalender = []; // ตัวแปรสำหรับเก็บข้อมูลกิจกรรม
+
+    function renderCalendar(date) {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const today = new Date();
+
+        const firstDayOfMonth = new Date(year, month, 1).getDay(); // Sunday is 0
+        const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
+
+        monthYear.innerText = date.toLocaleDateString('th-TH', {
+            month: 'long',
+            // year: 'numeric'
+        });
+
+        daysContainer.innerHTML = '';
+
+        // Adding blank days for the first week
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            daysContainer.innerHTML += `<div class="day"></div>`;
+        }
+
+        // Adding days of the current month
+        for (let i = 1; i <= lastDateOfMonth; i++) {
+            const isToday = (year === today.getFullYear() && month === today.getMonth() && i === today.getDate());
+            const dayClass = isToday ? 'day current-day' : 'day';
+            daysContainer.innerHTML += `<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}</div>`;
+        }
+
+        // Adding blank days for the last week
+        const totalDays = firstDayOfMonth + lastDateOfMonth;
+        const remainingDays = 7 - (totalDays % 7);
+
+        if (remainingDays < 7) {
+            for (let i = 0; i < remainingDays; i++) {
+                daysContainer.innerHTML += `<div class="day"></div>`;
+            }
+        }
+
+        // Adding click event listener for days
+        document.querySelectorAll('.day').forEach(day => {
+            day.addEventListener('click', (e) => {
+                const clickedDate = e.target.getAttribute('data-date');
+                if (clickedDate) {
+                    const [year, month, date] = clickedDate.split('-').map(Number);
+                    const selectedDate = new Date(year, month - 1, date);
+                    console.log(`Selected date: ${selectedDate}`);
+                    updateQCalenderDisplay(selectedDate); // อัปเดตการแสดงผล qCalender ตามวันที่เลือก
+
+                    // Highlight the selected day
+                    if (selectedDayElement) {
+                        selectedDayElement.classList.remove('selected-day');
+                    }
+                    e.target.classList.add('selected-day');
+                    selectedDayElement = e.target;
+                }
+            });
+        });
+    }
+
+    function updateQCalenderDisplay(selectedDate) {
+        // อัปเดตการแสดงผล qCalender ตามวันที่เลือก
+        const qCalenderContainer = document.getElementById('qCalender'); // ตรวจสอบว่า id ตรงกัน
+        qCalenderContainer.innerHTML = '';
+
+        const filteredEvents = qCalender.filter(event => {
+            const eventDate = new Date(event.calender_date);
+            return (
+                eventDate.getFullYear() === selectedDate.getFullYear() &&
+                eventDate.getMonth() === selectedDate.getMonth() &&
+                eventDate.getDate() === selectedDate.getDate()
+            );
+        });
+
+        if (filteredEvents.length > 0) {
+            filteredEvents.forEach(event => {
+                const date = new Date(event.calender_date);
+                const day_th = date.getDate();
+                const month_th = date.toLocaleString('th-TH', {
+                    month: 'long'
+                });
+                const year_th = date.getFullYear() + 543;
+
+                const formattedDate = `${day_th} ${month_th} ${year_th}`;
+                qCalenderContainer.innerHTML += `
+            <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+            <span class="font-calender2 detail-text">&#9679;&nbsp;${event.detail}</span><br><br>
+            `;
+            });
+        } else {
+            qCalenderContainer.innerHTML = '<span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>';
+        }
+    }
+
+    prevMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar(currentDate);
+    });
+
+    nextMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar(currentDate);
+    });
+
+    // สมมติว่าคุณมีข้อมูลกิจกรรมอยู่ในตัวแปร qCalender ดังนี้
+    qCalender = [{
+            calender_date: '2023-05-21',
+            detail: 'กิจกรรม A'
+        },
+        {
+            calender_date: '2023-05-22',
+            detail: 'กิจกรรม B'
+        },
+        // เพิ่มข้อมูลกิจกรรมตามที่ต้องการ
+    ];
+
+    renderCalendar(currentDate);
+    //   ********************************************************************************
+
+    // สลับหน้าแสดงผล ข้าง banner ***************************************************************************
+    function showImage(imageId) {
+        var images = document.getElementsByClassName("chang_tmt_budjet");
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].id === imageId) {
+                images[i].style.display = "block";
+            } else {
+                images[i].style.display = "none";
+            }
+        }
+    }
+    //   ********************************************************************************
+
     // สุ่มวิกระพริบ และแสดงผล ข่าวจัดซื้อจัดจ้าง  ********************************************************************************
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -47,6 +189,7 @@
     }
 
     document.querySelectorAll('.star-news-animation-1, .star-news-animation-2, .star-news-animation-3, .star-news-animation-4, .star-news-animation-5, .star-news-animation-6, .star-news-animation-7, .star-news-animation-8, .star-news-animation-9, .star-news-animation-10, .star-news-animation-11, .star-news-animation-12, .star-news-animation-13, .star-news-animation-14, .star-news-animation-15').forEach(applyRandomAnimation);
+    //   ********************************************************************************
 
     // สุ่มวิกระพริบ และแสดงผล ข่าวประชาสัมพันธ์  ********************************************************************************
     function getRandomInt(min, max) {
@@ -78,6 +221,8 @@
     });
     //   ********************************************************************************
 
+
+    
     // active  ********************************************************************************
     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
         var header = document.getElementById(containerId);

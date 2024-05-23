@@ -8,6 +8,8 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->model('HotNews_model');
 		$this->load->model('banner_model');
+		$this->load->model('background_personnel_model');
+		$this->load->model('calender_model');
 		$this->load->model('activity_model');
 		$this->load->model('p_rpo_model');
 		$this->load->model('p_reb_model');
@@ -101,6 +103,8 @@ class Home extends CI_Controller
 
 		$data['qHotnews'] = $this->HotNews_model->hotnews_frontend();
 		$data['qBanner'] = $this->banner_model->banner_frontend();
+		$data['qBackground_personnel'] = $this->background_personnel_model->background_personnel_frontend();
+		$data['qCalender'] = $this->calender_model->calender_frontend();
 		$data['qActivity'] = $this->activity_model->activity_frontend();
 
 		$data['qP_reb'] = $this->p_reb_model->p_reb_frontend();
