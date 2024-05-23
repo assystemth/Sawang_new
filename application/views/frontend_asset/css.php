@@ -34,6 +34,7 @@
     margin: 0 auto;
     transform-origin: top left;
     width: 1920px;
+    height: 2000px;
   }
 
   .crop {
@@ -1660,13 +1661,27 @@
   }
 
   .bg-pages {
-    background-image: url('<?php echo base_url("docs/s.bg-other.jpg"); ?>');
+    /* background-image: url('<?php echo base_url("docs/s.bg-other.jpg"); ?>');
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 1280px;
-    height: 2000px;
+    background-size: 100%; */
+    background-color: #fff;
+    width: 1920px;
+    height: 2350px;
     position: relative;
-    margin-top: 230px;
+  }
+
+  .bg-pages-in {
+    background-color: white;
+    margin-top: 40px;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 22.86px;
+    /* background: rgba(253, 245, 225, 0.80); */
+    /* box-shadow: 0px 0px 6.724px 0px rgba(0, 0, 0, 0.25); */
+    height: auto;
+    width: 1920px;
+    padding-top: 45px;
   }
 
   .bg-pages-news {
@@ -1690,19 +1705,7 @@
   }
 
 
-  .bg-pages-in {
-    background-color: white;
-    margin-top: 40px;
-    margin-bottom: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    border-radius: 22.86px;
-    background: rgba(253, 245, 225, 0.80);
-    box-shadow: 0px 0px 6.724px 0px rgba(0, 0, 0, 0.25);
-    height: 1400px;
-    width: 1069px;
-    padding-top: 45px;
-  }
+
 
   .bg-pages-in-e-service {
     height: 1362px;
@@ -1990,18 +1993,7 @@
     align-items: center;
   } */
 
-  .font-pages-head {
-    color: #FFF;
-    leading-trim: both;
-    text-edge: cap;
-    text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 26.443px;
-    /* 88.143% */
-  }
+
 
   .font-pages-head-long {
     color: #FFF;
@@ -3016,7 +3008,7 @@
   }
 
   /* กำหนดสไตล์ scroll bar สำหรับ WebKit (Chrome, Safari) */
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     height: 5px;
     width: 5px;
   }
@@ -3035,7 +3027,7 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: #888;
-  }
+  } */
 
   /* scroll bar เลื่อนซ้ายขวา เลื่อนบนล่าง ****************************************************** */
 
@@ -3206,7 +3198,7 @@
   .font-gi-content {
     color: #000;
     font-family: Kanit;
-    font-size: 22px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 300;
     line-height: 40.349px;
@@ -3817,8 +3809,8 @@
       visibility: hidden;
     }
 
-    10% {
-      left: 10%;
+    5% {
+      left: 5%;
       opacity: 0;
       visibility: visible;
     }
@@ -3828,8 +3820,8 @@
       opacity: 1;
     }
 
-    80% {
-      left: 80%;
+    90% {
+      left: 90%;
       opacity: 0;
     }
 
@@ -4339,8 +4331,66 @@
     background-color: #CD66C5;
     /* Change to your desired color for the active indicator */
   }
+
   .carousel-indicators {
     /* background-color: #000; */
     /* Change to your desired color for the active indicator */
+  }
+
+  .welcome-other {
+    background-image: url('<?php echo base_url("docs/s.welcome-other.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+    width: 1920px;
+    height: 600px;
+    position: absolute;
+  }
+
+  .welcome-btm-other {
+    background-image: url('<?php echo base_url("docs/s.welcome-btm-other2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+    width: 1920px;
+    height: 731px;
+    position: relative;
+    margin-top: 200px;
+  }
+
+  .font-welcome-btm-other {
+    background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    z-index: 1;
+  }
+
+  .font-pages-head {
+    color: #724118;
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-other-head {
+    color: #000;
+    font-family: Kanit;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .font-other-content {
+    color: #000;
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
   }
 </style>
