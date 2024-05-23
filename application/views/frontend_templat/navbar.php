@@ -290,6 +290,7 @@
                         <a href="<?php echo site_url('Pages/travel'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                         <a href="<?php echo site_url('Pages/otop'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน/สินค้า OTOP</span></a></a>
                         <a href="<?php echo site_url('Pages/si'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</span></a></a>
+                        <a href="<?php echo site_url('Pages/contact'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ติดต่อเรา</span></a></a>
                     </div>
                 </ul>
             </div>

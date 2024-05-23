@@ -347,6 +347,8 @@
     <img class="dot-news-animation-11" src="docs/lightv2.png" width="15" height="15">
     <img class="dot-news-animation-12" src="docs/lightv2.png" width="25" height="25">
     <img class="dot-news-animation-13" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-14" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-15" src="docs/lightv2.png" width="20" height="20">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%;">
             <span class="font-header-home">งานประชาสัมพันธ์</span>
@@ -980,6 +982,21 @@
 
 
 <div class="bg-service">
+    <img class="dot-news-animation-1" src="docs/lightv2.png" width="35" height="35">
+    <img class="dot-news-animation-2" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-3" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-4" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-5" src="docs/lightv2.png" width="35" height="35">
+    <img class="dot-news-animation-6" src="docs/lightv2.png" width="50" height="50">
+    <img class="dot-news-animation-7" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-8" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-9" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-10" src="docs/lightv2.png" width="50" height="50">
+    <img class="dot-news-animation-11" src="docs/lightv2.png" width="15" height="15">
+    <img class="dot-news-animation-12" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-13" src="docs/lightv2.png" width="25" height="25">
+    <img class="dot-news-animation-14" src="docs/lightv2.png" width="20" height="20">
+    <img class="dot-news-animation-15" src="docs/lightv2.png" width="20" height="20">
     <div class="crop">
         <div class="" style="margin-left: 500px; padding-top: 2%;">
             <div class="service-cartoon d-flex justify-content-center" style="padding: 40px 0px 0px 130px;">
@@ -1201,6 +1218,21 @@
 </div>
 
 <div class="bg-link">
+    <img class="dot-news-animation-1" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-2" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-3" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-4" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-5" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-6" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-7" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-8" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-9" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-10" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-11" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-12" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-13" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-14" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-15" src="docs/animation-star-2.png">
     <div class="crop">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
@@ -1230,10 +1262,16 @@
             </div>
 
         </div>
-        <div class="text-center" style="margin-top: -200px; margin-left: -40px">
+        <div class="text-center" style="z-index: 5; margin-top: -210px; margin-left: -40px">
             <span class="font-link">องค์การบริหารส่วนตำบลสว่าง เลขที่ 232 หมู่ 4 ตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด 45110<br>
                 โทร 0-4303-9711 E-mail : saraban101@sawang.go.th</span>
         </div>
+        <img class="cloud-animation cloud-animation-1" src="docs/animation-cloud.png">
+        <img class="cloud-animation cloud-animation-2" src="docs/animation-cloud.png">
+        <img class="cloud-animation cloud-animation-3" src="docs/animation-cloud.png">
+        <img class="cloud-animation cloud-animation-4" src="docs/animation-cloud.png">
+        <img class="cloud-animation cloud-animation-5" src="docs/animation-cloud.png">
+        <img class="cloud-animation cloud-animation-6" src="docs/animation-cloud.png">
         <!-- <div class="link-footer">
             <span class="font-footer2 underline">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle-fill" viewBox="0 0 16 16">

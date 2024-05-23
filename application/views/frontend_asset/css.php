@@ -1615,7 +1615,7 @@
     position: absolute;
     z-index: 1;
     padding-top: 25px;
-    padding-left: 20%;
+    padding-left: 350px;
   }
 
   .credit {
@@ -3594,6 +3594,22 @@
     z-index: 3;
   }
 
+  .dot-news-animation-14 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 605px; */
+    /* margin-left: 1870px; */
+    z-index: 3;
+  }
+
+  .dot-news-animation-15 {
+    animation: blink-2 10s both infinite;
+    position: absolute;
+    /* margin-top: 605px; */
+    /* margin-left: 1870px; */
+    z-index: 3;
+  }
+
   /* แสงวิบวับ fade in fade out  */
   @-webkit-keyframes blink-2 {
     0% {
@@ -3637,7 +3653,7 @@
 
   .star-news-animation-2 {
     position: absolute;
-    
+
 
     /* left: 250px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3645,7 +3661,7 @@
 
   .star-news-animation-3 {
     position: absolute;
-    
+
 
     /* left: 465px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3653,7 +3669,7 @@
 
   .star-news-animation-4 {
     position: absolute;
-    
+
 
     /* left: 510px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3661,7 +3677,7 @@
 
   .star-news-animation-5 {
     position: absolute;
-    
+
 
     /* left: 655px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3669,7 +3685,7 @@
 
   .star-news-animation-6 {
     position: absolute;
-    
+
 
     /* left: 740px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3677,7 +3693,7 @@
 
   .star-news-animation-7 {
     position: absolute;
-    
+
 
     /* left: 715px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3685,7 +3701,7 @@
 
   .star-news-animation-8 {
     position: absolute;
-    
+
 
     /* left: 860px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3693,7 +3709,7 @@
 
   .star-news-animation-9 {
     position: absolute;
-    
+
 
     /* left: 1255px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3701,7 +3717,7 @@
 
   .star-news-animation-10 {
     position: absolute;
-    
+
 
     /* left: 1285px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3709,7 +3725,7 @@
 
   .star-news-animation-11 {
     position: absolute;
-    
+
 
     /* left: 1330px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3717,7 +3733,7 @@
 
   .star-news-animation-12 {
     position: absolute;
-    
+
 
     /* left: 100px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3725,7 +3741,7 @@
 
   .star-news-animation-13 {
     position: absolute;
-    
+
 
     /* left: 100px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3733,7 +3749,7 @@
 
   .star-news-animation-14 {
     position: absolute;
-    
+
 
     /* left: 100px; */
     /* animation: fadeInOut 4s infinite; */
@@ -3741,16 +3757,16 @@
 
   .star-news-animation-15 {
     position: absolute;
-    
+
 
     /* left: 100px; */
     /* animation: fadeInOut 4s infinite; */
   }
 
+  /* ดาวตก animation  */
   @keyframes fadeInOut {
 
-    0%
-     {
+    0% {
       top: -100px;
       opacity: 0;
     }
@@ -3799,6 +3815,74 @@
     /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
     /* margin-top: 200px; */
 
+  }
+
+  @keyframes fadeinleftoutright {
+    0% {
+      left: -100px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    10% {
+      left: 10%;
+      opacity: 0;
+      visibility: visible;
+    }
+
+    50% {
+      left: 50%;
+      opacity: 1;
+    }
+
+    80% {
+      left: 80%;
+      opacity: 0;
+    }
+
+    100% {
+      left: 100%;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .cloud-animation {
+    position: absolute;
+    white-space: nowrap;
+    animation: fadeinleftoutright 30s linear infinite;
+    z-index: 4;
+    visibility: hidden;
+    /* ซ่อนภาพก่อนเริ่มแอนิเมชั่น */
+  }
+
+  .cloud-animation-1 {
+    margin-top: -20px;
+  }
+
+  .cloud-animation-2 {
+    margin-top: 30px;
+    animation-delay: 2.5s;
+  }
+
+  .cloud-animation-3 {
+    margin-top: 95px;
+    animation-delay: 6s;
+  }
+
+  .cloud-animation-4 {
+    margin-top: -50px;
+    animation-delay: 7.9s;
+  }
+
+  .cloud-animation-5 {
+    margin-top: 100px;
+    animation-delay: 11.6s;
+  }
+
+  .cloud-animation-6 {
+    margin-top: 80px;
+    animation-delay: 15s;
   }
 
   .service-cartoon {

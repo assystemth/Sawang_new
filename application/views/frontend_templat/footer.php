@@ -11,7 +11,7 @@
                 </span>
             </div>
         </div>
-        <div class="col-3 mt-1" >
+        <div class="col-3 mt-1" style="margin-left: -200px;" >
             <!-- Histats.com  (div with counter) -->
             <div id="histats_counter"></div>
             <!-- Histats.com  START  (aync)-->
