@@ -3770,7 +3770,7 @@
   }
 
   .bg-otop {
-    background-image: url('<?php echo base_url("docs/s.bg-otop-travel.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-otop-travel2.png"); ?>');
     background-repeat: no-repeat;
     background-size: cover;
     height: 1000px;
@@ -3836,7 +3836,7 @@
     position: absolute;
     white-space: nowrap;
     animation: fadeinleftoutright 30s linear infinite;
-    z-index: 4;
+    z-index: 1;
     visibility: hidden;
     /* ซ่อนภาพก่อนเริ่มแอนิเมชั่น */
   }
@@ -4542,43 +4542,65 @@
   }
 
   .bg-link-other {
-    background-image: url('<?php echo base_url("docs/s.bg-links-other.png"); ?>');
+    background-image: url('<?php echo base_url("docs/s.bg-links-other2.png"); ?>');
     background-repeat: no-repeat;
     background-size: cover;
     height: 925px;
     width: 1920px;
     margin: auto;
     z-index: 1;
-    position: relative;
     /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
     /* margin-top: 200px; */
 
   }
 
   #scroll-to-top {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    /* background-color: red;
-    color: white; */
-    background-image: url('<?php echo base_url("docs/s.scroll-to-top.png"); ?>');
-    background-repeat: no-repeat;
-    width: 76px;
-    height: 76px;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
-  }
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-image: url('<?php echo base_url("docs/s.scroll-to-top.png"); ?>');
+            background-repeat: no-repeat;
+            width: 76px;
+            height: 76px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
 
-  #scroll-to-top:hover {
-    background-image: url('<?php echo base_url("docs/s.welcome-other-hover.png"); ?>');
-    background-repeat: no-repeat;
-    width: 76px;
-    height: 76px;
-  }
+        #scroll-to-top:hover {
+            background-image: url('<?php echo base_url("docs/s.welcome-other-hover.png"); ?>');
+            background-repeat: no-repeat;
+            width: 76px;
+            height: 76px;
+        }
+
+        #scroll-to-back {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 120px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-image: url('<?php echo base_url("docs/s.scroll-to-back.png"); ?>');
+            background-repeat: no-repeat;
+            width: 76px;
+            height: 76px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #scroll-to-back:hover {
+            background-image: url('<?php echo base_url("docs/s.scroll-to-back-hover.png"); ?>');
+            background-repeat: no-repeat;
+            width: 76px;
+            height: 76px;
+        }
 </style>

@@ -34,20 +34,28 @@
 
 <script>
     $(document).ready(function() {
-        var mybutton = $("#scroll-to-top");
+        var scrollTopButton = $("#scroll-to-top");
+        var scrollBackButton = $("#scroll-to-back");
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > 20) {
-                mybutton.fadeIn();
+                scrollTopButton.fadeIn();
+                scrollBackButton.fadeIn();
             } else {
-                mybutton.fadeOut();
+                scrollTopButton.fadeOut();
+                scrollBackButton.fadeOut();
             }
         });
 
-        mybutton.click(function() {
+        scrollTopButton.click(function() {
             $('html, body').animate({
                 scrollTop: 0
             }, 'slow');
+            return false;
+        });
+
+        scrollBackButton.click(function() {
+            window.history.back();
             return false;
         });
     });
@@ -244,8 +252,6 @@
         randomizePosition(animation);
     });
     //   ********************************************************************************
-
-
 
     // active  ********************************************************************************
     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {

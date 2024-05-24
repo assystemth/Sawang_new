@@ -32,6 +32,36 @@
     </div>
 </div>
 
+<script>
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomizeAnimationDuration() {
+        var minSeconds = 2; // วินาทีต่ำสุดที่ต้องการ
+        var maxSeconds = 7; // วินาทีสูงสุดที่ต้องการ
+        var randomSeconds = getRandomInt(minSeconds, maxSeconds);
+        return randomSeconds + 's';
+    }
+
+    function randomizePosition(element) {
+        var maxWidth = 1920; // กำหนดขนาดความกว้างสูงสุด 1920px
+        var maxHeight = 1000; // กำหนดขนาดความสูงสูงสุด 1000px
+
+        var randomMarginLeft = getRandomInt(0, maxWidth - element.width);
+        var randomMarginTop = getRandomInt(0, maxHeight - element.height);
+
+        element.style.marginLeft = randomMarginLeft + 'px';
+        element.style.marginTop = randomMarginTop + 'px';
+    }
+
+    var animations = document.querySelectorAll('.dot-news-animation-1, .dot-news-animation-2, .dot-news-animation-3, .dot-news-animation-4, .dot-news-animation-5, .dot-news-animation-6, .dot-news-animation-7, .dot-news-animation-8, .dot-news-animation-9, .dot-news-animation-10, .dot-news-animation-11, .dot-news-animation-12, .dot-news-animation-13, .dot-news-animation-14, .dot-news-animation-15');
+    animations.forEach(function(animation) {
+        animation.style.animationDuration = randomizeAnimationDuration();
+        randomizePosition(animation);
+    });
+</script>
+
 <footer class="footer">
     <div class="row">
         <div class="col-9">

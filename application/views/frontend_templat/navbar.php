@@ -1,3 +1,5 @@
+  <!-- // ปุ่ม scroll-to-top  -->
+  <a onclick="scrolltotopFunction()" id="scroll-to-top" title="Go to top"></a>
 <style>
     #navbar2 {
         background: linear-gradient(180deg, #6D2F48 0%, #7F3E55 39.39%, #CC818D 100%);

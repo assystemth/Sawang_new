@@ -1021,6 +1021,21 @@
     </div>
 </div>
 <div class="bg-otop">
+    <img class="dot-news-animation-1" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-2" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-3" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-4" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-5" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-6" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-7" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-8" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-9" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-10" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-11" src="docs/animation-star-3.png">
+    <img class="dot-news-animation-12" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-13" src="docs/animation-star-1.png">
+    <img class="dot-news-animation-14" src="docs/animation-star-2.png">
+    <img class="dot-news-animation-15" src="docs/animation-star-2.png">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
             <div class="otop-box">
@@ -1029,7 +1044,7 @@
         </div>
         <div class="otop-content">
             <div class="text-center">
-                <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;">
+                <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px; z-index: 5;">
                     <?php
                     $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
                     $i = 0;
@@ -1058,13 +1073,20 @@
                 </div>
             </div>
         </div>
+
         <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
+            <img class="cloud-animation cloud-animation-1" src="docs/animation-cloud.png">
+            <img class="cloud-animation cloud-animation-2" src="docs/animation-cloud.png">
+            <img class="cloud-animation cloud-animation-3" src="docs/animation-cloud.png">
+            <img class="cloud-animation cloud-animation-4" src="docs/animation-cloud.png">
+            <img class="cloud-animation cloud-animation-5" src="docs/animation-cloud.png">
+            <img class="cloud-animation cloud-animation-6" src="docs/animation-cloud.png">
             <div class="otop-box">
                 <span class="font-header-otop d-flex justify-content-center">สถานที่ท่องเที่ยว</span>
             </div>
         </div>
         <div class="travel-content">
-            <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;">
+            <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;  z-index: 5;">
                 <?php
                 $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
                 $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
