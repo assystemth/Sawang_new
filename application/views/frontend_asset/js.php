@@ -33,25 +33,29 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
-    let mybutton = document.getElementById("scroll-to-top");
+    $(document).ready(function() {
+        var mybutton = $("#scroll-to-top");
 
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {
-        scrolltopFunction()
-    };
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 20) {
+                mybutton.fadeIn();
+            } else {
+                mybutton.fadeOut();
+            }
+        });
 
-    function scrolltopFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
+        mybutton.click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'slow');
+            return false;
+        });
+    });
 
-    // When the user clicks on the button, scroll to the top of the document
     function scrolltotopFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'slow');
     }
     // ปฏิทิน ทั้งหมด ********************************************************************************
     const monthYear = document.getElementById('monthYear');

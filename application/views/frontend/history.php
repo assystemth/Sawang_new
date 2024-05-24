@@ -6,11 +6,6 @@
 </div>
 </div>
 
-<div class="text-center">
-    <a href="<?php echo site_url('Home/next_page'); ?>" class="btn btn-primary">Next Page</a>
-</div>
-
-
 <div class="bg-pages ">
     <?php foreach ($qHistory as $rs) { ?>
         <div class="bg-pages-in">
@@ -30,9 +25,9 @@
                     <span class="font-other-content"><?= $rs->history_name; ?></span>
                 </div>
                 <!-- </div> -->
-                <div class="margin-top-delete-topic d-flex justify-content-end">
+                <!-- <div class="margin-top-delete-topic d-flex justify-content-end">
                     <a href="<?php echo site_url('Home'); ?>"><img src="<?php echo base_url("docs/s.btn-back.png"); ?>"></a>
-                </div>
+                </div> -->
             </div>
         </div>
     <?php } ?>

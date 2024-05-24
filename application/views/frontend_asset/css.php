@@ -1666,7 +1666,7 @@
     background-size: 100%; */
     background-color: #fff;
     width: 1920px;
-    height: 2050px;
+    height: auto;
     position: relative;
   }
 

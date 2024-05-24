@@ -81,6 +81,7 @@
 <body>
   <!-- // ปุ่ม scroll-to-top  -->
   <a onclick="scrolltotopFunction()" id="scroll-to-top" title="Go to top"></a>
+  <a onclick="scrolltotopFunction()" id="scroll-to-top" title="Go to back"></a>
   <main>
     <div class="show">
       <div class="overlay"></div>
