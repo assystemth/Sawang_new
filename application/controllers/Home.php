@@ -124,10 +124,17 @@ class Home extends CI_Controller
 		$data['qPublicize_ita'] = $this->publicize_ita_model->publicize_ita_frontend();
 
 
-		$data['countExcellent'] = $this->like_model->countLikes('ดีมาก');
-		$data['countGood'] = $this->like_model->countLikes('ดี');
-		$data['countAverage'] = $this->like_model->countLikes('ปานกลาง');
-		$data['countOkay'] = $this->like_model->countLikes('พอใช้');
+		$countExcellent = $this->like_model->countLikes('ดีมาก');
+		$countGood = $this->like_model->countLikes('ดี');
+		$countAverage = $this->like_model->countLikes('ปานกลาง');
+		$countOkay = $this->like_model->countLikes('พอใช้');
+	
+		$totalCount = $countExcellent + $countGood + $countAverage + $countOkay;
+	
+		$data['percentExcellent'] = ($totalCount > 0) ? ($countExcellent / $totalCount) * 100 : 0;
+		$data['percentGood'] = ($totalCount > 0) ? ($countGood / $totalCount) * 100 : 0;
+		$data['percentAverage'] = ($totalCount > 0) ? ($countAverage / $totalCount) * 100 : 0;
+		$data['percentOkay'] = ($totalCount > 0) ? ($countOkay / $totalCount) * 100 : 0;
 
 		return $data;
 	}
@@ -167,47 +174,47 @@ class Home extends CI_Controller
 		return FALSE; // แก้ไขให้ฟังก์ชันนี้คืนค่า FALSE แทน []
 	}
 
-	// private function loadWeatherData()
-	// {
-	// 	// URL ของ API
-	// 	$api_url = 'https://www.tmd.go.th/api/xml/weather-report?stationnumber=48405';
+	private function loadWeatherData()
+	{
+		// URL ของ API
+		$api_url = 'https://www.tmd.go.th/api/xml/weather-report?stationnumber=48405';
 
-	// 	// ตั้งค่า options สำหรับการร้องขอ HTTP
-	// 	$options = [
-	// 		'http' => [
-	// 			'method' => 'GET',
-	// 			'ignore_errors' => true, // ละเว้นข้อผิดพลาด HTTP เพื่อจัดการเอง
-	// 			'timeout' => 10, // ตั้งค่า timeout เป็น 10 วินาที
-	// 		],
-	// 	];
+		// ตั้งค่า options สำหรับการร้องขอ HTTP
+		$options = [
+			'http' => [
+				'method' => 'GET',
+				'ignore_errors' => true, // ละเว้นข้อผิดพลาด HTTP เพื่อจัดการเอง
+				'timeout' => 10, // ตั้งค่า timeout เป็น 10 วินาที
+			],
+		];
 
-	// 	// สร้าง context สำหรับการร้องขอด้วย options ที่ตั้งไว้
-	// 	$context = stream_context_create($options);
+		// สร้าง context สำหรับการร้องขอด้วย options ที่ตั้งไว้
+		$context = stream_context_create($options);
 
-	// 	// ดึงข้อมูลจาก API โดยใช้ file_get_contents พร้อม context ที่ตั้งไว้
-	// 	$api_data = @file_get_contents($api_url, false, $context);
+		// ดึงข้อมูลจาก API โดยใช้ file_get_contents พร้อม context ที่ตั้งไว้
+		$api_data = @file_get_contents($api_url, false, $context);
 
-	// 	// ตรวจสอบว่าข้อมูลถูกดึงมาสำเร็จหรือไม่
-	// 	if ($api_data === FALSE) {
-	// 		// Log ข้อผิดพลาดหรือแคชข้อมูลเก่าเพื่อใช้ในกรณีที่การดึงข้อมูลล้มเหลว
-	// 		// echo 'Failed to fetch data from API.';
-	// 		return FALSE;
-	// 	}
+		// ตรวจสอบว่าข้อมูลถูกดึงมาสำเร็จหรือไม่
+		if ($api_data === FALSE) {
+			// Log ข้อผิดพลาดหรือแคชข้อมูลเก่าเพื่อใช้ในกรณีที่การดึงข้อมูลล้มเหลว
+			// echo 'Failed to fetch data from API.';
+			return FALSE;
+		}
 
-	// 	// แปลงข้อมูลจาก XML เป็น SimpleXMLElement
-	// 	$xml_data = @simplexml_load_string($api_data, "SimpleXMLElement", LIBXML_NOCDATA);
+		// แปลงข้อมูลจาก XML เป็น SimpleXMLElement
+		$xml_data = @simplexml_load_string($api_data, "SimpleXMLElement", LIBXML_NOCDATA);
 
-	// 	// ตรวจสอบว่าการแปลง XML เป็น Object สำเร็จหรือไม่
-	// 	if ($xml_data === FALSE) {
-	// 		echo 'Failed to decode XML data.';
-	// 		return FALSE;
-	// 	}
+		// ตรวจสอบว่าการแปลง XML เป็น Object สำเร็จหรือไม่
+		if ($xml_data === FALSE) {
+			echo 'Failed to decode XML data.';
+			return FALSE;
+		}
 
-	// 	// แปลง Object เป็น Array
-	// 	$json_data = json_decode(json_encode($xml_data), TRUE);
+		// แปลง Object เป็น Array
+		$json_data = json_decode(json_encode($xml_data), TRUE);
 
-	// 	return $json_data;
-	// }
+		return $json_data;
+	}
 
 	public function addLike()
 	{
@@ -217,7 +224,8 @@ class Home extends CI_Controller
 
 		$this->like_model->addLike($data);
 		$this->session->set_flashdata('save_success', TRUE);
-		redirect('home');
+		echo '<script>window.history.back();</script>';
+
 	}
 
 	public function login()

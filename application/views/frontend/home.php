@@ -1208,10 +1208,11 @@
                 </div>
                 <div class="col-3">
                     <div class="bg-facebook">
-                        <div class="mar-fb">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100068445171570&tabs=timeline&width=292&height=468&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="292" height="468" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <div class="mar-fb" style="border-radius: 15px; overflow: hidden;">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100068445171570&tabs=timeline&width=292&height=468&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="292" height="468" style="border:none;overflow:hidden; border-radius: 15px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                     </div>
+
                 </div>
                 <div class="col">
                     <div class="bg-view">
@@ -1219,10 +1220,10 @@
                             <span class="font-view">จำนวนผู้เข้าชมเว็บไซต์</span>
                         </div>
                         <div class="content-view">
-                            <div class="mypiechart text-center mt-4">
-                                <canvas id="myCanvas" width="84px" height="83px"></canvas>
+                            <div class="mypiechart text-center">
+                                <canvas id="myCanvas" width="85px" height="120px"></canvas>
                             </div>
-                            <div class="row" style="margin-top: -5px;">
+                            <div class="row" style="margin-top: -18px;">
                                 <div class="col-6">
                                     <div class="card-view" style="margin-left: 55px;" id="card1"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
                                             <path d="M1.38084 17.2849C1.38084 17.2849 0 17.2849 0 15.9041C0 14.5232 1.38084 10.3807 8.28502 10.3807C15.1892 10.3807 16.57 14.5232 16.57 15.9041C16.57 17.2849 15.1892 17.2849 15.1892 17.2849H1.38084ZM8.28502 8.99987C9.38369 8.99987 10.4374 8.56343 11.2142 7.78655C11.9911 7.00968 12.4275 5.95602 12.4275 4.85736C12.4275 3.75869 11.9911 2.70503 11.2142 1.92816C10.4374 1.15129 9.38369 0.714844 8.28502 0.714844C7.18636 0.714844 6.1327 1.15129 5.35583 1.92816C4.57895 2.70503 4.14251 3.75869 4.14251 4.85736C4.14251 5.95602 4.57895 7.00968 5.35583 7.78655C6.1327 8.56343 7.18636 8.99987 8.28502 8.99987Z" fill="#73AF49" />
@@ -1260,7 +1261,7 @@
                         </div>
                         <div class="content-like">
                             <div class="row">
-                                <div class="col-6" style="margin-top: -30px;">
+                                <div class="col-6" style="margin-top: -30px; margin-left: -15px;">
                                     <form action="<?php echo site_url('home/addLike'); ?>" id="reCAPTCHA3" method="post">
                                         <div class="form-check">
                                             <input class="form-check-input border-like" type="radio" value="ดีมาก" id="flexCheckDefault1" name="like_name" onclick="toggleCheckbox('flexCheckDefault1')" />
@@ -1271,7 +1272,7 @@
                                             <label class="form-check-label font-like-label" for="ดี">ดี</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input border-like" type="radio" value="พอใช้" id="flexCheckDefault3" name="like_name" onclick="toggleCheckbox('flexCheckDefault3')" />
+                                            <input class="form-check-input border-like" type="radio" value="ปานกลาง" id="flexCheckDefault3" name="like_name" onclick="toggleCheckbox('flexCheckDefault3')" />
                                             <label class="form-check-label font-like-label" for="ปานกลาง">ปานกลาง</label>
                                         </div>
                                         <div class="form-check">
@@ -1281,46 +1282,45 @@
                                         <!-- <button style="display: none;" type="button" class="btn"><img src="docs/s.btn-sent.png"></button> -->
                                         <div id="submitSection">
                                             <!-- <div class="g-recaptcha" data-sitekey="6LcKoPcnAAAAAKGgUMRtkBs6chDKzC8XOoVnaZg_" data-callback="enableSubmit"></div> -->
-                                            <div class="form-group row mt-3">
-                                                <div class="col-3">
-                                                </div>
-                                                <div class="col-9">
-                                                    <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><img src="docs/vote-sent.png"></button>
+                                            <div class="form-group mt-3">
+                                                <div class="font-like-new" style="margin-top: 20px; margin-left: 113px;">
+                                                    <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><span class="font-like-new">ส่ง</span></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-6" style="margin-left: -10%; margin-top: -30px;">
+                                <div class="col-6" style="margin-left: -8%; margin-top: -20px;">
                                     <div class="content-like-detail" style="display: none;">
                                         <div style="display: flex; align-items: center;">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
-                                                <div class="progress-bar" role="progressbar" style="width: <?= $countExcellent; ?>%;" aria-valuenow="<?= $countExcellent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $percentExcellent; ?>%;" aria-valuenow="<?= $percentExcellent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <span style="font-size: 16px;">&nbsp;<?= $countExcellent; ?></span>
+                                            <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentExcellent, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center;">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
-                                                <div class="progress-bar" role="progressbar" style="width: <?= $countGood; ?>%;" aria-valuenow="<?= $countGood; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $percentGood; ?>%;" aria-valuenow="<?= $percentGood; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <span style="font-size: 16px;">&nbsp;<?= $countGood; ?></span>
+                                            <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentGood, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center;">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
-                                                <div class="progress-bar" role="progressbar" style="width: <?= $countAverage; ?>%;" aria-valuenow="<?= $countAverage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $percentAverage; ?>%;" aria-valuenow="<?= $percentAverage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <span style="font-size: 16px;">&nbsp;<?= $countAverage; ?></span>
+                                            <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentAverage, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-3" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center;">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
-                                                <div class="progress-bar" role="progressbar" style="width: <?= $countOkay; ?>%;" aria-valuenow="<?= $countOkay; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: <?= $percentOkay; ?>%;" aria-valuenow="<?= $percentOkay; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <span style="font-size: 16px;">&nbsp;<?= $countOkay; ?></span>
+                                            <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentOkay, 2); ?>%</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin-top: -55px; margin-left: 170px;">
-                                    <a class="btn" onclick="showContentLikeDetail()"><img src="docs/vote-view.png"></a>
+
+                                <div class="font-like-new" style="margin-top: -43px; margin-left: 138px;">
+                                    <a class="btn" onclick="showContentLikeDetail()"><span class="font-like-new">ดูคะแนน</span></a>
                                 </div>
                             </div>
                         </div>

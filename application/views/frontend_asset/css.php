@@ -3477,7 +3477,7 @@
   }
 
   .dot-news-animation-1 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 370px; */
     /* margin-left: 20px; */
@@ -3485,7 +3485,7 @@
   }
 
   .dot-news-animation-2 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 720px; */
     /* margin-left: 68px; */
@@ -3493,7 +3493,7 @@
   }
 
   .dot-news-animation-3 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 40px; */
     /* margin-left: 115px; */
@@ -3501,7 +3501,7 @@
   }
 
   .dot-news-animation-4 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 120px; */
     /* margin-left: 300px; */
@@ -3509,7 +3509,7 @@
   }
 
   .dot-news-animation-5 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 732px; */
     /* margin-left: 720px; */
@@ -3517,7 +3517,7 @@
   }
 
   .dot-news-animation-6 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 423px; */
     /* margin-left: 1030px; */
@@ -3525,7 +3525,7 @@
   }
 
   .dot-news-animation-7 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 305px; */
     /* margin-left: 1120px; */
@@ -3533,7 +3533,7 @@
   }
 
   .dot-news-animation-8 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 717px; */
     /* margin-left: 1180px; */
@@ -3541,14 +3541,14 @@
   }
 
   .dot-news-animation-9 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 745px; */
     /* margin-left: 1500px; */
   }
 
   .dot-news-animation-10 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 730px; */
     /* margin-left: 1740px; */
@@ -3556,7 +3556,7 @@
   }
 
   .dot-news-animation-11 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 370px; */
     /* margin-left: 1810px; */
@@ -3564,7 +3564,7 @@
   }
 
   .dot-news-animation-12 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 60px; */
     /* margin-left: 1880px; */
@@ -3572,7 +3572,7 @@
   }
 
   .dot-news-animation-13 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 605px; */
     /* margin-left: 1870px; */
@@ -3580,7 +3580,7 @@
   }
 
   .dot-news-animation-14 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 605px; */
     /* margin-left: 1870px; */
@@ -3588,7 +3588,7 @@
   }
 
   .dot-news-animation-15 {
-    animation: blink-2 10s both infinite;
+    animation: blink-2 4s both infinite;
     position: absolute;
     /* margin-top: 605px; */
     /* margin-left: 1870px; */
@@ -3958,7 +3958,7 @@
     z-index: 1;
     margin-left: 15%;
     /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/bg-vote.png"); ?>');
+    background-image: url('<?php echo base_url("docs/bg-vote2.png"); ?>');
     background-repeat: no-repeat;
     width: 360px;
     height: 317px;
@@ -4098,6 +4098,16 @@
     font-weight: 300;
     line-height: 29.991px;
     /* 187.444% */
+  }
+
+  .form-check-input:checked {
+    background-color: #FF8500;
+    border-color: #FFF;
+  }
+
+  .border-like {
+    border-radius: 34px;
+    border: 1.2px solid #FFF;
   }
 
   .progress-bar {
@@ -4461,6 +4471,17 @@
         }
       }
     }
+  }
+
+  .font-like-new {
+    color: #000;
+    text-shadow: 0px 1.2px 2.399px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 29.991px;
+    /* 187.444% */
   }
 
   .welcome-other {

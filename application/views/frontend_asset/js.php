@@ -217,8 +217,8 @@
     }
 
     function randomizeAnimationDuration() {
-        var minSeconds = 5; // วินาทีต่ำสุดที่ต้องการ
-        var maxSeconds = 15; // วินาทีสูงสุดที่ต้องการ
+        var minSeconds = 2; // วินาทีต่ำสุดที่ต้องการ
+        var maxSeconds = 7; // วินาทีสูงสุดที่ต้องการ
         var randomSeconds = getRandomInt(minSeconds, maxSeconds);
         return randomSeconds + 's';
     }
