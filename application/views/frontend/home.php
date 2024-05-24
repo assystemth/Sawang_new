@@ -69,7 +69,7 @@
 <div class="bg-banner">
     <div class="crop">
         <div class="row" style="padding-top: 30px; padding-bottom: 30px; ">
-            <div class="col-9" style="padding-left: 100px;" >
+            <div class="col-9" style="padding-left: 100px;">
                 <div class="row">
                     <div class="col">
                         <img src="docs/weather_icon.png" alt="">
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="width: 350px; margin-top: -8px; margin-left: -20px;" >
+            <div class="col-3" style="width: 350px; margin-top: -8px; margin-left: -20px;">
                 <div class="gcse-search"></div>
             </div>
         </div>
@@ -140,8 +140,32 @@
                     </div>
                 </div>
                 <div class="banner-cartoon">
-                    <div style="margin-left: 200px; padding: 45px; text-align: center;">
-                        <span class="font-banner-cartoon">องค์การบริหารส่วนตำบลสว่าง<br>ยินดีต้อนรับค่ะ</span>
+                    <div class="underline" style="margin-left: 200px; padding: 45px; text-align: center;">
+                        <a href="#oss">
+                            <section class="slide-option">
+                                <div id="stffull" class="highway-slider">
+                                    <div class="container highway-barrier">
+                                        <ul class="highway-lane">
+                                            <li class="highway-car">
+                                                <span class="font-banner-cartoon">องค์การบริหารส่วนตำบลสว่าง<br>ยินดีต้อนรับค่ะ</span>
+                                            </li>
+                                            <li class="highway-car">
+                                                <span class="font-banner-cartoon">1<br>ยินดีต้อนรับค่ะ</span>
+                                            </li>
+                                            <li class="highway-car">
+                                                <span class="font-banner-cartoon">One Stop e-Service</span>
+                                            </li>
+                                            <!-- <li class="highway-car">
+                                            <span class="font-banner-cartoon">1ยินดีต้อนรับค่ะ</span>
+                                        </li>
+                                        <li class="highway-car">
+                                            <span class="font-banner-cartoon">2ยินดีต้อนรับค่ะ</span>
+                                        </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -177,12 +201,12 @@
                                         </div>
                                     <?php } ?>
                                 </div>
-                                <!-- <div class="carousel-indicators">
+                                <div class="carousel-indicators">
                                     <?php foreach ($qBackground_personnel as $index => $rs) {
                                         $active = ($index === 0) ? "active" : "";
                                         echo '<button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="' . $index . '" class="' . $active . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
                                     } ?>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1073,7 +1097,7 @@
 
 
 
-<div class="bg-service">
+<div class="bg-service" id="oss">
     <img class="dot-news-animation-1" src="docs/lightv2.png" width="35" height="35">
     <img class="dot-news-animation-2" src="docs/lightv2.png" width="15" height="15">
     <img class="dot-news-animation-3" src="docs/lightv2.png" width="25" height="25">
@@ -1328,20 +1352,20 @@
     <div class="crop">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><a href="https://www.roiet.go.th/101province/" target="_blank"><img src="docs/s.link-link1.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.pao-roiet.go.th/" target="_blank"><img src="docs/s.link-link2.png"></a></div>
-                <div class="swiper-slide"><a href="http://www.sasuk101.moph.go.th/" target="_blank"><img src="docs/s.link-link3.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.cgd.go.th/cs/internet/internet/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%812.html?page_locale=th_TH" target="_blank"><img src="docs/s.link-link4.png"></a></div>
-                <div class="swiper-slide"><a href="https://moi.go.th/moi/" target="_blank"><img src="docs/s.link-link5.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.doe.go.th/" target="_blank"><img src="docs/s.link-link6.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.nhso.go.th/" target="_blank"><img src="docs/s.link-link7.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.roiet.go.th/dumrong/" target="_blank"><img src="docs/s.link-link8v2.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.admincourt.go.th/admincourt/site/09illustration.html" target="_blank"><img src="docs/s.link-link9.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.dla.go.th/index.jsp" target="_blank"><img src="docs/s.link-link10.png"></a></div>
-                <div class="swiper-slide"><a href="https://info.go.th/" target="_blank"><img src="docs/s.link-link11.png"></a></div>
-                <div class="swiper-slide"><a href="https://moi.go.th/moi/about-us/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%9B%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%81/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%8A%E0%B8%A7%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89/" target="_blank"><img src="docs/s.link-link12.png"></a></div>
-                <div class="swiper-slide"><a href="n" target="_blank"><img src="docs/s.link-link13.png"></a></div>
-                <div class="swiper-slide"><a href="https://www.oic.go.th/web2017/km/index.html" target="_blank"><img src="docs/s.link-link15.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.roiet.go.th/101province/" target="_blank"><img src="docs/link1.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.pao-roiet.go.th/" target="_blank"><img src="docs/link2.png"></a></div>
+                <div class="swiper-slide"><a href="http://www.sasuk101.moph.go.th/" target="_blank"><img src="docs/link3.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.cgd.go.th/cs/internet/internet/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%812.html?page_locale=th_TH" target="_blank"><img src="docs/link4.png"></a></div>
+                <div class="swiper-slide"><a href="https://moi.go.th/moi/" target="_blank"><img src="docs/link5.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.doe.go.th/" target="_blank"><img src="docs/link6.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.nhso.go.th/" target="_blank"><img src="docs/link7.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.roiet.go.th/dumrong/" target="_blank"><img src="docs/link8.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.admincourt.go.th/admincourt/site/09illustration.html" target="_blank"><img src="docs/link9.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.dla.go.th/index.jsp" target="_blank"><img src="docs/link10.png"></a></div>
+                <div class="swiper-slide"><a href="https://info.go.th/" target="_blank"><img src="docs/link11.png"></a></div>
+                <div class="swiper-slide"><a href="https://moi.go.th/moi/about-us/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%9B%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%81/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%8A%E0%B8%A7%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89/" target="_blank"><img src="docs/link12.png"></a></div>
+                <div class="swiper-slide"><a href="n" target="_blank"><img src="docs/link13.png"></a></div>
+                <div class="swiper-slide"><a href="https://www.oic.go.th/web2017/km/index.html" target="_blank"><img src="docs/link14.png"></a></div>
             </div>
             <!-- <div class="swiper-pagination"></div> -->
             <!-- <div class="swiper-button-prev"></div>
