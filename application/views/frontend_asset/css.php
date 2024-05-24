@@ -1505,8 +1505,8 @@
     padding: 5px;
   }
 
-    /* swipper link icon ************************************************** */
-    .swiper {
+  /* swipper link icon ************************************************** */
+  .swiper {
     /* background-image: url('<?php echo base_url("docs/s.bg-link.png"); ?>'); */
     /* background-size: 100%; */
     background-position: center;
@@ -4518,5 +4518,46 @@
     font-family: Kanit;
     font-size: 24px;
     font-style: normal;
+  }
+
+  .bg-link-other {
+    background-image: url('<?php echo base_url("docs/s.bg-links-other.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 925px;
+    width: 1920px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+    /* margin-top: 200px; */
+
+  }
+
+  #scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    /* background-color: red;
+    color: white; */
+    background-image: url('<?php echo base_url("docs/s.scroll-to-top.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #scroll-to-top:hover {
+    background-image: url('<?php echo base_url("docs/s.welcome-other-hover.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
   }
 </style>

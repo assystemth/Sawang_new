@@ -6,6 +6,10 @@
 </div>
 </div>
 
+<div class="text-center">
+    <a href="<?php echo site_url('Home/next_page'); ?>" class="btn btn-primary">Next Page</a>
+</div>
+
 
 <div class="bg-pages ">
     <?php foreach ($qHistory as $rs) { ?>
@@ -21,7 +25,7 @@
                     </div>
                 </div>
                 <!-- <div class="scrollable-container-gi"> -->
-                    <span class="font-other-head">สภาพทั่วไป</span>
+                <span class="font-other-head">สภาพทั่วไป</span>
                 <div class="pages-content break-word mt-5">
                     <span class="font-other-content"><?= $rs->history_name; ?></span>
                 </div>

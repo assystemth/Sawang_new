@@ -33,6 +33,26 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    let mybutton = document.getElementById("scroll-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrolltopFunction()
+    };
+
+    function scrolltopFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function scrolltotopFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
     // ปฏิทิน ทั้งหมด ********************************************************************************
     const monthYear = document.getElementById('monthYear');
     const daysContainer = document.getElementById('days');
@@ -222,7 +242,7 @@
     //   ********************************************************************************
 
 
-    
+
     // active  ********************************************************************************
     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
         var header = document.getElementById(containerId);
