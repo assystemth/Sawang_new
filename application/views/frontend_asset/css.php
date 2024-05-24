@@ -3914,6 +3914,17 @@
     line-height: normal;
   }
 
+  .font-service:hover {
+    color: #fff;
+    -webkit-text-stroke-width: 0.4259740114212036;
+    -webkit-text-stroke-color: #000;
+    font-family: Inter;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
   .font-service {
     display: block;
     /* ทำให้แน่ใจว่า span เป็น block เพื่อให้ margin-top มีผล */
