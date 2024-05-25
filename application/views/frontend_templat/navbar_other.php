@@ -274,7 +274,7 @@
   </style>
   <nav class="navbar navbar2 navbar-expand-lg navbar-dark navbar-center sticky-top" id="navbar2">
       <ul>
-          <li style="margin-left: 55px;"><a href="#">หน้าหลัก</a></li>
+          <li style="margin-left: 55px;"><a href="<?php echo site_url('Home'); ?>">หน้าหลัก</a></li>
           <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
               <div class="dropdown-content">
@@ -503,7 +503,7 @@
       <div style="position: absolute; margin-top:25px; z-index: 2;">
           <!-- <img src="<?php echo base_url("docs/s.navbar-fixed.png"); ?>"> -->
           <ul style="font-size: 24px;">
-              <li><a href="#">หน้าหลัก</a></li>
+              <li><a href="<?php echo site_url('Home'); ?>">หน้าหลัก</a></li>
               <li class="dropdown">
                   <a href="javascript:void(0)" class="dropbtn">ข้อมูลทั่วไป</a>
                   <div class="dropdown-content" style="margin-top: 80px;">
