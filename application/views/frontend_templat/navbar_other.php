@@ -58,7 +58,7 @@
       }
 
       /* เส้นใต้สำหรับ li a เท่านั้น */
-      ul>li>a:hover::after,
+      ul>li>.dropdown>a:hover::after,
       ul>li.dropdown:hover .dropbtn::after {
           content: '';
           position: absolute;

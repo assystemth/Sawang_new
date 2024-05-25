@@ -33,6 +33,7 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    // scrolltotop เลื่อนไปบนสุดของจอ  ********************************************************************************
     $(document).ready(function() {
         var scrollTopButton = $("#scroll-to-top");
         var scrollBackButton = $("#scroll-to-back");
@@ -65,6 +66,8 @@
             scrollTop: 0
         }, 'slow');
     }
+    //   ********************************************************************************
+
     // ปฏิทิน ทั้งหมด ********************************************************************************
     const monthYear = document.getElementById('monthYear');
     const daysContainer = document.getElementById('days');

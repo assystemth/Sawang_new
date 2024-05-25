@@ -2687,9 +2687,9 @@
   }
 
   .pagination .page-item.active .page-link {
-    background-color: #065F39;
+    background-color: #50B1E5;
     /* สีเขียว */
-    border-color: #065F39;
+    border-color: #50B1E5;
     color: #fff;
   }
 
@@ -2697,16 +2697,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 51px;
-    height: 51px;
+    width: 45px;
+    height: 45px;
     overflow: hidden;
-    border-radius: 50%;
-    background-image: url('<?php echo base_url("docs/s.pages-next-pre.png"); ?>');
-    background-size: 100% 100%;
+    /* border-radius: 50%; */
+    /* background-image: url('<?php echo base_url("docs/s.pages-next-pre.png"); ?>');
+    background-size: 100% 100%; */
     /* แก้เป็น 100% 100% */
     background-repeat: no-repeat;
     /* เพิ่มบรรทัดนี้ */
     background-position: center;
+    padding-left: 1px;
   }
 
   .pagination .page-link {
@@ -2716,14 +2717,38 @@
     justify-content: center;
     align-items: center;
     color: #000;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     background-size: cover;
   }
 
 
   .pagination .page-link:hover {
     color: #F1F3F7;
-    background-color: #07834D;
+    background-color: #006CA6;
+  }
+
+  /* เปลี่ยนรูปภาพเมื่อ hover */
+  .pages-first:hover {
+    content: url('<?php echo base_url("docs/s.pages-first-hover.png"); ?>');
+  }
+
+  .pages-pre:hover {
+    content: url('<?php echo base_url("docs/s.pages-pre-hover.png"); ?>');
+  }
+
+  .pages-last:hover {
+    content: url('<?php echo base_url("docs/s.pages-last-hover.png"); ?>');
+  }
+  .pages-next:hover {
+    content: url('<?php echo base_url("docs/s.pages-next-hover.png"); ?>');
+  }
+
+  .pagination-jump-to-page{
+    margin-left: -8px;
+  }
+
+  .pages-go:hover {
+    content: url('<?php echo base_url("docs/s.pages-go-hover.png"); ?>');
   }
 
 
@@ -4566,52 +4591,72 @@
   }
 
   #scroll-to-top {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-image: url('<?php echo base_url("docs/s.scroll-to-top.png"); ?>');
-            background-repeat: no-repeat;
-            width: 76px;
-            height: 76px;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-        }
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-image: url('<?php echo base_url("docs/s.scroll-to-top.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
 
-        #scroll-to-top:hover {
-            background-image: url('<?php echo base_url("docs/s.welcome-other-hover.png"); ?>');
-            background-repeat: no-repeat;
-            width: 76px;
-            height: 76px;
-        }
+  #scroll-to-top:hover {
+    background-image: url('<?php echo base_url("docs/s.welcome-other-hover.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
+  }
 
-        #scroll-to-back {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 120px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-image: url('<?php echo base_url("docs/s.scroll-to-back.png"); ?>');
-            background-repeat: no-repeat;
-            width: 76px;
-            height: 76px;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-        }
+  #scroll-to-back {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 120px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-image: url('<?php echo base_url("docs/s.scroll-to-back.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
 
-        #scroll-to-back:hover {
-            background-image: url('<?php echo base_url("docs/s.scroll-to-back-hover.png"); ?>');
-            background-repeat: no-repeat;
-            width: 76px;
-            height: 76px;
-        }
+  #scroll-to-back:hover {
+    background-image: url('<?php echo base_url("docs/s.scroll-to-back-hover.png"); ?>');
+    background-repeat: no-repeat;
+    width: 76px;
+    height: 76px;
+  }
+
+  /* .page-link-next-pre {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background-color: #F5F7FA;
+    border-radius: 50%;
+  }
+
+  .page-link-next-pre:hover {
+    color: #FFF;
+    background-color: #47B5FF;
+  }
+
+  .page-link-next-pre span {
+    font-size: 24px;
+  } */
 </style>
