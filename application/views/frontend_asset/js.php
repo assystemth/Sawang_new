@@ -136,6 +136,9 @@
                 }
             });
         });
+
+        // Update calendar for today
+        updateQCalenderDisplay(today);
     }
 
     function updateQCalenderDisplay(selectedDate) {
@@ -163,12 +166,19 @@
 
                 const formattedDate = `${day_th} ${month_th} ${year_th}`;
                 qCalenderContainer.innerHTML += `
-            <span class="font-calender2">วันที่ ${formattedDate}</span><br>
-            <span class="font-calender2 detail-text">&#9679;&nbsp;${event.detail}</span><br><br>
+                <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+                <span class="font-calender2 detail-text">&#9679;&nbsp;${event.detail}</span><br><br>
             `;
             });
         } else {
-            qCalenderContainer.innerHTML = '<span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>';
+            const day_th = selectedDate.getDate();
+            const month_th = selectedDate.toLocaleString('th-TH', {
+                month: 'long'
+            });
+            const year_th = selectedDate.getFullYear() + 543;
+
+            const formattedDate = `${day_th} ${month_th} ${year_th}`;
+            qCalenderContainer.innerHTML = `<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`;
         }
     }
 
