@@ -2739,11 +2739,12 @@
   .pages-last:hover {
     content: url('<?php echo base_url("docs/s.pages-last-hover.png"); ?>');
   }
+
   .pages-next:hover {
     content: url('<?php echo base_url("docs/s.pages-next-hover.png"); ?>');
   }
 
-  .pagination-jump-to-page{
+  .pagination-jump-to-page {
     margin-left: -8px;
   }
 
@@ -4296,7 +4297,23 @@
     padding: 5px 0;
     /* ลดระยะห่างของวัน */
     box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+
+
+  .event-dot {
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    /* สีของจุด */
+    border-radius: 50%;
+    margin-top: 4px;
+  }
+
 
   /* .day:hover {
     background-color: #FFD700;

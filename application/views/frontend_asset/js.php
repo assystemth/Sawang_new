@@ -69,142 +69,149 @@
     //   ********************************************************************************
 
     // ปฏิทิน ทั้งหมด ********************************************************************************
-    const monthYear = document.getElementById('monthYear');
-    const daysContainer = document.getElementById('days');
-    const prevMonthBtn = document.getElementById('prevMonth');
-    const nextMonthBtn = document.getElementById('nextMonth');
-    const calendar = document.querySelector('.calendar');
-    calendar.style.marginLeft = '30px'; // แก้ค่าตามต้องการ
+    document.addEventListener('DOMContentLoaded', function() {
+        const monthYear = document.getElementById('monthYear');
+        const daysContainer = document.getElementById('days');
+        const prevMonthBtn = document.getElementById('prevMonth');
+        const nextMonthBtn = document.getElementById('nextMonth');
+        const calendar = document.querySelector('.calendar');
+        calendar.style.marginLeft = '30px';
 
-    let currentDate = new Date();
-    let selectedDayElement = null;
-    let qCalender = []; // ตัวแปรสำหรับเก็บข้อมูลกิจกรรม
+        let currentDate = new Date();
+        let selectedDayElement = null;
+        let qCalender = [];
 
-    function renderCalendar(date) {
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const today = new Date();
-
-        const firstDayOfMonth = new Date(year, month, 1).getDay(); // Sunday is 0
-        const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
-
-        monthYear.innerText = date.toLocaleDateString('th-TH', {
-            month: 'long',
-            // year: 'numeric'
-        });
-
-        daysContainer.innerHTML = '';
-
-        // Adding blank days for the first week
-        for (let i = 0; i < firstDayOfMonth; i++) {
-            daysContainer.innerHTML += `<div class="day"></div>`;
+        function fetchEvents() {
+            return fetch('<?= site_url('calender_backend/get_events') ?>')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched events:', data); // ตรวจสอบข้อมูลที่ได้รับ
+                    qCalender = data;
+                    renderCalendar(currentDate);
+                })
+                .catch(error => {
+                    console.error('Error fetching events:', error);
+                });
         }
 
-        // Adding days of the current month
-        for (let i = 1; i <= lastDateOfMonth; i++) {
-            const isToday = (year === today.getFullYear() && month === today.getMonth() && i === today.getDate());
-            const dayClass = isToday ? 'day current-day' : 'day';
-            daysContainer.innerHTML += `<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}</div>`;
-        }
+        function renderCalendar(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const today = new Date();
 
-        // Adding blank days for the last week
-        const totalDays = firstDayOfMonth + lastDateOfMonth;
-        const remainingDays = 7 - (totalDays % 7);
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
 
-        if (remainingDays < 7) {
-            for (let i = 0; i < remainingDays; i++) {
+            monthYear.innerText = date.toLocaleDateString('th-TH', {
+                month: 'long',
+            });
+
+            daysContainer.innerHTML = '';
+
+            for (let i = 0; i < firstDayOfMonth; i++) {
                 daysContainer.innerHTML += `<div class="day"></div>`;
+            }
+
+            for (let i = 1; i <= lastDateOfMonth; i++) {
+                const isToday = (year === today.getFullYear() && month === today.getMonth() && i === today.getDate());
+                const dayClass = isToday ? 'day current-day' : 'day';
+
+                const currentDay = new Date(year, month, i);
+                const hasEvent = qCalender.some(event => {
+                    const eventDate = new Date(event.calender_date);
+                    return (
+                        eventDate.getFullYear() === currentDay.getFullYear() &&
+                        eventDate.getMonth() === currentDay.getMonth() &&
+                        eventDate.getDate() === currentDay.getDate()
+                    );
+                });
+
+                const eventDot = hasEvent ? '<span class="event-dot"></span>' : '';
+                daysContainer.innerHTML += `<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}${eventDot}</div>`;
+            }
+
+            const totalDays = firstDayOfMonth + lastDateOfMonth;
+            const remainingDays = 7 - (totalDays % 7);
+
+            if (remainingDays < 7) {
+                for (let i = 0; i < remainingDays; i++) {
+                    daysContainer.innerHTML += `<div class="day"></div>`;
+                }
+            }
+
+            document.querySelectorAll('.day').forEach(day => {
+                day.addEventListener('click', (e) => {
+                    const clickedDate = e.target.getAttribute('data-date');
+                    if (clickedDate) {
+                        const [year, month, date] = clickedDate.split('-').map(Number);
+                        const selectedDate = new Date(year, month - 1, date);
+                        console.log(`Selected date: ${selectedDate}`);
+                        updateQCalenderDisplay(selectedDate);
+
+                        if (selectedDayElement) {
+                            selectedDayElement.classList.remove('selected-day');
+                        }
+                        e.target.classList.add('selected-day');
+                        selectedDayElement = e.target;
+                    }
+                });
+            });
+
+            updateQCalenderDisplay(today);
+        }
+
+        function updateQCalenderDisplay(selectedDate) {
+            const qCalenderContainer = document.getElementById('qCalender');
+            qCalenderContainer.innerHTML = '';
+
+            const filteredEvents = qCalender.filter(event => {
+                const eventDate = new Date(event.calender_date);
+                return (
+                    eventDate.getFullYear() === selectedDate.getFullYear() &&
+                    eventDate.getMonth() === selectedDate.getMonth() &&
+                    eventDate.getDate() === selectedDate.getDate()
+                );
+            });
+
+            if (filteredEvents.length > 0) {
+                filteredEvents.forEach(event => {
+                    const date = new Date(event.calender_date);
+                    const day_th = date.getDate();
+                    const month_th = date.toLocaleString('th-TH', {
+                        month: 'long'
+                    });
+                    const year_th = date.getFullYear() + 543;
+
+                    const formattedDate = `${day_th} ${month_th} ${year_th}`;
+                    qCalenderContainer.innerHTML += `
+                <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+                <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
+            `;
+                });
+            } else {
+                const day_th = selectedDate.getDate();
+                const month_th = selectedDate.toLocaleString('th-TH', {
+                    month: 'long'
+                });
+                const year_th = selectedDate.getFullYear() + 543;
+
+                const formattedDate = `${day_th} ${month_th} ${year_th}`;
+                qCalenderContainer.innerHTML = `<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`;
             }
         }
 
-        // Adding click event listener for days
-        document.querySelectorAll('.day').forEach(day => {
-            day.addEventListener('click', (e) => {
-                const clickedDate = e.target.getAttribute('data-date');
-                if (clickedDate) {
-                    const [year, month, date] = clickedDate.split('-').map(Number);
-                    const selectedDate = new Date(year, month - 1, date);
-                    console.log(`Selected date: ${selectedDate}`);
-                    updateQCalenderDisplay(selectedDate); // อัปเดตการแสดงผล qCalender ตามวันที่เลือก
-
-                    // Highlight the selected day
-                    if (selectedDayElement) {
-                        selectedDayElement.classList.remove('selected-day');
-                    }
-                    e.target.classList.add('selected-day');
-                    selectedDayElement = e.target;
-                }
-            });
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
         });
 
-        // Update calendar for today
-        updateQCalenderDisplay(today);
-    }
-
-    function updateQCalenderDisplay(selectedDate) {
-        // อัปเดตการแสดงผล qCalender ตามวันที่เลือก
-        const qCalenderContainer = document.getElementById('qCalender'); // ตรวจสอบว่า id ตรงกัน
-        qCalenderContainer.innerHTML = '';
-
-        const filteredEvents = qCalender.filter(event => {
-            const eventDate = new Date(event.calender_date);
-            return (
-                eventDate.getFullYear() === selectedDate.getFullYear() &&
-                eventDate.getMonth() === selectedDate.getMonth() &&
-                eventDate.getDate() === selectedDate.getDate()
-            );
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
         });
 
-        if (filteredEvents.length > 0) {
-            filteredEvents.forEach(event => {
-                const date = new Date(event.calender_date);
-                const day_th = date.getDate();
-                const month_th = date.toLocaleString('th-TH', {
-                    month: 'long'
-                });
-                const year_th = date.getFullYear() + 543;
-
-                const formattedDate = `${day_th} ${month_th} ${year_th}`;
-                qCalenderContainer.innerHTML += `
-                <span class="font-calender2">วันที่ ${formattedDate}</span><br>
-                <span class="font-calender2 detail-text">&#9679;&nbsp;${event.detail}</span><br><br>
-            `;
-            });
-        } else {
-            const day_th = selectedDate.getDate();
-            const month_th = selectedDate.toLocaleString('th-TH', {
-                month: 'long'
-            });
-            const year_th = selectedDate.getFullYear() + 543;
-
-            const formattedDate = `${day_th} ${month_th} ${year_th}`;
-            qCalenderContainer.innerHTML = `<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`;
-        }
-    }
-
-    prevMonthBtn.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar(currentDate);
+        fetchEvents(); // Fetch events and render calendar
     });
-
-    nextMonthBtn.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar(currentDate);
-    });
-
-    // สมมติว่าคุณมีข้อมูลกิจกรรมอยู่ในตัวแปร qCalender ดังนี้
-    qCalender = [{
-            calender_date: '2023-05-21',
-            detail: 'กิจกรรม A'
-        },
-        {
-            calender_date: '2023-05-22',
-            detail: 'กิจกรรม B'
-        },
-        // เพิ่มข้อมูลกิจกรรมตามที่ต้องการ
-    ];
-
-    renderCalendar(currentDate);
     //   ********************************************************************************
 
     // สลับหน้าแสดงผล ข้าง banner ***************************************************************************
