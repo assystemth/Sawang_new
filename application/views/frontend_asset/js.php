@@ -69,27 +69,26 @@
     //   ********************************************************************************
 
     // ปฏิทิน ทั้งหมด ********************************************************************************
-    document.addEventListener('DOMContentLoaded', function() {
-        const monthYear = document.getElementById('monthYear');
-        const daysContainer = document.getElementById('days');
-        const prevMonthBtn = document.getElementById('prevMonth');
-        const nextMonthBtn = document.getElementById('nextMonth');
-        const calendar = document.querySelector('.calendar');
-        calendar.style.marginLeft = '30px';
+    $(document).ready(function() {
+        const $monthYear = $('#monthYear');
+        const $daysContainer = $('#days');
+        const $prevMonthBtn = $('#prevMonth');
+        const $nextMonthBtn = $('#nextMonth');
+        const $calendar = $('.calendar');
+        $calendar.css('marginLeft', '30px');
 
         let currentDate = new Date();
         let selectedDayElement = null;
         let qCalender = [];
 
         function fetchEvents() {
-            return fetch('<?= site_url('calender_backend/get_events') ?>')
-                .then(response => response.json())
-                .then(data => {
+            return $.getJSON('<?= site_url('calender_backend/get_events') ?>')
+                .done(function(data) {
                     console.log('Fetched events:', data); // ตรวจสอบข้อมูลที่ได้รับ
                     qCalender = data;
                     renderCalendar(currentDate);
                 })
-                .catch(error => {
+                .fail(function(error) {
                     console.error('Error fetching events:', error);
                 });
         }
@@ -102,14 +101,14 @@
             const firstDayOfMonth = new Date(year, month, 1).getDay();
             const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
 
-            monthYear.innerText = date.toLocaleDateString('th-TH', {
+            $monthYear.text(date.toLocaleDateString('th-TH', {
                 month: 'long',
-            });
+            }));
 
-            daysContainer.innerHTML = '';
+            $daysContainer.empty();
 
             for (let i = 0; i < firstDayOfMonth; i++) {
-                daysContainer.innerHTML += `<div class="day"></div>`;
+                $daysContainer.append(`<div class="day"></div>`);
             }
 
             for (let i = 1; i <= lastDateOfMonth; i++) {
@@ -127,7 +126,7 @@
                 });
 
                 const eventDot = hasEvent ? '<span class="event-dot"></span>' : '';
-                daysContainer.innerHTML += `<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}${eventDot}</div>`;
+                $daysContainer.append(`<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}${eventDot}</div>`);
             }
 
             const totalDays = firstDayOfMonth + lastDateOfMonth;
@@ -135,34 +134,32 @@
 
             if (remainingDays < 7) {
                 for (let i = 0; i < remainingDays; i++) {
-                    daysContainer.innerHTML += `<div class="day"></div>`;
+                    $daysContainer.append(`<div class="day"></div>`);
                 }
             }
 
-            document.querySelectorAll('.day').forEach(day => {
-                day.addEventListener('click', (e) => {
-                    const clickedDate = e.target.getAttribute('data-date');
-                    if (clickedDate) {
-                        const [year, month, date] = clickedDate.split('-').map(Number);
-                        const selectedDate = new Date(year, month - 1, date);
-                        console.log(`Selected date: ${selectedDate}`);
-                        updateQCalenderDisplay(selectedDate);
+            $('.day').on('click', function() {
+                const clickedDate = $(this).data('date');
+                if (clickedDate) {
+                    const [year, month, date] = clickedDate.split('-').map(Number);
+                    const selectedDate = new Date(year, month - 1, date);
+                    console.log(`Selected date: ${selectedDate}`);
+                    updateQCalenderDisplay(selectedDate);
 
-                        if (selectedDayElement) {
-                            selectedDayElement.classList.remove('selected-day');
-                        }
-                        e.target.classList.add('selected-day');
-                        selectedDayElement = e.target;
+                    if (selectedDayElement) {
+                        $(selectedDayElement).removeClass('selected-day');
                     }
-                });
+                    $(this).addClass('selected-day');
+                    selectedDayElement = this;
+                }
             });
 
             updateQCalenderDisplay(today);
         }
 
         function updateQCalenderDisplay(selectedDate) {
-            const qCalenderContainer = document.getElementById('qCalender');
-            qCalenderContainer.innerHTML = '';
+            const $qCalenderContainer = $('#qCalender');
+            $qCalenderContainer.empty();
 
             const filteredEvents = qCalender.filter(event => {
                 const eventDate = new Date(event.calender_date);
@@ -183,10 +180,10 @@
                     const year_th = date.getFullYear() + 543;
 
                     const formattedDate = `${day_th} ${month_th} ${year_th}`;
-                    qCalenderContainer.innerHTML += `
-                <span class="font-calender2">วันที่ ${formattedDate}</span><br>
-                <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
-            `;
+                    $qCalenderContainer.append(`
+                    <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+                    <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
+                `);
                 });
             } else {
                 const day_th = selectedDate.getDate();
@@ -196,22 +193,23 @@
                 const year_th = selectedDate.getFullYear() + 543;
 
                 const formattedDate = `${day_th} ${month_th} ${year_th}`;
-                qCalenderContainer.innerHTML = `<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`;
+                $qCalenderContainer.html(`<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`);
             }
         }
 
-        prevMonthBtn.addEventListener('click', () => {
+        $prevMonthBtn.on('click', function() {
             currentDate.setMonth(currentDate.getMonth() - 1);
             renderCalendar(currentDate);
         });
 
-        nextMonthBtn.addEventListener('click', () => {
+        $nextMonthBtn.on('click', function() {
             currentDate.setMonth(currentDate.getMonth() + 1);
             renderCalendar(currentDate);
         });
 
         fetchEvents(); // Fetch events and render calendar
     });
+
     //   ********************************************************************************
 
     // สลับหน้าแสดงผล ข้าง banner ***************************************************************************
@@ -275,18 +273,15 @@
 
     // active  ********************************************************************************
     function addClickListenerToButtons(containerId, buttonClassName, activeClassName) {
-        var header = document.getElementById(containerId);
-        var btns = header.getElementsByClassName(buttonClassName);
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var currentActive = header.querySelector("." + buttonClassName + "." + activeClassName);
-                if (currentActive) {
-                    currentActive.classList.remove(activeClassName);
-                }
-                this.classList.add(activeClassName);
-            });
-        }
+        var $header = $('#' + containerId);
+        var $btns = $header.find('.' + buttonClassName);
+
+        $btns.on('click', function() {
+            $header.find('.' + buttonClassName + '.' + activeClassName).removeClass(activeClassName);
+            $(this).addClass(activeClassName);
+        });
     }
+
 
     // เรียกใช้ฟังก์ชันสำหรับทั้ง 2 กรณี
     addClickListenerToButtons("myDIV", "public-button", "active-public");
