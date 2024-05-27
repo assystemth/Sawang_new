@@ -369,38 +369,35 @@
                     <div class="box-activity">
                         <div class="text-activity underline">
                             <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                                <span><?= $activity->activity_name; ?>
+                                <div class="activity-item">
+                                    <span class="font-pages-heads-img two-line-ellipsis-activity"><?= $activity->activity_name; ?></span>
+                                    <?php
+                                    // วันที่ของข่าว
+                                    $activity_date = new DateTime($activity->activity_date);
+
+                                    // วันที่ปัจจุบัน
+                                    $current_date = new DateTime();
+
+                                    // คำนวณหาความต่างของวัน
+                                    $interval = $current_date->diff($activity_date);
+                                    $days_difference = $interval->days;
+
+                                    // ถ้ามากกว่า 30 วัน ให้ซ่อนไว้
+                                    if ($days_difference <= 30) {
+                                        // แสดงรูปภาพ
+                                        echo '<img src="' . base_url('docs/activity-new.gif') . '" class="activity-new-img">';
+                                    }
+                                    ?>
+                                </div>
                             </a>
                         </div>
-                        <a class="underline" href="<?php echo site_url('Pages/activity_detail/' . $activity->activity_id); ?>">
-
-                        </a>
-                        &nbsp;
-                        <?php
-                        // วันที่ของข่าว
-                        $activity_date = new DateTime($activity->activity_date);
-
-                        // วันที่ปัจจุบัน
-                        $current_date = new DateTime();
-
-                        // คำนวณหาความต่างของวัน
-                        $interval = $current_date->diff($activity_date);
-                        $days_difference = $interval->days;
-
-                        // ถ้ามากกว่า 30 วัน ให้ซ่อนไว้
-                        if ($days_difference > 30) {
-                            // ไม่แสดงรูปภาพ
-                        } else {
-                            // แสดงรูปภาพ
-                            echo '<img src="docs/activity-new.gif">';
-                        }
-                        ?>
                     </div>
                     <div class="row">
                         <div class="col-7 mt-3">
-                            <span class="span-time-home "><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
-                                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
-                                </svg>
+                            <svg style="color: #693708;" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
+                                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
+                            </svg>
+                            <span class="span-time-home ">
                                 <?php
                                 // ในการใช้งาน setThaiMonth
                                 $date = new DateTime($activity->activity_date);
@@ -411,25 +408,13 @@
                                 echo $formattedDate;
                                 ?>
                             </span>
-                            <!-- <span class="span-time-home">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                class="bi bi-clock-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                            </svg>
-                            <?php
-                            $date = new DateTime($activity->activity_date);
-                            $formattedTime = $date->format('H:i'); // เวลา
-                            echo $formattedTime;
-                            ?>
-                            น.</span> -->
                         </div>
                         <div class="col-5">
                             <div class="font-12 underline d-flex justify-content-end mt-4">
-                                <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>"><svg xmlns="http://www.w3.org/2000/svg" style="color: black; margin-top: -5px;" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                         <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
                                         <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
-                                    </svg>เปิดดู : <span><?= $activity->activity_view; ?></span>
+                                    </svg>&nbsp;เปิดดู : <span><?= $activity->activity_view; ?></span>
                                 </a>
                             </div>
                         </div>
@@ -1400,7 +1385,7 @@
             </div>
 
         </div>
-        <div class="text-center" style="z-index: 5; margin-top: -210px; margin-left: -40px">
+        <div class="text-center" style="position: relative; z-index: 5; margin-top: -210px; margin-left: -40px">
             <span class="font-link">องค์การบริหารส่วนตำบลสว่าง เลขที่ 232 หมู่ 4 ตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด 45110<br>
                 โทร 0-4303-9711 E-mail : saraban101@sawang.go.th</span>
         </div>

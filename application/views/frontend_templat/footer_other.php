@@ -17,7 +17,7 @@
     <img class="dot-news-animation-14" src="<?php echo base_url('docs/animation-star-2.png'); ?>">
     <img class="dot-news-animation-15" src="<?php echo base_url('docs/animation-star-2.png'); ?>">
     <div class="crop">
-        <div class="text-center" style="z-index: 5; margin-left: -40px; padding-top: 80px;">
+        <div class="text-center" style="position: relative; z-index: 5; margin-left: -40px; padding-top: 80px;">
             <span class="font-link">
                 องค์การบริหารส่วนตำบลสว่าง เลขที่ 232 หมู่ 4 ตำบลสว่าง อำเภอโพนทอง จังหวัดร้อยเอ็ด 45110<br>
                 โทร 0-4303-9711 E-mail : saraban101@sawang.go.th

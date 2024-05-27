@@ -598,7 +598,7 @@
   .font-banner-cartoon {
     color: #210B00;
     text-align: center;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -795,7 +795,7 @@
 
   .text-activity {
     color: #523003;
-    font-family: Kanit;
+    
     font-size: 18.263px;
     font-style: normal;
     font-weight: 300;
@@ -963,7 +963,7 @@
     color: #2C013B;
     text-shadow: -1px 0 #fff, 0 2px #fff,
       2px 0 #fff, 0 -1px #fff;
-    font-family: Kanit;
+    
     font-size: 36px;
     font-style: normal;
     font-weight: 500;
@@ -1101,7 +1101,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     color: #000;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -1112,7 +1112,7 @@
 
   .text-news-time {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -1270,7 +1270,7 @@
   .text-travel {
     color: #FFE072;
     -webkit-text-stroke: 1px black;
-    font-family: Kanit;
+    
     font-size: 36.024px;
     font-style: normal;
     font-weight: 600;
@@ -1405,7 +1405,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 6.671px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
@@ -1416,7 +1416,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0px 2.668px 2.668px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 25.35px;
     font-style: normal;
     font-weight: 500;
@@ -1456,7 +1456,7 @@
   .font-q-a-home-head {
     color: #693708;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1471,7 +1471,7 @@
 
   .font-q-a-home-form {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -1491,7 +1491,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
@@ -1584,11 +1584,11 @@
   }
 
   .border-gray-332 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 331.744px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
     height: 0.672px;
-    background: #000;
+    background: #693708;
   }
 
   .border-q-a {
@@ -1626,7 +1626,7 @@
   .font-footer {
     color: #693708;
     text-align: center;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     line-height: 33.366px;
@@ -1654,7 +1654,7 @@
     background-image: url('<?php echo base_url("docs/s.bg-other.jpg"); ?>');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 1280px;
+    width: 1920px;
     height: 2000px;
     position: relative;
     margin-top: 230px;
@@ -1668,20 +1668,18 @@
     width: 1920px;
     height: auto;
     position: relative;
+    margin-top: -150px;
   }
 
   .bg-pages-in {
     background-color: white;
     margin-top: 40px;
     margin-bottom: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
     border-radius: 22.86px;
     /* background: rgba(253, 245, 225, 0.80); */
     /* box-shadow: 0px 0px 6.724px 0px rgba(0, 0, 0, 0.25); */
     height: auto;
     width: 1920px;
-    padding-top: 45px;
   }
 
   .bg-pages-news {
@@ -1903,7 +1901,7 @@
     color: #FFF;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1915,7 +1913,7 @@
     color: #693708;
     text-align: center;
     text-shadow: 0.534px 0.534px 0.534px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -2000,7 +1998,7 @@
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
@@ -2012,7 +2010,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -2024,7 +2022,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -2033,7 +2031,7 @@
 
   .font-laws-head {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -2043,7 +2041,7 @@
 
   .font-laws-content {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -2069,7 +2067,7 @@
   .red-font {
     color: #F00;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2082,7 +2080,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -2094,7 +2092,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -2108,7 +2106,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -2120,7 +2118,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2133,7 +2131,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -2145,7 +2143,7 @@
     color: #693708;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -2157,7 +2155,7 @@
 
   .font-ita-head {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -2167,7 +2165,7 @@
 
   .font-ita-content {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 300;
@@ -2180,7 +2178,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 21.438px;
     font-style: normal;
     font-weight: 500;
@@ -2193,7 +2191,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 20.098px;
     font-style: normal;
     font-weight: 500;
@@ -2206,7 +2204,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 21.438px;
     font-style: normal;
     font-weight: 300;
@@ -2217,7 +2215,7 @@
   .font-contact-1 {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 26.895px;
     font-style: normal;
     font-weight: 300;
@@ -2229,7 +2227,7 @@
     color: #000;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 24.205px;
     font-style: normal;
     font-weight: 300;
@@ -2241,7 +2239,7 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 26.895px;
     font-style: normal;
     font-weight: 600;
@@ -2251,7 +2249,7 @@
 
   .font-pages-heads-img {
     color: #523003;
-    font-family: Kanit;
+    
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -2261,7 +2259,7 @@
 
   .font-pages-details-img {
     color: #6C757D;
-    font-family: Kanit;
+    
     font-size: 15.5px;
     font-style: normal;
     font-weight: 300;
@@ -2273,17 +2271,16 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 26.796px;
+    font-weight: 600;
+    line-height: 40px;
     /* 111.648% */
   }
 
   .font-page-detail-time-img {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -2293,17 +2290,16 @@
 
   .font-page-detail-content-img {
     color: #000;
-    font-family: Kanit;
-    font-size: 22px;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 33.618px;
     /* 152.811% */
   }
 
   .font-page-detail-view-img {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -2316,7 +2312,7 @@
     text-align: right;
     leading-trim: both;
     text-edge: cap;
-    font-family: Kanit;
+    
     font-size: 20.053px;
     font-style: normal;
     font-weight: 400;
@@ -2326,7 +2322,7 @@
 
   .font-pages-content {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -2336,7 +2332,7 @@
 
   .font-otop-head {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -2360,7 +2356,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 26.796px;
     font-style: normal;
     font-weight: 600;
@@ -2373,7 +2369,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 24.116px;
     font-style: normal;
     font-weight: 500;
@@ -2384,7 +2380,7 @@
   .font-head-all-web {
     color: #FFC23B;
     text-align: center;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -2395,7 +2391,7 @@
   .font-content-all-web {
     color: #000;
     text-align: center;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -2406,7 +2402,7 @@
   .font-e-service-complain {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -2419,7 +2415,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 18.762px;
     font-style: normal;
     font-weight: 300;
@@ -2433,7 +2429,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 17px;
     font-style: normal;
     font-weight: 500;
@@ -2442,7 +2438,7 @@
 
   .font-flcp-sd {
     color: var(--, #6D758F);
-    font-family: Kanit;
+    
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -2450,7 +2446,7 @@
   }
 
   .font-color-flcp {
-    font-family: Kanit;
+    
     font-size: 21.442px;
     font-style: normal;
     font-weight: 500;
@@ -2459,7 +2455,7 @@
 
   .font-time-flcp {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 21.442px;
     font-style: normal;
     font-weight: 300;
@@ -2558,7 +2554,7 @@
 
   .span-time-pages-img {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -2573,7 +2569,7 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Kanit;
+    
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -2585,7 +2581,7 @@
 
   .span-time-pages-news {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -2602,7 +2598,7 @@
 
   .span-time-q-a {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 16.078px;
     font-style: normal;
     font-weight: 400;
@@ -2650,6 +2646,27 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+  }
+
+  .activity-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .two-line-ellipsis-activity {
+    flex: 1;
+    max-height: 2.55em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.3;
+  }
+
+  .activity-new-img {
+    margin-top: 20px;
+    margin-left: 10px;
   }
 
   /* **************************************************************************** */
@@ -2754,21 +2771,25 @@
 
 
   .page-border-travel {
+    background-color: #FDF5E1;
     border: 1px solid #EABA48;
     border-radius: 15px;
     margin-bottom: 30px;
-    width: 221.881px;
-    height: 282.394px;
+    width: 248px;
+    height: 316px;
     flex-shrink: 0;
   }
 
   .page-border-activity {
+    background-color: #FDF5E1;
     border: 1px solid #EABA48;
     border-radius: 15px;
     margin-bottom: 30px;
-    width: 221.064px;
-    height: 281.354px;
+    width: 248px;
+    height: 316px;
     flex-shrink: 0;
+    z-index: 5;
+    position: relative;
   }
 
   /* รูปภาพโค้ง border-radius-img ******************************************************8* */
@@ -3152,7 +3173,7 @@
 
   select.custom-select {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 20.102px;
     font-style: normal;
     font-weight: 500;
@@ -3183,18 +3204,18 @@
   }
 
   .container-pages {
-    padding-left: 120px;
-    padding-right: 105px;
+    padding-left: 230px;
+    padding-right: 230px;
   }
 
   .container-pages-news {
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 230px;
+    padding-right: 230px;
   }
 
   .container-pages-detail {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 230px;
+    padding-right: 230px;
   }
 
   .border-radius24 {
@@ -3214,7 +3235,7 @@
     color: #000;
     text-align: center;
     text-shadow: 0.536px 0.536px 0.536px rgba(0, 0, 0, 0.25);
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -3223,7 +3244,7 @@
 
   .font-gi-content {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 300;
@@ -3232,7 +3253,7 @@
 
   .font-gi-target {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -3288,7 +3309,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+    
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -3303,7 +3324,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+    
   }
 
   .bg-ita-color {
@@ -3448,7 +3469,7 @@
     background: #FCBF6A;
     font-size: 20px;
     font-weight: 500;
-    font-family: kanit;
+    
     border-radius: 25px;
     width: 91px;
     height: 32px;
@@ -3461,7 +3482,7 @@
 
   .font-ita-content-detail {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 20px;
     font-style: normal;
     padding-left: 150px;
@@ -4077,7 +4098,7 @@
     color: #FFF;
     text-align: center;
     text-shadow: 0px 0px 10px rgba(159, 218, 255, 0.30);
-    font-family: Kanit;
+    
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -4097,7 +4118,7 @@
     color: #FFF;
     text-align: center;
     text-shadow: 0px 0px 10px rgba(159, 218, 255, 0.30);
-    font-family: Kanit;
+    
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -4169,7 +4190,7 @@
 
   .font-footer2 {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 300;
@@ -4179,7 +4200,7 @@
 
   .font-footer3 {
     color: #693708;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -4581,7 +4602,7 @@
 
   .font-other-head {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 32px;
     font-style: normal;
     font-weight: bold;
@@ -4589,7 +4610,7 @@
 
   .font-other-content {
     color: #000;
-    font-family: Kanit;
+    
     font-size: 24px;
     font-style: normal;
   }
