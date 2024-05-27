@@ -388,18 +388,20 @@
                       <div class="dropdown-center">
                           <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ITA การประเมินคุณธรรมและความโปร่งใส</span></a></a>
                           <a href="<?php echo site_url('Pages/lpa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;LPA การประเมินประสิทธิภาพขององค์กร</span></a></a>
-                          <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
-                          <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
-                          <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
-                          <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
+                          <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การบริหารและพัฒนาทรัพยากรบุคคล ></span></a></a>
+                          <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
+                          <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
+                          <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
+                          <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
                       </div>
                       <div class="dropdown-right">
                           <a href="<?php echo site_url('Pages/operation_aa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กิจการสภา</span></a></a>
                           <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
                           <a href="<?php echo site_url('Pages/operation_aditn'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบภายใน</span></a></a>
-                          <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
-                          <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
-                          <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                          <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ ></span></a></a>
+                          <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
+                          <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                          <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -617,18 +619,20 @@
                           <div class="dropdown-center">
                               <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ITA การประเมินคุณธรรมและความโปร่งใส</span></a></a>
                               <a href="<?php echo site_url('Pages/lpa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;LPA การประเมินประสิทธิภาพขององค์กร</span></a></a>
-                              <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
-                              <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
-                              <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
-                              <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
+                              <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การบริหารและพัฒนาทรัพยากรบุคคล ></span></a></a>
+                              <a href="<?php echo site_url('Pages/operation_policy_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;นโยบายบริหารทรัพยากรบุคคล</span></a></a>
+                              <a href="<?php echo site_url('Pages/operation_am_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;การดำเนินการบริหารทรัพยากรบุคคล</span></a></a>
+                              <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;หลักเกณฑ์การบริหารและพัฒนา</span></a></a>
+                              <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</span></a></a>
                           </div>
                           <div class="dropdown-right">
                               <a href="<?php echo site_url('Pages/operation_aa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กิจการสภา</span></a></a>
                               <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
                               <a href="<?php echo site_url('Pages/operation_aditn'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบภายใน</span></a></a>
-                              <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
-                              <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
-                              <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                              <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ ></span></a></a>
+                              <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
+                              <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                              <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
                           </div>
                       </ul>
                   </div>
