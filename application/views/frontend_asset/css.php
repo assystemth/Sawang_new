@@ -26,7 +26,7 @@
   body {
     padding: 0;
     margin: 0;
-    height: 2000px;
+    height: 1800px;
     font-family: "Noto Sans Thai Looped", sans-serif;
   }
 
@@ -34,7 +34,7 @@
     margin: 0 auto;
     transform-origin: top left;
     width: 1920px;
-    height: 2000px;
+    height: 1800px;
   }
 
   .crop {
@@ -1991,14 +1991,11 @@
     align-items: center;
   } */
 
-
-
   .font-pages-head-long {
     color: #FFF;
     leading-trim: both;
     text-edge: cap;
     text-shadow: 0px 2.115px 2.115px rgba(0, 0, 0, 0.25);
-    
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
@@ -2010,28 +2007,26 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 33.421px;
-    /* 139.254% */
+    font-weight: 600;
+    line-height: 40px;
+    position: relative;
+    z-index: 10;
   }
 
   .font-pages-content-detail {
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    
-    font-size: 22px;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 33.421px;
   }
 
   .font-laws-head {
     color: #000;
-    
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -2041,7 +2036,6 @@
 
   .font-laws-content {
     color: #000;
-    
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -2067,7 +2061,6 @@
   .red-font {
     color: #F00;
     font-feature-settings: 'clig' off, 'liga' off;
-    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2080,7 +2073,6 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -2092,7 +2084,6 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -2106,7 +2097,6 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-    
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -2118,7 +2108,6 @@
     color: #000;
     leading-trim: both;
     text-edge: cap;
-    
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -2312,8 +2301,7 @@
     text-align: right;
     leading-trim: both;
     text-edge: cap;
-    
-    font-size: 20.053px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 33.421px;
@@ -2779,9 +2767,30 @@
     height: 316px;
     flex-shrink: 0;
   }
+  .page-border-travel:hover {
+    background-color: #FFFFFF;
+    border: 1px solid #EABA48;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    width: 248px;
+    height: 316px;
+    flex-shrink: 0;
+  }
 
   .page-border-activity {
     background-color: #FDF5E1;
+    border: 1px solid #EABA48;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    width: 248px;
+    height: 316px;
+    flex-shrink: 0;
+    z-index: 5;
+    position: relative;
+  }
+
+  .page-border-activity:hover {
+    background-color: #FFFFFF;
     border: 1px solid #EABA48;
     border-radius: 15px;
     margin-bottom: 30px;
@@ -2844,12 +2853,26 @@
   .pages-select-pdf {
     border-radius: 100px;
     border: 0.67px solid var(--02, #ECB23F);
-    background: #FDF5E1;
+    background: #FFFCF4;
     padding: 15px;
     margin-bottom: 15px;
-    width: 100%;
+    width: 1460px;
+    height: auto;
     flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
 
+  .pages-select-pdf:hover {
+    border-radius: 100px;
+    border: 0.67px solid var(--02, #ECB23F);
+    background: #FFF5DB;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 1460px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
   }
 
   .pages-select-e-gp {
@@ -4678,23 +4701,7 @@
     height: 76px;
   }
 
-  /* .page-link-next-pre {
-    width: 51px;
-    height: 51px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    background-color: #F5F7FA;
-    border-radius: 50%;
-  }
-
-  .page-link-next-pre:hover {
-    color: #FFF;
-    background-color: #47B5FF;
-  }
-
-  .page-link-next-pre span {
-    font-size: 24px;
-  } */
+.btn-download:hover{
+  content: url('<?php echo base_url("docs/btn-download-hover.png"); ?>');
+}
 </style>
