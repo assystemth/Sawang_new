@@ -396,7 +396,9 @@ class Calender_model extends CI_Model
 
 
     public function get_events() {
+        $this->db->where('tbl_calender.calender_status', 'show');
         $query = $this->db->get('tbl_calender');
         return $query->result_array();
+        
     }
 }

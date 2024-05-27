@@ -6,14 +6,14 @@ class Calender_backend extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (
-            $this->session->userdata('m_level') != 1 &&
-            $this->session->userdata('m_level') != 2 &&
-            $this->session->userdata('m_level') != 3 &&
-            $this->session->userdata('m_level') != 4
-        ) {
-            redirect('user', 'refresh');
-        }
+        // if (
+        //     $this->session->userdata('m_level') != 1 &&
+        //     $this->session->userdata('m_level') != 2 &&
+        //     $this->session->userdata('m_level') != 3 &&
+        //     $this->session->userdata('m_level') != 4
+        // ) {
+        //     redirect('user', 'refresh');
+        // }
         $this->load->model('member_model');
         $this->load->model('space_model');
         $this->load->model('calender_model');

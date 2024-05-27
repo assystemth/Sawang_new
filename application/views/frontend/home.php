@@ -1029,34 +1029,94 @@
         </div>
         <div class="otop-content">
             <div class="text-center">
-                <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px; z-index: 5;">
-                    <?php
-                    $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
-                    $i = 0;
-                    foreach ($qOtop as $otop) {
-                        $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
-                    ?>
-                        <div class="text-center">
-                            <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
-                                <div class="image-with-background <?php echo $class_img; ?>">
-                                    <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
-                                </div>
-                            </a>
-                            <br>
-                            <div class="d-flex justify-content-center">
-                                <div style="z-index: 2px; margin-top: -80px; margin-left:-60px; position: absolute;">
-                                    <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
-                                        <span class="font-name-otop"><?= $otop->otop_name; ?></span>
-                                    </a>
+                <?php if (count($qOtop) <= 3) : ?>
+                    <div class="slick-carousel" style="margin-top: -105px; z-index: 5; margin-left: -80px">
+                        <?php
+                        $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
+                        $i = 0;
+                        foreach ($qOtop as $otop) {
+                            $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        ?>
+                            <div class="text-center" style="margin: 0 10px;">
+                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                    <div class="image-with-background <?php echo $class_img; ?>">
+                                        <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
+                                    </div>
+                                </a>
+                                <br>
+                                <div class="d-flex justify-content-center">
+                                    <div style="z-index: 2px; margin-top: -80px; margin-left: -70px; position: absolute;">
+                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                            <span class="font-name-otop"><?= $otop->otop_name; ?></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php
-                        $i++;
-                    }
-                    ?>
-                </div>
+                        <?php
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                <?php elseif (count($qOtop) <= 4) : ?>
+                    <!-- <p>ไม่มีข้อมูล</p> -->
+                    <div class="slick-carousel" style="margin-top: -105px; z-index: 5; margin-left: -80px">
+                        <?php
+                        $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
+                        $i = 0;
+                        foreach ($qOtop as $otop) {
+                            $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        ?>
+                            <div class="text-center" style="margin: 0 50px;">
+                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                    <div class="image-with-background <?php echo $class_img; ?>">
+                                        <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
+                                    </div>
+                                </a>
+                                <br>
+                                <div class="d-flex justify-content-center">
+                                    <div style="z-index: 2px; margin-top: -80px; margin-left: 25px; position: absolute;">
+                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                            <span class="font-name-otop"><?= $otop->otop_name; ?></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                <?php else : ?>
+                    <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px; z-index: 5;">
+                        <?php
+                        $bg_classes_img = ['otop-background-1', 'otop-background-2', 'otop-background-3', 'otop-background-4'];
+                        $i = 0;
+                        foreach ($qOtop as $otop) {
+                            $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        ?>
+                            <div class="text-center">
+                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                    <div class="image-with-background <?php echo $class_img; ?>">
+                                        <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
+                                    </div>
+                                </a>
+                                <br>
+                                <div class="d-flex justify-content-center">
+                                    <div style="z-index: 2px; margin-top: -80px; margin-left:-60px; position: absolute;">
+                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                            <span class="font-name-otop"><?= $otop->otop_name; ?></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
+
         </div>
 
         <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
@@ -1071,31 +1131,86 @@
             </div>
         </div>
         <div class="travel-content">
-            <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;  z-index: 5;">
-                <?php
-                $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
-                $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
-                $i = 0;
-                foreach ($qTravel as $travel) {
-                    $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
-                    $class_text = $bg_classes_text[$i % 4]; // หมุนเวียนคลาสสำหรับข้อความ
-                ?>
-                    <div class="text-center">
-                        <a href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
-                            <div class="image-with-background <?php echo $class_img; ?>">
-                                <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
-                            </div>
-                        </a>
-                        <br>
-                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
-                            <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
-                        </a>
-                    </div>
-                <?php
-                    $i++;
-                }
-                ?>
-            </div>
+            <?php if (count($qTravel) <= 3) : ?>
+                <div class="slick-carousel" style="margin-top: -105px; z-index: 5; margin-left: -80px">
+                    <?php
+                    $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
+                    $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
+                    $i = 0;
+                    foreach ($qTravel as $travel) {
+                        $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        $class_text = $bg_classes_text[$i % 4]; // หมุนเวียนคลาสสำหรับข้อความ
+                    ?>
+                        <div class="text-center">
+                            <a href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <div class="image-with-background <?php echo $class_img; ?>">
+                                    <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
+                                </div>
+                            </a>
+                            <br>
+                            <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
+                            </a>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+                    ?>
+                </div>
+            <?php elseif (count($qTravel) <= 4) : ?>
+                <!-- <p>ไม่มีข้อมูล</p> -->
+                <div class="slick-carousel" style="margin-top: -105px; z-index: 5; margin-left: -80px">
+                    <?php
+                    $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
+                    $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
+                    $i = 0;
+                    foreach ($qTravel as $travel) {
+                        $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        $class_text = $bg_classes_text[$i % 4]; // หมุนเวียนคลาสสำหรับข้อความ
+                    ?>
+                        <div class="text-center" style="margin: 0 40px;">
+                            <a href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <div class="image-with-background <?php echo $class_img; ?>">
+                                    <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
+                                </div>
+                            </a>
+                            <br>
+                            <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
+                            </a>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+                    ?>
+                </div>
+            <?php else : ?>
+                <div class="slick-carousel d-flex justify-content-center" style="margin-top: -105px;  z-index: 5;">
+                    <?php
+                    $bg_classes_img = ['travel-background-1', 'travel-background-2', 'travel-background-3', 'travel-background-4'];
+                    $bg_classes_text = ['travel-name-1', 'travel-name-2', 'travel-name-3', 'travel-name-4'];
+                    $i = 0;
+                    foreach ($qTravel as $travel) {
+                        $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
+                        $class_text = $bg_classes_text[$i % 4]; // หมุนเวียนคลาสสำหรับข้อความ
+                    ?>
+                        <div class="text-center">
+                            <a href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <div class="image-with-background <?php echo $class_img; ?>">
+                                    <img src="<?php echo base_url('docs/img/' . $travel->travel_img); ?>" width="239px" height="239px" class="image-with-shadow-travel">
+                                </div>
+                            </a>
+                            <br>
+                            <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
+                                <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
+                            </a>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
