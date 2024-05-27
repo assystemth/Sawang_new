@@ -1,69 +1,59 @@
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">สมาชิกสภาตำบล</span>
+</div>
+</div>
+
 <div class="bg-pages ">
     <div class="container-pages-detail">
         <div class="page-center">
-            <div class="head-pages">
-                <span class="font-pages-head-long">สมาชิกสภา</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="path1-1">
-                <span class="font-path-1 underline"><a href="<?php echo site_url('Home'); ?>">หน้าแรก</a></span>
-            </div>
-            <div class="path2-4">
-                <span class="font-path-2 underline"><a href="#">โครงสร้างบุคลากร</a></span>
-            </div>
-        </div>
-        <div class="bg-pages-in-gi">
-            <div class="scrollable-container-p">
-                <div class="page-center">
-                    <?php foreach ($query_one as $rs) { ?>
-                        <?php if (!empty($rs->p_council_rank)) : ?>
-                            <div class="bg-personnel-s">
-                                <div class="rounded-image-s">
-                                    <?php if (!empty($rs->p_council_img)) : ?>
-                                        <img src="<?php echo base_url('docs/img/' . $rs->p_council_img); ?>" width="100%" height="100%">
-                                    <?php else : ?>
-                                        <img src="<?php echo base_url('docs/ex_personnel.png'); ?>" width="100%" height="100%">
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                            <div class="mt-3 center-center">
-                                <span class="font-p-name">
-                                    <?php echo !empty($rs->p_council_name) ? $rs->p_council_name : 'ว่าง'; ?>
-                                </span>
-                                <span class="font-p-detail "><?= $rs->p_council_rank; ?></span>
-                                <?php if (!empty($rs->p_council_phone)) : ?>
-                                    <span class="font-p-detail">เบอร์ <?= $rs->p_council_phone; ?></span>
-                                <?php endif; ?>
-                            </div>
-                        <?php endif; ?>
-                    <?php } ?>
-                </div>
-                <div class="row " style="margin-top: 25px;">
-                    <?php foreach ($query_under_one as $rs) : ?>
-                        <div class="col-4 col-md-4 mb-3 center-center">
-                            <?php if (!empty($rs->p_council_rank)) : ?>
-                                <div class="bg-personnel-s">
-                                    <div class="rounded-image-s">
-                                        <?php if (!empty($rs->p_council_img)) : ?>
-                                            <img src="<?php echo base_url('docs/img/' . $rs->p_council_img); ?>" width="100%" height="100%">
-                                        <?php else : ?>
-                                            <img src="<?php echo base_url('docs/ex_personnel.png'); ?>" width="100%" height="100%">
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <span class="font-p-name">
-                                    <?php echo !empty($rs->p_council_name) ? $rs->p_council_name : 'ว่าง'; ?>
-                                </span>
-                                <span class="font-p-detail "><?= $rs->p_council_rank; ?></span>
-                                <?php if (!empty($rs->p_council_phone)) : ?>
-                                    <span class="font-p-detail">เบอร์ <?= $rs->p_council_phone; ?></span>
-                                <?php endif; ?>
+            <?php foreach ($query_one as $rs) { ?>
+                <?php if (!empty($rs->p_council_rank)) : ?>
+                    <div class="bg-personnel-s">
+                        <div class="rounded-image-s">
+                            <?php if (!empty($rs->p_council_img)) : ?>
+                                <img src="<?php echo base_url('docs/img/' . $rs->p_council_img); ?>" width="100%" height="100%">
+                            <?php else : ?>
+                                <img src="<?php echo base_url('docs/ex_personnel.png'); ?>" width="100%" height="100%">
                             <?php endif; ?>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                    <div class="mt-3 center-center">
+                        <span class="font-p-name">
+                            <?php echo !empty($rs->p_council_name) ? $rs->p_council_name : 'ว่าง'; ?>
+                        </span>
+                        <span class="font-p-detail "><?= $rs->p_council_rank; ?></span>
+                        <?php if (!empty($rs->p_council_phone)) : ?>
+                            <span class="font-p-detail">เบอร์ <?= $rs->p_council_phone; ?></span>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            <?php } ?>
+        </div>
+        <div class="row " style="margin-top: 25px;">
+            <?php foreach ($query_under_one as $rs) : ?>
+                <div class="col-4 col-md-4 mb-3 center-center">
+                    <?php if (!empty($rs->p_council_rank)) : ?>
+                        <div class="bg-personnel-s">
+                            <div class="rounded-image-s">
+                                <?php if (!empty($rs->p_council_img)) : ?>
+                                    <img src="<?php echo base_url('docs/img/' . $rs->p_council_img); ?>" width="100%" height="100%">
+                                <?php else : ?>
+                                    <img src="<?php echo base_url('docs/ex_personnel.png'); ?>" width="100%" height="100%">
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <span class="font-p-name">
+                            <?php echo !empty($rs->p_council_name) ? $rs->p_council_name : 'ว่าง'; ?>
+                        </span>
+                        <span class="font-p-detail "><?= $rs->p_council_rank; ?></span>
+                        <?php if (!empty($rs->p_council_phone)) : ?>
+                            <span class="font-p-detail">เบอร์ <?= $rs->p_council_phone; ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
-                <!-- <?php foreach ($rsOne as $rs) { ?>
+            <?php endforeach; ?>
+        </div>
+        <!-- <?php foreach ($rsOne as $rs) { ?>
                     <div class="bg-personnel-s">
                         <div class="rounded-image-s">
                             <img src="<?= base_url('docs/img/' . $rs->p_council_img); ?>" width="100%" height="100%">
@@ -165,10 +155,5 @@
                     <?php endforeach; ?>
                 </div>
                 <br> -->
-            </div>
-            <div class="margin-top-delete-topic d-flex justify-content-end mt-2">
-                <a href="<?php echo site_url('Home'); ?>"><img src="<?php echo base_url("docs/s.btn-back.png"); ?>"></a>
-            </div>
-        </div>
     </div>
 </div>

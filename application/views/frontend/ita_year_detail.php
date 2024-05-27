@@ -1,78 +1,64 @@
-<div class="bg-pages ">
-    <div class="container-pages-detail">
-        <div class="page-center">
-            <div class="head-pages-three">
-                <span class="font-pages-head">ITA การประเมินคุณธรรมและความโปร่งใส</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="path1-1">
-                <span class="font-path-1 underline"><a href="<?php echo site_url('Home'); ?>">หน้าแรก</a></span>
-            </div>
-            <div class="path2-2">
-                <span class="font-path-2 underline"><a href="#">ปี <?= $query->ita_year_year; ?></a></span>
-            </div>
-        </div>
-        <div class="bg-pages-ita">
-            <div class="scrollable-container-news">
-                <?php foreach ($query_topic as $rs) { ?>
-                    <div class="bg-ita-empty">
-                        <div class="d-flex justify-content-start mt-3">
-                            <span class="font-ita-head"><?= $rs->ita_year_topic_name; ?></span>
-                        </div>
-                        <div class="ita-detail-content">
-                            <?php
-                            $linkDataArray = json_decode('[' . $rs->link_data . ']', true);
-                            foreach ($linkDataArray as $linkData) {
-                                echo '<span class="font-ita-content">' . $linkData['ita_year_link_name'] . '</span>';
-                                echo '<div class="row mt-2">';
-                                echo '<div class="col-2">';
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">การประเมินคุณธรรมและความโปร่งใส ITA</span>
+</div>
+</div>
 
-                                // ตรวจสอบและแสดงค่าเมื่อมีลิงค์
-                                foreach (range(1, 5) as $i) {
-                                    $linkKey = 'ita_year_link_link' . $i;
-                                    if (!empty($linkData[$linkKey])) {
-                                        echo '<span class="font-ita-content-detail">ลิงค์</span><br><br>';
-                                    }
-                                }
+<div class="bg-pages" >
+    <div class="container-pages-detail"style="position: relative; z-index: 10;">
+        <?php foreach ($query_topic as $rs) { ?>
+            <div class="bg-ita-empty">
+                <div class="d-flex justify-content-start mt-3">
+                    <span class="font-ita-head"><?= $rs->ita_year_topic_name; ?></span>
+                </div>
+                <div class="ita-detail-content">
+                    <?php
+                    $linkDataArray = json_decode('[' . $rs->link_data . ']', true);
+                    foreach ($linkDataArray as $linkData) {
+                        echo '<span class="font-ita-content">' . $linkData['ita_year_link_name'] . '</span>';
+                        echo '<div class="row mt-2">';
+                        echo '<div class="col-2">';
 
-                                echo '</div>';
-                                echo '<div class="col-8">';
-
-                                // แสดงลิงค์
-                                foreach (range(1, 5) as $i) {
-                                    $linkKey = 'ita_year_link_link' . $i;
-                                    if (!empty($linkData[$linkKey])) {
-                                        echo '<span class="font-ita-content-detail one-line-ellipsis">' . $linkData[$linkKey] . '</span><br><br>';
-                                    }
-                                }
-
-                                echo '</div>';
-                                echo '<div class="col-2">';
-
-                                // แสดงปุ่มเปิดลิงค์
-                                foreach (range(1, 5) as $i) {
-                                    $linkKey = 'ita_year_link_link' . $i;
-                                    if (!empty($linkData[$linkKey])) {
-                                        echo '<a class="btn btn-ita-open" target="_blank" href="' . $linkData[$linkKey] . '">เปิด</a><br>';
-                                    }
-                                }
-
-                                echo '</div>';
-                                echo '</div>';
+                        // ตรวจสอบและแสดงค่าเมื่อมีลิงค์
+                        foreach (range(1, 5) as $i) {
+                            $linkKey = 'ita_year_link_link' . $i;
+                            if (!empty($linkData[$linkKey])) {
+                                echo '<span class="font-ita-content-detail">ลิงค์</span><br><br>';
                             }
-                            ?>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-            <div class="margin-top-delete d-flex justify-content-end">
-                <a href="<?php echo site_url('Pages/ita'); ?>"><img src="<?php echo base_url("docs/s.btn-back.png"); ?>"></a>
-            </div>
-        </div>
-    </div>
+                        }
 
-    <!-- <div id="popup-ita" class="popup-ita">
+                        echo '</div>';
+                        echo '<div class="col-8">';
+
+                        // แสดงลิงค์
+                        foreach (range(1, 5) as $i) {
+                            $linkKey = 'ita_year_link_link' . $i;
+                            if (!empty($linkData[$linkKey])) {
+                                echo '<span class="font-ita-content-detail one-line-ellipsis">' . $linkData[$linkKey] . '</span><br><br>';
+                            }
+                        }
+
+                        echo '</div>';
+                        echo '<div class="col-2">';
+
+                        // แสดงปุ่มเปิดลิงค์
+                        foreach (range(1, 5) as $i) {
+                            $linkKey = 'ita_year_link_link' . $i;
+                            if (!empty($linkData[$linkKey])) {
+                                echo '<a class="btn btn-ita-open" target="_blank" href="' . $linkData[$linkKey] . '">เปิด</a><br>';
+                            }
+                        }
+
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>
+
+<!-- <div id="popup-ita" class="popup-ita">
         <div class="popup-ita-content">
             <h4><b>test</b></h4>
             <div class="row">

@@ -1,50 +1,39 @@
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">ข้อมูลสภาพทั่วไป</span>
+</div>
+<div class="text-center" style="padding-top: 50px">
+    <img src="<?php echo base_url('docs/logo.png'); ?>" width="174px" height="174px">
+</div>
+</div>
+
 <div class="bg-pages ">
     <div class="container-pages-detail">
-        <div class="page-center">
-            <div class="head-pages">
-                <span class="font-pages-head">ข้อมูลสภาพทั่วไป</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="path1-1">
-                <span class="font-path-1 underline"><a href="<?php echo site_url('Home'); ?>">หน้าแรก</a></span>
-            </div>
-            <div class="path2-1">
-                <span class="font-path-2 underline"><a href="#">ข้อมูลทั่วไป</a></span>
-            </div>
-        </div>
         <?php foreach ($qGci as $rs) { ?>
-            <div class="bg-pages-in ">
-                <div class="page-center-gi">
-                    <div>
-                        <?php if (!empty($rs->gci_img)) : ?>
-                            <img src="<?php echo base_url('docs/img/' . $rs->gci_img); ?>" width="545px" height="352px">
-                        <?php else : ?>
-                            <img src="<?php echo base_url('docs/logo.png'); ?>" width="545px" height="352px">
-                        <?php endif; ?>
-                    </div>
+            <div class="page-center-gi">
+                <div>
+                    <?php if (!empty($rs->gci_img)) : ?>
+                        <div class="mt-gi"></div>
+                        <img src="<?php echo base_url('docs/img/' . $rs->gci_img); ?>" width="545px" height="352px">
+                    <?php else : ?>
+                        <!-- <img src="<?php echo base_url('docs/logo.png'); ?>" width="545px" height="352px"> -->
+                    <?php endif; ?>
                 </div>
-                <div class="scrollable-container-gi">
-                    <div class="pages-content break-word mt-5">
-                        <span class="font-gi-head">1.ลักษณะตำบล</span><br>
-                        <span class="font-gi-content"><?= $rs->gci_location; ?></span>
-                    </div>
-                    <div class="pages-content break-word mt-5">
-                        <span class="font-gi-head">2.อาณาเขต</span><br>
-                        <span class="font-gi-content"><?= $rs->gci_territory; ?></span>
-                    </div>
-                    <div class="pages-content break-word mt-5">
-                        <span class="font-gi-head">3.ลักษณะภูมิประเทศ</span><br>
-                        <span class="font-gi-content"><?= $rs->gci_terrain; ?></span>
-                    </div>
-                    <div class="pages-content break-word mt-5">
-                        <span class="font-gi-head">4.พื้นที่องค์การบริหารส่วนตำบล</span><br>
-                        <span class="font-gi-content"><?= $rs->gci_area; ?></span>
-                    </div>
-                </div>
-                <div class="margin-top-delete-topic d-flex justify-content-end">
-                    <a href="<?php echo site_url('Home'); ?>"><img src="<?php echo base_url("docs/s.btn-back.png"); ?>"></a>
-                </div>
+            </div>
+            <div class="pages-content break-word mt-5">
+                <span class="font-gi-head">1.ลักษณะตำบล</span><br>
+                <span class="font-gi-content"><?= $rs->gci_location; ?></span>
+            </div>
+            <div class="pages-content break-word mt-5">
+                <span class="font-gi-head">2.อาณาเขต</span><br>
+                <span class="font-gi-content"><?= $rs->gci_territory; ?></span>
+            </div>
+            <div class="pages-content break-word mt-5">
+                <span class="font-gi-head">3.ลักษณะภูมิประเทศ</span><br>
+                <span class="font-gi-content"><?= $rs->gci_terrain; ?></span>
+            </div>
+            <div class="pages-content break-word mt-5">
+                <span class="font-gi-head">4.พื้นที่องค์การบริหารส่วนตำบล</span><br>
+                <span class="font-gi-content"><?= $rs->gci_area; ?></span>
             </div>
         <?php } ?>
     </div>

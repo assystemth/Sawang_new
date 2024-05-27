@@ -39,7 +39,7 @@
             <span class="font-page-detail-content-img"><?= $rsActivity->activity_detail; ?></span>
             <div class="row mt-4">
                 <?php foreach ($rsImg as $img) { ?>
-                    <div class="col-3 mb-3">
+                    <div class="col-2 mb-3 mx-4">
                         <a href="<?php echo base_url('docs/img/' . $img->activity_img_img); ?>" data-lightbox="image-1">
                             <img class="rounded-all" src="<?php echo base_url('docs/img/' . $img->activity_img_img); ?>" width="258px" height="146px">
                         </a>
