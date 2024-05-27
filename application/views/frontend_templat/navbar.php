@@ -13,7 +13,7 @@
           transition: top 0.3s ease-in-out;
           font-size: 24px;
           padding-left: 120px;
-
+          z-index: 100;
       }
 
       #navbar2:hover {
@@ -487,7 +487,7 @@
       }
   </script>
   <div class="d-flex justify-content-start">
-      <div style="position: absolute; margin: 25px 25px; z-index: 3;">
+      <div style="position: absolute; margin: 25px 25px; z-index: 101;">
           <div class="row">
               <div class="col-5">
                   <img src="docs/logo2.png">
@@ -501,7 +501,7 @@
   </div>
 
   <div class="d-flex justify-content-end">
-      <div style="position: absolute; margin-top:25px; z-index: 2;">
+      <div style="position: absolute; margin-top:25px; z-index: 100;">
           <!-- <img src="<?php echo base_url("docs/s.navbar-fixed.png"); ?>"> -->
           <ul style="font-size: 24px;">
               <li><a href="#">หน้าหลัก</a></li>

@@ -1,6 +1,6 @@
   <!-- // ปุ่ม scroll-to-top  -->
   <a onclick="scrolltotopFunction()" id="scroll-to-top" title="Go to top"></a>
-  <a onclick="goBack()" id="scroll-to-back" title="Go to back"></a>
+  <a id="scroll-to-back" title="Go to back"></a>
   <style>
       #navbar2 {
           background: linear-gradient(180deg, #6D2F48 0%, #7F3E55 39.39%, #CC818D 100%);
@@ -14,6 +14,7 @@
           transition: top 0.3s ease-in-out;
           font-size: 24px;
           padding-left: 120px;
+          z-index: 100;
 
       }
 
@@ -488,7 +489,7 @@
       }
   </script>
   <div class="d-flex justify-content-start">
-      <div style="position: absolute; margin: 25px 25px; z-index: 3;">
+      <div style="position: absolute; margin: 25px 25px; z-index: 101;">
           <div class="row">
               <div class="col-5">
                   <img src="<?php echo base_url('docs/logo2.png'); ?>">
@@ -502,7 +503,7 @@
   </div>
 
   <div class="d-flex justify-content-end">
-      <div style="position: absolute; margin-top:25px; z-index: 2;">
+      <div style="position: absolute; margin-top:25px; z-index: 100;">
           <!-- <img src="<?php echo base_url("docs/s.navbar-fixed.png"); ?>"> -->
           <ul style="font-size: 24px;">
               <li><a href="<?php echo site_url('Home'); ?>">หน้าหลัก</a></li>
@@ -689,8 +690,17 @@
         </div>
     </div> -->
   </div>
-
   <div class="welcome-btm-other">
+      <img class="dot-updown-animation-1" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">
+      <img class="dot-updown-animation-2" src="<?php echo base_url('docs/lightv2.png'); ?>" width="15" height="15">
+      <img class="dot-updown-animation-3" src="<?php echo base_url('docs/lightv2.png'); ?>" width="45" height="45">
+      <img class="dot-updown-animation-4" src="<?php echo base_url('docs/lightv2.png'); ?>" width="65" height="65">
+      <img class="dot-updown-animation-5" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">
+      <img class="dot-updown-animation-6" src="<?php echo base_url('docs/lightv2.png'); ?>" width="35" height="35">
+      <img class="dot-updown-animation-7" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">
+      <img class="dot-updown-animation-8" src="<?php echo base_url('docs/lightv2.png'); ?>" width="15" height="15">
+      <img class="dot-updown-animation-9" src="<?php echo base_url('docs/lightv2.png'); ?>" width="45" height="45">
+      <img class="dot-updown-animation-10" src="<?php echo base_url('docs/lightv2.png'); ?>" width="65" height="65">
       <div class="text-center" style="padding-top:15.5%;">
           <span class="font-welcome-btm-other">องค์การบริหารส่วนตำบลสว่าง</span>
       </div>

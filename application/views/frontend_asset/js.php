@@ -33,6 +33,22 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    // ไฟลอยขึ้น หน้าเพิ่มเติม  ********************************************************************************
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function applyRandomAnimationUpdown(element) {
+        const randomLeft = getRandomInt(0, 1900);
+        const randomDuration = getRandomInt(6, 10);
+
+        element.style.left = `${randomLeft}px`;
+        element.style.animation = `fadeInOutDownUp ${randomDuration}s infinite`;
+    }
+
+    document.querySelectorAll('.dot-updown-animation-1, .dot-updown-animation-2, .dot-updown-animation-3, .dot-updown-animation-4, .dot-updown-animation-5, .dot-updown-animation-6, .dot-updown-animation-7, .dot-updown-animation-8, .dot-updown-animation-9, .dot-updown-animation-10').forEach(applyRandomAnimationUpdown);
+
+    //   ********************************************************************************
     // scrolltotop เลื่อนไปบนสุดของจอ  ********************************************************************************
     $(document).ready(function() {
         var scrollTopButton = $("#scroll-to-top");
@@ -231,7 +247,7 @@
     }
 
     function applyRandomAnimation(element) {
-        const randomLeft = getRandomInt(0, 1920);
+        const randomLeft = getRandomInt(0, 1900);
         const randomDuration = getRandomInt(4, 6);
 
         element.style.left = `${randomLeft}px`;
@@ -622,7 +638,7 @@
         // grid: {
         //     rows: 2,
         // },
-        // spaceBetween: 30,
+        // spaceBetween: 0,
         navigation: {
             nextEl: '.custom-button-next',
             prevEl: '.custom-button-prev',

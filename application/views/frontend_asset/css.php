@@ -1515,8 +1515,8 @@
     height: auto;
     padding-top: 40px;
     padding-bottom: 280px;
-    padding-left: 150px;
-    padding-right: 30px;
+    padding-left: 90px;
+    padding-right: 0;
     /* margin-top: -200px; */
     z-index: 5;
   }
@@ -3843,18 +3843,18 @@
   @keyframes fadeInOut {
 
     0% {
-      top: -100px;
+      top: 100px;
       opacity: 0;
     }
 
     50% {
-      top: 150;
+      top: -150;
       /* ตำแหน่งที่ลงมา */
       opacity: 1;
     }
 
     100% {
-      top: 250px;
+      top: -250px;
       /* ตำแหน่งที่ออกไป */
       opacity: 0;
     }
@@ -4616,7 +4616,7 @@
     background-image: url('<?php echo base_url("docs/s.welcome-btm-other2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    z-index: 1;
+    z-index: 3;
     width: 1920px;
     height: 731px;
     position: relative;
@@ -4735,5 +4735,35 @@
 
   .mt-gi {
     margin-top: 150px;
+  }
+
+
+  /* ไฟลอยขึ้นบน animation */
+  @keyframes fadeInOutDownUp {
+    0% {
+      top: 400px;
+      opacity: 2;
+    }
+
+    100% {
+      top: -100px;
+      opacity: 0;
+    }
+  }
+
+
+
+  .dot-updown-animation-1,
+  .dot-updown-animation-2,
+  .dot-updown-animation-3,
+  .dot-updown-animation-4,
+  .dot-updown-animation-5,
+  .dot-updown-animation-6,
+  .dot-updown-animation-7,
+  .dot-updown-animation-8,
+  .dot-updown-animation-9,
+  .dot-updown-animation-10 {
+    position: absolute;
+    z-index: 4;
   }
 </style>
