@@ -1396,14 +1396,14 @@
                                         <div id="submitSection">
                                             <!-- <div class="g-recaptcha" data-sitekey="6LcKoPcnAAAAAKGgUMRtkBs6chDKzC8XOoVnaZg_" data-callback="enableSubmit"></div> -->
                                             <div class="form-group mt-3">
-                                                <div class="font-like-new" style="margin-top: 20px; margin-left: 113px;">
+                                                <div class="font-like-new" style="margin-top: 20px; margin-left: 113px; z-index: 2; position: relative;">
                                                     <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><span class="font-like-new">ส่ง</span></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-6" style="margin-left: -8%; margin-top: -20px;">
+                                <div class="col-6" style="margin-left: -8%; margin-top: -20px; z-index: 1; position: relative; ">
                                     <div class="content-like-detail" style="display: none;">
                                         <div style="display: flex; align-items: center;">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
