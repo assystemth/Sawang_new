@@ -54,9 +54,6 @@ class Home extends CI_Controller
 			$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
 		}
 
-		// ไม่โหลดข้อมูลพยากรณ์อากาศในตอนนี้
-		$data['weather_data'] = [];
-
 		// โหลด view
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
