@@ -33,6 +33,7 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    // โหลด api สภาพอากาศตามมาทีหลัง  ********************************************************************************
     $(document).ready(function() {
         // ใช้ AJAX เพื่อโหลดข้อมูลพยากรณ์อากาศหลังจากที่หน้าเว็บโหลดเสร็จแล้ว
         $.ajax({
@@ -58,6 +59,8 @@
             }
         });
     });
+    //   ***************************************************************************************************************
+
     // ไฟลอยขึ้น หน้าเพิ่มเติม  ********************************************************************************
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -74,6 +77,7 @@
     document.querySelectorAll('.dot-updown-animation-1, .dot-updown-animation-2, .dot-updown-animation-3, .dot-updown-animation-4, .dot-updown-animation-5, .dot-updown-animation-6, .dot-updown-animation-7, .dot-updown-animation-8, .dot-updown-animation-9, .dot-updown-animation-10').forEach(applyRandomAnimationUpdown);
 
     //   ********************************************************************************
+
     // scrolltotop เลื่อนไปบนสุดของจอ  ********************************************************************************
     $(document).ready(function() {
         var scrollTopButton = $("#scroll-to-top");
