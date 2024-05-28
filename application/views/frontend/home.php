@@ -1395,35 +1395,35 @@
                                         <!-- <button style="display: none;" type="button" class="btn"><img src="docs/s.btn-sent.png"></button> -->
                                         <div id="submitSection">
                                             <!-- <div class="g-recaptcha" data-sitekey="6LcKoPcnAAAAAKGgUMRtkBs6chDKzC8XOoVnaZg_" data-callback="enableSubmit"></div> -->
-                                            <div class="form-group mt-3">
-                                                <div class="font-like-new" style="margin-top: 20px; margin-left: 113px;">
+                                            <div class="form-group mt-3" style="padding-left: 113px;" >
+                                                <div class="font-like-new">
                                                     <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><span class="font-like-new">ส่ง</span></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-6" style="margin-left: -8%; margin-top: -20px;">
-                                    <div class="content-like-detail" style="display: none;">
-                                        <div style="display: flex; align-items: center;">
+                                <div class="col-5" style="margin-top: -20px">
+                                    <div class="content-like-detail" style="display: none">
+                                        <div style="display: flex; align-items: center; margin-left: -30px">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
                                                 <div class="progress-bar" role="progressbar" style="width: <?= $percentExcellent; ?>%;" aria-valuenow="<?= $percentExcellent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentExcellent, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-2" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center; margin-left: -30px">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
                                                 <div class="progress-bar" role="progressbar" style="width: <?= $percentGood; ?>%;" aria-valuenow="<?= $percentGood; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentGood, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-2" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center; margin-left: -30px">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
                                                 <div class="progress-bar" role="progressbar" style="width: <?= $percentAverage; ?>%;" aria-valuenow="<?= $percentAverage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             <span style="font-size: 16px; margin-top: -15px;"><?= number_format($percentAverage, 2); ?>%</span>
                                         </div>
-                                        <div class="mt-2" style="display: flex; align-items: center;">
+                                        <div class="mt-2" style="display: flex; align-items: center; margin-left: -30px">
                                             <div class="progress-sm mr-6" style="flex: 1; height: 20px;">
                                                 <div class="progress-bar" role="progressbar" style="width: <?= $percentOkay; ?>%;" aria-valuenow="<?= $percentOkay; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
