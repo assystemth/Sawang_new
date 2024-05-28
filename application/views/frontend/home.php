@@ -75,9 +75,16 @@
                         <img src="docs/weather_icon.png" alt="">
                     </div>
                     <div class="col-11 font-text-run" style="margin-top: 5px;">
-                        <marquee id="weather-marquee" direction="left">
+                        <?php foreach ($qWeather as  $weather) { ?>
+                            <marquee direction="left">
+                            <?= $weather->title; ?><?= $weather->description; ?>
+                            </marquee>
+                        <?php } ?>
+
+
+                        <!-- <marquee id="weather-marquee" direction="left">
                             กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ
-                        </marquee>
+                        </marquee> -->
 
                         <!-- <marquee direction="left">
                             <?php
@@ -1395,7 +1402,7 @@
                                         <!-- <button style="display: none;" type="button" class="btn"><img src="docs/s.btn-sent.png"></button> -->
                                         <div id="submitSection">
                                             <!-- <div class="g-recaptcha" data-sitekey="6LcKoPcnAAAAAKGgUMRtkBs6chDKzC8XOoVnaZg_" data-callback="enableSubmit"></div> -->
-                                            <div class="form-group mt-3" style="padding-left: 113px;" >
+                                            <div class="form-group mt-3" style="padding-left: 113px;">
                                                 <div class="font-like-new">
                                                     <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="btn g-recaptcha"><span class="font-like-new">ส่ง</span></button>
                                                 </div>

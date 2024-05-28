@@ -7,6 +7,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('HotNews_model');
+		$this->load->model('Weather_report_model');
 		$this->load->model('banner_model');
 		$this->load->model('background_personnel_model');
 		$this->load->model('calender_model');
@@ -86,6 +87,7 @@ class Home extends CI_Controller
 		];
 
 		$data['qHotnews'] = $this->HotNews_model->hotnews_frontend();
+		$data['qWeather'] = $this->Weather_report_model->weather_reports_frontend();
 		$data['qBanner'] = $this->banner_model->banner_frontend();
 		$data['qBackground_personnel'] = $this->background_personnel_model->background_personnel_frontend();
 		$data['qCalender'] = $this->calender_model->calender_frontend();
