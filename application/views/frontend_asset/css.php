@@ -1137,9 +1137,9 @@
 
 
   .image-with-shadow-otop {
-    border-radius: 50%;
-    width: 103px;
-    height: 128px;
+    border-radius: 0% 25% 0% 25%;
+    width: 200px;
+    height: 120px;
     margin-top: -40px;
 
   }
