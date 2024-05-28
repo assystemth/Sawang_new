@@ -20,6 +20,7 @@ class WeatherController extends CI_Controller {
             'http' => [
                 'method' => 'GET',
                 'ignore_errors' => true, // ละเว้นข้อผิดพลาด HTTP เพื่อจัดการเอง
+                'timeout' => 20, // ตั้งค่า timeout เป็น 20 วินาที
             ],
         ];
 
