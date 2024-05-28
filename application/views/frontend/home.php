@@ -146,10 +146,12 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="banner-cartoon">
-                    <div class='console-container'><span id='text'></span>
-                        <div class='console-underscore' id='console'>&#95;</div>
-                    </div>
+                <div class="banner-cartoon underline">
+                    <a href="#oss">
+                        <div class='console-container'><span id='text'></span>
+                            <div class='console-underscore' id='console'>&#95;</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-6">
