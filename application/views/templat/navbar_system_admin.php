@@ -51,7 +51,6 @@
                 <a class="collapse-item" href="<?php echo site_url('Msg_pres_backend'); ?>">สารจากผู้บริหาร</a>
                 <a class="collapse-item" href="<?php echo site_url('Activity_backend'); ?>">ภาพกิจกรรม</a>
                 <a class="collapse-item" href="<?php echo site_url('Calender_backend'); ?>">ปฏิทินกิจกรรม</a>
-                <a class="collapse-item" href="<?php echo site_url('Text_run_esv_backend'); ?>">Textrun_esv</a>
                 <a class="collapse-item" href="<?php echo site_url('news_backend'); ?>">ข้อมูลข่าวประชาสัมพันธ์</a>
                 <a class="collapse-item" href="<?php echo site_url('procurement_backend'); ?>">ข่าวจัดซื้อจัดจ้าง</a>
                 <a class="collapse-item" href="<?php echo site_url('Newsletter_backend'); ?>">จดหมายข่าว</a>
@@ -558,6 +557,13 @@
                 <a href="<?php echo site_url('Banner_backend'); ?>" class="link">
 
                     <li class="hide">
+                        <span>แบนเนอร์บุคลากร</span>
+                    </li>
+                </a>
+
+                <a href="<?php echo site_url('background_personnel_backend'); ?>" class="link">
+
+                    <li class="hide">
                         <span>แบนเนอร์</span>
                     </li>
                 </a>
@@ -573,6 +579,13 @@
 
                     <li class="hide">
                         <span>ภาพกิจกรรม</span>
+                    </li>
+                </a>
+
+                <a href="<?php echo site_url('Calender_backend'); ?>" class="link">
+
+                    <li class="hide">
+                        <span>ปฏิทินกิจกรรม</span>
                     </li>
                 </a>
 
