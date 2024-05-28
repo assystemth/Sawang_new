@@ -587,18 +587,15 @@
     margin-right: 120px;
     margin-left: 15%;
     z-index: 1;
-    /* top: 20px; */
     margin-top: 115px;
     background-image: url('<?php echo base_url("docs/banner2_ Cartoon.png"); ?>');
     width: 582px;
     height: 297px;
-
   }
 
   .font-banner-cartoon {
     color: #210B00;
     text-align: center;
-
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -4465,132 +4462,6 @@
     /* Change to your desired color for the active indicator */
   }
 
-  section {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-
-    div.container {
-      transition: all .3s ease;
-
-      h1 {
-        margin: 15px 0 0 0;
-      }
-
-      h3 {
-        margin: 0 0 25px 0;
-      }
-    }
-
-    @media (max-width:992px) {
-      padding: 0 20px 0 20px;
-    }
-  }
-
-  section.slide-option {
-    margin: 0 0 50px 0;
-
-    .no-marg {
-      margin: 0 0 0 0;
-    }
-  }
-
-  div.highway-slider {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100px;
-    margin-top: -30px;
-
-    div.highway-barrier {
-      overflow: hidden;
-      position: relative;
-    }
-
-    ul.highway-lane {
-      display: flex;
-      height: 100%;
-
-      li.highway-car {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* background: #fff; */
-        /* color: #343434; */
-      }
-    }
-  }
-
-  @keyframes translatestf {
-    0% {
-      transform: translateX(100%);
-    }
-
-    100% {
-      transform: translateX(-500%);
-    }
-  }
-
-  #stffull div.highway-barrier {
-    ul.highway-lane {
-      width: 500%;
-
-      li.highway-car {
-        animation: translatestf 30s linear infinite;
-
-        h4 {
-          font-size: 28px;
-        }
-      }
-    }
-  }
-
-  @keyframes translateinfinite {
-    100% {
-      transform: translateX(calc(-180px * 12));
-    }
-  }
-
-  #infinite div.highway-barrier {
-    background: #fff;
-    box-shadow: 0 3px 10px -3px rgba(0, 0, 0, 0.3);
-
-    &::before,
-    &::after {
-      content: " ";
-      position: absolute;
-      z-index: 9;
-      width: 180px;
-      height: 100%;
-    }
-
-    &::before {
-      top: 0;
-      left: 0;
-      background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    &::after {
-      top: 0;
-      right: 0;
-      background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    ul.highway-lane {
-      width: calc(180px * 24);
-
-      li.highway-car {
-        width: 180px;
-        animation: translateinfinite 25s linear infinite;
-
-        span.fab {
-          font-size: 65px;
-        }
-      }
-    }
-  }
-
   .font-like-new {
     color: #000;
     text-shadow: 0px 1.2px 2.399px rgba(0, 0, 0, 0.25);
@@ -4795,5 +4666,33 @@
   .dot-updown-animation-10 {
     position: absolute;
     z-index: 4;
+  }
+
+  .console-container {
+    font-size: 24px;
+    text-align: center;
+    height: 171px;
+    width: 360px;
+    display: block;
+    position: relative;
+    color: white;
+    top: 55px;
+    bottom: 0;
+    left: 90px;
+    right: 0;
+    margin: auto;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .console-underscore {
+    display: inline-block;
+    position: relative;
+    top: -0.14em;
+    left: 10px;
+  }
+
+  .hidden {
+    visibility: hidden;
   }
 </style>

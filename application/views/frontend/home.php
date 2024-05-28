@@ -79,6 +79,33 @@
                             กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ
                         </marquee>
 
+                        <!-- <marquee direction="left">
+                            <?php
+                            if (!empty($weather_data) && isset($weather_data['channel']['item']['title'])) {
+                                echo $weather_data['channel']['item']['title'];
+                            } else {
+                                echo "กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ";
+                            }
+                            ?>
+                            <?php
+                            if (!empty($weather_data)) {
+
+                                // ข้อความที่ต้องการจะลบ tag <br> ออก
+                                $description = $weather_data['channel']['item']['description'];
+
+                                // ใช้ str_replace() เพื่อแทนที่ tag <br> ด้วยช่องว่าง
+                                $description_without_br = str_replace('<br/>', ' ', $description);
+                                // หรือใช้สตริงว่างเพื่อลบออก
+                                // $description_without_br = str_replace('<br/>', '', $description);
+
+                                // แสดงข้อความที่ได้หลังจากลบ tag <br> ออกแล้ว
+                                echo $description_without_br;
+                            } else {
+                                echo "";
+                            }
+                            ?>
+                        </marquee> -->
+
                         <!-- <?php if (!empty($weather_data)) : ?>
                             <h2>รายงานสภาพอากาศ</h2>
                             <h3><?php echo $weather_data['channel']['title']; ?></h3>
@@ -119,37 +146,9 @@
                         <?php } ?>
                     </div>
                 </div>
-
-
-
-
                 <div class="banner-cartoon">
-                    <div class="underline" style="margin-left: 200px; padding: 45px; text-align: center;">
-                        <a href="#oss">
-                            <section class="slide-option">
-                                <div id="stffull" class="highway-slider">
-                                    <div class="container highway-barrier">
-                                        <ul class="highway-lane">
-                                            <li class="highway-car">
-                                                <span class="font-banner-cartoon">องค์การบริหารส่วนตำบลสว่าง<br>ยินดีต้อนรับค่ะ</span>
-                                            </li>
-                                            <li class="highway-car">
-                                                <span class="font-banner-cartoon">1<br>ยินดีต้อนรับค่ะ</span>
-                                            </li>
-                                            <li class="highway-car">
-                                                <span class="font-banner-cartoon">One Stop e-Service</span>
-                                            </li>
-                                            <!-- <li class="highway-car">
-                                            <span class="font-banner-cartoon">1ยินดีต้อนรับค่ะ</span>
-                                        </li>
-                                        <li class="highway-car">
-                                            <span class="font-banner-cartoon">2ยินดีต้อนรับค่ะ</span>
-                                        </li> -->
-                                        </ul>
-                                    </div>
-                                </div>
-                            </section>
-                        </a>
+                    <div class='console-container'><span id='text'></span>
+                        <div class='console-underscore' id='console'>&#95;</div>
                     </div>
                 </div>
             </div>
