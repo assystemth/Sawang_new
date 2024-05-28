@@ -4737,6 +4737,36 @@
     margin-top: 150px;
   }
 
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    /* ลดระยะห่างระหว่างไอคอน */
+    bottom: -40px;
+    margin-left: 380px;
+  }
+
+  .carousel-indicators button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carousel-indicators button .bi-diamond-fill {
+    color: #D9D9D9;
+    /* สีของไอคอนเพชร สามารถเปลี่ยนได้ตามต้องการ */
+  }
+
+  .carousel-indicators button.active .bi-diamond-fill {
+    color: #ff00ff;
+    /* สีของไอคอนเพชรเมื่อ active สามารถเปลี่ยนได้ตามต้องการ */
+  }
+
 
   /* ไฟลอยขึ้นบน animation */
   @keyframes fadeInOutDownUp {

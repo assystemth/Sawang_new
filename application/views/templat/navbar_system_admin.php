@@ -51,6 +51,7 @@
                 <a class="collapse-item" href="<?php echo site_url('Msg_pres_backend'); ?>">สารจากผู้บริหาร</a>
                 <a class="collapse-item" href="<?php echo site_url('Activity_backend'); ?>">ภาพกิจกรรม</a>
                 <a class="collapse-item" href="<?php echo site_url('Calender_backend'); ?>">ปฏิทินกิจกรรม</a>
+                <a class="collapse-item" href="<?php echo site_url('Text_run_esv_backend'); ?>">Textrun_esv</a>
                 <a class="collapse-item" href="<?php echo site_url('news_backend'); ?>">ข้อมูลข่าวประชาสัมพันธ์</a>
                 <a class="collapse-item" href="<?php echo site_url('procurement_backend'); ?>">ข่าวจัดซื้อจัดจ้าง</a>
                 <a class="collapse-item" href="<?php echo site_url('Newsletter_backend'); ?>">จดหมายข่าว</a>

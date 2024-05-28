@@ -130,15 +130,22 @@
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="carousel-indicators" style="bottom: -50px;">
-                        <?php
-                        foreach ($qBanner as $index => $img_banner) {
+                    <div class="carousel-indicators" style="bottom: -40px; height: 1px; width: 1px; margin-left: 390px;">
+                        <?php foreach ($qBanner as $index => $img_banner) {
                             $active = ($index === 0) ? "active" : "";
-                            echo '<button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="' . $index . '" class="' . $active . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
-                        }
                         ?>
+                            <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="<?= $index; ?>" class="<?= $active; ?>" aria-current="true" aria-label="Slide <?= ($index + 1); ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z" />
+                                </svg>
+                            </button>
+                        <?php } ?>
                     </div>
                 </div>
+
+
+
+
                 <div class="banner-cartoon">
                     <div class="underline" style="margin-left: 200px; padding: 45px; text-align: center;">
                         <a href="#oss">
@@ -184,7 +191,7 @@
                                     <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
                                 </div>
                             </div>
-                            <div id="carouselExampleAutoplaying" class="" data-bs-ride="carousel" style="z-index: 10;">
+                            <div id="carouselExampleAutoplayingv2" class="carousel slide" data-bs-ride="carousel" style="z-index: 10; margin-top: -50px; margin-left: 5px">
                                 <div class="carousel-inner">
                                     <?php foreach ($qBackground_personnel as $index => $rs) { ?>
                                         <div class="carousel-item <?= ($index === 0) ? "active" : ""; ?>" data-bs-interval="5000">
@@ -201,13 +208,19 @@
                                         </div>
                                     <?php } ?>
                                 </div>
-                                <div class="carousel-indicators">
+                                <div class="carousel-indicators" style="bottom: -130px; height: 1px; width: 1px; margin-left: 390px;">
                                     <?php foreach ($qBackground_personnel as $index => $rs) {
                                         $active = ($index === 0) ? "active" : "";
-                                        echo '<button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="' . $index . '" class="' . $active . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
-                                    } ?>
+                                    ?>
+                                        <button type="button" data-bs-target="#carouselExampleAutoplayingv2" data-bs-slide-to="<?= $index; ?>" class="<?= $active; ?>" aria-current="true" aria-label="Slide <?= ($index + 1); ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z" />
+                                            </svg>
+                                        </button>
+                                    <?php } ?>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div id="link2" class="chang_tmt_budjet" style="background-image: url('docs/banner_calendar.png');  width: 775px; height: 436px; display: none;">
