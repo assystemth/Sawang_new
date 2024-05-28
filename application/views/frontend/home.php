@@ -75,31 +75,8 @@
                         <img src="docs/weather_icon.png" alt="">
                     </div>
                     <div class="col-11 font-text-run" style="margin-top: 5px;">
-                        <marquee direction="left">
-                            <?php
-                            if (!empty($weather_data) && isset($weather_data['channel']['item']['title'])) {
-                                echo $weather_data['channel']['item']['title'];
-                            } else {
-                                echo "กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ";
-                            }
-                            ?>
-                            <?php
-                            if (!empty($weather_data)) {
-
-                                // ข้อความที่ต้องการจะลบ tag <br> ออก
-                                $description = $weather_data['channel']['item']['description'];
-
-                                // ใช้ str_replace() เพื่อแทนที่ tag <br> ด้วยช่องว่าง
-                                $description_without_br = str_replace('<br/>', ' ', $description);
-                                // หรือใช้สตริงว่างเพื่อลบออก
-                                // $description_without_br = str_replace('<br/>', '', $description);
-
-                                // แสดงข้อความที่ได้หลังจากลบ tag <br> ออกแล้ว
-                                echo $description_without_br;
-                            } else {
-                                echo "";
-                            }
-                            ?>
+                        <marquee id="weather-marquee" direction="left">
+                            กรุณารอสักครู่กำลังโหลดข้อมูลสภาพอากาศ
                         </marquee>
 
                         <!-- <?php if (!empty($weather_data)) : ?>

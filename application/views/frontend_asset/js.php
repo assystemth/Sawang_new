@@ -33,6 +33,31 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    $(document).ready(function() {
+        // ใช้ AJAX เพื่อโหลดข้อมูลพยากรณ์อากาศหลังจากที่หน้าเว็บโหลดเสร็จแล้ว
+        $.ajax({
+            url: "<?php echo site_url('WeatherController/loadWeatherData'); ?>",
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                if (data && data.channel && data.channel.item) {
+                    var title = data.channel.item.title;
+                    var description = data.channel.item.description;
+
+                    // ลบแท็ก <br> ออกจาก description
+                    var descriptionWithoutBr = description.replace(/<br\/>/g, ' ');
+
+                    // อัปเดต marquee ด้วยข้อมูลที่ได้รับ
+                    $('#weather-marquee').html(title + " " + descriptionWithoutBr);
+                } else {
+                    console.error('Failed to load weather data');
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error fetching weather data:', textStatus, errorThrown);
+            }
+        });
+    });
     // ไฟลอยขึ้น หน้าเพิ่มเติม  ********************************************************************************
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
