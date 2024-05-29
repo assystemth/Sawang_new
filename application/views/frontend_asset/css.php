@@ -3867,18 +3867,13 @@
   @keyframes fadeInOut {
 
     0% {
-      top: 100px;
-      opacity: 0;
-    }
-
-    50% {
-      top: -150;
-      /* ตำแหน่งที่ลงมา */
+      top: -100px;
       opacity: 1;
     }
 
+
     100% {
-      top: -250px;
+      top: 250px;
       /* ตำแหน่งที่ออกไป */
       opacity: 0;
     }

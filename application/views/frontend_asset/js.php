@@ -114,18 +114,21 @@
     //   ***************************************************************************************************************
 
     // ไฟลอยขึ้น หน้าเพิ่มเติม  ********************************************************************************
-    function getRandomInt(min, max) {
+    // ฟังก์ชั่นสุ่มเลขสำหรับการลอยขึ้น-ลง
+    function getRandomIntUpDown(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    // ฟังก์ชั่นใช้แอนิเมชันลอยขึ้น-ลง
     function applyRandomAnimationUpdown(element) {
-        const randomLeft = getRandomInt(0, 1900);
-        const randomDuration = getRandomInt(6, 10);
+        const randomLeft = getRandomIntUpDown(0, 1900);
+        const randomDuration = getRandomIntUpDown(6, 10);
 
         element.style.left = `${randomLeft}px`;
         element.style.animation = `fadeInOutDownUp ${randomDuration}s infinite`;
     }
 
+    // นำฟังก์ชั่นไปใช้กับองค์ประกอบที่ต้องการลอยขึ้น-ลง
     document.querySelectorAll('.dot-updown-animation-1, .dot-updown-animation-2, .dot-updown-animation-3, .dot-updown-animation-4, .dot-updown-animation-5, .dot-updown-animation-6, .dot-updown-animation-7, .dot-updown-animation-8, .dot-updown-animation-9, .dot-updown-animation-10').forEach(applyRandomAnimationUpdown);
 
     //   ********************************************************************************
@@ -323,18 +326,21 @@
     //   ********************************************************************************
 
     // สุ่มวิกระพริบ และแสดงผล ข่าวจัดซื้อจัดจ้าง  ********************************************************************************
-    function getRandomInt(min, max) {
+    // ฟังก์ชั่นสุ่มเลขสำหรับแอนิเมชันอื่นๆ
+    function getRandomIntOther(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    // ฟังก์ชั่นใช้แอนิเมชันอื่นๆ
     function applyRandomAnimation(element) {
-        const randomLeft = getRandomInt(0, 1900);
-        const randomDuration = getRandomInt(4, 6);
+        const randomLeft = getRandomIntOther(0, 1900);
+        const randomDuration = getRandomIntOther(5, 10);
 
         element.style.left = `${randomLeft}px`;
         element.style.animation = `fadeInOut ${randomDuration}s infinite`;
     }
 
+    // นำฟังก์ชั่นไปใช้กับองค์ประกอบที่ต้องการแอนิเมชันอื่นๆ
     document.querySelectorAll('.star-news-animation-1, .star-news-animation-2, .star-news-animation-3, .star-news-animation-4, .star-news-animation-5, .star-news-animation-6, .star-news-animation-7, .star-news-animation-8, .star-news-animation-9, .star-news-animation-10, .star-news-animation-11, .star-news-animation-12, .star-news-animation-13, .star-news-animation-14, .star-news-animation-15').forEach(applyRandomAnimation);
     //   ********************************************************************************
 
