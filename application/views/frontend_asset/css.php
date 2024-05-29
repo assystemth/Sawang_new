@@ -792,7 +792,7 @@
     border: 2px solid #EABA48;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   }
-
+  
 
   .card-activity {
     border-radius: 24px;
@@ -3867,13 +3867,18 @@
   @keyframes fadeInOut {
 
     0% {
-      top: -100px;
+      top: 100px;
+      opacity: 0;
+    }
+
+    50% {
+      top: -150;
+      /* ตำแหน่งที่ลงมา */
       opacity: 1;
     }
 
-
     100% {
-      top: 250px;
+      top: -250px;
       /* ตำแหน่งที่ออกไป */
       opacity: 0;
     }
@@ -4518,17 +4523,16 @@
 
   @keyframes gradient-move {
     0% {
-      background-position: 100% 0%;
+        background-position: 100% 0%;
     }
-
     100% {
-      background-position: 0% 0%;
+        background-position: 0% 0%;
     }
-  }
+}
 
-  .font-welcome-btm-other {
+.font-welcome-btm-other {
     background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
-    background-size: 330% 130%;
+    background-size: 1000% 1000%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -4537,8 +4541,8 @@
     font-weight: 600;
     line-height: normal;
     z-index: 1;
-    animation: gradient-move 10s linear infinite;
-  }
+    animation: gradient-move 20s linear infinite;
+}
 
 
 
