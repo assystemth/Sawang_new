@@ -783,6 +783,25 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   }
 
+  .card-activity:hover {
+    border-radius: 24px;
+    background-color: #ffff;
+    height: 316px;
+    width: 248px;
+    border: 2px solid #EABA48;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  }
+  
+
+  .card-activity {
+    border-radius: 24px;
+    background-color: #FDF5E1;
+    height: 316px;
+    width: 248px;
+    border: 2px solid #EABA48;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  }
+
   .card-activity img {
     /* width: 245px;
     height: 182px;
