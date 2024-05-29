@@ -18,25 +18,27 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/gci'); ?>" class="font-content-all-web">ข้อมูลสภาพทั่วไป</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/ci'); ?>" class="font-content-all-web">ข้อมูลชุมชน</a><br>
-                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/vision'); ?>" class="font-content-all-web">วิสัยทัศน์และพันธกิจ</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/otop'); ?>" class="font-content-all-web">ผลิตภัณฑ์ชุมชน/สินค้า OTOP</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/travel'); ?>" class="font-content-all-web">สถานที่ท่องเที่ยว</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/mission'); ?>" class="font-content-all-web">ภารกิจและความรับผิดชอบ</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/authority'); ?>" class="font-content-all-web">อำนาจหน้าที่</a><br>
                         <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/mission'); ?>" class="font-content-all-web">ภารกิจและความรับผิดชอบ</a><br>
+                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/executivepolicy'); ?>" class="font-content-all-web">นโยบายของผู้บริหาร</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/contact'); ?>" class="font-content-all-web">ติดต่อ อบต.</a><br>
+                        <a href="<?php echo site_url('Pages/ci'); ?>" class="font-content-all-web">ข้อมูลชุมชน</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/travel'); ?>" class="font-content-all-web">สถานที่ท่องเที่ยว</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/otop'); ?>" class="font-content-all-web">ผลิตภัณฑ์ชุมชน/สินค้า OTOP</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/activity'); ?>" class="font-content-all-web">ภาพกิจกรรม</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/si'); ?>" class="font-content-all-web">ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/newsletter'); ?>" class="font-content-all-web">จดหมายข่าว</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/contact'); ?>" class="font-content-all-web">ติดต่อ อบต.</a><br>
                     </div>
                 </div>
                 <div class="content-all-web mt-4">

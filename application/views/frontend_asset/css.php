@@ -3268,16 +3268,22 @@
   .container-pages {
     padding-left: 230px;
     padding-right: 230px;
+    z-index: 10;
+    position: relative;
   }
 
   .container-pages-news {
     padding-left: 230px;
     padding-right: 230px;
+    z-index: 10;
+    position: relative;
   }
 
   .container-pages-detail {
     padding-left: 230px;
     padding-right: 230px;
+    z-index: 10;
+    position: relative;
   }
 
   .border-radius24 {

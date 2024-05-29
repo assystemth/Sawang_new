@@ -308,7 +308,6 @@
                           <a href="<?php echo site_url('Pages/p_unit_leaders'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;หัวหน้าส่วนราชการ</span></a></a>
                           <a href="<?php echo site_url('Pages/p_deputy'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;สำนักปลัดองค์การบริหารส่วนตำบล</span></a></a>
                           <a href="<?php echo site_url('Pages/p_treasury'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองคลัง</span></a></a>
-
                       </div>
                       <div class="dropdown-center">
                           <a href="<?php echo site_url('Pages/p_maintenance'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กองช่าง</span></a></a>
