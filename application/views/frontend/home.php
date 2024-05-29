@@ -1036,7 +1036,7 @@
                             $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
                         ?>
                             <div class="text-center" style="margin: 0 10px;">
-                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                <a href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                     <div class="image-with-background <?php echo $class_img; ?>">
                                         <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
                                     </div>
@@ -1044,7 +1044,7 @@
                                 <br>
                                 <div class="d-flex justify-content-center">
                                     <div style="z-index: 2px; margin-top: -80px; margin-left: -70px; position: absolute;">
-                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                        <a class="underline" href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                             <span class="font-name-otop"><?= $otop->otop_name; ?></span>
                                         </a>
                                     </div>
@@ -1065,7 +1065,7 @@
                             $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
                         ?>
                             <div class="text-center" style="margin: 0 50px;">
-                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                <a href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                     <div class="image-with-background <?php echo $class_img; ?>">
                                         <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
                                     </div>
@@ -1073,7 +1073,7 @@
                                 <br>
                                 <div class="d-flex justify-content-center">
                                     <div style="z-index: 2px; margin-top: -80px; margin-left: 25px; position: absolute;">
-                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                        <a class="underline" href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                             <span class="font-name-otop"><?= $otop->otop_name; ?></span>
                                         </a>
                                     </div>
@@ -1093,7 +1093,7 @@
                             $class_img = $bg_classes_img[$i % 4]; // หมุนเวียนคลาสสำหรับภาพ
                         ?>
                             <div class="text-center">
-                                <a href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                <a href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                     <div class="image-with-background <?php echo $class_img; ?>">
                                         <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="103px" height="128px" class="image-with-shadow-otop">
                                     </div>
@@ -1101,7 +1101,7 @@
                                 <br>
                                 <div class="d-flex justify-content-center">
                                     <div style="z-index: 2px; margin-top: -80px; margin-left:-60px; position: absolute;">
-                                        <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $otop->otop_id); ?>">
+                                        <a class="underline" href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
                                             <span class="font-name-otop"><?= $otop->otop_name; ?></span>
                                         </a>
                                     </div>

@@ -421,8 +421,8 @@
                           <a href="<?php echo site_url('Pages/mui'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;มาตรการภายใน</span></a></a>
                           <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
                           <a href="<?php echo site_url('Pages/km'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
-                          <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
-                          <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
+                          <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                          <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -655,8 +655,8 @@
                               <a href="<?php echo site_url('Pages/mui'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;มาตรการภายใน</span></a></a>
                               <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
                               <a href="<?php echo site_url('Pages/km'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
-                              <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
-                              <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="docs/flower2.png"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
+                              <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                              <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
                           </div>
                       </ul>
                   </div>

@@ -4,7 +4,7 @@
 </div>
 
 <div class="bg-pages ">
-    <div class="container-pages-news">
+    <div class="container-pages-news" style="z-index: 10; position: relative;">
         <div class="pages-content break-word">
             <?php
             $count = count($qOtop);
