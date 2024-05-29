@@ -45,8 +45,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="<?php echo site_url('hotNews_backend'); ?>">ข่าวด่วน</a>
-                <a class="collapse-item" href="<?php echo site_url('banner_backend'); ?>">แบนเนอร์</a>
+                <a class="collapse-item" href="<?php echo site_url('HotNews_backend'); ?>">ข่าวด่วน</a>
+                <a class="collapse-item" href="<?php echo site_url('Banner_backend'); ?>">แบนเนอร์</a>
+                <a class="collapse-item" href="<?php echo site_url('Important_day_backend'); ?>">วันสำคัญ</a>
                 <a class="collapse-item" href="<?php echo site_url('background_personnel_backend'); ?>">แบนเนอร์บุคลากร</a>
                 <a class="collapse-item" href="<?php echo site_url('Msg_pres_backend'); ?>">สารจากผู้บริหาร</a>
                 <a class="collapse-item" href="<?php echo site_url('Activity_backend'); ?>">ภาพกิจกรรม</a>

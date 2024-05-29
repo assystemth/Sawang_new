@@ -343,5 +343,5 @@
   .underline:hover {
     text-decoration: none;
     color: inherit;
-}
+  }
 </style>
