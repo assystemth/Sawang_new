@@ -473,6 +473,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-shadow: 0px 3px 2px rgba(114, 65, 24, 0.74);
   }
 
   .welcome-btm-text-run {
@@ -973,6 +974,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-shadow: 0px 3px 2px rgba(44, 1, 59, 0.74);
   }
 
   .font-header-home {
