@@ -46,15 +46,38 @@
                                <td><?= date('d/m/Y H:i', strtotime($rs->important_day_datesave . '+543 years')) ?> น.</td>
                                <td>
                                    <label class="switch">
-                                       <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck<?= $rs->important_day_id; ?>" data-important_day-id="<?= $rs->important_day_id; ?>" <?= $rs->important_day_status === 'show' ? 'checked' : ''; ?> onchange="updateimportant_dayStatus<?= $rs->important_day_id; ?>()">
+                                       <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck<?= $rs->important_day_id; ?>" data-important_day-id="<?= $rs->important_day_id; ?>" <?= $rs->important_day_status === 'show' ? 'checked' : ''; ?> onchange="updateimportant_dayStatus(this)">
                                        <span class="slider"></span>
                                    </label>
                                    <script>
-                                       function updateimportant_dayStatus<?= $rs->important_day_id; ?>() {
-                                           const important_dayId = <?= $rs->important_day_id; ?>;
-                                           const newStatus = document.getElementById('flexSwitchCheck<?= $rs->important_day_id; ?>').checked ? 'show' : 'hide';
+                                       function updateimportant_dayStatus(checkbox) {
+                                           const important_dayId = checkbox.getAttribute('data-important_day-id');
+                                           const newStatus = checkbox.checked ? 'show' : 'hide';
 
-                                           // ส่งข้อมูลไปยังเซิร์ฟเวอร์ด้วย AJAX
+                                           // ปิด checkboxes ตัวอื่นๆ
+                                           document.querySelectorAll('.form-check-input').forEach(function(otherCheckbox) {
+                                               if (otherCheckbox !== checkbox) {
+                                                   otherCheckbox.checked = false;
+                                                   // ส่งข้อมูลไปยังเซิร์ฟเวอร์ด้วย AJAX เพื่อตั้งค่าสถานะเป็น hide
+                                                   const otherImportantDayId = otherCheckbox.getAttribute('data-important_day-id');
+                                                   $.ajax({
+                                                       type: 'POST',
+                                                       url: 'important_day_backend/updateimportant_dayStatus',
+                                                       data: {
+                                                           important_day_id: otherImportantDayId,
+                                                           new_status: 'hide'
+                                                       },
+                                                       success: function(response) {
+                                                           console.log('Updated status to hide for ID:', otherImportantDayId);
+                                                       },
+                                                       error: function(error) {
+                                                           console.error('Error updating status for ID:', otherImportantDayId, error);
+                                                       }
+                                                   });
+                                               }
+                                           });
+
+                                           // ส่งข้อมูลไปยังเซิร์ฟเวอร์ด้วย AJAX เพื่ออัพเดตสถานะของ checkbox ที่ถูกคลิก
                                            $.ajax({
                                                type: 'POST',
                                                url: 'important_day_backend/updateimportant_dayStatus',
@@ -63,11 +86,10 @@
                                                    new_status: newStatus
                                                },
                                                success: function(response) {
-                                                   console.log(response);
-                                                   // ทำอื่นๆตามต้องการ เช่น อัพเดตหน้าเว็บ
+                                                   console.log('Updated status for ID:', important_dayId);
                                                },
                                                error: function(error) {
-                                                   console.error(error);
+                                                   console.error('Error updating status for ID:', important_dayId, error);
                                                }
                                            });
                                        }
@@ -77,24 +99,24 @@
                                    <a href="<?= site_url('important_day_backend/editing_important_day/' . $rs->important_day_id); ?>"><i class="bi bi-pencil-square fa-lg "></i></a>
                                    <a href="#" role="button" onclick="confirmDelete('<?= $rs->important_day_id; ?>');"><i class="bi bi-trash fa-lg "></i></a>
                                    <script>
-                                        function confirmDelete(important_day_id) {
-                                            Swal.fire({
-                                                title: 'กดเพื่อยืนยัน?',
-                                                text: "คุณจะไม่สามรถกู้คืนได้อีก!",
-                                                icon: 'warning',
-                                                showCancelButton: true,
-                                                confirmButtonColor: '#3085d6',
-                                                cancelButtonColor: '#d33',
-                                                confirmButtonText: 'ใช่, ต้องการลบ!',
-                                                cancelButtonText: 'ยกเลิก' // เปลี่ยนข้อความปุ่ม Cancel เป็นภาษาไทย
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    window.location.href = "<?= site_url('important_day_backend/del_important_day/'); ?>" + important_day_id;
-                                                }
-                                            });
-                                        }
-                                    </script>
-                                </td>
+                                       function confirmDelete(important_day_id) {
+                                           Swal.fire({
+                                               title: 'กดเพื่อยืนยัน?',
+                                               text: "คุณจะไม่สามรถกู้คืนได้อีก!",
+                                               icon: 'warning',
+                                               showCancelButton: true,
+                                               confirmButtonColor: '#3085d6',
+                                               cancelButtonColor: '#d33',
+                                               confirmButtonText: 'ใช่, ต้องการลบ!',
+                                               cancelButtonText: 'ยกเลิก' // เปลี่ยนข้อความปุ่ม Cancel เป็นภาษาไทย
+                                           }).then((result) => {
+                                               if (result.isConfirmed) {
+                                                   window.location.href = "<?= site_url('important_day_backend/del_important_day/'); ?>" + important_day_id;
+                                               }
+                                           });
+                                       }
+                                   </script>
+                               </td>
                            </tr>
                        <?php
                             $Index++;
