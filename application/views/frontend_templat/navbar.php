@@ -132,8 +132,19 @@
           display: block;
       }
 
+      @keyframes gradient-move {
+          0% {
+              background-position: 100% 0%;
+          }
+
+          100% {
+              background-position: 0% 0%;
+          }
+      }
+
       .font-head-navbar-letf-logo1 {
           background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
+          background-size: 330% 130%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -142,6 +153,7 @@
           font-weight: 600;
           line-height: normal;
           z-index: 1;
+          animation: gradient-move 10s linear infinite;
       }
 
       .font-head-navbar-letf-logo2 {
