@@ -1,9 +1,9 @@
-<!-- <div class="image-slide-stick-mid">
+<div class="image-slide-stick-mid">
     <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" rel="noopener noreferrer">
         <img src="docs/eit-slide-mid.png">
     </a>
     <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
-</div> -->
+</div>
 <!-- <div class="welcome" ></div> -->
 
 <div class="welcome-container">
