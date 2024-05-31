@@ -465,8 +465,8 @@
   }
 
   .welcome {
-    width: 1920px;
-    height: 767px;
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -4550,7 +4550,7 @@
     margin-top: 200px;
   }
 
-  @keyframes gradient-move {
+  @keyframes gradient-move-font {
     0% {
       background-position: 100% 0%;
     }
@@ -4560,7 +4560,7 @@
     }
   }
 
-  .font-welcome-btm-other {
+  .font-welcome-btm-other1 {
     background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
     background-size: 1000% 1000%;
     background-clip: text;
@@ -4568,10 +4568,23 @@
     -webkit-text-fill-color: transparent;
     font-size: 36px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 800;
+    line-height: normal;
+    z-index: 2;
+    position: relative;
+    animation: gradient-move-font 20s linear infinite;
+  }
+
+  .font-welcome-btm-other2 {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
     line-height: normal;
     z-index: 1;
-    animation: gradient-move 20s linear infinite;
+    position: relative;
+    animation: gradient-move-font 20s linear infinite;
+    text-shadow: 2px 2px 4px gray;
+    margin-left: -476px;
   }
 
 
