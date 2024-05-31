@@ -445,14 +445,44 @@
     margin-top: -10%;
   } */
 
-  .welcome {
-    background-image: url('<?php echo base_url("docs/s.welcome.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    z-index: 1;
+  /* .welcome {
+    background-image: url('<?php echo base_url("docs/s.welcome-slide-1.jpg"); ?>');
     width: 1920px;
     height: 767px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: absolute;
+  } */
+
+  .welcome-container {
+    position: absolute;
+    width: 1920px;
+    height: 767px;
+    overflow: hidden;
+    /* เพื่อให้การเคลื่อนไหวไม่เกินขอบเขต */
+    /* border: 1px solid black; */
+    /* เส้นขอบสำหรับการแสดงผล */
+  }
+
+  .welcome {
+    width: 1920px;
+    height: 767px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    animation: zoomOut 9s forwards;
+  }
+
+  @keyframes zoomOut {
+    0% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   .welcome-btm {
@@ -541,8 +571,6 @@
       transform: translateX(-100%);
     }
   }
-
-
 
   .vision {
     background-image: url('<?php echo base_url("docs/s.bg-vision4.png"); ?>');
@@ -792,7 +820,7 @@
     border: 2px solid #EABA48;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   }
-  
+
 
   .card-activity {
     border-radius: 24px;
@@ -4498,12 +4526,18 @@
   .welcome-other {
     background-image: url('<?php echo base_url("docs/s.welcome-other.png"); ?>');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    z-index: 1;
+    background-size: 100% 1000px;
+    /* ขนาดเต็ม 1920px x 600px */
     width: 1920px;
     height: 600px;
+    /* แสดงความสูงที่คุณต้องการ */
+    overflow: hidden;
     position: absolute;
+    background-position: top;
+    /* เริ่มจากด้านบน */
   }
+
+
 
   .welcome-btm-other {
     background-image: url('<?php echo base_url("docs/s.welcome-btm-other2.png"); ?>');
@@ -4518,14 +4552,15 @@
 
   @keyframes gradient-move {
     0% {
-        background-position: 100% 0%;
+      background-position: 100% 0%;
     }
-    100% {
-        background-position: 0% 0%;
-    }
-}
 
-.font-welcome-btm-other {
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .font-welcome-btm-other {
     background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
     background-size: 1000% 1000%;
     background-clip: text;
@@ -4537,7 +4572,7 @@
     line-height: normal;
     z-index: 1;
     animation: gradient-move 20s linear infinite;
-}
+  }
 
 
 

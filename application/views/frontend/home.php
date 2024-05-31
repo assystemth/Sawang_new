@@ -4,29 +4,62 @@
     </a>
     <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
 </div> -->
+<!-- <div class="welcome" ></div> -->
 
-<div class="welcome">
-
-    <!-- <div class="tab-container">
-        <img src="docs/item-news-top.png" width="324" height="100" style="position: absolute; z-index: 2;">
-        <div id="marquee-container">
-            <div class="marquee">
-                <div>
-                    <?php
-                    $maxIterations = 1000;
-                    $iteration = 0;
-                    while ($iteration < $maxIterations) {
-                        foreach ($qHotnews as $index => $hotnews) {
-                            echo '<span>' . $hotnews->hotNews_text . '</span>';
-                        }
-                        $iteration++;
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<div class="welcome-container">
+    <div class="welcome" id="welcome"></div>
 </div>
+
+<script>
+    const images = [
+        "<?php echo base_url('docs/s.welcome-slide-1.jpg'); ?>",
+        "<?php echo base_url('docs/s.welcome-slide-2.jpg'); ?>",
+        "<?php echo base_url('docs/s.welcome-slide-3.jpg'); ?>"
+    ];
+
+    let currentIndex = 0;
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomizeZoomOrigin() {
+        const origins = [
+            "center center",
+            "top left",
+            "top right",
+            "bottom left",
+            "bottom right"
+        ];
+        return origins[getRandomInt(0, origins.length - 1)];
+    }
+
+    function applyRandomZoomOrigin(element) {
+        const zoomOrigin = randomizeZoomOrigin();
+        element.style.transformOrigin = zoomOrigin;
+    }
+
+    function changeImage() {
+        const imageElement = document.getElementById('welcome');
+        imageElement.style.backgroundImage = `url(${images[currentIndex]})`;
+        applyRandomZoomOrigin(imageElement);
+
+        // Restart the animation by changing the animation property
+        imageElement.style.animation = 'none';
+        void imageElement.offsetWidth; // Trigger reflow
+        imageElement.style.animation = null;
+        imageElement.style.animation = 'zoomOut 9s forwards';
+
+        // Move to the next image in the array
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // Initial call to set the first image and start the loop
+    changeImage();
+
+    // Change image every 10 seconds
+    setInterval(changeImage, 9000);
+</script>
 
 <div class="welcome-btm">
     <div class="text-center" style="padding-top:15.5%;">
@@ -77,7 +110,7 @@
                     <div class="col-11 font-text-run" style="margin-top: 5px;">
                         <?php foreach ($qWeather as  $weather) { ?>
                             <marquee direction="left">
-                            <?= $weather->title; ?><?= $weather->description; ?>
+                                <?= $weather->title; ?><?= $weather->description; ?>
                             </marquee>
                         <?php } ?>
 
