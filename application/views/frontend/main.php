@@ -142,7 +142,7 @@
             0 -0.3px 0 #d0a879;
     }
 </style>
-</head>
+
 
 <body>
     <div class="row" style="padding-top: 11vh;">
