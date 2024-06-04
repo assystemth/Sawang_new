@@ -108,6 +108,8 @@ class Pages extends CI_Controller
 		$this->load->model('esv_ods_model');
 		$this->load->model('ita_year_model');
 		$this->load->model('km_model');
+
+		$this->load->model('prov_local_doc_model');
 	}
 
 	// public function index()
@@ -3052,12 +3054,12 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
-	
+
 	public function p_council()
 	{
 
 		$data['query_one'] = $this->p_council_model->p_council_one();
-        $data['query_under_one'] = $this->p_council_model->p_council_under_one();
+		$data['query_under_one'] = $this->p_council_model->p_council_under_one();
 		// $data['rsOne'] = $this->p_council_model->p_council_frontend_one();
 		// $data['rsLeft'] = $this->p_council_model->p_council_frontend_one_left();
 		// $data['rsRight'] = $this->p_council_model->p_council_frontend_one_right();
@@ -3209,7 +3211,7 @@ class Pages extends CI_Controller
 	{
 		$data['query'] = $this->laws_model->list_all_laws($laws_topic_id);
 		$data['query_topic'] = $this->laws_model->read($laws_topic_id);
-		
+
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
 		$this->load->view('frontend_templat/navbar_other');
@@ -3364,5 +3366,109 @@ class Pages extends CI_Controller
 	public function increment_download_km($km_file_id)
 	{
 		$this->km_model->increment_download_km($km_file_id);
+	}
+
+	public function news_dla()
+	{
+
+		// เรียกใช้ฟังก์ชันเพื่อโหลดข้อมูล RSS
+		$rssData = $this->loadNewsDlaData();
+
+		// ตรวจสอบว่าข้อมูล RSS ใช้งานได้หรือไม่
+		if ($rssData !== FALSE) {
+			// รวมข้อมูล RSS กับข้อมูลอื่น ๆ
+			$data['rssData'] = $rssData;
+		} else {
+			// ถ้า RSS ใช้งานไม่ได้ ไม่ต้องส่งข้อมูลไปที่หน้า home
+			$data['rssData'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
+		}
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/news_dla', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	private function loadNewsDlaData()
+	{
+		// Load the XML data from the URL
+		$xml = @simplexml_load_file("https://www.dla.go.th/servlet/RssServlet");
+
+		// Initialize row color flag
+		$row_color = '#FFFFFF'; // Start with white
+
+		// Array to store document data
+		$documents = [];
+
+		// Check if XML data is loaded successfully
+		if ($xml !== FALSE) {
+			// Loop through each DOCUMENT tag
+			foreach ($xml->DOCUMENT as $document) {
+				// Alternate row color
+				$row_color = ($row_color == '#FFFFFF') ? '#73e3f9' : '#FFFFFF';
+
+				// Extract data from XML
+				$date = (string) $document->DOCUMENT_DATE;
+				$organization = (string) $document->ORG;
+				$doc_number = (string) $document->DOCUMENT_NO;
+				$topic = (string) $document->DOCUMENT_TOPIC;
+				$upload_file1 = (string) $document->UPLOAD_FILE1;
+
+				// Initialize topic with no hyperlink
+				$topic_html = $topic;
+
+				// Check if UPLOAD_FILE1 exists for the topic
+				if (isset($document->UPLOAD_FILE1)) {
+					// Get UPLOAD_FILE1 link
+					$upload_file1 = (string) $document->UPLOAD_FILE1;
+					// Create hyperlink for the topic
+					$topic_html = '<a href="' . $upload_file1 . '">' . $topic . '</a>';
+				}
+
+				// Check if there are additional UPLOAD_FILE and UPLOAD_DESC
+				for ($i = 2; $i <= 5; $i++) {
+					$upload_file = (isset($document->{"UPLOAD_FILE$i"})) ? (string) $document->{"UPLOAD_FILE$i"} : '';
+					$upload_desc = (isset($document->{"UPLOAD_DESC$i"})) ? (string) $document->{"UPLOAD_DESC$i"} : '';
+					if (!empty($upload_file)) {
+						$topic_html .= '<br><a href="' . $upload_file . '">' . $upload_desc . '</a>';
+					}
+				}
+
+				// Generate data array for the view
+				$documents[] = [
+					'date' => $date,
+					'organization' => $organization,
+					'doc_number' => $doc_number,
+					'topic' => $topic_html
+				];
+			}
+		} else {
+			// Handle error: XML data could not be loaded
+			$documents = [];
+		}
+
+		// Sort documents by date in descending order
+		usort($documents, function ($a, $b) {
+			$dateA = DateTime::createFromFormat('d/m/Y', $a['date']);
+			$dateB = DateTime::createFromFormat('d/m/Y', $b['date']);
+			return $dateB <=> $dateA; // Descending order
+		});
+
+		// Return the array of documents
+		return $documents;
+	}
+
+	public function prov_local_doc()
+	{
+		$data['query'] = $this->prov_local_doc_model->list_all();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/prov_local_doc', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
 	}
 }

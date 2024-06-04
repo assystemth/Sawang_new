@@ -416,7 +416,7 @@
                                     // ถ้ามากกว่า 30 วัน ให้ซ่อนไว้
                                     if ($days_difference <= 30) {
                                         // แสดงรูปภาพ
-                                        echo '<img src="' . base_url('docs/activity-new.gif') . '" class="activity-new-img">';
+                                        echo '<img src="' . base_url('docs/activity-new.gif') . '"class="activity-new-img">';
                                     }
                                     ?>
                                 </div>
