@@ -6,6 +6,7 @@ class Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('important_day_model');
 		$this->load->model('HotNews_model');
 		$this->load->model('Weather_report_model');
 		$this->load->model('banner_model');
@@ -35,7 +36,9 @@ class Home extends CI_Controller
 
 	public function main()
 	{
-		$this->load->view('frontend/main');
+		$data['qImportant_day'] = $this->important_day_model->important_day_frontend();
+		$data['qControl_important_day'] = $this->important_day_model->control_important_day_frontend();
+		$this->load->view('frontend/main', $data);
 	}
 
 	public function index()

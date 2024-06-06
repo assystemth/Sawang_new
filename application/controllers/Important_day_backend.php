@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class important_day_backend extends CI_Controller
+class Important_day_backend extends CI_Controller
 {
 
     public function __construct()
@@ -22,8 +22,22 @@ class important_day_backend extends CI_Controller
 
     public function index()
     {
+        // $control_important_day_status = $this->input->get('control_important_day_status');
+    
+        // if (!$control_important_day_status) {
+        //     // ถ้าไม่มีการกรองด้วย control_important_day_status ให้ดึงทั้งหมด
+        //     $control_important_days = $this->important_day_model->get_control_important_days();
+        // } else {
+        //     // ถ้ามีการกรองด้วย control_important_day_status ให้ดึงตามเงื่อนไข
+        //     $control_important_days = $this->important_day_model->get_control_important_days($control_important_day_status);
+        // }
+    
+        // foreach ($control_important_days as $control_important_day) {
+        //     // $control_important_day->images = $this->control_important_day_model->get_images_for_control_important_day($control_important_day->control_important_day_id);
+        // }
 
         $data['query'] = $this->important_day_model->list_all();
+        $data['qControl'] = $this->important_day_model->control_list_all();
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -82,5 +96,10 @@ class important_day_backend extends CI_Controller
     public function updateimportant_dayStatus()
     {
         $this->important_day_model->updateimportant_dayStatus();
+    }
+
+    public function updateControlStatus()
+    {
+        $this->important_day_model->updateControl_important_dayStatus();
     }
 }

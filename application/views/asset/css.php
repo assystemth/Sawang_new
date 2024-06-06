@@ -121,6 +121,28 @@
     color: black;
   }
 
+  /* เพิ่มเส้นขอบด้านซ้ายสุดและขวาสุดของตาราง */
+  #importantday {
+    border-left: 1px solid #a3a3a3;
+    /* เส้นขอบด้านซ้ายสุด */
+    border-right: 1px solid #a3a3a3;
+    /* เส้นขอบด้านขวาสุด */
+    border-bottom: 1px solid #a3a3a3;
+    border-top: 1px solid #a3a3a3;
+  }
+
+  #importantday th {
+    border-top: 1px solid #a3a3a3;
+    /* เส้นขอบด้านซ้าย */
+    border-bottom: 1px solid #a3a3a3;
+    /* เส้นขอบด้านซ้าย */
+  }
+
+  /* เปลี่ยนสีตัวอักษรใน thead เป็นสีดำ */
+  #importantday thead th {
+    color: black;
+  }
+
   .add-btn {
     background-color: #83d37c;
     /* เปลี่ยนสีพื้นหลังปุ่ม */

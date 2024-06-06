@@ -7,6 +7,30 @@ class Important_day_model extends CI_Model
         $this->load->model('space_model');
     }
 
+    // public function get_control_important_days($control_important_day_status = null)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('tbl_control_important_day');
+
+    //     if ($control_important_day_status) {
+    //         $this->db->where('control_important_day_status', $control_important_day_status);
+    //     }
+
+    //     return $this->db->get()->result();
+    // }
+
+    // public function updateControlStatus($controlImportantDayId, $controlImportantDayStatus)
+    // {
+    //     $data = array(
+    //         'control_important_day_status' => $controlImportantDayStatus
+    //     );
+
+    //     $this->db->where('control_important_day_id', $controlImportantDayId);
+    //     $result = $this->db->update('tbl_control_important_day', $data);
+
+    //     return $result;
+    // }
+
     public function add_important_day()
     {
         // Check used space
@@ -188,8 +212,47 @@ class Important_day_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_important_day');
         $this->db->where('tbl_important_day.important_day_status', 'show');
-        $this->db->order_by('tbl_important_day.important_day_id', 'DESC');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function control_list_all()
+    {
+        $this->db->order_by('control_important_day_id', 'ASC');
+        $query = $this->db->get('tbl_control_important_day');
+        return $query->result();
+    }
+
+    public function control_important_day_frontend()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_control_important_day');
+        $this->db->where('tbl_control_important_day.control_important_day_id', '1');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function updateControl_important_dayStatus()
+    {
+        // ตรวจสอบว่ามีการส่งข้อมูล POST มาหรือไม่
+        if ($this->input->post()) {
+            $control_important_dayId = $this->input->post('control_important_day_id'); // รับค่า important_day_id
+            $newStatus = $this->input->post('new_status'); // รับค่าใหม่จาก switch checkbox
+
+            // ทำการอัพเดตค่าในตาราง tbl_important_day ในฐานข้อมูลของคุณ
+            $data = array(
+                'control_important_day_status' => $newStatus
+            );
+            $this->db->where('control_important_day_id', $control_important_dayId); // ระบุ important_day_id ของแถวที่ต้องการอัพเดต
+            $this->db->update('tbl_control_important_day', $data);
+
+            // ส่งการตอบกลับ (response) กลับไปยังเว็บไซต์หรือแอพพลิเคชันของคุณ
+            // โดยเช่นปกติคุณอาจส่ง JSON response กลับมาเพื่ออัพเดตหน้าเว็บ
+            $response = array('status' => 'success', 'message' => 'อัพเดตสถานะเรียบร้อย');
+            echo json_encode($response);
+        } else {
+            // ถ้าไม่มีข้อมูล POST ส่งมา ให้รีเดอร์เปรียบเสมอ
+            show_404();
+        }
     }
 }
