@@ -1078,7 +1078,7 @@
                                 <div class="d-flex justify-content-center">
                                     <div style="z-index: 2px; margin-top: -80px; margin-left: -70px; position: absolute;">
                                         <a class="underline" href="<?php echo site_url('Pages/otop/' . $otop->otop_id); ?>">
-                                            <span class="font-name-otop"><?= $otop->otop_name; ?></span>
+                                            <span class="font-name-otop one-line-ellipsis"><?= $otop->otop_name; ?></span>
                                         </a>
                                     </div>
                                 </div>
@@ -1180,7 +1180,7 @@
                             </a>
                             <br>
                             <a class="underline" href="<?php echo site_url('Pages/travel_detail/' . $travel->travel_id); ?>">
-                                <span class="<?= $class_text; ?> font-name-travel"><?= $travel->travel_name; ?></span>
+                                <span class="<?= $class_text; ?> font-name-travel one-line-ellipsis"><?= $travel->travel_name; ?></span>
                             </a>
                         </div>
                     <?php

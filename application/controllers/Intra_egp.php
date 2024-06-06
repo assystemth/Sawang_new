@@ -130,7 +130,7 @@ class Intra_egp extends CI_Controller
         $data['sum_project_money_by_project_status_end_y2565'] = $this->intra_egp_model->sum_project_money_by_project_status_end_y2565();
         $data['sum_project_money_by_project_status_process_y2565'] = $this->intra_egp_model->sum_project_money_by_project_status_process_y2565();
         // echo '<pre>';
-        // print_r($data['sum_project_by_type_buy_y2565']);
+        // print_r($data['sum_project_money_by_project_status_process_y2567']);
         // echo '</pre>';
         // exit;
 
