@@ -121,6 +121,7 @@
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_ems_backend'); ?>">งานกู้ชีพ/บริการ<br>การแพทย์ฉุกเฉิน(EMS)</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_oppr_backend'); ?>">งานอาสาป้องกันภัย<br>ฝ่ายพลเรือน(อปพร.)</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_e_book_backend'); ?>">ดาวโหลดแบบฟอร์ม E-book</a>
+                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_backend'); ?>">ตรวจสอบเบี้ยผู้สูงอายุ</a>
             </div>
         </div>
     </li>
@@ -948,19 +949,22 @@
                         <span>คู่มือและมาตราฐานการให้บริการ</span>
                     </li>
                 </a>
-
                 <a href="<?php echo site_url('Pbsv_gup_backend'); ?>" class="link">
-
                     <li class="hide">
                         <span>คู่มือสำหรับประชาชน</span>
                     </li>
                 </a>
-
                 <li class="hide">
                     <a href="<?php echo site_url('Pbsv_e_book_backend'); ?>" class="link">
                         <span>ดาวโหลดแบบฟอร์ม E-book</span>
                     </a>
                 </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('Elderly_aw_backend'); ?>" class="link">
+                        <span>ตรวจสอบเบี้ยผู้สูงอายุ</span>
+                    </a>
+                </li>
+
                 <!-- การดำเนินงาน -->
                 <a href="<?php echo site_url('Operation_reauf_backend'); ?>" class="link">
 

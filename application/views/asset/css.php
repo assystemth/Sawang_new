@@ -366,4 +366,17 @@
     text-decoration: none;
     color: inherit;
   }
+
+  .info-btn {
+    background-color: skyblue;
+    /* เปลี่ยนสีพื้นหลังปุ่ม */
+    color: black;
+  }
+
+  /* กำหนดสีเดิมเมื่อ hover */
+  .info-btn:hover {
+    background-color: skyblue;
+    /* เปลี่ยนสีพื้นหลังปุ่มเป็นสีเดิม */
+    color: black;
+  }
 </style>
