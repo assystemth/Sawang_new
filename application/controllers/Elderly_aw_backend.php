@@ -130,7 +130,6 @@ class Elderly_aw_backend extends CI_Controller
                             }
                         }
                     }
-
                     $this->elderly_aw_model->insert_csv($insert_data);
                 }
 
