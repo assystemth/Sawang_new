@@ -5,8 +5,8 @@
 
 <div class="bg-pages ">
     <div class="container-pages-detail">
-        <div class="text-center" >
-            <img class="border-radius-travel" src="<?php echo base_url('docs/img/' . $rsTravel->travel_img); ?>" style="width: 100%; max-width: 1035px; height: 582px;" >
+        <div class="text-center">
+            <img class="border-radius-travel" src="<?php echo base_url('docs/img/' . $rsTravel->travel_img); ?>" style="width: 100%; max-width: 1035px; height: 582px;">
             <?php if (!empty($rsTravel->travel_youtube)) : ?>
                 <div class="d-flex justify-content-end" style="margin-top: -95px; padding-right: 250px; ">
                     <a href="<?= $rsTravel->travel_youtube; ?>" target="_blank">
@@ -46,7 +46,7 @@
             <br><br>
             <span class="font-page-detail-content-img break-word"><?= $rsTravel->travel_detail; ?></span>
             <br>
-            <span class="font-page-detail-content-img">ตำแหน่งที่ตั้ง</span> : <span class="font-page-detail-content-img underline"><?= $rsTravel->travel_location; ?> <a class="btn btn-success" target="_blank" href="https://www.google.com/maps?q=<?= $rsTravel->travel_lat; ?>,<?= $rsTravel->travel_long; ?>">Google
+            <span class="font-page-detail-content-img">ตำแหน่งที่ตั้ง</span> : <span class="font-page-detail-content-img underline"><?= $rsTravel->travel_location; ?> <a class="btn btn-success" target="_blank" href="<?= $rsTravel->travel_map; ?>">Google
                     Map</a></span>
             <br>
             <span class="font-page-detail-content-img">เวลาทำการ</span> : <span class="font-page-detail-content-img"><?= $rsTravel->travel_date; ?>&nbsp;<?= $rsTravel->travel_timeopen; ?>
