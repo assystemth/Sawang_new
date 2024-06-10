@@ -349,6 +349,7 @@
                           <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                       </div>
                       <div class="dropdown-center">
+                          <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                           <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
@@ -582,6 +583,7 @@
                               <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                           </div>
                           <div class="dropdown-center">
+                              <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                               <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>

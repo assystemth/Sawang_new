@@ -92,7 +92,7 @@
                                 <td><?= $rs->elderly_aw_bank; ?></td>
                                 <td><?= $rs->elderly_aw_type_payment; ?></td>
                                 <td><?= $rs->elderly_aw_bank_num; ?></td>
-                                <td> <?= date('m/Y ', strtotime($rs->elderly_aw_period_payment . '+543 years')) ?></td>
+                                <td><?= $rs->elderly_aw_period_payment; ?></td>
                                 <td><?= $rs->elderly_aw_money; ?></td>
                                 <td><?= $rs->elderly_aw_note; ?></td>
                                 <td><?= $rs->elderly_aw_by; ?></td>

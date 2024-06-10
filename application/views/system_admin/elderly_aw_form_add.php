@@ -63,14 +63,15 @@
                 <div class="form-group row">
                     <div class="col-sm-4 control-label">งวดเงินที่จ่าย</div>
                     <div class="col-sm-8">
-                        <input type="date" name="elderly_aw_period_payment" class="form-control">
+                        <input type="text" name="elderly_aw_period_payment" class="form-control">
+                        <span class="red-add">เช่น 05/2567</span>
                     </div>
                 </div>
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-4 control-label">จำนวนเงิน</div>
                     <div class="col-sm-8">
-                        <input type="number" name="elderly_aw_money" class="form-control" step="0.01" min="0" >
+                        <input type="number" name="elderly_aw_money" class="form-control" step="0.01" min="0">
                     </div>
                 </div>
                 <br>

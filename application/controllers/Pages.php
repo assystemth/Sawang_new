@@ -3471,4 +3471,55 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
+
+	public function elderly_aw()
+	{
+		// รับค่าจากฟอร์ม
+		$elderly_aw_id_num_eligible = $this->input->post('elderly_aw_id_num_eligible');
+		$elderly_aw_period_payment = $this->input->post('elderly_aw_period_payment');
+
+		// ตรวจสอบว่าได้รับค่าหมายเลขประชาชนและคำค้นหาหรือไม่
+		if (!empty($elderly_aw_id_num_eligible) && !empty($elderly_aw_period_payment)) {
+			// Query เพื่อดึงข้อมูลจาก tbl_elderly_aw
+			$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
+			$this->db->where('elderly_aw_id_num_eligible', $elderly_aw_id_num_eligible);
+			$query = $this->db->get('tbl_elderly_aw');
+			$elderly_aw_data = $query->result_array();
+
+			if (empty($elderly_aw_data)) {
+				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
+				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
+				$elderly_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+			}
+		} else {
+			// ถ้าไม่ได้รับค่าหรือมีค่าว่างจากฟอร์ม
+			$elderly_aw_data = array();
+			$data['error_message'] = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+		}
+
+		// ส่งข้อมูลไปยัง View
+		$data['elderly_aw_data'] = $elderly_aw_data;
+
+		// โหลด View
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/elderly_aw', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+
+
+
+	// 'elderly_aw_name_eligible' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_id_num_owner' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_name_owner' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_agency' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_bank' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_type_payment' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_bank_num' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_period_payment' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_money' => $elderly_aw_id_num_eligible,
+	// 		'elderly_aw_note' => $elderly_aw_id_num_eligible,
 }

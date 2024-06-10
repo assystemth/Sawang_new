@@ -63,7 +63,8 @@
                 <div class="form-group row">
                     <div class="col-sm-4 control-label">งวดเงินที่จ่าย</div>
                     <div class="col-sm-8">
-                        <input type="date" name="elderly_aw_period_payment" class="form-control" value="<?= $rsedit->elderly_aw_period_payment; ?>">
+                        <input type="text" name="elderly_aw_period_payment" class="form-control" value="<?= $rsedit->elderly_aw_period_payment; ?>">
+                    <span class="red-add">เช่น 05/2567</span>
                     </div>
                 </div>
                 <br>

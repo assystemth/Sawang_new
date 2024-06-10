@@ -2446,11 +2446,9 @@
     leading-trim: both;
     text-edge: cap;
     font-feature-settings: 'clig' off, 'liga' off;
-
     font-size: 18.762px;
     font-style: normal;
     font-weight: 300;
-    line-height: 14.238px;
     /* 75.886% */
   }
 
@@ -3038,6 +3036,28 @@
     margin-bottom: 5%;
     padding-left: 5%;
     padding-right: 5%;
+    border-radius: 17.085px;
+    background: rgba(253, 245, 225, 0.80);
+    box-shadow: 0px 0px 6.701px 0px rgba(0, 0, 0, 0.25);
+    height: auto;
+    width: 1460px;
+  }
+
+  .pages-follow-elderly-aw {
+    margin-top: 40px;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 17.085px;
+    background: rgba(253, 245, 225, 0.80);
+    box-shadow: 0px 0px 6.701px 0px rgba(0, 0, 0, 0.25);
+    height: 400px;
+    width: 1460px;
+  }
+
+  .pages-follow-elderly-aw-detail {
+    margin-top: 40px;
+    margin-bottom: 5%;
     border-radius: 17.085px;
     background: rgba(253, 245, 225, 0.80);
     box-shadow: 0px 0px 6.701px 0px rgba(0, 0, 0, 0.25);
