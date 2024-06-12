@@ -6,7 +6,7 @@
 </div>
 </div>
 
-<div class="bg-pages ">
+<div class="bg-pages mt-1">
     <?php foreach ($qHistory as $rs) { ?>
         <div class="bg-pages-in">
             <div class="crop">

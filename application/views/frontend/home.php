@@ -8,60 +8,52 @@
 <?php } ?>
 
 <!-- <div class="welcome" ></div> -->
+<style>
+        .fade-container {
+            position: relative;
+            width: 1920px;
+            height: 767px;
+        }
 
+        .fade-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* ทำให้มีการเฟดเอาท์ */
+        }
+
+        .fade-content.active {
+            opacity: 1; /* ทำให้ div ที่ active มีการแสดงผล */
+        }
+    </style>
 <div class="welcome-container">
-    <div class="welcome" id="welcome"></div>
+    <!-- <div class="welcome" id="welcome"></div> -->
+    <div class="fade-container">
+        <div class="fade-content active" id="div1" style="background-image: url('<?php echo base_url("docs/bg-welcome.png"); ?>');">
+            Content 1
+        </div>
+        <!-- <div class="fade-content" id="div2" style="background-color: lightcoral;">
+            Content 2
+        </div> -->
+    </div>
 </div>
 
 <script>
-    const images = [
-        "<?php echo base_url('docs/s.welcome-slide-1.jpg'); ?>",
-        "<?php echo base_url('docs/s.welcome-slide-2.jpg'); ?>",
-        "<?php echo base_url('docs/s.welcome-slide-3.jpg'); ?>"
-    ];
+    // JavaScript เพื่อสลับ div ต่าง ๆ
+    let currentIndex = 0; // เริ่มจาก div แรก
+    const contents = document.querySelectorAll('.fade-content'); // เลือก div ที่ต้องการสลับ
 
-    let currentIndex = 0;
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+    function showNextContent() {
+        contents[currentIndex].classList.remove('active'); // ซ่อน div ปัจจุบัน
+        currentIndex = (currentIndex + 1) % contents.length; // คำนวณ index ของ div ถัดไป
+        contents[currentIndex].classList.add('active'); // แสดง div ถัดไป
     }
 
-    function randomizeZoomOrigin() {
-        const origins = [
-            "center center",
-            "top left",
-            "top right",
-            "bottom left",
-            "bottom right"
-        ];
-        return origins[getRandomInt(0, origins.length - 1)];
-    }
-
-    function applyRandomZoomOrigin(element) {
-        const zoomOrigin = randomizeZoomOrigin();
-        element.style.transformOrigin = zoomOrigin;
-    }
-
-    function changeImage() {
-        const imageElement = document.getElementById('welcome');
-        imageElement.style.backgroundImage = `url(${images[currentIndex]})`;
-        applyRandomZoomOrigin(imageElement);
-
-        // Restart the animation by changing the animation property
-        imageElement.style.animation = 'none';
-        void imageElement.offsetWidth; // Trigger reflow
-        imageElement.style.animation = null;
-        imageElement.style.animation = 'zoomOut 9s forwards';
-
-        // Move to the next image in the array
-        currentIndex = (currentIndex + 1) % images.length;
-    }
-
-    // Initial call to set the first image and start the loop
-    changeImage();
-
-    // Change image every 10 seconds
-    setInterval(changeImage, 9000);
+    // เรียกฟังก์ชัน showNextContent ทุก 3 วินาที
+    setInterval(showNextContent, 3000);
 </script>
 
 <div class="welcome-btm">
