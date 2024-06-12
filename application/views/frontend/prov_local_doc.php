@@ -36,10 +36,40 @@
             <div class="pages-select-dla underline">
                 <div class="row">
                     <div class="col-2 span-time-pages-news">
+                        <?php
+                        // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 ม.ค. 2567"
+                        $dateStr = $rs['doc_date'];
+
+                        // แปลงเดือนจากชื่อไทยย่อเป็นชื่อเต็ม
+                        $thaiMonths = [
+                            'ม.ค.' => 'มกราคม',
+                            'ก.พ.' => 'กุมภาพันธ์',
+                            'มี.ค.' => 'มีนาคม',
+                            'เม.ย.' => 'เมษายน',
+                            'พ.ค.' => 'พฤษภาคม',
+                            'มิ.ย.' => 'มิถุนายน',
+                            'ก.ค.' => 'กรกฎาคม',
+                            'ส.ค.' => 'สิงหาคม',
+                            'ก.ย.' => 'กันยายน',
+                            'ต.ค.' => 'ตุลาคม',
+                            'พ.ย.' => 'พฤศจิกายน',
+                            'ธ.ค.' => 'ธันวาคม',
+                        ];
+
+                        // แปลงเดือนใน $dateStr โดยใช้การแทนที่จาก array $thaiMonths
+                        foreach ($thaiMonths as $shortMonth => $fullMonth) {
+                            if (strpos($dateStr, $shortMonth) !== false) {
+                                $dateStr = str_replace($shortMonth, $fullMonth, $dateStr);
+                                break; // ออกจาก loop เมื่อเจอการแทนที่แล้ว
+                            }
+                        }
+
+                        // แสดงผลลัพธ์
+                        ?>
                         <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
                                 <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
                             </svg>
-                            <?php echo $rs['doc_date']; ?>
+                            <?php echo $dateStr; ?>
                         </span>
                     </div>
                     <div class="col-1">

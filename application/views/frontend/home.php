@@ -1065,7 +1065,7 @@
                         if (strpos($rs['topic'], '[ด่วนที่สุด]') !== false) {
                             echo '<span class="font-dla-2 most_urgent">ด่วนที่สุด</span>';
                         } elseif (strpos($rs['topic'], '[ด่วนมาก]') !== false) {
-                            echo '<span class="font-dla-2 very_urgent">ทั่วไป</span>';
+                            echo '<span class="font-dla-2 very_urgent">ด่วนมาก</span>';
                         } elseif (strpos($rs['topic'], '[ทั่วไป]') !== false) {
                             echo '<span class="font-dla-2 green">ทั่วไป</span>';
                         }
@@ -1140,8 +1140,38 @@
                         ?>
                     </div>
                     <div class="col-2">
+                        <?php
+                        // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 ม.ค. 2567"
+                        $dateStr = $rs['doc_date'];
+
+                        // แปลงเดือนจากชื่อไทยย่อเป็นชื่อเต็ม
+                        $thaiMonths = [
+                            'ม.ค.' => 'มกราคม',
+                            'ก.พ.' => 'กุมภาพันธ์',
+                            'มี.ค.' => 'มีนาคม',
+                            'เม.ย.' => 'เมษายน',
+                            'พ.ค.' => 'พฤษภาคม',
+                            'มิ.ย.' => 'มิถุนายน',
+                            'ก.ค.' => 'กรกฎาคม',
+                            'ส.ค.' => 'สิงหาคม',
+                            'ก.ย.' => 'กันยายน',
+                            'ต.ค.' => 'ตุลาคม',
+                            'พ.ย.' => 'พฤศจิกายน',
+                            'ธ.ค.' => 'ธันวาคม',
+                        ];
+
+                        // แปลงเดือนใน $dateStr โดยใช้การแทนที่จาก array $thaiMonths
+                        foreach ($thaiMonths as $shortMonth => $fullMonth) {
+                            if (strpos($dateStr, $shortMonth) !== false) {
+                                $dateStr = str_replace($shortMonth, $fullMonth, $dateStr);
+                                break; // ออกจาก loop เมื่อเจอการแทนที่แล้ว
+                            }
+                        }
+
+                        // แสดงผลลัพธ์
+                        ?>
                         <span class="font-all-dla" style="padding-left: 20px;">
-                            <?php echo $rs['doc_date']; ?>
+                            <?php echo $dateStr; ?>
                         </span>
                     </div>
                 </div>
@@ -1215,18 +1245,18 @@
 
                             // ดึงเดือนเป็นตัวย่อไทย
                             $thaiMonths = [
-                                'January' => 'ม.ค.',
-                                'February' => 'ก.พ.',
-                                'March' => 'มี.ค.',
-                                'April' => 'เม.ย.',
-                                'May' => 'พ.ค.',
-                                'June' => 'มิ.ย.',
-                                'July' => 'ก.ค.',
-                                'August' => 'ส.ค.',
-                                'September' => 'ก.ย.',
-                                'October' => 'ต.ค.',
-                                'November' => 'พ.ย.',
-                                'December' => 'ธ.ค.',
+                                'January' => 'มกราคม',
+                                'February' => 'กุมภาพันธ์',
+                                'March' => 'มีนาคม',
+                                'April' => 'เมษายน',
+                                'May' => 'พฤษภาคม',
+                                'June' => 'มิถุนายน',
+                                'July' => 'กรกฎาคม',
+                                'August' => 'สิงหาคม',
+                                'September' => 'กันยายน',
+                                'October' => 'ตุลาคม',
+                                'November' => 'พฤศจิกายน',
+                                'December' => 'ธันวาคม',
                             ];
                             $thaiMonth = $thaiMonths[$date->format('F')];
 
