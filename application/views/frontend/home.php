@@ -1,12 +1,12 @@
-<div class="image-slide-stick-mid">
-    <?php foreach ($qPublicize_ita as $rs) {
-    ?>
+<?php foreach ($qPublicize_ita as $rs) { ?>
+    <div class="image-slide-stick-mid">
         <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" rel="noopener noreferrer">
             <img src="docs/<?= $rs->publicize_ita_img; ?>">
         </a>
         <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
-    <?php } ?>
-</div>
+    </div>
+<?php } ?>
+
 <!-- <div class="welcome" ></div> -->
 
 <div class="welcome-container">
@@ -523,7 +523,7 @@
                             <a href="<?php echo site_url('Pages/news_detail/' . $news->news_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($news->news_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($news->news_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -582,37 +582,37 @@
                 <div id="tabtwo2" class="tab-content-two">
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_bgps'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติงบประมาณ</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติงบประมาณ</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_chh'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติการควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติการควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_ritw'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติการติดตั้งระบบบำบัดน้ำเสียในอาคาร</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติการติดตั้งระบบบำบัดน้ำเสียในอาคาร</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_market'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติตลาด</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติตลาด</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_rmwp'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติการจัดการสิ่งปฏิกูลและมูลฝอย</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติการจัดการสิ่งปฏิกูลและมูลฝอย</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_rcsp'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติหลักเกณฑ์การคัดมูลฝอย</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติหลักเกณฑ์การคัดมูลฝอย</span>
                         </a>
                     </div>
                     <div class="content-news-detail">
                         <a href="<?php echo site_url('Pages/canon_rcp'); ?>">
-                            <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;ข้อบัญญัติการควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span>
+                            <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;ข้อบัญญัติการควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span>
                         </a>
                     </div>
                 </div>
@@ -622,7 +622,7 @@
                             <a href="<?php echo site_url('Pages/order_detail/' . $gw->order_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($gw->order_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($gw->order_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -683,7 +683,7 @@
                             <a href="<?php echo site_url('Pages/announce_detail/' . $gw->announce_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($gw->announce_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($gw->announce_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -799,7 +799,7 @@
                             <a href="<?php echo site_url('Pages/procurement_detail/' . $pcm->procurement_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($pcm->procurement_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($pcm->procurement_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -920,7 +920,7 @@
                             <a href="<?php echo site_url('Pages/p_reb_detail/' . $anou->p_reb_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($anou->p_reb_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($anou->p_reb_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -981,7 +981,7 @@
                             <a href="<?php echo site_url('Pages/p_rpo_detail/' . $anou->p_rpo_id); ?>">
                                 <div class="row">
                                     <div class="col-10">
-                                        <span class="text-news"><img src="docs/s.icon-news.png">&nbsp;&nbsp;<?= strip_tags($anou->p_rpo_name); ?></span>
+                                        <span class="text-news"><img src="docs/s.icon-news2.png">&nbsp;&nbsp;<?= strip_tags($anou->p_rpo_name); ?></span>
                                     </div>
                                     <div class="col-2">
                                         <div class="row">
@@ -1039,6 +1039,248 @@
         </div>
     </div>
 </div>
+
+<div class="bg-news-dla">
+    <div class="d-flex justify-content-center" style="padding-top: 1%; ">
+        <span class="font-header-dla">ข่าวสาร สถ.</span>
+    </div>
+    <div class="bg-dla">
+        <div style="padding-top: 10px; padding-left: 10px;">
+            <span class="font-dla-header">สถ.จ. ร้อยเอ็ด</span>
+        </div>
+        <div class="news-dla-prov">
+            <!-- <?php foreach ($prov_local_doc as $rs) : ?>
+                <div class="row mt-2 underline" style="padding-left: 60px;">
+                    <div class="col-2">
+                        <span class="font-dla-1 line-ellipsis-dla1"><img src="docs/b.icon-news2.png">&nbsp;&nbsp; <?php echo $rs['doc_no']; ?> </span>
+                    </div>
+                    <div class="col-6">
+                        <a href="<?php echo $rs['url1']; ?>" target="_blank" rel="noopener noreferrer">
+                            <span class="font-dla-2 line-ellipsis-dla-prov2"><?php echo $rs['topic']; ?></span>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        // แสดงส่วนของ "ด่วนที่สุด" หรือ "ทั่วไป" ตามที่ต้องการ
+                        if (strpos($rs['topic'], '[ด่วนที่สุด]') !== false) {
+                            echo '<span class="font-dla-2 most_urgent">ด่วนที่สุด</span>';
+                        } elseif (strpos($rs['topic'], '[ด่วนมาก]') !== false) {
+                            echo '<span class="font-dla-2 very_urgent">ทั่วไป</span>';
+                        } elseif (strpos($rs['topic'], '[ทั่วไป]') !== false) {
+                            echo '<span class="font-dla-2 green">ทั่วไป</span>';
+                        }
+                        ?>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 มิถุนายน 2567"
+                        $dateStr = $rs['doc_date'];
+
+                        // แปลงเดือนจากชื่อภาษาไทยเป็นเลขเดือน
+                        $thaiMonths = [
+                            'มกราคม' => '01',
+                            'กุมภาพันธ์' => '02',
+                            'มีนาคม' => '03',
+                            'เมษายน' => '04',
+                            'พฤษภาคม' => '05',
+                            'มิถุนายน' => '06',
+                            'กรกฎาคม' => '07',
+                            'สิงหาคม' => '08',
+                            'กันยายน' => '09',
+                            'ตุลาคม' => '10',
+                            'พฤศจิกายน' => '11',
+                            'ธันวาคม' => '12',
+                        ];
+
+                        // แยกวันที่ เดือน และ ปี ออกจากสตริง
+                        $parts = explode(' ', $dateStr);
+                        if (count($parts) !== 3) {
+                            echo "รูปแบบวันที่ไม่ถูกต้อง";
+                            return; // ออกจากการทำงานของโค้ดถ้ารูปแบบไม่ถูกต้อง
+                        }
+                        $day = $parts[0];
+                        $monthThai = $parts[1];
+                        $yearThai = $parts[2];
+
+                        // ตรวจสอบว่าเดือนภาษาไทยมีอยู่ในอาเรย์ของเดือนหรือไม่
+                        if (!isset($thaiMonths[$monthThai])) {
+                            echo "เดือนที่ระบุไม่ถูกต้อง";
+                            return; // ออกจากการทำงานของโค้ดถ้าเดือนไม่ถูกต้อง
+                        }
+                        $month = $thaiMonths[$monthThai];
+
+                        // แปลงปีจาก พ.ศ. เป็น ค.ศ.
+                        $year = $yearThai - 543;
+
+                        // สร้างรูปแบบวันที่ใหม่ในรูปแบบสากล (YYYY-MM-DD)
+                        $formattedDate = "$year-$month-$day";
+
+                        // สร้าง DateTime object จากวันที่ที่ถูกแปลงแล้ว
+                        $date = DateTime::createFromFormat('Y-m-d', $formattedDate);
+
+                        // ตรวจสอบว่าการแปลงวันที่สำเร็จ
+                        if ($date !== false) {
+                            // วันที่ปัจจุบัน
+                            $currentDate = new DateTime();
+
+                            // คำนวณความต่างระหว่างวันที่
+                            $interval = $currentDate->diff($date);
+
+                            // ตรวจสอบว่าความต่างของวันไม่เกิน 7 วัน
+                            if ($interval->days <= 7) {
+                                // ตรวจสอบว่า $date มีค่าตั้งแต่แรกหรือไม่
+                                if (isset($date)) {
+                                    // ถ้าห่างไม่เกิน 7 วัน (ทั้งก่อนและหลังวันที่ปัจจุบัน)
+                                    echo '<div class="bt-new-dla"><span class="text-new-dla">new</span></div>';
+                                }
+                            }
+                        } else {
+                            echo "การแปลงวันที่ไม่สำเร็จ";
+                        }
+                        ?>
+                    </div>
+                    <div class="col-2">
+                        <span class="font-all-dla" style="padding-left: 20px;">
+                            <?php
+                            // ข้อมูลวันที่ในตัวแปร $rs['doc_date'] เช่น "10 มิถุนายน 2567"
+                            $dateStr = $rs['doc_date'];
+
+                            // อาเรย์สำหรับแปลงเดือนภาษาไทยจากชื่อเต็มเป็นตัวย่อ
+                            $thaiMonthShort = [
+                                'มกราคม' => 'ม.ค.',
+                                'กุมภาพันธ์' => 'ก.พ.',
+                                'มีนาคม' => 'มี.ค.',
+                                'เมษายน' => 'เม.ย.',
+                                'พฤษภาคม' => 'พ.ค.',
+                                'มิถุนายน' => 'มิ.ย.',
+                                'กรกฎาคม' => 'ก.ค.',
+                                'สิงหาคม' => 'ส.ค.',
+                                'กันยายน' => 'ก.ย.',
+                                'ตุลาคม' => 'ต.ค.',
+                                'พฤศจิกายน' => 'พ.ย.',
+                                'ธันวาคม' => 'ธ.ค.',
+                            ];
+
+                            // แทนที่ชื่อเดือนเต็มด้วยชื่อเดือนย่อ
+                            $shortDateStr = str_replace(array_keys($thaiMonthShort), array_values($thaiMonthShort), $dateStr);
+
+                            // แสดงผลวันที่ที่ถูกแปลงแล้ว
+                            echo $shortDateStr;  // จะได้รูปแบบเป็น "10 มิ.ย. 2567"
+                            ?>
+                        </span>
+                    </div>
+                </div>
+            <?php endforeach; ?> -->
+        </div>
+        <div class="d-flex justify-content-center underline" style="margin-top: 70px;">
+            <a href="<?php echo site_url('pages/prov_local_doc'); ?>">
+                <div class="bt-all-dla" style="margin-top: -50px;">
+                    <span class="font-all-dla">ดูทั้งหมด</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <div class="bg-provlocal" style="margin-top: 1.5%; ">
+        <div style="padding-top: 10px; padding-left: 50px;">
+            <span class="font-dla-header">หนังสือ สถ.</span>
+        </div>
+        <div class="news-dla-prov">
+            <?php if (!empty($rssData)) : ?>
+                <?php foreach (array_slice($rssData, 0, 6) as $index => $document) : ?>
+                    <div class="row mt-2 underline" style="padding-left: 60px;">
+                        <div class="col-2">
+                            <span class="font-dla-1 line-ellipsis-dla1"><img src="docs/b.icon-news2.png">&nbsp;&nbsp; <?php echo $document['doc_number']; ?> </span>
+                        </div>
+                        <div class="col-7">
+                            <span class="font-dla-2 line-ellipsis-dla2"><?php echo $document['topic']; ?></span>
+                        </div>
+                        <div class="col-1">
+                            <?php
+                            // สมมติว่าค่าที่ได้รับมาจากตัวแปร $document['date'] อยู่ในรูปแบบ "10/06/2567"
+                            $dateStr = $document['date'];
+
+                            // แยกวันที่ เดือน และปีออกจากกัน
+                            list($day, $month, $year) = explode('/', $dateStr);
+
+                            // แปลงปีจาก พ.ศ. เป็น ค.ศ.
+                            $year = $year - 543;
+
+                            // สร้างรูปแบบวันที่ใหม่ในรูปแบบสากล (YYYY-MM-DD)
+                            $formattedDate = "$year-$month-$day";
+
+                            // สร้าง DateTime object จากวันที่ที่ถูกแปลงแล้ว
+                            $date = DateTime::createFromFormat('Y-m-d', $formattedDate);
+
+                            // ตรวจสอบว่าการแปลงวันที่สำเร็จและคำนวณความต่างของวัน
+                            if ($date !== false) {
+                                // วันที่ปัจจุบัน
+                                $currentDate = new DateTime();
+
+                                // คำนวณความต่างระหว่างวันที่
+                                $interval = $currentDate->diff($date);
+
+                                // ตรวจสอบว่าความต่างของวันไม่เกิน 7 วัน
+                                if ($interval->days <= 7) {
+                                    // ถ้าห่างไม่เกิน 7 วัน (ทั้งก่อนและหลังวันที่ปัจจุบัน)
+                                    echo '<div class="bt-new-dla"><span class="text-new-dla">new</span></div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="col-2">
+                            <?php
+                            // $document['date'] คือตัวแปรที่เก็บวันที่
+
+                            // แปลงวันที่เป็น object DateTime ด้วยรูปแบบที่ถูกต้อง
+                            $date = DateTime::createFromFormat('d/m/Y', $document['date']);
+
+                            // ดึงวันที่
+                            $thaiDay = $date->format('d');
+
+                            // ดึงเดือนเป็นตัวย่อไทย
+                            $thaiMonths = [
+                                'January' => 'ม.ค.',
+                                'February' => 'ก.พ.',
+                                'March' => 'มี.ค.',
+                                'April' => 'เม.ย.',
+                                'May' => 'พ.ค.',
+                                'June' => 'มิ.ย.',
+                                'July' => 'ก.ค.',
+                                'August' => 'ส.ค.',
+                                'September' => 'ก.ย.',
+                                'October' => 'ต.ค.',
+                                'November' => 'พ.ย.',
+                                'December' => 'ธ.ค.',
+                            ];
+                            $thaiMonth = $thaiMonths[$date->format('F')];
+
+                            // ดึงเฉพาะปี
+                            $year = $date->format('Y');
+
+                            // แสดงผลลัพธ์
+                            ?>
+                            <span class="font-all-dla" style="padding-left: 20px;">
+                                <?php echo $thaiDay; ?>
+                                <?php echo $thaiMonth; ?>
+                                <?php echo $year; ?>
+                            </span>
+                            <?php ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <div class="d-flex justify-content-center underline" style="margin-top: 70px;">
+            <a href="https://www.dla.go.th/servlet/DocumentServlet" target="_blank">
+                <div class="bt-all-dla2" style="margin-top: -50px;">
+                    <span class="font-all-dla">ดูทั้งหมด</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="bg-otop">
     <img class="dot-news-animation-1" src="docs/animation-star-1.png">
     <img class="dot-news-animation-2" src="docs/animation-star-1.png">
@@ -1150,7 +1392,6 @@
                     </div>
                 <?php endif; ?>
             </div>
-
         </div>
 
         <div class="d-flex justify-content-center" style="padding-top: 3%; color: #fff;">
@@ -1485,7 +1726,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

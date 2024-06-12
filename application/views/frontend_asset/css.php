@@ -1009,10 +1009,21 @@
     color: #2C013B;
     text-shadow: -1px 0 #fff, 0 2px #fff,
       2px 0 #fff, 0 -1px #fff;
-
     font-size: 36px;
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
+  }
+
+  .font-header-dla {
+    color: #2C013B;
+    text-align: center;
+    -webkit-text-stroke-width: 2;
+    -webkit-text-stroke-color: #FFF;
+    font-family: "Noto Looped Thai UI";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
     line-height: normal;
   }
 
@@ -2355,12 +2366,10 @@
 
   .font-pages-content {
     color: #000;
-
     font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     margin-left: -15px;
+    display: inline-block;
+    vertical-align: middle; /* แนวตั้งในระดับเดียวกัน */
   }
 
   .font-otop-head {
@@ -3545,7 +3554,7 @@
     left: 0;
     bottom: 0;
     overflow-y: auto;
-    z-index: 9999;
+    z-index: 100;
     width: 410px;
 
   }
@@ -4881,8 +4890,198 @@
     line-height: normal;
   }
 
-  .urgent {
+  .most_urgent {
     color: red;
     font-weight: 1000;
+  }
+
+  .very_urgent {
+    color: orangered;
+    font-weight: 1000;
+  }
+
+
+  .bg-news-dla {
+    background-image: url('<?php echo base_url("docs/s.s.news-dla.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 1920px;
+    margin: auto;
+    z-index: 1;
+  }
+
+  .bg-dla {
+    background-image: url('<?php echo base_url("docs/s.dla.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1454px;
+    height: 431px;
+    margin: auto;
+    z-index: 1;
+  }
+
+  .bg-provlocal {
+    background-image: url('<?php echo base_url("docs/s.provlocal2.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1454px;
+    height: 431px;
+    margin: auto;
+    z-index: 1;
+  }
+
+  .font-dla-header {
+    color: #FFF;
+    text-align: center;
+    font-family: "Noto Looped Thai UI";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .font-dla-1 {
+    color: #215F1A;
+    font-family: "Noto Looped Thai UI";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35.114px;
+    /* 146.308% */
+  }
+
+  .font-dla-2 {
+    font-family: "Noto Looped Thai UI";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.114px;
+  }
+
+  .bt-new-dla {
+    border-radius: 2px;
+    background: var(--Red-Line, linear-gradient(0deg, #B3140E -8.23%, #D9281E 32.92%, #DF3026 39.41%, #EA3C35 52.41%, #EE413A 64.32%, #FD5B47 100.05%));
+    width: 44px;
+    height: 16.343px;
+    display: flex;
+    align-items: center;
+    /* จัดข้อความในแนวตั้ง */
+    justify-content: center;
+    /* จัดข้อความในแนวนอน */
+    padding-left: 7px;
+    margin-top: 10px;
+  }
+
+  .text-new-dla {
+    color: #FFF;
+    font-family: "Noto Looped Thai";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 32.686px;
+    height: 23.886px;
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+
+  .bt-new-dla-other {
+    border-radius: 2px;
+    background: var(--Red-Line, linear-gradient(0deg, #B3140E -8.23%, #D9281E 32.92%, #DF3026 39.41%, #EA3C35 52.41%, #EE413A 64.32%, #FD5B47 100.05%));
+    width: 50px;
+    height: 20px;
+  }
+
+  .bt-all-dla {
+    /* background-image: url('<?php echo base_url("docs/b.all-dla.png"); ?>'); */
+    background-color: #FFFFFF;
+    width: 184px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    /* จัดข้อความในแนวตั้ง */
+    justify-content: center;
+    /* จัดข้อความในแนวนอน */
+    border-radius: 50px;
+    border: #000 solid 1px;
+  }
+
+  .bt-all-dla:hover {
+    /* background-image: url('<?php echo base_url("docs/b.all-dla-hover.png"); ?>'); */
+    background-color: #00D1CC;
+    width: 184px;
+    height: 55px;
+    border-radius: 50px;
+    border: #000 solid 1px;
+  }
+
+  .bt-all-dla2 {
+    /* background-image: url('<?php echo base_url("docs/b.all-dla.png"); ?>'); */
+    background-color: #FFFFFF;
+    width: 184px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    /* จัดข้อความในแนวตั้ง */
+    justify-content: center;
+    /* จัดข้อความในแนวนอน */
+    border-radius: 50px;
+    border: #000 solid 1px;
+  }
+
+  .bt-all-dla2:hover {
+    /* background-image: url('<?php echo base_url("docs/b.all-dla-hover2.png"); ?>'); */
+    background-color: #FF66C9;
+    width: 184px;
+    height: 55px;
+    border-radius: 50px;
+    border: #000 solid 1px;
+  }
+
+  .font-all-dla {
+    color: #000;
+    text-shadow: #000;
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    /* margin-top: 5px; */
+    /* ปรับค่าตามต้องการ */
+  }
+
+  .line-ellipsis-dla1 {
+    width: 250px;
+    /* ปรับขนาดตามต้องการ */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .line-ellipsis-dla2 {
+    width: 800px;
+    /* ปรับขนาดตามต้องการ */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .news-dla-prov {
+    padding-top: 30px;
+  }
+
+  .line-ellipsis-dla-prov2 {
+    width: 670px;
+    /* ปรับขนาดตามต้องการ */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 </style>

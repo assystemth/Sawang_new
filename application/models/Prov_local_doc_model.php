@@ -1,109 +1,71 @@
 <?php
 class Prov_local_doc_model extends CI_Model
 {
+
+    private $remote_db;
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('space_model');
-    }
 
-    private function thai_month_to_english($thai_date)
-    {
-        $thai_months = array(
-            'มกราคม' => 'January',
-            'กุมภาพันธ์' => 'February',
-            'มีนาคม' => 'March',
-            'เมษายน' => 'April',
-            'พฤษภาคม' => 'May',
-            'มิถุนายน' => 'June',
-            'กรกฎาคม' => 'July',
-            'สิงหาคม' => 'August',
-            'กันยายน' => 'September',
-            'ตุลาคม' => 'October',
-            'พฤศจิกายน' => 'November',
-            'ธันวาคม' => 'December'
+        // ข้อมูลการเชื่อมต่อฐานข้อมูล
+        $this->remote_db = new mysqli(
+            "103.80.48.81",  // เซิร์ฟเวอร์
+            "asadmin",        // ชื่อผู้ใช้
+            "ASsystem@458",  // รหัสผ่าน
+            "db_prov_local_doc" // ชื่อฐานข้อมูล
         );
 
-        foreach ($thai_months as $thai => $eng) {
-            $thai_date = str_replace($thai, $eng, $thai_date);
+        // ตรวจสอบการเชื่อมต่อ
+        if ($this->remote_db->connect_error) {
+            die("Connection failed: " . $this->remote_db->connect_error);
         }
-
-        return $thai_date;
     }
 
-    public function list_all()
+    // ฟังก์ชันดึงข้อมูล ทั้งหมด
+    public function get_local_docs_all()
     {
-        $this->db->select('*');
-        $this->db->from('tbl_prov_local_doc');
-        $this->db->group_by('tbl_prov_local_doc.id');
+        $data = array();
 
-        // Get the results
-        $query = $this->db->get();
-        $result = $query->result();
+        // สร้างคำสั่ง SQL เพื่อดึงข้อมูล
+        $sql = "SELECT * FROM tbl_pnb_local_doc ORDER BY id DESC";
+        $result = $this->remote_db->query($sql);
 
-        // Convert and sort dates
-        foreach ($result as $row) {
-            $row->doc_date_converted = $this->thai_month_to_english($row->doc_date);
-        }
-
-        usort($result, function ($a, $b) {
-            $dateA = DateTime::createFromFormat('d F Y', $a->doc_date_converted);
-            $dateB = DateTime::createFromFormat('d F Y', $b->doc_date_converted);
-
-            // Handle conversion errors
-            if (!$dateA || !$dateB) {
-                return 0;
+        // ตรวจสอบว่ามีข้อมูลที่ดึงมาได้หรือไม่
+        if ($result->num_rows > 0) {
+            // เก็บผลลัพธ์ลงใน array
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
             }
+        }
 
-            return $dateB <=> $dateA;
-        });
-
-        return $result;
-    }
-    
-    // public function list_all()
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('tbl_prov_local_doc');
-    //     $this->db->group_by('tbl_prov_local_doc.id');
-    //     $this->db->order_by('STR_TO_DATE(tbl_prov_local_doc.doc_date, "%d/%m/%Y")', 'desc');
-    //     $query = $this->db->get();
-    //     return $query->result();
-    // }
-
-
-
-    public function prov_local_doc_frontend()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_prov_local_doc');
-        $this->db->where('tbl_prov_local_doc.prov_local_doc_status', 'show');
-        $this->db->limit(9);
-        $this->db->order_by('tbl_prov_local_doc.prov_local_doc_date', 'DESC');
-        $query = $this->db->get();
-        return $query->result();
+        return $data;
     }
 
-    public function prov_local_doc_frontend_list()
+    // ฟังก์ชันดึงข้อมูล หน้าแรก
+    public function get_local_docs()
     {
-        $this->db->select('*');
-        $this->db->from('tbl_prov_local_doc');
-        $this->db->where('tbl_prov_local_doc.prov_local_doc_status', 'show');
-        $this->db->order_by('tbl_prov_local_doc.prov_local_doc_date', 'DESC');
-        $query = $this->db->get();
-        return $query->result();
+        $data = array();
+
+        // สร้างคำสั่ง SQL เพื่อดึงข้อมูล 6 รายการล่าสุดจากตาราง tbl_pnb_local_doc เรียงตามคอลัมน์ id จากมากไปน้อย
+        $sql = "SELECT * FROM tbl_pnb_local_doc ORDER BY id DESC LIMIT 6";
+        $result = $this->remote_db->query($sql);
+
+        // ตรวจสอบว่ามีข้อมูลที่ดึงมาได้หรือไม่
+        if ($result->num_rows > 0) {
+            // เก็บผลลัพธ์ลงใน array
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+
+        return $data;
     }
-    public function increment_view($prov_local_doc_id)
+
+
+    public function __destruct()
     {
-        $this->db->where('prov_local_doc_id', $prov_local_doc_id);
-        $this->db->set('prov_local_doc_view', 'prov_local_doc_view + 1', false); // บวกค่า prov_local_doc_view ทีละ 1
-        $this->db->update('tbl_prov_local_doc');
-    }
-    // ใน prov_local_doc_model
-    public function increment_download_prov_local_doc($prov_local_doc_file_id)
-    {
-        $this->db->where('prov_local_doc_file_id', $prov_local_doc_file_id);
-        $this->db->set('prov_local_doc_file_download', 'prov_local_doc_file_download + 1', false); // บวกค่า prov_local_doc_download ทีละ 1
-        $this->db->update('tbl_prov_local_doc_file');
+        // ปิดการเชื่อมต่อเมื่อไม่ใช้งานแล้ว
+        $this->remote_db->close();
     }
 }

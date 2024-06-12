@@ -3462,7 +3462,7 @@ class Pages extends CI_Controller
 
 	public function prov_local_doc()
 	{
-		$data['query'] = $this->prov_local_doc_model->list_all();
+		$data['query'] = $this->prov_local_doc_model->get_local_docs_all();
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');

@@ -1,5 +1,5 @@
 <div class="text-center" style="padding-top: 65px">
-    <span class="font-pages-head">หนังสือราชการ สถจ.เพรชบูรณ์</span>
+    <span class="font-pages-head">หนังสือราชการ สถ.จ.ร้อยเอ็ด</span>
 </div>
 </div>
 
@@ -24,60 +24,92 @@
 
         for ($i = $startIndex; $i <= $endIndex; $i++) {
             $rs = $query[$i];
-            $topic = $rs->topic;
+            $topic = $rs['topic'];
             if (strpos($topic, '[ด่วนที่สุด]') !== false) {
-                $topic = str_replace('[ด่วนที่สุด]', '<span class="urgent">[ด่วนที่สุด]</span>', $topic);
+                $topic = str_replace('[ด่วนที่สุด]', '<span class="most_urgent">[ด่วนที่สุด]</span>', $topic);
             } elseif (strpos($topic, '[ด่วนมาก]') !== false) {
-                $topic = str_replace('[ด่วนมาก]', '<span class="urgent">[ด่วนมาก]</span>', $topic);
+                $topic = str_replace('[ด่วนมาก]', '<span class="very_urgent">[ด่วนมาก]</span>', $topic);
             } elseif (strpos($topic, '[ทั่วไป]') !== false) {
                 $topic = str_replace('[ทั่วไป]', '<span class="green">[ทั่วไป]</span>', $topic);
             }
         ?>
             <div class="pages-select-pdf underline">
                 <div class="row">
-                    <div class="col-1 style-col-img">
-                        <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="70px" height="70px">
-                    </div>
-                    <div class="col-9 font-pages-content">
-                        <span class=""><?= $topic; ?>
-                            <?php
-                            // วันที่ของข่าว
-                            $timestamp = new DateTime($rs->timestamp);
-
-                            // วันที่ปัจจุบัน
-                            $current_date = new DateTime();
-
-                            // คำนวณหาความต่างของวัน
-                            $interval = $current_date->diff($timestamp);
-                            $days_difference = $interval->days;
-
-                            // ถ้ามากกว่า 1 วัน ให้ซ่อนไว้
-                            if ($days_difference <= 1) {
-                                // แสดงรูปภาพ
-                                echo '<img src="' . base_url('docs/activity-new.gif') . '" class="" width="40">';
-                            }
-                            ?>
-                        </span>
-                        <br>
-                        <?php for ($j = 1; $j <= 20; $j++) : ?>
-                            <?php
-                            $url = "url" . $j;
-                            $name = "name" . $j;
-                            ?>
-                            <?php if (!empty($rs->$url) && !empty($rs->$name)) : ?>
-                                <a href="<?= htmlspecialchars($rs->$url); ?>" target="_blank">
-                                    <?= htmlspecialchars($rs->$name); ?>
-                                </a>
-                                <br>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-                    </div>
                     <div class="col-2 span-time-pages-news">
                         <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
                                 <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
                             </svg>
-                            <?= $rs->doc_date; ?>
+                            <?php echo $rs['doc_date']; ?>
                         </span>
+                    </div>
+                    <div class="col-10 font-pages-content ">
+                        <span class=""><?= $topic; ?></span>
+                        <?php
+                        // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 มิถุนายน 2567"
+                        $dateStr = $rs['doc_date'];
+
+                        // แปลงเดือนจากชื่อภาษาไทยเป็นเลขเดือน
+                        $thaiMonths = [
+                            'มกราคม' => '01',
+                            'กุมภาพันธ์' => '02',
+                            'มีนาคม' => '03',
+                            'เมษายน' => '04',
+                            'พฤษภาคม' => '05',
+                            'มิถุนายน' => '06',
+                            'กรกฎาคม' => '07',
+                            'สิงหาคม' => '08',
+                            'กันยายน' => '09',
+                            'ตุลาคม' => '10',
+                            'พฤศจิกายน' => '11',
+                            'ธันวาคม' => '12',
+                        ];
+
+                        // แยกวันที่ เดือน และ ปี ออกจากสตริง
+                        $parts = explode(' ', $dateStr);
+                        if (count($parts) !== 3) {
+                            echo "รูปแบบวันที่ไม่ถูกต้อง";
+                            return; // ออกจากการทำงานของโค้ดถ้ารูปแบบไม่ถูกต้อง
+                        }
+                        $day = $parts[0];
+                        $monthThai = $parts[1];
+                        $yearThai = $parts[2];
+
+                        // ตรวจสอบว่าเดือนภาษาไทยมีอยู่ในอาเรย์ของเดือนหรือไม่
+                        if (!isset($thaiMonths[$monthThai])) {
+                            echo "เดือนที่ระบุไม่ถูกต้อง";
+                            return; // ออกจากการทำงานของโค้ดถ้าเดือนไม่ถูกต้อง
+                        }
+                        $month = $thaiMonths[$monthThai];
+
+                        // แปลงปีจาก พ.ศ. เป็น ค.ศ.
+                        $year = $yearThai - 543;
+
+                        // สร้างรูปแบบวันที่ใหม่ในรูปแบบสากล (YYYY-MM-DD)
+                        $formattedDate = "$year-$month-$day";
+
+                        // สร้าง DateTime object จากวันที่ที่ถูกแปลงแล้ว
+                        $date = DateTime::createFromFormat('Y-m-d', $formattedDate);
+
+                        // ตรวจสอบว่าการแปลงวันที่สำเร็จ
+                        if ($date !== false) {
+                            // วันที่ปัจจุบัน
+                            $currentDate = new DateTime();
+
+                            // คำนวณความต่างระหว่างวันที่
+                            $interval = $currentDate->diff($date);
+
+                            // ตรวจสอบว่าความต่างของวันไม่เกิน 7 วัน
+                            if ($interval->days <= 7) {
+                                // ตรวจสอบว่า $date มีค่าตั้งแต่แรกหรือไม่
+                                if (isset($date)) {
+                                    // ถ้าห่างไม่เกิน 7 วัน (ทั้งก่อนและหลังวันที่ปัจจุบัน)
+                                    echo '<div class="bt-new-dla"><span class="text-new-dla">new</span></div>';
+                                }
+                            }
+                        } else {
+                            echo "การแปลงวันที่ไม่สำเร็จ";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
