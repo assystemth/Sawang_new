@@ -2366,7 +2366,7 @@
 
   .font-pages-content {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
     margin-left: -15px;
     display: inline-block;
     vertical-align: middle; /* แนวตั้งในระดับเดียวกัน */
@@ -4810,8 +4810,8 @@
 
   .bg-doc-off-head {
     border-radius: 34px 34px 0px 0px;
-    border: 1px solid var(--main, #47B5FF);
-    background: var(--main, #47B5FF);
+    border: 1px solid var(--main, #724118 );
+    background: var(--main, #724118 );
     width: 1400px;
     height: 70px;
     flex-shrink: 0;
@@ -4821,7 +4821,7 @@
   .bg-doc-off-content {
     width: 1400px;
     height: auto;
-    background: var(--sky, rgba(109, 207, 246, 0.30));
+    background: #E58900  ;
     padding-bottom: 15px;
   }
 
@@ -4837,7 +4837,7 @@
     height: 70.148px;
     flex-shrink: 0;
     border-radius: 14.316px;
-    background: #FFDBEE;
+    background: #EDBF2B ;
     padding-top: 10px;
   }
 

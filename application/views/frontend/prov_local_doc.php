@@ -33,7 +33,7 @@
                 $topic = str_replace('[ทั่วไป]', '<span class="green">[ทั่วไป]</span>', $topic);
             }
         ?>
-            <div class="pages-select-pdf underline">
+            <div class="pages-select-dla underline">
                 <div class="row">
                     <div class="col-2 span-time-pages-news">
                         <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
@@ -42,8 +42,7 @@
                             <?php echo $rs['doc_date']; ?>
                         </span>
                     </div>
-                    <div class="col-10 font-pages-content ">
-                        <span class=""><?= $topic; ?></span>
+                    <div class="col-1">
                         <?php
                         // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 มิถุนายน 2567"
                         $dateStr = $rs['doc_date'];
@@ -108,6 +107,18 @@
                             }
                         } else {
                             echo "การแปลงวันที่ไม่สำเร็จ";
+                        }
+                        ?>
+                    </div>
+                    <div class="col-9 font-pages-content ">
+                        <span class=""><?= $topic; ?></span><br>
+                        <?php
+                        // ลูปแสดงผล URL ทั้งหมด
+                        for ($j = 1; $j <= 20; $j++) {
+                            $urlKey = 'url' . $j;
+                            if (!empty($rs[$urlKey])) {
+                                echo '<a href="' . htmlspecialchars($rs[$urlKey], ENT_QUOTES, 'UTF-8') . '" target="_blank">เอกสารแนบที่ ' . $j . '</a><br>';
+                            }
                         }
                         ?>
                     </div>
