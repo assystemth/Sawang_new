@@ -8,52 +8,60 @@
 <?php } ?>
 
 <!-- <div class="welcome" ></div> -->
-<style>
-        .fade-container {
-            position: relative;
-            width: 1920px;
-            height: 767px;
-        }
 
-        .fade-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out; /* ทำให้มีการเฟดเอาท์ */
-        }
-
-        .fade-content.active {
-            opacity: 1; /* ทำให้ div ที่ active มีการแสดงผล */
-        }
-    </style>
 <div class="welcome-container">
-    <!-- <div class="welcome" id="welcome"></div> -->
-    <div class="fade-container">
-        <div class="fade-content active" id="div1" style="background-image: url('<?php echo base_url("docs/bg-welcome.png"); ?>');">
-            Content 1
-        </div>
-        <!-- <div class="fade-content" id="div2" style="background-color: lightcoral;">
-            Content 2
-        </div> -->
-    </div>
+    <div class="welcome" id="welcome"></div>
 </div>
 
 <script>
-    // JavaScript เพื่อสลับ div ต่าง ๆ
-    let currentIndex = 0; // เริ่มจาก div แรก
-    const contents = document.querySelectorAll('.fade-content'); // เลือก div ที่ต้องการสลับ
+    const images = [
+        "<?php echo base_url('docs/s.welcome-slide-1.jpg'); ?>",
+        "<?php echo base_url('docs/s.welcome-slide-2.jpg'); ?>",
+        "<?php echo base_url('docs/s.welcome-slide-3.jpg'); ?>"
+    ];
 
-    function showNextContent() {
-        contents[currentIndex].classList.remove('active'); // ซ่อน div ปัจจุบัน
-        currentIndex = (currentIndex + 1) % contents.length; // คำนวณ index ของ div ถัดไป
-        contents[currentIndex].classList.add('active'); // แสดง div ถัดไป
+    let currentIndex = 0;
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // เรียกฟังก์ชัน showNextContent ทุก 3 วินาที
-    setInterval(showNextContent, 3000);
+    function randomizeZoomOrigin() {
+        const origins = [
+            "center center",
+            "top left",
+            "top right",
+            "bottom left",
+            "bottom right"
+        ];
+        return origins[getRandomInt(0, origins.length - 1)];
+    }
+
+    function applyRandomZoomOrigin(element) {
+        const zoomOrigin = randomizeZoomOrigin();
+        element.style.transformOrigin = zoomOrigin;
+    }
+
+    function changeImage() {
+        const imageElement = document.getElementById('welcome');
+        imageElement.style.backgroundImage = `url(${images[currentIndex]})`;
+        applyRandomZoomOrigin(imageElement);
+
+        // Restart the animation by changing the animation property
+        imageElement.style.animation = 'none';
+        void imageElement.offsetWidth; // Trigger reflow
+        imageElement.style.animation = null;
+        imageElement.style.animation = 'zoomOut 9s forwards';
+
+        // Move to the next image in the array
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // Initial call to set the first image and start the loop
+    changeImage();
+
+    // Change image every 10 seconds
+    setInterval(changeImage, 9000);
 </script>
 
 <div class="welcome-btm">
@@ -1047,7 +1055,7 @@
                         <span class="font-dla-1 line-ellipsis-dla1"><img src="docs/b.icon-news2.png">&nbsp;&nbsp; <?php echo $rs['doc_no']; ?> </span>
                     </div>
                     <div class="col-6">
-                        <a href="<?php echo $rs['url1']; ?>" target="_blank" rel="noopener noreferrer">
+                        <a href="<?php echo $rs['url']; ?>" target="_blank" rel="noopener noreferrer">
                             <span class="font-dla-2 line-ellipsis-dla-prov2"><?php echo $rs['topic']; ?></span>
                         </a>
                     </div>
@@ -1070,18 +1078,18 @@
 
                         // แปลงเดือนจากชื่อภาษาไทยเป็นเลขเดือน
                         $thaiMonths = [
-                            'มกราคม' => '01',
-                            'กุมภาพันธ์' => '02',
-                            'มีนาคม' => '03',
-                            'เมษายน' => '04',
-                            'พฤษภาคม' => '05',
-                            'มิถุนายน' => '06',
-                            'กรกฎาคม' => '07',
-                            'สิงหาคม' => '08',
-                            'กันยายน' => '09',
-                            'ตุลาคม' => '10',
-                            'พฤศจิกายน' => '11',
-                            'ธันวาคม' => '12',
+                            'ม.ค.' => '01',
+                            'ก.พ.' => '02',
+                            'มี.ค.' => '03',
+                            'เม.ย.' => '04',
+                            'พ.ค.' => '05',
+                            'มิ.ย.' => '06',
+                            'ก.ค.' => '07',
+                            'ส.ค.' => '08',
+                            'ก.ย.' => '09',
+                            'ต.ค.' => '10',
+                            'พ.ย.' => '11',
+                            'ธ.ค.' => '12',
                         ];
 
                         // แยกวันที่ เดือน และ ปี ออกจากสตริง
@@ -1133,32 +1141,7 @@
                     </div>
                     <div class="col-2">
                         <span class="font-all-dla" style="padding-left: 20px;">
-                            <?php
-                            // ข้อมูลวันที่ในตัวแปร $rs['doc_date'] เช่น "10 มิถุนายน 2567"
-                            $dateStr = $rs['doc_date'];
-
-                            // อาเรย์สำหรับแปลงเดือนภาษาไทยจากชื่อเต็มเป็นตัวย่อ
-                            $thaiMonthShort = [
-                                'มกราคม' => 'ม.ค.',
-                                'กุมภาพันธ์' => 'ก.พ.',
-                                'มีนาคม' => 'มี.ค.',
-                                'เมษายน' => 'เม.ย.',
-                                'พฤษภาคม' => 'พ.ค.',
-                                'มิถุนายน' => 'มิ.ย.',
-                                'กรกฎาคม' => 'ก.ค.',
-                                'สิงหาคม' => 'ส.ค.',
-                                'กันยายน' => 'ก.ย.',
-                                'ตุลาคม' => 'ต.ค.',
-                                'พฤศจิกายน' => 'พ.ย.',
-                                'ธันวาคม' => 'ธ.ค.',
-                            ];
-
-                            // แทนที่ชื่อเดือนเต็มด้วยชื่อเดือนย่อ
-                            $shortDateStr = str_replace(array_keys($thaiMonthShort), array_values($thaiMonthShort), $dateStr);
-
-                            // แสดงผลวันที่ที่ถูกแปลงแล้ว
-                            echo $shortDateStr;  // จะได้รูปแบบเป็น "10 มิ.ย. 2567"
-                            ?>
+                            <?php echo $rs['doc_date']; ?>
                         </span>
                     </div>
                 </div>

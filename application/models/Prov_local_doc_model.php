@@ -28,7 +28,7 @@ class Prov_local_doc_model extends CI_Model
     //     $data = array();
 
     //     // สร้างคำสั่ง SQL เพื่อดึงข้อมูล
-    //     $sql = "SELECT * FROM tbl_pnb_local_doc ORDER BY id DESC";
+    //     $sql = "SELECT * FROM tbl_ret_local_doc ORDER BY id DESC";
     //     $result = $this->remote_db->query($sql);
 
     //     // ตรวจสอบว่ามีข้อมูลที่ดึงมาได้หรือไม่
@@ -48,7 +48,7 @@ class Prov_local_doc_model extends CI_Model
     //     $data = array();
 
     //     // สร้างคำสั่ง SQL เพื่อดึงข้อมูล 6 รายการล่าสุดจากตาราง tbl_pnb_local_doc เรียงตามคอลัมน์ id จากมากไปน้อย
-    //     $sql = "SELECT * FROM tbl_pnb_local_doc ORDER BY id DESC LIMIT 6";
+    //     $sql = "SELECT * FROM tbl_ret_local_doc ORDER BY id DESC LIMIT 6";
     //     $result = $this->remote_db->query($sql);
 
     //     // ตรวจสอบว่ามีข้อมูลที่ดึงมาได้หรือไม่
