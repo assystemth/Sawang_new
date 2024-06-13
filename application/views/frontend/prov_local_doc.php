@@ -33,9 +33,9 @@
                 $topic = str_replace('[ทั่วไป]', '<span class="green">[ทั่วไป]</span>', $topic);
             }
         ?>
-            <div class="pages-select-dla underline">
+            <div class="pages-select-dla">
                 <div class="row">
-                    <div class="col-2 span-time-pages-news">
+                    <div class="col-2 span-time-pages-news underline">
                         <?php
                         // สมมติว่าค่าที่ได้รับมาจากตัวแปร $rs['doc_date'] อยู่ในรูปแบบ "10 ม.ค. 2567"
                         $dateStr = $rs['doc_date'];
@@ -140,9 +140,9 @@
                         }
                         ?>
                     </div>
-                    <div class="col-9 font-pages-content ">
+                    <div class="col-9 font-pages-content">
                         <span class=""><?= $topic; ?></span><br>
-                        <a href="<?php echo $rs['url']; ?>" target="_blank">
+                        <a class="underline-hover" href="<?php echo $rs['url']; ?>" target="_blank">
                             เอกสารแนบที่ 1
                         </a>
                     </div>
