@@ -489,7 +489,7 @@
     background-image: url('<?php echo base_url("docs/s.welcome-btm2.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    z-index: 1;
+    z-index: 3;
     width: 1920px;
     height: 487px;
     position: relative;
@@ -2369,7 +2369,8 @@
     font-size: 22px;
     margin-left: -15px;
     display: inline-block;
-    vertical-align: middle; /* แนวตั้งในระดับเดียวกัน */
+    vertical-align: middle;
+    /* แนวตั้งในระดับเดียวกัน */
   }
 
   .font-otop-head {
@@ -4616,8 +4617,6 @@
     margin-left: -476px;
   }
 
-
-
   .font-pages-head {
     color: #724118;
     text-align: center;
@@ -4629,7 +4628,6 @@
 
   .font-other-head {
     color: #000;
-
     font-size: 32px;
     font-style: normal;
     font-weight: bold;
@@ -4810,8 +4808,8 @@
 
   .bg-doc-off-head {
     border-radius: 34px 34px 0px 0px;
-    border: 1px solid var(--main, #724118 );
-    background: var(--main, #724118 );
+    border: 1px solid var(--main, #724118);
+    background: var(--main, #724118);
     width: 1400px;
     height: 70px;
     flex-shrink: 0;
@@ -4821,7 +4819,7 @@
   .bg-doc-off-content {
     width: 1400px;
     height: auto;
-    background: #E58900  ;
+    background: #E58900;
     padding-bottom: 15px;
   }
 
@@ -4837,7 +4835,7 @@
     height: 70.148px;
     flex-shrink: 0;
     border-radius: 14.316px;
-    background: #EDBF2B ;
+    background: #EDBF2B;
     padding-top: 10px;
   }
 
@@ -5084,4 +5082,252 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
+
+  .fade-container {
+        position: relative;
+        width: 1920px;
+        height: 767px;
+    }
+
+    .fade-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        /* ทำให้มีการเฟดเอาท์ */
+    }
+
+    .fade-content.active {
+        opacity: 1;
+        /* ทำให้ div ที่ active มีการแสดงผล */
+    }
+
+    .wel-g1-bg {
+        background-image: url('<?php echo base_url("docs/bg-welcome2.png"); ?>');
+        position: absolute;
+        width: 1920px;
+        height: 767px;
+        z-index: 2;
+    }
+
+    .wel-g1-sky {
+        background-image: url('<?php echo base_url("docs/wel-g-sky2.png"); ?>');
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 100% 700px;
+        /* ขนาดเต็ม 1920px x 600px */
+        width: 1920px;
+        height: 268px;
+        /* แสดงความสูงที่คุณต้องการ */
+        overflow: hidden;
+        position: absolute;
+        background-position: top;
+        /* เริ่มจากด้านบน */
+    }
+
+    @keyframes CenterOutRightWel {
+        0% {
+            left: 35%;
+            opacity: 1;
+        }
+
+        100% {
+            left: 100%;
+            opacity: 0;
+        }
+    }
+
+    .wel-g1-animation-1 {
+        position: absolute;
+        white-space: nowrap;
+        animation: CenterOutRightWel 17s linear;
+        animation-delay: 1s;
+        left: 35%;
+        top: 5%;
+    }
+
+    /* ตั้งค่าการหายไปให้กับ div หลัก */
+    .wel-g1-animation-1 {
+        animation-fill-mode: forwards;
+        /* เก็บสถานะสุดท้ายของ animation */
+    }
+
+    /* ใช้ pseudo-element ::after เพื่อทำให้ div หลักหายไปหลังแอนิเมชันจบ */
+    .wel-g1-animation-1::after {
+        content: '';
+        animation: disappear 0s 17s forwards;
+        /* ซ่อน div หลังจากแอนิเมชันหลักจบลง */
+    }
+
+    @keyframes RightOutRightWel {
+        0% {
+            left: 60%;
+            opacity: 1;
+        }
+
+        100% {
+            left: 100%;
+            opacity: 0;
+        }
+    }
+
+    .wel-g1-animation-2 {
+        position: absolute;
+        white-space: nowrap;
+        animation: RightOutRightWel 12s linear;
+        animation-delay: 1s;
+        left: 60%;
+        top: 3%;
+    }
+
+    /* Keyframes ใหม่เพื่อทำให้ div หายไป */
+    @keyframes disappear {
+        to {
+            visibility: hidden;
+            /* ซ่อน div */
+        }
+    }
+
+    /* ตั้งค่าการหายไปให้กับ div หลัก */
+    .wel-g1-animation-2 {
+        animation-fill-mode: forwards;
+        /* เก็บสถานะสุดท้ายของ animation */
+    }
+
+    /* ใช้ pseudo-element ::after เพื่อทำให้ div หลักหายไปหลังแอนิเมชันจบ */
+    .wel-g1-animation-2::after {
+        content: '';
+        animation: disappear 0s 12s forwards;
+        /* ซ่อน div หลังจากแอนิเมชันหลักจบลง */
+    }
+
+    @keyframes CenterOutleftWel {
+        0% {
+            left: 15%;
+            opacity: 1;
+        }
+
+        100% {
+            left: 0;
+            opacity: 0;
+        }
+    }
+
+    .wel-g1-animation-3 {
+        position: absolute;
+        white-space: nowrap;
+        animation: CenterOutleftWel 5s linear;
+        animation-delay: 1s;
+        left: 15%;
+        top: 3%;
+    }
+
+    /* ตั้งค่าการหายไปให้กับ div หลัก */
+    .wel-g1-animation-3 {
+        animation-fill-mode: forwards;
+        /* เก็บสถานะสุดท้ายของ animation */
+    }
+
+    /* ใช้ pseudo-element ::after เพื่อทำให้ div หลักหายไปหลังแอนิเมชันจบ */
+    .wel-g1-animation-3::after {
+        content: '';
+        animation: disappear 0s 5s forwards;
+        /* ซ่อน div หลังจากแอนิเมชันหลักจบลง */
+    }
+
+    .wel-g2-bg {
+        background-image: url('<?php echo base_url("docs/bg-welcome-g2.png"); ?>');
+        position: absolute;
+        width: 1920px;
+        height: 767px;
+        z-index: 2;
+        overflow: hidden;
+    }
+
+    .wel-g2-visit {
+        width: 849px;
+        height: 341px;
+        background: rgba(255, 255, 230, 0.50);
+        backdrop-filter: blur(3px);
+        border-radius: 15px;
+        margin-left: 27%;
+        margin-top: 6.5%;
+        padding-top: 30px;
+        /* เพิ่มการตั้งค่าแอนิเมชัน */
+        animation: fadeInWel 5s ease-out;
+        /* 2s = 2 วินาที, ปรับความยาวตามต้องการ */
+        opacity: 0;
+        /* เริ่มต้นด้วยความโปร่งใส 0 */
+        /* transform: translateY(20px); */
+        /* เริ่มจากตำแหน่งที่ต่ำกว่าเล็กน้อย */
+        animation-fill-mode: forwards;
+        /* คงสถานะสุดท้ายของแอนิเมชัน */
+        animation-delay: 12s;
+    }
+
+    @keyframes fadeInWel {
+        0% {
+            opacity: 0;
+            /* transform: translateY(20px); */
+            /* เริ่มจากตำแหน่งที่ต่ำกว่าเล็กน้อย */
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: translateY(0); */
+            /* ตำแหน่งปกติ */
+        }
+    }
+
+    .font-wel-g2-visit-head {
+        background-image: url('<?php echo base_url("docs/wel-g2-box.png"); ?>');
+        background-repeat: no-repeat;
+        color: #724118;
+        text-align: center;
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 510px;
+        height: 90px;
+        padding-top: 10px;
+        animation: fadeInWel 5s ease-out forwards;
+        animation-delay: 13s;
+        opacity: 0;
+
+    }
+
+    .font-wel-g2-visit-content {
+        color: #724118;
+        text-align: center;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        animation: fadeInWel 5s ease-out forwards;
+        animation-delay: 13s;
+        opacity: 0;
+    }
+
+    .wel-g2-animation-3 {
+        position: absolute;
+        /* หรือ relative ขึ้นอยู่กับตำแหน่งที่ต้องการ */
+        animation: moveLeftRight 5s infinite alternate;
+    }
+
+    /* Keyframes สำหรับการขยับซ้ายและขวา */
+    @keyframes moveLeftRight {
+        0% {
+            left: -100px;
+            /* จุดเริ่มต้นที่ด้านซ้ายสุด */
+        }
+
+        100% {
+            left: 0;
+            /* จุดสิ้นสุดที่ด้านขวาสุด ปรับค่า 100px ตามต้องการเพื่อระยะห่าง */
+        }
+    }
 </style>

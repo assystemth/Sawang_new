@@ -33,6 +33,54 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+     $(document).ready(function() {
+        var $container = $('.wel-g1-sky');
+        var duration = 20000; // 10 วินาที
+        var pauseDuration = 3000; // 3 วินาทีสำหรับการค้างไว้
+        var start = null;
+
+        function slideBackground(timestamp) {
+            if (!start) start = timestamp;
+            var elapsed = timestamp - start;
+
+            // คำนวณตำแหน่งใหม่ของ background
+            var position = (elapsed / duration) * 100;
+
+            // ตั้งค่าตำแหน่ง background ของ container
+            $container.css('background-position', 'center ' + position + '%');
+
+            // ดำเนินการ animation จนกระทั่งเวลาครบกำหนด
+            if (elapsed < duration) {
+                requestAnimationFrame(slideBackground);
+            } else {
+                // เมื่อถึงตำแหน่งสุดท้าย ค้างไว้ 3 วินาทีแล้วเริ่มใหม่
+                setTimeout(function() {
+                    start = null;
+                    requestAnimationFrame(slideBackground);
+                }, pauseDuration);
+            }
+        }
+
+        requestAnimationFrame(slideBackground);
+    });
+    
+    $(document).ready(function() {
+        let currentIndex = 0; // เริ่มจาก div แรก
+        const $contents = $('.fade-content'); // เลือก div ที่ต้องการสลับ
+
+        function showNextContent() {
+            $contents.eq(currentIndex).removeClass('active'); // ซ่อน div ปัจจุบัน
+            currentIndex = (currentIndex + 1) % $contents.length; // คำนวณ index ของ div ถัดไป
+            $contents.eq(currentIndex).addClass('active'); // แสดง div ถัดไป
+        }
+
+        // เริ่มต้นโดยแสดง div แรก
+        $contents.eq(currentIndex).addClass('active');
+
+        // เรียกฟังก์ชัน showNextContent ทุก 10 วินาที
+        setInterval(showNextContent, 10000);
+    });
+
     $(document).ready(function() {
         var $container = $('.welcome-other');
         var duration = 20000; // 10 วินาที

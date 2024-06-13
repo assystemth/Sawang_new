@@ -10,59 +10,35 @@
 <!-- <div class="welcome" ></div> -->
 
 <div class="welcome-container">
-    <div class="welcome" id="welcome"></div>
+    <!-- <div class="welcome" id="welcome"></div> -->
+    <div class="fade-container">
+        <div class="fade-content active" id="div1">
+            <div class="wel-g1-bg"></div>
+            <div class="wel-g1-sky">
+                <img class="wel-g1-animation-1" src="docs/wel-cloud-center2.png">
+                <img class="wel-g1-animation-2" src="docs/wel-cloud-right.png">
+                <img class="wel-g1-animation-3" src="docs/wel-cloud-left.png">
+            </div>
+        </div>
+        <div class="fade-content" id="div2">
+            <div class="wel-g2-bg">
+                <div class="wel-g2-visit text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="font-wel-g2-visit-head">
+                            วิสัยทัศน์
+                        </div>
+                    </div>
+                    <br>
+                    <span class="font-wel-g2-visit-content">" อบต.สว่าง จะเป็นองค์กรน่าอยู่คู่คุณธรรม <br>
+                        บริหารงานอย่างมืออาชีพแบบมีส่วนร่วมในการจัดการมีความสมานฉันท์<br>
+                        ชุมชนมีความเข้มแข็งด้วยหลักเศรษฐกิจพอเพียง<br>
+                        ประชาชนมีหลักประกันคุณภาพชีวิตที่ดี "</span>
+                </div>
+                <img class="wel-g2-animation-3" src="docs/wel-g2-water5.png">
+            </div>
+        </div>
+    </div>
 </div>
-
-<script>
-    const images = [
-        "<?php echo base_url('docs/s.welcome-slide-1.jpg'); ?>",
-        "<?php echo base_url('docs/s.welcome-slide-2.jpg'); ?>",
-        "<?php echo base_url('docs/s.welcome-slide-3.jpg'); ?>"
-    ];
-
-    let currentIndex = 0;
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function randomizeZoomOrigin() {
-        const origins = [
-            "center center",
-            "top left",
-            "top right",
-            "bottom left",
-            "bottom right"
-        ];
-        return origins[getRandomInt(0, origins.length - 1)];
-    }
-
-    function applyRandomZoomOrigin(element) {
-        const zoomOrigin = randomizeZoomOrigin();
-        element.style.transformOrigin = zoomOrigin;
-    }
-
-    function changeImage() {
-        const imageElement = document.getElementById('welcome');
-        imageElement.style.backgroundImage = `url(${images[currentIndex]})`;
-        applyRandomZoomOrigin(imageElement);
-
-        // Restart the animation by changing the animation property
-        imageElement.style.animation = 'none';
-        void imageElement.offsetWidth; // Trigger reflow
-        imageElement.style.animation = null;
-        imageElement.style.animation = 'zoomOut 9s forwards';
-
-        // Move to the next image in the array
-        currentIndex = (currentIndex + 1) % images.length;
-    }
-
-    // Initial call to set the first image and start the loop
-    changeImage();
-
-    // Change image every 10 seconds
-    setInterval(changeImage, 9000);
-</script>
 
 <div class="welcome-btm">
     <div class="text-center" style="padding-top:15.5%;">
