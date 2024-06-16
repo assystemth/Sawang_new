@@ -3477,29 +3477,47 @@ class Pages extends CI_Controller
 		// รับค่าจากฟอร์ม
 		$elderly_aw_id_num_eligible = $this->input->post('elderly_aw_id_num_eligible');
 		$elderly_aw_period_payment = $this->input->post('elderly_aw_period_payment');
-
-		// ตรวจสอบว่าได้รับค่าหมายเลขประชาชนและคำค้นหาหรือไม่
-		if (!empty($elderly_aw_id_num_eligible) && !empty($elderly_aw_period_payment)) {
-			// Query เพื่อดึงข้อมูลจาก tbl_elderly_aw
-			$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
+	
+		// ตรวจสอบว่ามีค่าหมายเลขประจำตัวประชาชนหรือไม่
+		if (!empty($elderly_aw_id_num_eligible)) {
 			$this->db->where('elderly_aw_id_num_eligible', $elderly_aw_id_num_eligible);
+	
+			if (!empty($elderly_aw_period_payment)) {
+				$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
+			}
+	
 			$query = $this->db->get('tbl_elderly_aw');
 			$elderly_aw_data = $query->result_array();
-
+	
 			if (empty($elderly_aw_data)) {
-				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
-				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
-				$elderly_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนที่ท่านเลือก';
+				$elderly_aw_data = array();
+			} else {
+				// จัดเรียงข้อมูลโดยใช้ usort
+				usort($elderly_aw_data, function($a, $b) {
+					list($monthA, $yearA) = explode('/', $a['elderly_aw_period_payment']);
+					list($monthB, $yearB) = explode('/', $b['elderly_aw_period_payment']);
+	
+					$yearA = (int)$yearA;
+					$yearB = (int)$yearB;
+					$monthA = (int)$monthA;
+					$monthB = (int)$monthB;
+	
+					// เปรียบเทียบปี: ใช้เรียงลำดับจากมากไปน้อย
+					if ($yearA != $yearB) {
+						return $yearB - $yearA; // เรียงจากปีใหม่ไปเก่า
+					}
+					// ถ้าปีเท่ากัน ให้เปรียบเทียบเดือน
+					return $monthB - $monthA; // เรียงจากเดือนมากไปน้อย
+				});
 			}
 		} else {
-			// ถ้าไม่ได้รับค่าหรือมีค่าว่างจากฟอร์ม
 			$elderly_aw_data = array();
-			$data['error_message'] = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+			$data['error_message'] = 'กรุณากรอกหมายเลขประจำตัวประชาชน';
 		}
-
-		// ส่งข้อมูลไปยัง View
+	
 		$data['elderly_aw_data'] = $elderly_aw_data;
-
+	
 		// โหลด View
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -3508,6 +3526,20 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
+
+	public function elderly_aw_ods()
+	{
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/elderly_aw_ods');
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	
+
 
 
 
