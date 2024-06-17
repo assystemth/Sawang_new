@@ -5361,7 +5361,7 @@
   }
 
   .bg-btn-head-elderly-aw {
-    background-image: url('<?php echo base_url("docs/s.head-elderly-aw.png"); ?>');
+    background-image: url('<?php echo base_url("docs/head-elderly-aw.png"); ?>');
     background-repeat: no-repeat;
     width: 636px;
     height: 82px;
@@ -5374,7 +5374,7 @@
   }
 
   .bg-btn-head-elderly-aw:hover {
-    background-image: url('<?php echo base_url("docs/s.head-elderly-aw-active.png"); ?>');
+    background-image: url('<?php echo base_url("docs/head-elderly-aw-active.png"); ?>');
     background-repeat: no-repeat;
     width: 636px;
     height: 82px;
@@ -5383,7 +5383,7 @@
   }
 
   .bg-btn-head-elderly-aw-active {
-    background-image: url('<?php echo base_url("docs/s.head-elderly-aw-active.png"); ?>');
+    background-image: url('<?php echo base_url("docs/head-elderly-aw-active.png"); ?>');
     background-repeat: no-repeat;
     width: 636px;
     height: 82px;
@@ -5427,5 +5427,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .btn-download-el-aw {
+    background-image: url('<?php echo base_url("docs/btn-download-el-aw.png"); ?>');
+    background-repeat: no-repeat;
+    width: 171px;
+    height: 50px;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Noto Looped Thai";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+
+  .btn-download-el-aw:hover {
+    background-image: url('<?php echo base_url("docs/btn-download-el-aw-hover.png"); ?>');
+    background-repeat: no-repeat;
+    width: 171px;
+    height: 50px;
+  }
+
+  .font-note-elderly-aw {
+    color: #FF4343;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Noto Looped Thai UI";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    /* 133.333% */
   }
 </style>
