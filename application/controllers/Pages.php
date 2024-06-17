@@ -112,6 +112,7 @@ class Pages extends CI_Controller
 		$this->load->model('prov_local_doc_model');
 
 		$this->load->model('elderly_aw_form_model');
+		$this->load->model('elderly_aw_ods_model');
 		$this->load->model('odata_model');
 
 	}
@@ -3509,6 +3510,17 @@ $data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
+
+	public function add_elderly_aw_ods()
+	{
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
+		// exit;
+		$this->elderly_aw_ods_model->add_elderly_aw_ods();
+		redirect('Pages/add_elderly_aw_ods');
+	}
+
 
 
 	public function elderly_aw()
