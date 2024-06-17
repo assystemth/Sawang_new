@@ -2200,13 +2200,13 @@
   }
 
   .font-ita-head {
-    color: #693708;
+    color: #000;
 
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    padding-left: 30px;
+    /* padding-left: 30px; */
   }
 
   .font-ita-content {
@@ -3636,7 +3636,9 @@
 
   .font-doc {
     font-size: 20px;
-    text-shadow: 1px 1px #ccc;
+    text-shadow: 1px 1px #E29F60;
+    margin-left: -20px;
+
   }
 
 
@@ -5461,5 +5463,18 @@
     font-weight: 400;
     line-height: 32px;
     /* 133.333% */
+  }
+
+  .border-odata {
+    /* display: flex; */
+    width: 1460px;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    border: 1px solid #EABA48;
+    /* box-shadow: 1px 2px 4px 0px rgba(172, 219, 133, 0.25); */
+    box-shadow: 1px 2px 4px 0px rgba(234, 186, 72, 0.25);
+    margin-top: 10px;
   }
 </style>

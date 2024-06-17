@@ -112,6 +112,8 @@ class Pages extends CI_Controller
 		$this->load->model('prov_local_doc_model');
 
 		$this->load->model('elderly_aw_form_model');
+		$this->load->model('odata_model');
+
 	}
 
 	// public function index()
@@ -3553,4 +3555,69 @@ class Pages extends CI_Controller
 	// 		'elderly_aw_period_payment' => $elderly_aw_id_num_eligible,
 	// 		'elderly_aw_money' => $elderly_aw_id_num_eligible,
 	// 		'elderly_aw_note' => $elderly_aw_id_num_eligible,
+
+	public function odata()
+	{
+		$data['query'] = $this->odata_model->odata_frontend();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/odata', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function odata_sub($odata_id)
+	{
+		$data['query'] = $this->odata_model->read($odata_id);
+		$data['query_odata_sub'] = $this->odata_model->list_all_odata_sub($odata_id);
+
+		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
+		if (!$data['query']) {
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/empty_detail_pages');
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+			return; // ให้จบการทำงานที่นี่
+		}
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/odata_sub', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function odata_sub_file($odata_sub_id)
+	{
+		$data['query'] = $this->odata_model->read_odata_sub($odata_sub_id);
+		$data['query_odata_sub_file'] = $this->odata_model->list_all_odata_sub_file($odata_sub_id);
+
+		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
+		if (!$data['query']) {
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/empty_detail_pages');
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+			return; // ให้จบการทำงานที่นี่
+		}
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/odata_sub_file', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function increment_download_odata_sub_file($odata_sub_file_id)
+	{
+		$this->odata_model->increment_download_odata_sub_file($odata_sub_file_id);
+	}
 }
