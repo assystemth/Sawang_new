@@ -24,23 +24,15 @@
     <div class="container-pages-news" style="position: relative; z-index: 10; margin-top: 55px; ">
         <span class="font-elderly-aw-ods">แบบฟอร์มเบี้ยยังชีพผู้สูงอายุ / พิการ</span>
         <div class="box-form-elderly-aw-ods-download">
-            <div class="space-between underline">
-                <span class="font-form-elderly-aw-ods-download">แบบฟอร์มลงทะเบียนเบี้ยยังชีพผู้สูงอายุ</span> <a href="#">
-                    <div class="btn-download-el-aw">ดาวน์โหลด</div>
-                </a>
-            </div>
-            <hr style="height:2px;border-width:0; background: linear-gradient(90deg, #785829 2.85%, #E1A44D 26.17%, #906831 41.25%, #B1803A 53.59%, #B1803A 70.05%, #F6E587 91.99%, #B1803A 112.57%, #F6DE7C 127.65%, #F5DB7A 133.14%, #F2D373 135.88%, #EDC668 137.25%, #E6B259 138.62%, #E1A44D 139.99%);">
-            <div class="space-between underline">
-                <span class="font-form-elderly-aw-ods-download">แบบฟอร์มขึ้นทะเบียนผู้พิการ</span> <a href="#">
-                    <div class="btn-download-el-aw">ดาวน์โหลด</div>
-                </a>
-            </div>
-            <hr style="height:2px;border-width:0; background: linear-gradient(90deg, #785829 2.85%, #E1A44D 26.17%, #906831 41.25%, #B1803A 53.59%, #B1803A 70.05%, #F6E587 91.99%, #B1803A 112.57%, #F6DE7C 127.65%, #F5DB7A 133.14%, #F2D373 135.88%, #EDC668 137.25%, #E6B259 138.62%, #E1A44D 139.99%);">
-            <div class="space-between underline">
-                <span class="font-form-elderly-aw-ods-download">แบบฟอร์มหนังสือมอบอำนาจ</span> <a href="#">
-                    <div class="btn-download-el-aw">ดาวน์โหลด</div>
-                </a>
-            </div>
+            <?php foreach ($elderly_aw_form as $rs) : ?>
+                <div class="space-between underline">
+                    <span class="font-form-elderly-aw-ods-download"><?= $rs->elderly_aw_form_name; ?></span>
+                    <a href="<?= base_url('docs/file/' . $rs->elderly_aw_form_file); ?>" download>
+                        <div class="btn-download-el-aw">ดาวน์โหลด</div>
+                    </a>
+                </div>
+                <hr style="height:2px;border-width:0; background: linear-gradient(90deg, #785829 2.85%, #E1A44D 26.17%, #906831 41.25%, #B1803A 53.59%, #B1803A 70.05%, #F6E587 91.99%, #B1803A 112.57%, #F6DE7C 127.65%, #F5DB7A 133.14%, #F2D373 135.88%, #EDC668 137.25%, #E6B259 138.62%, #E1A44D 139.99%);">
+            <?php endforeach; ?>
         </div>
         <span class="font-elderly-aw-ods">ยื่นเอกสารเบี้ยยังชีพผู้สูงอายุ / พิการ</span>
 
@@ -67,7 +59,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">หมายเลขประจำตัวประชาชน <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="email" name="corruption_email" class="form-control font-label-e-service-complain" placeholder="example@youremail.com">
+                            <input type="email" name="corruption_email" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
                         </div>
                     </div>
                 </div>
@@ -101,7 +93,7 @@
                 </div>
             </div>
     </div>
-    <div class="row mt-4" style="margin-left: 80px;" >
+    <div class="row mt-4" style="margin-left: 80px;">
         <div class="col-6 font-note-elderly-aw d-flex justify-content-center">
             <span>หมายเหตุ<br>
                 1.ผู้ยื่นคำขอดาวน์โหลดเอกสารเพื่อกรอกข้อมูล<br>

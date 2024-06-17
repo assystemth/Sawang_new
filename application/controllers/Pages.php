@@ -110,6 +110,8 @@ class Pages extends CI_Controller
 		$this->load->model('km_model');
 
 		$this->load->model('prov_local_doc_model');
+
+		$this->load->model('elderly_aw_form_model');
 	}
 
 	// public function index()
@@ -3472,6 +3474,20 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_templat/footer_other');
 	}
 
+	public function elderly_aw_ods()
+	{
+		$data['elderly_aw_form'] = $this->elderly_aw_form_model->elderly_aw_form_frontend();
+
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/elderly_aw_ods', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+
 	public function elderly_aw()
 	{
 		// รับค่าจากฟอร์ม
@@ -3526,23 +3542,6 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
-
-	public function elderly_aw_ods()
-	{
-
-		$this->load->view('frontend_templat/header');
-		$this->load->view('frontend_asset/css');
-		$this->load->view('frontend_templat/navbar_other');
-		$this->load->view('frontend/elderly_aw_ods');
-		$this->load->view('frontend_asset/js');
-		$this->load->view('frontend_templat/footer_other');
-	}
-
-	
-
-
-
-
 
 	// 'elderly_aw_name_eligible' => $elderly_aw_id_num_eligible,
 	// 		'elderly_aw_id_num_owner' => $elderly_aw_id_num_eligible,
