@@ -10,6 +10,12 @@
             <span class="font-pages-content-detail"><?= $rsData->p_sopopaortsr_detail; ?></span>
             <br>
             <a class="font-26" href="<?= $rsData->p_sopopaortsr_link; ?>" target="_blank"><?= $rsData->p_sopopaortsr_link; ?></a>
+            <?php if (!empty($rsDoc)) { ?>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>
+                <?php foreach ($rsDoc as $doc) { ?>
+                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->p_rpobuy_file_doc); ?>" target="_blank"><?= $doc->p_rpobuy_file_doc; ?></a>,&nbsp;
+                <?php } ?>
+            <?php } ?>
         </div>
 
         <?php foreach ($rsImg as $img) { ?>
@@ -29,7 +35,7 @@
                 <div class="col-6">
                     <div class="d-flex justify-content-end">
                         <a onclick="downloadFile(event, <?= $file->p_sopopaortsr_file_id; ?>)" href="<?= base_url('docs/file/' . $file->p_sopopaortsr_file_pdf); ?>" download>
-                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download" >
+                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download">
                         </a>
                         <script>
                             function downloadFile(event, p_sopopaortsr_file_id) {
