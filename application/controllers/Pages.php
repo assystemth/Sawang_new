@@ -972,8 +972,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
+		$data['rsPdf'] = $this->plan_pdl_model->read_pdf($plan_pdl_id);
+		$data['rsDoc'] = $this->plan_pdl_model->read_doc($plan_pdl_id);
 		$data['rsImg'] = $this->plan_pdl_model->read_img($plan_pdl_id);
-		$data['rsFile'] = $this->plan_pdl_model->read_file($plan_pdl_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1434,8 +1435,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_cac_model->read_file($pbsv_cac_id);
+		$data['rsPdf'] = $this->pbsv_cac_model->read_pdf($pbsv_cac_id);
+		$data['rsDoc'] = $this->pbsv_cac_model->read_doc($pbsv_cac_id);
 		$data['rsImg'] = $this->pbsv_cac_model->read_img($pbsv_cac_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1476,7 +1479,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_cig_model->read_file($pbsv_cig_id);
+		$data['rsPdf'] = $this->pbsv_cig_model->read_pdf($pbsv_cig_id);
+		$data['rsDoc'] = $this->pbsv_cig_model->read_doc($pbsv_cig_id);
 		$data['rsImg'] = $this->pbsv_cig_model->read_img($pbsv_cig_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1518,7 +1522,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_cjc_model->read_file($pbsv_cjc_id);
+		$data['rsPdf'] = $this->pbsv_cjc_model->read_pdf($pbsv_cjc_id);
+		$data['rsDoc'] = $this->pbsv_cjc_model->read_doc($pbsv_cjc_id);
 		$data['rsImg'] = $this->pbsv_cjc_model->read_img($pbsv_cjc_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1560,8 +1565,14 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_sags_model->read_file($pbsv_sags_id);
+
+
+		$data['rsPdf'] = $this->pbsv_sags_model->read_pdf($pbsv_sags_id);
+		$data['rsDoc'] = $this->pbsv_sags_model->read_doc($pbsv_sags_id);
 		$data['rsImg'] = $this->pbsv_sags_model->read_img($pbsv_sags_id);
+
+
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1602,8 +1613,11 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_ahs_model->read_file($pbsv_ahs_id);
+		$data['rsPdf'] = $this->pbsv_ahs_model->read_pdf($pbsv_ahs_id);
+		$data['rsDoc'] = $this->pbsv_ahs_model->read_doc($pbsv_ahs_id);
 		$data['rsImg'] = $this->pbsv_ahs_model->read_img($pbsv_ahs_id);
+
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1644,7 +1658,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_oppr_model->read_file($pbsv_oppr_id);
+		$data['rsPdf'] = $this->pbsv_oppr_model->read_pdf($pbsv_oppr_id);
+		$data['rsDoc'] = $this->pbsv_oppr_model->read_doc($pbsv_oppr_id);
 		$data['rsImg'] = $this->pbsv_oppr_model->read_img($pbsv_oppr_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1686,7 +1701,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_ems_model->read_file($pbsv_ems_id);
+
+		$data['rsPdf'] = $this->pbsv_ems_model->read_pdf($pbsv_ems_id);
+		$data['rsDoc'] = $this->pbsv_ems_model->read_doc($pbsv_ems_id);
 		$data['rsImg'] = $this->pbsv_ems_model->read_img($pbsv_ems_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1728,7 +1745,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_gup_model->read_file($pbsv_gup_id);
+		$data['rsPdf'] = $this->pbsv_gup_model->read_pdf($pbsv_gup_id);
+		$data['rsDoc'] = $this->pbsv_gup_model->read_doc($pbsv_gup_id);
 		$data['rsImg'] = $this->pbsv_gup_model->read_img($pbsv_gup_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1770,8 +1788,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->pbsv_e_book_model->read_file($pbsv_e_book_id);
+		$data['rsPdf'] = $this->pbsv_e_book_model->read_pdf($pbsv_e_book_id);
+		$data['rsDoc'] = $this->pbsv_e_book_model->read_doc($pbsv_e_book_id);
 		$data['rsImg'] = $this->pbsv_e_book_model->read_img($pbsv_e_book_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2805,7 +2825,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->newsletter_model->read_file($newsletter_id);
+$data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
+		$data['rsDoc'] = $this->newsletter_model->read_doc($newsletter_id);
 		$data['rsImg'] = $this->newsletter_model->read_img($newsletter_id);
 
 		$this->load->view('frontend_templat/header');

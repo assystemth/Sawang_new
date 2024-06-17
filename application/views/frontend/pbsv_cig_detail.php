@@ -10,6 +10,12 @@
             <span class="font-pages-content-detail"><?= $rsData->pbsv_cig_detail; ?></span>
             <br>
             <a class="font-26" href="<?= $rsData->pbsv_cig_link; ?>" target="_blank"><?= $rsData->pbsv_cig_link; ?></a>
+            <?php if (!empty($rsDoc)) { ?>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>&nbsp;&nbsp; : &nbsp;
+                <?php foreach ($rsDoc as $doc) { ?>
+                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->pbsv_cig_file_doc); ?>" target="_blank"><?= $doc->pbsv_cig_file_doc; ?></a> , &nbsp;
+                <?php } ?>
+            <?php } ?>
         </div>
 
         <?php foreach ($rsImg as $img) { ?>
@@ -19,7 +25,7 @@
             <br>
         <?php } ?>
 
-        <?php foreach ($rsFile as $file) { ?>
+        <?php foreach ($rsPdf as $file) { ?>
             <div class="row">
                 <div class="col-6 mt-2">
                     <div class="d-flex justify-content-start">
@@ -27,9 +33,9 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="d-flex justify-content-end ">
+                    <div class="d-flex justify-content-end">
                         <a onclick="downloadFile(event, <?= $file->pbsv_cig_file_id; ?>)" href="<?= base_url('docs/file/' . $file->pbsv_cig_file_pdf); ?>" download>
-                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download" >
+                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download">
                         </a>
                         <script>
                             function downloadFile(event, pbsv_cig_file_id) {

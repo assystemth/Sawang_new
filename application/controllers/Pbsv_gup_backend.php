@@ -23,9 +23,13 @@ class Pbsv_gup_backend extends CI_Controller
     {
         $pbsv_gup = $this->pbsv_gup_model->list_all();
 
-        foreach ($pbsv_gup as $files) {
-            $files->file = $this->pbsv_gup_model->list_all_pdf($files->pbsv_gup_id);
+        foreach ($pbsv_gup as $pdf) {
+            $pdf->pdf = $this->pbsv_gup_model->list_all_pdf($pdf->pbsv_gup_id);
         }
+        foreach ($pbsv_gup as $doc) {
+            $doc->doc = $this->pbsv_gup_model->list_all_doc($doc->pbsv_gup_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Pbsv_gup_backend extends CI_Controller
     public function editing($pbsv_gup_id)
     {
         $data['rsedit'] = $this->pbsv_gup_model->read($pbsv_gup_id);
-        $data['rsFile'] = $this->pbsv_gup_model->read_file($pbsv_gup_id);
+        $data['rsPdf'] = $this->pbsv_gup_model->read_pdf($pbsv_gup_id);
+        $data['rsDoc'] = $this->pbsv_gup_model->read_doc($pbsv_gup_id);
         $data['rsImg'] = $this->pbsv_gup_model->read_img($pbsv_gup_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Pbsv_gup_backend extends CI_Controller
         $this->pbsv_gup_model->update_pbsv_gup_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->pbsv_gup_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->pbsv_gup_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->pbsv_gup_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Pbsv_gup_backend extends CI_Controller
     {
         $this->pbsv_gup_model->del_pbsv_gup_img($pbsv_gup_id);
         $this->pbsv_gup_model->del_pbsv_gup_pdf($pbsv_gup_id);
+        $this->pbsv_gup_model->del_pbsv_gup_doc($pbsv_gup_id);
         $this->pbsv_gup_model->del_pbsv_gup($pbsv_gup_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('pbsv_gup_backend');

@@ -23,9 +23,13 @@ class Pbsv_cjc_backend extends CI_Controller
     {
         $pbsv_cjc = $this->pbsv_cjc_model->list_all();
 
-        foreach ($pbsv_cjc as $files) {
-            $files->file = $this->pbsv_cjc_model->list_all_pdf($files->pbsv_cjc_id);
+        foreach ($pbsv_cjc as $pdf) {
+            $pdf->pdf = $this->pbsv_cjc_model->list_all_pdf($pdf->pbsv_cjc_id);
         }
+        foreach ($pbsv_cjc as $doc) {
+            $doc->doc = $this->pbsv_cjc_model->list_all_doc($doc->pbsv_cjc_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Pbsv_cjc_backend extends CI_Controller
     public function editing($pbsv_cjc_id)
     {
         $data['rsedit'] = $this->pbsv_cjc_model->read($pbsv_cjc_id);
-        $data['rsFile'] = $this->pbsv_cjc_model->read_file($pbsv_cjc_id);
+        $data['rsPdf'] = $this->pbsv_cjc_model->read_pdf($pbsv_cjc_id);
+        $data['rsDoc'] = $this->pbsv_cjc_model->read_doc($pbsv_cjc_id);
         $data['rsImg'] = $this->pbsv_cjc_model->read_img($pbsv_cjc_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Pbsv_cjc_backend extends CI_Controller
         $this->pbsv_cjc_model->update_pbsv_cjc_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->pbsv_cjc_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->pbsv_cjc_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->pbsv_cjc_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Pbsv_cjc_backend extends CI_Controller
     {
         $this->pbsv_cjc_model->del_pbsv_cjc_img($pbsv_cjc_id);
         $this->pbsv_cjc_model->del_pbsv_cjc_pdf($pbsv_cjc_id);
+        $this->pbsv_cjc_model->del_pbsv_cjc_doc($pbsv_cjc_id);
         $this->pbsv_cjc_model->del_pbsv_cjc($pbsv_cjc_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('pbsv_cjc_backend');

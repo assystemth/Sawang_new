@@ -11,9 +11,9 @@
             <br>
             <a class="font-26" href="<?= $rsData->p_sopopaortsr_link; ?>" target="_blank"><?= $rsData->p_sopopaortsr_link; ?></a>
             <?php if (!empty($rsDoc)) { ?>
-                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>&nbsp;&nbsp; : &nbsp;
                 <?php foreach ($rsDoc as $doc) { ?>
-                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->p_rpobuy_file_doc); ?>" target="_blank"><?= $doc->p_rpobuy_file_doc; ?></a>,&nbsp;
+                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->p_sopopaortsr_file_doc); ?>" target="_blank"><?= $doc->p_sopopaortsr_file_doc; ?></a> , &nbsp;
                 <?php } ?>
             <?php } ?>
         </div>
@@ -25,7 +25,7 @@
             <br>
         <?php } ?>
 
-        <?php foreach ($rsFile as $file) { ?>
+        <?php foreach ($rsPdf as $file) { ?>
             <div class="row">
                 <div class="col-6 mt-2">
                     <div class="d-flex justify-content-start">

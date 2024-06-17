@@ -23,9 +23,13 @@ class Pbsv_cig_backend extends CI_Controller
     {
         $pbsv_cig = $this->pbsv_cig_model->list_all();
 
-        foreach ($pbsv_cig as $files) {
-            $files->file = $this->pbsv_cig_model->list_all_pdf($files->pbsv_cig_id);
+        foreach ($pbsv_cig as $pdf) {
+            $pdf->pdf = $this->pbsv_cig_model->list_all_pdf($pdf->pbsv_cig_id);
         }
+        foreach ($pbsv_cig as $doc) {
+            $doc->doc = $this->pbsv_cig_model->list_all_doc($doc->pbsv_cig_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Pbsv_cig_backend extends CI_Controller
     public function editing($pbsv_cig_id)
     {
         $data['rsedit'] = $this->pbsv_cig_model->read($pbsv_cig_id);
-        $data['rsFile'] = $this->pbsv_cig_model->read_file($pbsv_cig_id);
+        $data['rsPdf'] = $this->pbsv_cig_model->read_pdf($pbsv_cig_id);
+        $data['rsDoc'] = $this->pbsv_cig_model->read_doc($pbsv_cig_id);
         $data['rsImg'] = $this->pbsv_cig_model->read_img($pbsv_cig_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Pbsv_cig_backend extends CI_Controller
         $this->pbsv_cig_model->update_pbsv_cig_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->pbsv_cig_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->pbsv_cig_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->pbsv_cig_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Pbsv_cig_backend extends CI_Controller
     {
         $this->pbsv_cig_model->del_pbsv_cig_img($pbsv_cig_id);
         $this->pbsv_cig_model->del_pbsv_cig_pdf($pbsv_cig_id);
+        $this->pbsv_cig_model->del_pbsv_cig_doc($pbsv_cig_id);
         $this->pbsv_cig_model->del_pbsv_cig($pbsv_cig_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('pbsv_cig_backend');
