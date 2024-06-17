@@ -35,15 +35,14 @@
             <?php endforeach; ?>
         </div>
         <span class="font-elderly-aw-ods">ยื่นเอกสารเบี้ยยังชีพผู้สูงอายุ / พิการ</span>
-
-        <form id="reCAPTCHA3" action=" <?php echo site_url('Pages/add_corruption'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+        <form id="reCAPTCHA3" action=" <?php echo site_url('Pages/add_elderly_aw_ods'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
             <br>
             <div class="row">
                 <div class="col-5">
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">ชื่อ-นามสกุล <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="text" name="corruption_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
+                            <input type="text" name="elderly_aw_ods_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
                         </div>
                     </div>
                 </div>
@@ -51,7 +50,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">เบอร์โทรศัพท์ <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="tel" name="corruption_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
+                            <input type="tel" name="elderly_aw_ods_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
                         </div>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">หมายเลขประจำตัวประชาชน <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="email" name="corruption_email" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
+                            <input type="elderly_aw_ods_address" name="elderly_aw_ods_number" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
                         </div>
                     </div>
                 </div>
@@ -68,28 +67,28 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">ที่อยู่ <span class="red-font">*</span></label>
                 <div class="col-sm-12">
-                    <textarea name="corruption_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
+                    <textarea name="elderly_aw_ods_address" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
                 </div>
             </div>
             <br>
             <div class="form-group">
                 <div class="col-sm-7 control-label font-e-service-complain">แนบสำเนาบัตรประชาชน <span class="red-font">*</span></div>
                 <div class="col-sm-12 mt-2">
-                    <input type="file" name="corruption_imgs[]" class="form-control" accept="image/*" multiple>
+                    <input type="file" name="elderly_aw_ods_file1" class="form-control" accept="all/*">
                 </div>
             </div>
             <br>
             <div class="form-group">
                 <div class="col-sm-7 control-label font-e-service-complain">แนบใบฟอร์มขึ้นทะเบียนผู้พิการ/ลงทะเบียนเบี้ยยังชีพผู้สูงอายุ <span class="red-font">*</span></div>
                 <div class="col-sm-12 mt-2">
-                    <input type="file" name="corruption_imgs[]" class="form-control" accept="image/*" multiple>
+                    <input type="file" name="elderly_aw_ods_file2" class="form-control" accept="all/*">
                 </div>
             </div>
             <br>
             <div class="form-group">
                 <div class="col-sm-7 control-label font-e-service-complain">แนบแบบฟอร์มหนังสือมอบอำนาจ <span class="red-font">(ถ้ามี)</span></div>
                 <div class="col-sm-12 mt-2">
-                    <input type="file" name="corruption_imgs[]" class="form-control" accept="image/*" multiple>
+                    <input type="file" name="elderly_aw_ods_file3" class="form-control" accept="all/*">
                 </div>
             </div>
     </div>
@@ -101,7 +100,6 @@
                 2.เจ้าหน้าที่รับเรื่อง พิจารณาเอกสาร<br>
                 3.แจ้งผลการดำเนินงานทางเบอร์โทรหรืออีเมลที่ผู้ยื่นคำขอแจ้งใว้</span>
         </div>
-
         <div class="col-6">
             <div class="d-flex justify-content-center">
                 <!-- <button type="submit" id="loginBtn" class="btn" disabled><img src="<?php echo base_url("docs/s.btn-add-q-a.png"); ?>"></button> -->

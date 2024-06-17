@@ -3,13 +3,19 @@
 </div>
 </div>
 
-<div class="bg-pages">
+<<div class="bg-pages">
     <div class="container-pages-detail">
         <div class="font-pages-content-head"><?= $rsData->pbsv_gup_name; ?></div>
         <div class="pages-content break-word mt-2">
             <span class="font-pages-content-detail"><?= $rsData->pbsv_gup_detail; ?></span>
             <br>
             <a class="font-26" href="<?= $rsData->pbsv_gup_link; ?>" target="_blank"><?= $rsData->pbsv_gup_link; ?></a>
+            <?php if (!empty($rsDoc)) { ?>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>&nbsp;&nbsp; : &nbsp;
+                <?php foreach ($rsDoc as $doc) { ?>
+                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->pbsv_gup_file_doc); ?>" target="_blank"><?= $doc->pbsv_gup_file_doc; ?></a> , &nbsp;
+                <?php } ?>
+            <?php } ?>
         </div>
 
         <?php foreach ($rsImg as $img) { ?>
@@ -19,7 +25,7 @@
             <br>
         <?php } ?>
 
-        <?php foreach ($rsFile as $file) { ?>
+        <?php foreach ($rsPdf as $file) { ?>
             <div class="row">
                 <div class="col-6 mt-2">
                     <div class="d-flex justify-content-start">
@@ -29,7 +35,7 @@
                 <div class="col-6">
                     <div class="d-flex justify-content-end">
                         <a onclick="downloadFile(event, <?= $file->pbsv_gup_file_id; ?>)" href="<?= base_url('docs/file/' . $file->pbsv_gup_file_pdf); ?>" download>
-                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download" >
+                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download">
                         </a>
                         <script>
                             function downloadFile(event, pbsv_gup_file_id) {

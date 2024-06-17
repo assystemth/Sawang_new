@@ -1537,7 +1537,7 @@
                 <div class="col-2">
                     <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>">
                         <div class="service-box" style="padding: 50px 0px 0px 25px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">แบบฟอร์ม e-Book</span>
+                            <span class="font-service">แบบฟอร์ม</span>
                         </div>
                     </a>
                 </div>

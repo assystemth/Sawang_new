@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>แก้ไขข้อมูลคู่มือสำหรับประชาชน</h4>
-            <form action=" <?php echo site_url('pbsv_gup_backend/edit/' . $rsedit->pbsv_gup_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+               <form action=" <?php echo site_url('pbsv_gup_backend/edit/' . $rsedit->pbsv_gup_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">เรื่อง</div>
@@ -62,7 +62,7 @@
                         <?php if (!empty($rsedit->pbsv_gup_img)) : ?>
                             <img src="<?= base_url('docs/img/' . $rsedit->pbsv_gup_img); ?>" width="250px" height="210">
                         <?php else : ?>
-                            <img src="<?= base_url('docs/coverphoto.jpg'); ?>" width="250px" height="210">
+                            <img src="<?= base_url('docs/k.logo.png'); ?>" width="250px" height="210">
                         <?php endif; ?>
                         <br>
                         เลือกใหม่
@@ -119,10 +119,10 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <?php if (!empty($rsFile)) { ?>
-                            <?php foreach ($rsFile as $file) { ?>
-                                <a class="btn btn-info btn-sm mb-2" href="<?= base_url('docs/file/' . $file->pbsv_gup_file_pdf); ?>" target="_blank">ดูไฟล์ <?= $file->pbsv_gup_file_pdf; ?></a>
-                                <a class="btn btn-danger btn-sm mb-2" href="#" role="button" onclick="confirmDelete(<?= $file->pbsv_gup_file_id; ?>, '<?= $file->pbsv_gup_file_pdf; ?>');">
+                        <?php if (!empty($rsPdf)) { ?>
+                            <?php foreach ($rsPdf as $pdf) { ?>
+                                <a class="btn btn-primary btn-sm mb-2" href="<?= base_url('docs/file/' . $pdf->pbsv_gup_pdf_pdf); ?>" target="_blank">ดูไฟล์ <?= $pdf->pbsv_gup_pdf_pdf; ?></a>
+                                <a class="btn btn-danger btn-sm mb-2" href="#" role="button" onclick="confirmDeletePdf(<?= $pdf->pbsv_gup_pdf_id; ?>, '<?= $pdf->pbsv_gup_pdf_pdf; ?>');">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
                                     </svg> ลบไฟล์
@@ -131,10 +131,10 @@
                             <?php } ?>
                         <?php } ?>
                         <script>
-                            function confirmDelete(file_id, file_name) {
+                            function confirmDeletePdf(pdf_id, pdf_name) {
                                 Swal.fire({
                                     title: 'คุณแน่ใจหรือไม่?',
-                                    text: 'คุณต้องการลบไฟล์ ' + file_name + ' ใช่หรือไม่?',
+                                    text: 'คุณต้องการลบไฟล์ ' + pdf_name + ' ใช่หรือไม่?',
                                     icon: 'warning',
                                     showCancelButton: true,
                                     confirmButtonColor: '#3085d6',
@@ -144,15 +144,55 @@
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         // หลังจากคลิกยืนยันให้เรียก Controller ที่ใช้ในการลบไฟล์ PDF
-                                        window.location.href = "<?= site_url('pbsv_gup_backend/del_pdf/'); ?>" + file_id;
+                                        window.location.href = "<?= site_url('pbsv_gup_backend/del_pdf/'); ?>" + pdf_id;
                                     }
                                 });
                             }
                         </script>
-                        <input type="file" name="pbsv_gup_file_pdf[]" class="form-control mt-1" accept="application/pdf" multiple>
+                        <input type="file" name="pbsv_gup_pdf_pdf[]" class="form-control mt-1" accept="application/pdf" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ PDF)</span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
+                    <div class="col-sm-6">
+                        <?php if (!empty($rsDoc)) { ?>
+                            <?php foreach ($rsDoc as $doc) { ?>
+                                <a class="btn btn-info btn-sm mb-2" href="<?= base_url('docs/file/' . $doc->pbsv_gup_file_doc); ?>" target="_blank">ดูไฟล์ <?= $doc->pbsv_gup_file_doc; ?></a>
+                                <a class="btn btn-danger btn-sm mb-2" href="#" role="button" onclick="confirmDeleteDoc(<?= $doc->pbsv_gup_file_id; ?>, '<?= $doc->pbsv_gup_file_doc; ?>');">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                    </svg> ลบไฟล์
+                                </a>
+                                <br>
+                            <?php } ?>
+                        <?php } ?>
+                        <script>
+                            function confirmDeleteDoc(doc_id, doc_name) {
+                                Swal.fire({
+                                    title: 'คุณแน่ใจหรือไม่?',
+                                    text: 'คุณต้องการลบไฟล์ ' + doc_name + ' ใช่หรือไม่?',
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'ใช่, ต้องการลบ!',
+                                    cancelButtonText: 'ยกเลิก'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        // หลังจากคลิกยืนยันให้เรียก Controller ที่ใช้ในการลบไฟล์ PDF
+                                        window.location.href = "<?= site_url('pbsv_gup_backend/del_doc/'); ?>" + doc_id;
+                                    }
+                                });
+                            }
+                        </script>
+                        <input type="file" name="pbsv_gup_file_doc[]" class="form-control mt-1" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+                        <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
+                        <br>
+                        <span class="red-add">(เฉพาะไฟล์ .doc .docx .ppt .pptx .xls .xlsx)</span>
                     </div>
                 </div>
                 <br>

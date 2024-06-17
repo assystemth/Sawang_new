@@ -350,13 +350,13 @@
                           <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                       </div>
                       <div class="dropdown-center">
-                          <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
+                          <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                           <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
-                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                       </div>
                       <div class="dropdown-right">
                           <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
@@ -585,13 +585,13 @@
                               <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                           </div>
                           <div class="dropdown-center">
-                              <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
+                              <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                               <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
-                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           </div>
                           <div class="dropdown-right">
                               <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
