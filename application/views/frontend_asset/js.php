@@ -33,7 +33,7 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         var $container = $('.wel-g1-sky');
         var duration = 20000; // 10 วินาที
         var pauseDuration = 3000; // 3 วินาทีสำหรับการค้างไว้
@@ -63,7 +63,7 @@
 
         requestAnimationFrame(slideBackground);
     });
-    
+
     $(document).ready(function() {
         let currentIndex = 0; // เริ่มจาก div แรก
         const $contents = $('.fade-content'); // เลือก div ที่ต้องการสลับ
@@ -164,6 +164,44 @@
     document.addEventListener("DOMContentLoaded", function() {
         consoleText(['องค์การบริหารส่วนตำบลสว่าง ยินดีต้อนรับค่ะ', 'มีบริการยื่นเอกสารออนไลน์', 'และมีบริการอื่นๆ อีกมากมาย'], 'text', ['#210B00', '#210B00', '#210B00']);
     });
+
+    function consoleText(words, id, colors) {
+        if (colors === undefined) colors = ['#fff'];
+        var visible = true;
+        var letterCount = 1;
+        var index = 0;
+        var waiting = false;
+        var target = document.getElementById(id);
+        target.setAttribute('style', 'color:' + colors[0]);
+
+        function updateText() {
+            if (letterCount === 0 && waiting === false) {
+                waiting = true;
+                target.innerHTML = '';
+                window.setTimeout(function() {
+                    index = (index + 1) % words.length;
+                    target.setAttribute('style', 'color:' + colors[index]);
+                    letterCount = 1;
+                    waiting = false;
+                    updateText();
+                }, 1000);
+            } else if (letterCount === words[index].length + 1 && waiting === false) {
+                waiting = true;
+                window.setTimeout(function() {
+                    letterCount = 0;
+                    waiting = false;
+                    updateText();
+                }, 2000); // Adjust this duration to control how long the full text is displayed
+            } else if (waiting === false) {
+                target.innerHTML = words[index].substring(0, letterCount);
+                letterCount++;
+                window.setTimeout(updateText, 120); // Adjust typing speed here
+            }
+        }
+
+        updateText();
+    }
+
     //   ***************************************************************************************************************
 
     // โหลด api สภาพอากาศตามมาทีหลัง  ********************************************************************************
