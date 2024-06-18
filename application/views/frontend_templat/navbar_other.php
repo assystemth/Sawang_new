@@ -311,7 +311,7 @@
                           <a href="<?php echo site_url('Pages/travel'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                           <a href="<?php echo site_url('Pages/otop'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/newsletter'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;จดหมายข่าว</span></a></a>
-                           <a href="<?php echo site_url('Pages/contact'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ติดต่อเรา</span></a></a>
+                          <a href="<?php echo site_url('Pages/contact'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ติดต่อเรา</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -690,28 +690,32 @@
         </div> -->
       </div>
   </div>
-
-  <div class="welcome-other">
-
-      <!-- <div class="tab-container">
+  <!-- <div class="tab-container">
         <img src="docs/item-news-top.png" width="324" height="100" style="position: absolute; z-index: 2;">
         <div id="marquee-container">
             <div class="marquee">
                 <div>
-                    <?php
-                    $maxIterations = 1000;
-                    $iteration = 0;
-                    while ($iteration < $maxIterations) {
-                        foreach ($qHotnews as $index => $hotnews) {
-                            echo '<span>' . $hotnews->hotNews_text . '</span>';
-                        }
-                        $iteration++;
+                <?php
+                $maxIterations = 1000;
+                $iteration = 0;
+                while ($iteration < $maxIterations) {
+                    foreach ($qHotnews as $index => $hotnews) {
+                        echo '<span>' . $hotnews->hotNews_text . '</span>';
                     }
-                    ?>
+                    $iteration++;
+                }
+                ?>
                 </div>
             </div>
         </div>
     </div> -->
+  <div class="welcome-other">
+      <img class="wel-other-img-cloud1" src="<?php echo base_url('docs/wel-other-cloud1.png'); ?>">
+      <img class="wel-other-img-cloud2" src="<?php echo base_url('docs/wel-other-cloud2.png'); ?>">
+      <img class="wel-other-img-cloud3" src="<?php echo base_url('docs/wel-other-cloud3v2.png'); ?>">
+
+      <img class="wel-other-img-monk" src="<?php echo base_url('docs/wel-other-monk.png'); ?>">
+      <img class="wel-other-img-hwoat" src="<?php echo base_url('docs/wel-other-hwoat.png'); ?>">
   </div>
   <div class="welcome-btm-other">
       <img class="dot-updown-animation-1" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">

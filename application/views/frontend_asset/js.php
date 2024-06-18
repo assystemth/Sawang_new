@@ -36,7 +36,7 @@
     $(document).ready(function() {
         var $container = $('.wel-g1-sky');
         var duration = 20000; // 10 วินาที
-        var pauseDuration = 3000; // 3 วินาทีสำหรับการค้างไว้
+        var pauseDuration = 2000; // 3 วินาทีสำหรับการค้างไว้
         var start = null;
 
         function slideBackground(timestamp) {
@@ -64,54 +64,69 @@
         requestAnimationFrame(slideBackground);
     });
 
-    $(document).ready(function() {
+    // สลับหน้า welcome  ********************************************************************************
+    document.addEventListener('DOMContentLoaded', function() {
         let currentIndex = 0; // เริ่มจาก div แรก
-        const $contents = $('.fade-content'); // เลือก div ที่ต้องการสลับ
+        const $contents = document.querySelectorAll('.fade-content'); // เลือก div ที่ต้องการสลับ
 
         function showNextContent() {
-            $contents.eq(currentIndex).removeClass('active'); // ซ่อน div ปัจจุบัน
-            currentIndex = (currentIndex + 1) % $contents.length; // คำนวณ index ของ div ถัดไป
-            $contents.eq(currentIndex).addClass('active'); // แสดง div ถัดไป
+            // ซ่อน div ปัจจุบัน
+            $contents[currentIndex].classList.remove('active');
+            // รอให้ transition (opacity) ทำงานเสร็จ
+            setTimeout(() => {
+                $contents[currentIndex].style.display = 'none'; // ซ่อน div ปัจจุบัน
+
+                // คำนวณ index ของ div ถัดไป
+                currentIndex = (currentIndex + 1) % $contents.length;
+
+                // แสดง div ถัดไป
+                $contents[currentIndex].style.display = 'block'; // ต้องแสดง div ก่อนเพื่อให้ transition ทำงาน
+                setTimeout(() => {
+                    $contents[currentIndex].classList.add('active');
+                }, 10); // ใช้ timeout เล็กน้อยเพื่อให้ transition ทำงาน
+            }, 1000); // รอเวลาให้ transition ของ div ปัจจุบันทำงานเสร็จ (ตรงกับ transition ใน CSS)
         }
 
         // เริ่มต้นโดยแสดง div แรก
-        $contents.eq(currentIndex).addClass('active');
+        $contents[currentIndex].classList.add('active');
+        $contents[currentIndex].style.display = 'block';
 
         // เรียกฟังก์ชัน showNextContent ทุก 10 วินาที
         setInterval(showNextContent, 10000);
     });
+    //  **************************************************************************************************
 
-    $(document).ready(function() {
-        var $container = $('.welcome-other');
-        var duration = 20000; // 10 วินาที
-        var pauseDuration = 3000; // 3 วินาทีสำหรับการค้างไว้
-        var start = null;
 
-        function slideBackground(timestamp) {
-            if (!start) start = timestamp;
-            var elapsed = timestamp - start;
+    // $(document).ready(function() {
+    //     var $container = $('.welcome-other');
+    //     var duration = 20000; // 10 วินาที
+    //     var pauseDuration = 3000; // 3 วินาทีสำหรับการค้างไว้
+    //     var start = null;
 
-            // คำนวณตำแหน่งใหม่ของ background
-            var position = (elapsed / duration) * 100;
+    //     function slideBackground(timestamp) {
+    //         if (!start) start = timestamp;
+    //         var elapsed = timestamp - start;
 
-            // ตั้งค่าตำแหน่ง background ของ container
-            $container.css('background-position', 'center ' + position + '%');
+    //         // คำนวณตำแหน่งใหม่ของ background
+    //         var position = (elapsed / duration) * 100;
 
-            // ดำเนินการ animation จนกระทั่งเวลาครบกำหนด
-            if (elapsed < duration) {
-                requestAnimationFrame(slideBackground);
-            } else {
-                // เมื่อถึงตำแหน่งสุดท้าย ค้างไว้ 3 วินาทีแล้วเริ่มใหม่
-                setTimeout(function() {
-                    start = null;
-                    requestAnimationFrame(slideBackground);
-                }, pauseDuration);
-            }
-        }
+    //         // ตั้งค่าตำแหน่ง background ของ container
+    //         $container.css('background-position', 'center ' + position + '%');
 
-        requestAnimationFrame(slideBackground);
-    });
+    //         // ดำเนินการ animation จนกระทั่งเวลาครบกำหนด
+    //         if (elapsed < duration) {
+    //             requestAnimationFrame(slideBackground);
+    //         } else {
+    //             // เมื่อถึงตำแหน่งสุดท้าย ค้างไว้ 3 วินาทีแล้วเริ่มใหม่
+    //             setTimeout(function() {
+    //                 start = null;
+    //                 requestAnimationFrame(slideBackground);
+    //             }, pauseDuration);
+    //         }
+    //     }
 
+    //     requestAnimationFrame(slideBackground);
+    // });
 
 
     // E-service ด้านบนสู่ด้านล่าง  ********************************************************************************

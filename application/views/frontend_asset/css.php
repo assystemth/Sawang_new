@@ -4575,21 +4575,79 @@
     /* 187.444% */
   }
 
-  .welcome-other {
+  /* .welcome-other {
     background-image: url('<?php echo base_url("docs/s.welcome-other.png"); ?>');
     background-repeat: no-repeat;
     background-size: 100% 1000px;
-    /* ขนาดเต็ม 1920px x 600px */
     width: 1920px;
     height: 600px;
-    /* แสดงความสูงที่คุณต้องการ */
     overflow: hidden;
     position: absolute;
     background-position: top;
-    /* เริ่มจากด้านบน */
+  } */
+
+  .welcome-other {
+    background-image: url('<?php echo base_url("docs/s.welcome-other3.png"); ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1920px;
+    height: 700px;
+    position: absolute;
+    z-index: 1;
   }
 
+  .wel-other-img-monk{
+    position: absolute;
+    z-index: 2;
+    left: 92px;
+    top: 65px;
+  }
+  .wel-other-img-hwoat{
+    position: absolute;
+    z-index: 2;
+    right: 92px;
+    top: 120px;
+  }
 
+  .wel-other-img-cloud1{
+    top: 10px;
+    position: absolute;
+    z-index: 1;
+    animation: animation-wel-other-img-cloud 95s linear infinite;
+    left: 1%;
+  }
+
+  .wel-other-img-cloud2{
+    top: 10px;
+    left: 25%;
+    position: absolute;
+    z-index: 1;
+    animation: animation-wel-other-img-cloud 80s linear infinite;
+  }
+  .wel-other-img-cloud3{
+    top: 200px;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    animation: animation-wel-other-img-cloud 120s linear infinite;
+    animation-delay: 3s;
+  }
+
+  @keyframes animation-wel-other-img-cloud {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
 
   .welcome-btm-other {
     background-image: url('<?php echo base_url("docs/s.welcome-btm-other2.png"); ?>');
@@ -4599,7 +4657,7 @@
     width: 1920px;
     height: 731px;
     position: relative;
-    margin-top: 200px;
+    margin-top: 198px;
   }
 
   @keyframes gradient-move-font {
@@ -5107,25 +5165,27 @@
 
   .fade-container {
     position: relative;
-    width: 1920px;
-    height: 767px;
-  }
+    height: 500px; /* ปรับความสูงตามที่ต้องการ */
+    width: 100%;   /* ปรับความกว้างตามที่ต้องการ */
+}
 
-  .fade-content {
+.fade-content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    /* ทำให้มีการเฟดเอาท์ */
-  }
+    opacity: 0.6; /* เริ่มต้นที่ความโปร่งใส */
+    transition: opacity 1s linear; /* ใช้ transition เพื่อทำให้การเปลี่ยนแปลงความโปร่งใสเนียนขึ้น */
+    z-index: 0; /* ซ่อน div ที่ไม่ได้แสดงอยู่ */
+    display: none; /* ซ่อน div ที่ไม่ได้ active */
+}
 
-  .fade-content.active {
-    opacity: 1;
-    /* ทำให้ div ที่ active มีการแสดงผล */
-  }
+.fade-content.active {
+    opacity: 1; /* ความโปร่งใสเต็มที่เมื่อ div มีคลาส active */
+    z-index: 1; /* ทำให้ div ที่ active อยู่เหนือ div อื่นๆ */
+    display: block; /* แสดง div ที่กำลังใช้งาน */
+}
 
   .wel-g1-bg {
     background-image: url('<?php echo base_url("docs/bg-welcome2.png"); ?>');
@@ -5287,7 +5347,7 @@
     /* เริ่มจากตำแหน่งที่ต่ำกว่าเล็กน้อย */
     animation-fill-mode: forwards;
     /* คงสถานะสุดท้ายของแอนิเมชัน */
-    animation-delay: 12s;
+    animation-delay: 1s;
   }
 
   @keyframes fadeInWel {
@@ -5317,7 +5377,7 @@
     height: 90px;
     padding-top: 10px;
     animation: fadeInWel 5s ease-out forwards;
-    animation-delay: 13s;
+    animation-delay: 3s;
     opacity: 0;
 
   }
@@ -5330,7 +5390,7 @@
     font-weight: 500;
     line-height: normal;
     animation: fadeInWel 5s ease-out forwards;
-    animation-delay: 13s;
+    animation-delay: 3s;
     opacity: 0;
   }
 
