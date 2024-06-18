@@ -571,6 +571,88 @@
             border-right: 1px solid #ccc;
             /* เพิ่มเส้นขอบด้านขวา */
         }
+
+        .input-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon input {
+            padding-left: 35px;
+            /* ปรับ padding ให้พอดีกับไอคอน */
+            width: 280px;
+            height: 51px;
+            box-sizing: border-box;
+            border: none;
+            /* ลบ border ดั้งเดิม */
+            outline: none;
+            /* ลบ outline ตอน focus */
+            background-color: #FFF;
+            /* ปรับสีพื้นหลังตามต้องการ */
+            border-radius: 20px;
+            /* ปรับความโค้งของขอบ */
+            padding: 10px 15px;
+            /* ปรับ padding สำหรับด้านบน/ล่าง และขวา */
+            font-size: 1rem;
+            /* ปรับขนาดตัวอักษรตามต้องการ */
+        }
+
+        .input-icon i {
+            position: absolute;
+            margin-left: -45px;
+            margin-top: 5px;
+            /* ปรับตำแหน่งให้พอดีกับ input */
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            /* เพื่อไม่ให้ไอคอนรบกวนการคลิกที่ input */
+            font-size: 1rem;
+            /* ปรับขนาดไอคอนตามต้องการ */
+            color: #FFF;
+            /* ปรับสีของไอคอนตามต้องการ */
+        }
+
+        .input-icon2 {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon2 input {
+            padding-left: 35px;
+            /* ปรับ padding ให้พอดีกับไอคอน */
+            width: 280px;
+            height: 51px;
+            box-sizing: border-box;
+            border: none;
+            /* ลบ border ดั้งเดิม */
+            outline: none;
+            /* ลบ outline ตอน focus */
+            background-color: #FFF;
+            /* ปรับสีพื้นหลังตามต้องการ */
+            border-radius: 20px;
+            /* ปรับความโค้งของขอบ */
+            padding: 10px 15px;
+            /* ปรับ padding สำหรับด้านบน/ล่าง และขวา */
+            font-size: 1rem;
+            /* ปรับขนาดตัวอักษรตามต้องการ */
+        }
+
+        .input-icon2 i {
+            position: absolute;
+            margin-left: -45px;
+            margin-top: -1px;
+            /* ปรับตำแหน่งให้พอดีกับ input */
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            /* เพื่อไม่ให้ไอคอนรบกวนการคลิกที่ input */
+            font-size: 1rem;
+            /* ปรับขนาดไอคอนตามต้องการ */
+            color: #FFF;
+            /* ปรับสีของไอคอนตามต้องการ */
+        }
     </style>
 </head>
 
@@ -615,14 +697,18 @@
                     <div class="row form-group" style="margin-top: 20px;">
                         <div class="col-6">
                             <div class="input-group from-login" style="margin-left: 200px;">
-                                <input type="text" class="form-control" name="m_username" placeholder="ชื่อผู้ใช้งาน" value="<?php echo $remember_id; ?>">
-                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                <div class="input-icon">
+                                    <input type="text" class="form-control" name="m_username" placeholder="ชื่อผู้ใช้งาน" value="<?php echo $remember_id; ?>">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="input-group from-login" style="margin-right: 200px;">
-                                <input type="password" class="form-control" name="m_password" placeholder="รหัสผ่าน" value="<?php echo $remember_password; ?>">
-                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                <div class="input-icon2">
+                                    <input type="password" class="form-control" name="m_password" placeholder="รหัสผ่าน" value="<?php echo $remember_password; ?>">
+                                    <i class="fa fa-lock"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -636,10 +722,6 @@
                             <a class="forgotpwd underline" href="<?php echo site_url('user/forgotPassword'); ?>">ลืมรหัสผ่าน</a>
                         </div>
                     </div>
-
-
-
-
 
                     <div class="bg-submit-login">
                         <button data-action="submit" data-callback="onSubmit" data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="loginBtn g-recaptcha" id="loginBtn">เข้าสู่ระบบ</button>
