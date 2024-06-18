@@ -361,7 +361,7 @@
 <div class="bg-activity2">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%;">
-            <span class="font-header-activity">กิจกรรม</span>
+            <span class="font-header-activity">ข่าวสาร / กิจกรรม</span>
         </div>
         <div class="row d-flex justify-content-center">
             <?php foreach ($qActivity as $activity) { ?>
