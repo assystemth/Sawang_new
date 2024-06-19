@@ -23,9 +23,13 @@ class Km_backend extends CI_Controller
     {
         $km = $this->km_model->list_all();
 
-        foreach ($km as $files) {
-            $files->file = $this->km_model->list_all_pdf($files->km_id);
+        foreach ($km as $pdf) {
+            $pdf->pdf = $this->km_model->list_all_pdf($pdf->km_id);
         }
+        foreach ($km as $doc) {
+            $doc->doc = $this->km_model->list_all_doc($doc->km_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Km_backend extends CI_Controller
     public function editing($km_id)
     {
         $data['rsedit'] = $this->km_model->read($km_id);
-        $data['rsFile'] = $this->km_model->read_file($km_id);
+        $data['rsPdf'] = $this->km_model->read_pdf($km_id);
+        $data['rsDoc'] = $this->km_model->read_doc($km_id);
         $data['rsImg'] = $this->km_model->read_img($km_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Km_backend extends CI_Controller
         $this->km_model->update_km_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->km_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->km_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->km_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Km_backend extends CI_Controller
     {
         $this->km_model->del_km_img($km_id);
         $this->km_model->del_km_pdf($km_id);
+        $this->km_model->del_km_doc($km_id);
         $this->km_model->del_km($km_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('km_backend');

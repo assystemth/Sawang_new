@@ -23,9 +23,13 @@ class Loadform_backend extends CI_Controller
     {
         $loadform = $this->loadform_model->list_all();
 
-        foreach ($loadform as $files) {
-            $files->file = $this->loadform_model->list_all_pdf($files->loadform_id);
+        foreach ($loadform as $pdf) {
+            $pdf->pdf = $this->loadform_model->list_all_pdf($pdf->loadform_id);
         }
+        foreach ($loadform as $doc) {
+            $doc->doc = $this->loadform_model->list_all_doc($doc->loadform_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Loadform_backend extends CI_Controller
     public function editing($loadform_id)
     {
         $data['rsedit'] = $this->loadform_model->read($loadform_id);
-        $data['rsFile'] = $this->loadform_model->read_file($loadform_id);
+        $data['rsPdf'] = $this->loadform_model->read_pdf($loadform_id);
+        $data['rsDoc'] = $this->loadform_model->read_doc($loadform_id);
         $data['rsImg'] = $this->loadform_model->read_img($loadform_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Loadform_backend extends CI_Controller
         $this->loadform_model->update_loadform_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->loadform_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->loadform_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->loadform_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Loadform_backend extends CI_Controller
     {
         $this->loadform_model->del_loadform_img($loadform_id);
         $this->loadform_model->del_loadform_pdf($loadform_id);
+        $this->loadform_model->del_loadform_doc($loadform_id);
         $this->loadform_model->del_loadform($loadform_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('loadform_backend');

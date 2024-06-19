@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>เพิ่มข้อมูลการปฏิบัติการป้องกันการทุจริต</h4>
-            <form action=" <?php echo site_url('operation_aca_backend/add'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+          <form action=" <?php echo site_url('operation_aca_backend/add'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">เรื่อง</div>
@@ -75,10 +75,20 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="operation_aca_file_pdf[]" class="form-control" accept="application/pdf" multiple>
+                        <input type="file" name="operation_aca_pdf_pdf[]" class="form-control" accept="application/pdf" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ PDF)</span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
+                    <div class="col-sm-6">
+                        <input type="file" name="operation_aca_file_doc[]" class="form-control" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+                        <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
+                        <br>
+                        <span class="red-add">(เฉพาะไฟล์ .doc .docx .ppt .pptx .xls .xlsx)</span>
                     </div>
                 </div>
                 <br>

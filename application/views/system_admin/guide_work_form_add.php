@@ -3,10 +3,10 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>เพิ่มข้อมูลคู่มือการปฏิบัติงาน</h4>
-            <form action=" <?php echo site_url('Guide_work_backend/add'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action=" <?php echo site_url('guide_work_backend/add'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
-                    <div class="col-sm-3 control-label">หัวเรื่อง</div>
+                    <div class="col-sm-3 control-label">เรื่อง</div>
                     <div class="col-sm-9">
                         <input type="text" name="guide_work_name" id="guide_work_name" class="form-control" required>
                     </div>
@@ -65,7 +65,7 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">รูปภาพเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="guide_work_img_img[]" class="form-control" accept="image/*">
+                        <input type="file" name="guide_work_img_img[]" class="form-control" accept="image/*" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ .JPG/.JPEG/.PNG)</span>
@@ -75,7 +75,7 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="guide_work_file_pdf[]" class="form-control" accept="application/pdf">
+                        <input type="file" name="guide_work_pdf_pdf[]" class="form-control" accept="application/pdf" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ PDF)</span>
@@ -83,10 +83,20 @@
                 </div>
                 <br>
                 <div class="form-group row">
+                    <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
+                    <div class="col-sm-6">
+                        <input type="file" name="guide_work_file_doc[]" class="form-control" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+                        <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
+                        <br>
+                        <span class="red-add">(เฉพาะไฟล์ .doc .docx .ppt .pptx .xls .xlsx)</span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
                     <div class="col-sm-3 control-label"></div>
                     <div class="col-sm-6">
                         <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
-                        <a class="btn btn-danger" href="<?= site_url('Guide_work_backend'); ?>" role="button">ยกเลิก</a>
+                        <a class="btn btn-danger" href="<?= site_url('guide_work_backend'); ?>" role="button">ยกเลิก</a>
                     </div>
                 </div>
             </form>

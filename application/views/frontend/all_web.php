@@ -189,7 +189,7 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/procurement'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/e_gp'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง e-GP</a><br>
+                        <a href="<?php echo site_url('Pages/egp'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง e-GP</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/p_rpo'); ?>" class="font-content-all-web">รายงานผลการดำเนินงานจัดซื้อจัดจ้าง</a><br>
                         <div class="mt-1"></div>

@@ -23,9 +23,13 @@ class p_rpo_backend extends CI_Controller
     {
         $p_rpo = $this->p_rpo_model->list_all();
 
-        foreach ($p_rpo as $files) {
-            $files->file = $this->p_rpo_model->list_all_pdf($files->p_rpo_id);
+        foreach ($p_rpo as $pdf) {
+            $pdf->pdf = $this->p_rpo_model->list_all_pdf($pdf->p_rpo_id);
         }
+        foreach ($p_rpo as $doc) {
+            $doc->doc = $this->p_rpo_model->list_all_doc($doc->p_rpo_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class p_rpo_backend extends CI_Controller
     public function editing($p_rpo_id)
     {
         $data['rsedit'] = $this->p_rpo_model->read($p_rpo_id);
-        $data['rsFile'] = $this->p_rpo_model->read_file($p_rpo_id);
+        $data['rsPdf'] = $this->p_rpo_model->read_pdf($p_rpo_id);
+        $data['rsDoc'] = $this->p_rpo_model->read_doc($p_rpo_id);
         $data['rsImg'] = $this->p_rpo_model->read_img($p_rpo_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class p_rpo_backend extends CI_Controller
         $this->p_rpo_model->update_p_rpo_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->p_rpo_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->p_rpo_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->p_rpo_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class p_rpo_backend extends CI_Controller
     {
         $this->p_rpo_model->del_p_rpo_img($p_rpo_id);
         $this->p_rpo_model->del_p_rpo_pdf($p_rpo_id);
+        $this->p_rpo_model->del_p_rpo_doc($p_rpo_id);
         $this->p_rpo_model->del_p_rpo($p_rpo_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('p_rpo_backend');

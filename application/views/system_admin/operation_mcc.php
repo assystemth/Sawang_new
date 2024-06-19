@@ -21,12 +21,12 @@
             <?php
             $Index = 1;
             ?>
-            <table id="newdataTables" class="table">
+                        <table id="newdataTables" class="table">
                 <thead>
                     <tr>
                         <th style="width: 5%;">ลำดับ</th>
                         <th style="width: 13%;">รูปภาพ</th>
-                        <th style="width: 15%;">ไฟล์ PDF</th>
+                        <th style="width: 15%;">ไฟล์เอกสาร</th>
                         <th style="width: 30%;">ชื่อ</th>
                         <th style="width: 15%;">อัพโหลด</th>
                         <th style="width: 7%;">วันที่</th>
@@ -43,13 +43,16 @@
                                 <?php if (!empty($rs->operation_mcc_img)) : ?>
                                     <img src="<?php echo base_url('docs/img/' . $rs->operation_mcc_img); ?>" width="120px" height="80px">
                                 <?php else : ?>
-                                    <img src="<?php echo base_url('docs/coverphoto.jpg'); ?>" width="120px" height="80px">
+                                    <img src="<?php echo base_url('docs/k.logo.png'); ?>" width="120px" height="80px">
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php foreach ($rs->file as $pdf) : ?>
-                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_mcc_file_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
-                                    <br>
+                                <?php foreach ($rs->pdf as $pdf) : ?>
+                                    <a class="btn btn-primary btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_mcc_pdf_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
+                                <?php endforeach; ?>
+                                <br>
+                                <?php foreach ($rs->doc as $doc) : ?>
+                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $doc->operation_mcc_file_doc); ?>" target="_blank">ดูไฟล์เดิม!</a>
                                 <?php endforeach; ?>
                             </td>
                             <td class="limited-text"><?= $rs->operation_mcc_name; ?></td>

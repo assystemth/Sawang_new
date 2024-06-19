@@ -6,7 +6,7 @@
             <form action=" <?php echo site_url('loadform_backend/add'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
-                    <div class="col-sm-3 control-label">หัวเรื่อง</div>
+                    <div class="col-sm-3 control-label">เรื่อง</div>
                     <div class="col-sm-9">
                         <input type="text" name="loadform_name" id="loadform_name" class="form-control" required>
                     </div>
@@ -65,7 +65,7 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">รูปภาพเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="loadform_img_img[]" class="form-control" accept="image/*">
+                        <input type="file" name="loadform_img_img[]" class="form-control" accept="image/*" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ .JPG/.JPEG/.PNG)</span>
@@ -75,10 +75,20 @@
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="loadform_file_pdf[]" class="form-control" accept="application/pdf">
+                        <input type="file" name="loadform_pdf_pdf[]" class="form-control" accept="application/pdf" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ PDF)</span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <div class="col-sm-3 control-label">ไฟล์เอกสารเพิ่มเติม</div>
+                    <div class="col-sm-6">
+                        <input type="file" name="loadform_file_doc[]" class="form-control" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+                        <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
+                        <br>
+                        <span class="red-add">(เฉพาะไฟล์ .doc .docx .ppt .pptx .xls .xlsx)</span>
                     </div>
                 </div>
                 <br>

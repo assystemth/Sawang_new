@@ -23,9 +23,13 @@ class Operation_aditn_backend extends CI_Controller
     {
         $operation_aditn = $this->operation_aditn_model->list_all();
 
-        foreach ($operation_aditn as $files) {
-            $files->file = $this->operation_aditn_model->list_all_pdf($files->operation_aditn_id);
+        foreach ($operation_aditn as $pdf) {
+            $pdf->pdf = $this->operation_aditn_model->list_all_pdf($pdf->operation_aditn_id);
         }
+        foreach ($operation_aditn as $doc) {
+            $doc->doc = $this->operation_aditn_model->list_all_doc($doc->operation_aditn_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Operation_aditn_backend extends CI_Controller
     public function editing($operation_aditn_id)
     {
         $data['rsedit'] = $this->operation_aditn_model->read($operation_aditn_id);
-        $data['rsFile'] = $this->operation_aditn_model->read_file($operation_aditn_id);
+        $data['rsPdf'] = $this->operation_aditn_model->read_pdf($operation_aditn_id);
+        $data['rsDoc'] = $this->operation_aditn_model->read_doc($operation_aditn_id);
         $data['rsImg'] = $this->operation_aditn_model->read_img($operation_aditn_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Operation_aditn_backend extends CI_Controller
         $this->operation_aditn_model->update_operation_aditn_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->operation_aditn_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->operation_aditn_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->operation_aditn_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Operation_aditn_backend extends CI_Controller
     {
         $this->operation_aditn_model->del_operation_aditn_img($operation_aditn_id);
         $this->operation_aditn_model->del_operation_aditn_pdf($operation_aditn_id);
+        $this->operation_aditn_model->del_operation_aditn_doc($operation_aditn_id);
         $this->operation_aditn_model->del_operation_aditn($operation_aditn_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('operation_aditn_backend');

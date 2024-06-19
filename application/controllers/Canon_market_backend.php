@@ -23,9 +23,13 @@ class Canon_market_backend extends CI_Controller
     {
         $canon_market = $this->canon_market_model->list_all();
 
-        foreach ($canon_market as $files) {
-            $files->file = $this->canon_market_model->list_all_pdf($files->canon_market_id);
+        foreach ($canon_market as $pdf) {
+            $pdf->pdf = $this->canon_market_model->list_all_pdf($pdf->canon_market_id);
         }
+        foreach ($canon_market as $doc) {
+            $doc->doc = $this->canon_market_model->list_all_doc($doc->canon_market_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Canon_market_backend extends CI_Controller
     public function editing($canon_market_id)
     {
         $data['rsedit'] = $this->canon_market_model->read($canon_market_id);
-        $data['rsFile'] = $this->canon_market_model->read_file($canon_market_id);
+        $data['rsPdf'] = $this->canon_market_model->read_pdf($canon_market_id);
+        $data['rsDoc'] = $this->canon_market_model->read_doc($canon_market_id);
         $data['rsImg'] = $this->canon_market_model->read_img($canon_market_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Canon_market_backend extends CI_Controller
         $this->canon_market_model->update_canon_market_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->canon_market_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->canon_market_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->canon_market_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Canon_market_backend extends CI_Controller
     {
         $this->canon_market_model->del_canon_market_img($canon_market_id);
         $this->canon_market_model->del_canon_market_pdf($canon_market_id);
+        $this->canon_market_model->del_canon_market_doc($canon_market_id);
         $this->canon_market_model->del_canon_market($canon_market_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('canon_market_backend');
