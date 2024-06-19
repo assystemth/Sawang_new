@@ -3,7 +3,7 @@
 
 <head>
     <link rel="icon" href="<?php echo base_url("docs/logo.png"); ?>" type="image/x-icon">
-    <title>อบต.สว่าง ระบบอินทราเน็ต</title>
+    <title>อบต.สว่าง ระบบBack Office</title>
     <!-- icon -->
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
