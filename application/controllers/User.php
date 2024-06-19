@@ -141,10 +141,19 @@ class User extends CI_Controller
 
 	public function forgotPassword()
 	{
+		$api_data1 = $this->fetch_api_data('https://www.assystem.co.th/service_api/index.php');
+		if ($api_data1 !== FALSE) {
+		   // Merge API data with existing data
+		   $data['api_data1'] = $api_data1;
+	   } else {
+		   // Handle if API data is not fetched successfully
+		   $data['api_data1'] = []; // or any default value as needed
+	   }
+
 		$this->load->view('asset/css');
-		$this->load->view('forgotPassword');
+		$this->load->view('forgotPassword',$data);
 		$this->load->view('asset/js');
-		$this->load->view('templat/footer');
+		// $this->load->view('templat/footer');
 	}
 
 	public function sendEmail()
