@@ -33,6 +33,8 @@ class Home extends CI_Controller
 
 		$this->load->model('publicize_ita_model');
 		$this->load->model('prov_local_doc_model');
+
+		$this->load->model('intra_egp_model');
 	}
 
 	public function main()
@@ -47,17 +49,17 @@ class Home extends CI_Controller
 		// โหลดข้อมูลอื่น ๆ ก่อน
 		$data = $this->loadOtherData();
 
-		// โหลด API หลังจากโหลดข้อมูลอื่น ๆ เสร็จแล้ว
-		$apiData = $this->loadApiData();
+		// // โหลด API หลังจากโหลดข้อมูลอื่น ๆ เสร็จแล้ว
+		// $apiData = $this->loadApiData();
 
-		// ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
-		if ($apiData !== FALSE) {
-			// รวมข้อมูลทั้งหมด
-			$data['json_data'] = $apiData;
-		} else {
-			// ถ้า API ใช้งานไม่ได้ ไม่ต้องส่งข้อมูลไปที่หน้า home
-			$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
-		}
+		// // ตรวจสอบว่าข้อมูล API ใช้งานได้หรือไม่
+		// if ($apiData !== FALSE) {
+		// 	// รวมข้อมูลทั้งหมด
+		// 	$data['json_data'] = $apiData;
+		// } else {
+		// 	// ถ้า API ใช้งานไม่ได้ ไม่ต้องส่งข้อมูลไปที่หน้า home
+		// 	$data['json_data'] = []; // หรือสามารถไม่กำหนดค่านี้เลยตามความเหมาะสม
+		// }
 
 		// เรียกใช้ฟังก์ชันเพื่อโหลดข้อมูล RSS
 		$rssData = $this->loadNewsDlaData();
@@ -117,6 +119,8 @@ class Home extends CI_Controller
 		$data['qCalender'] = $this->calender_model->calender_frontend();
 		$data['qActivity'] = $this->activity_model->activity_frontend();
 
+		$data['qEgp'] = $this->intra_egp_model->egp_frontend();
+
 		$data['qP_reb'] = $this->p_reb_model->p_reb_frontend();
 		$data['qP_rpo'] = $this->p_rpo_model->p_rpo_frontend();
 		$data['qNews'] = $this->news_model->news_frontend();
@@ -149,40 +153,40 @@ class Home extends CI_Controller
 		return $data;
 	}
 
-	private function loadApiData()
-	{
-		// URL of the Open API
-		$api_url = 'https://opend.data.go.th/govspending/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&year=2566&dept_code=6450704&budget_start=0&budget_end=1000000000&offset=0&limit=500&keyword=&winner_tin=';
+	// private function loadApiData()
+	// {
+	// 	// URL of the Open API
+	// 	$api_url = 'https://opend.data.go.th/govspending/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&year=2566&dept_code=6450704&budget_start=0&budget_end=1000000000&offset=0&limit=500&keyword=&winner_tin=';
 
-		// Configure options for the HTTP request
-		$options = [
-			'http' => [
-				'method' => 'GET',
-				'timeout' => 5, // Set a timeout value for the request (in seconds)
-				'ignore_errors' => true, // Ignore HTTP errors to handle them manually
-			],
-		];
+	// 	// Configure options for the HTTP request
+	// 	$options = [
+	// 		'http' => [
+	// 			'method' => 'GET',
+	// 			'timeout' => 5, // Set a timeout value for the request (in seconds)
+	// 			'ignore_errors' => true, // Ignore HTTP errors to handle them manually
+	// 		],
+	// 	];
 
-		// Create a stream context with the specified options
-		$context = stream_context_create($options);
+	// 	// Create a stream context with the specified options
+	// 	$context = stream_context_create($options);
 
-		// Fetch data from the API using file_get_contents with the specified context
-		$api_data = file_get_contents($api_url, false, $context);
+	// 	// Fetch data from the API using file_get_contents with the specified context
+	// 	$api_data = file_get_contents($api_url, false, $context);
 
-		// Check if data is fetched successfully
-		if ($api_data !== FALSE) {
-			// Decode the JSON data
-			$json_data = json_decode($api_data, TRUE);
+	// 	// Check if data is fetched successfully
+	// 	if ($api_data !== FALSE) {
+	// 		// Decode the JSON data
+	// 		$json_data = json_decode($api_data, TRUE);
 
-			// Check if JSON decoding is successful
-			if ($json_data !== NULL) {
-				return $json_data;
-			}
-		}
+	// 		// Check if JSON decoding is successful
+	// 		if ($json_data !== NULL) {
+	// 			return $json_data;
+	// 		}
+	// 	}
 
-		// ในกรณีที่มีปัญหาในการโหลดหรือประมวลผลข้อมูล
-		return FALSE; // แก้ไขให้ฟังก์ชันนี้คืนค่า FALSE แทน []
-	}
+	// 	// ในกรณีที่มีปัญหาในการโหลดหรือประมวลผลข้อมูล
+	// 	return FALSE; // แก้ไขให้ฟังก์ชันนี้คืนค่า FALSE แทน []
+	// }
 
 	private function loadNewsDlaData()
 	{

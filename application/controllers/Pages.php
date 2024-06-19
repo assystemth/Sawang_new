@@ -115,6 +115,7 @@ class Pages extends CI_Controller
 		$this->load->model('elderly_aw_ods_model');
 		$this->load->model('odata_model');
 
+		$this->load->model('intra_egp_model');
 	}
 
 	// public function index()
@@ -474,32 +475,38 @@ class Pages extends CI_Controller
 	{
 		$this->loadform_model->increment_download_loadform($loadform_file_id);
 	}
-	public function e_gp()
+	public function egp()
 	{
-		// URL of the Open API
-		$api_url = 'https://opend.data.go.th/govspending/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&year=2566&dept_code=6320120&budget_start=0&budget_end=1000000000&offset=0&limit=500&keyword=&winner_tin=';
+		// // URL of the Open API
+		// $api_url = 'https://opend.data.go.th/govspending/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&year=2566&dept_code=6320120&budget_start=0&budget_end=1000000000&offset=0&limit=500&keyword=&winner_tin=';
 
-		// Fetch data from the API
-		$api_data = file_get_contents($api_url);
+		// // Fetch data from the API
+		// $api_data = file_get_contents($api_url);
 
-		// Check if data is fetched successfully
-		if ($api_data !== FALSE) {
-			// Decode the JSON data
-			$json_data = json_decode($api_data, TRUE);
+		// // Check if data is fetched successfully
+		// if ($api_data !== FALSE) {
+		// 	// Decode the JSON data
+		// 	$json_data = json_decode($api_data, TRUE);
 
-			// Check if JSON decoding is successful
-			if ($json_data !== NULL) {
-				// Pass JSON data to the view
-				$data['json_data'] = $json_data;
+		// 	// Check if JSON decoding is successful
+		// 	if ($json_data !== NULL) {
+		// 		// Pass JSON data to the view
+		// 		$data['json_data'] = $json_data;
+		$data['q2567'] = $this->intra_egp_model->egp_y2567();
+		$data['q2566'] = $this->intra_egp_model->egp_y2566();
+		$data['q2565'] = $this->intra_egp_model->egp_y2565();
+		$data['q2564'] = $this->intra_egp_model->egp_y2564();
+		$data['q2563'] = $this->intra_egp_model->egp_y2563();
 
-				$this->load->view('frontend_templat/header');
-				$this->load->view('frontend_asset/css');
-				$this->load->view('frontend_templat/navbar_other');
-				$this->load->view('frontend/e_gp', $data);
-				$this->load->view('frontend_asset/js');
-				$this->load->view('frontend_templat/footer_other');
-			}
-		}
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/e_gp', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+		// 	}
+		// }
 	}
 	public function otop()
 	{
@@ -2880,7 +2887,7 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-$data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
+		$data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
 		$data['rsDoc'] = $this->newsletter_model->read_doc($newsletter_id);
 		$data['rsImg'] = $this->newsletter_model->read_img($newsletter_id);
 
@@ -3584,32 +3591,32 @@ $data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
 		// รับค่าจากฟอร์ม
 		$elderly_aw_id_num_eligible = $this->input->post('elderly_aw_id_num_eligible');
 		$elderly_aw_period_payment = $this->input->post('elderly_aw_period_payment');
-	
+
 		// ตรวจสอบว่ามีค่าหมายเลขประจำตัวประชาชนหรือไม่
 		if (!empty($elderly_aw_id_num_eligible)) {
 			$this->db->where('elderly_aw_id_num_eligible', $elderly_aw_id_num_eligible);
-	
+
 			if (!empty($elderly_aw_period_payment)) {
 				$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
 			}
-	
+
 			$query = $this->db->get('tbl_elderly_aw');
 			$elderly_aw_data = $query->result_array();
-	
+
 			if (empty($elderly_aw_data)) {
 				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนที่ท่านเลือก';
 				$elderly_aw_data = array();
 			} else {
 				// จัดเรียงข้อมูลโดยใช้ usort
-				usort($elderly_aw_data, function($a, $b) {
+				usort($elderly_aw_data, function ($a, $b) {
 					list($monthA, $yearA) = explode('/', $a['elderly_aw_period_payment']);
 					list($monthB, $yearB) = explode('/', $b['elderly_aw_period_payment']);
-	
+
 					$yearA = (int)$yearA;
 					$yearB = (int)$yearB;
 					$monthA = (int)$monthA;
 					$monthB = (int)$monthB;
-	
+
 					// เปรียบเทียบปี: ใช้เรียงลำดับจากมากไปน้อย
 					if ($yearA != $yearB) {
 						return $yearB - $yearA; // เรียงจากปีใหม่ไปเก่า
@@ -3622,9 +3629,9 @@ $data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
 			$elderly_aw_data = array();
 			$data['error_message'] = 'กรุณากรอกหมายเลขประจำตัวประชาชน';
 		}
-	
+
 		$data['elderly_aw_data'] = $elderly_aw_data;
-	
+
 		// โหลด View
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
