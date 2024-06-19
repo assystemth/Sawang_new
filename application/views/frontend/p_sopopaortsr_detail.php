@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">รายงานสรุปผลการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span>
 </div>
 </div>
@@ -29,19 +29,19 @@
             <div class="row">
                 <div class="col-6 mt-2">
                     <div class="d-flex justify-content-start">
-                        <span class="font-page-detail-view-news">ดาวโหลดแล้ว <?= $file->p_sopopaortsr_file_download; ?> ครั้ง</span>
+                        <span class="font-page-detail-view-news">ดาวโหลดแล้ว <?= $file->p_sopopaortsr_pdf_download; ?> ครั้ง</span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="d-flex justify-content-end">
-                        <a onclick="downloadFile(event, <?= $file->p_sopopaortsr_file_id; ?>)" href="<?= base_url('docs/file/' . $file->p_sopopaortsr_file_pdf); ?>" download>
-                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download">
+                        <a onclick="downloadFile(event, <?= $file->p_sopopaortsr_pdf_id; ?>)" href="<?= base_url('docs/file/' . $file->p_sopopaortsr_pdf_pdf); ?>" download>
+                            <img src="<?php echo base_url("docs/btn-download.png"); ?>" class="btn-download" >
                         </a>
                         <script>
-                            function downloadFile(event, p_sopopaortsr_file_id) {
+                            function downloadFile(event, p_sopopaortsr_pdf_id) {
                                 // ทำการส่งคำร้องขอ AJAX ไปยัง URL ที่บันทึกการดาวน์โหลดพร้อมกับ ID
                                 var xhr = new XMLHttpRequest();
-                                xhr.open('GET', '<?= base_url('Pages/increment_download_p_sopopaortsr/'); ?>' + p_sopopaortsr_file_id, true);
+                                xhr.open('GET', '<?= base_url('Pages/increment_download_p_sopopaortsr/'); ?>' + p_sopopaortsr_pdf_id, true);
                                 xhr.send();
 
                                 // ทำการเปิดไฟล์ PDF ในหน้าต่างใหม่
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="blog-text mt-3 mb-5">
-                <object data="<?= base_url('docs/file/' . $file->p_sopopaortsr_file_pdf); ?>" type="application/pdf" width="100%" height="1500px"></object>
+                <object data="<?= base_url('docs/file/' . $file->p_sopopaortsr_pdf_pdf); ?>" type="application/pdf" width="100%" height="1500px"></object>
             </div>
         <?php } ?>
         <div class="d-flex justify-content-start">
