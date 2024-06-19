@@ -102,13 +102,13 @@
         }
 
         .bg-login-back-office {
-            background-image: url('<?php echo base_url("docs/b.btn-login-back-office1.png"); ?>');
+            background-image: url('<?php echo base_url("docs/b.btn-login-back-office3.png"); ?>');
             width: 312px;
             height: 196px;
         }
 
         .bg-login-back-office:hover {
-            background-image: url('<?php echo base_url("docs/b.btn-login-back-office1-hover.png"); ?>');
+            background-image: url('<?php echo base_url("docs/b.btn-login-back-office3-hover.png"); ?>');
             width: 312px;
             height: 196px;
         }
