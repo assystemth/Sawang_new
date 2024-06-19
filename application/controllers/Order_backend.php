@@ -23,9 +23,13 @@ class Order_backend extends CI_Controller
     {
         $order = $this->order_model->list_all();
 
-        foreach ($order as $files) {
-            $files->file = $this->order_model->list_all_pdf($files->order_id);
+        foreach ($order as $pdf) {
+            $pdf->pdf = $this->order_model->list_all_pdf($pdf->order_id);
         }
+        foreach ($order as $doc) {
+            $doc->doc = $this->order_model->list_all_doc($doc->order_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Order_backend extends CI_Controller
     public function editing($order_id)
     {
         $data['rsedit'] = $this->order_model->read($order_id);
-        $data['rsFile'] = $this->order_model->read_file($order_id);
+        $data['rsPdf'] = $this->order_model->read_pdf($order_id);
+        $data['rsDoc'] = $this->order_model->read_doc($order_id);
         $data['rsImg'] = $this->order_model->read_img($order_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Order_backend extends CI_Controller
         $this->order_model->update_order_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->order_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->order_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->order_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Order_backend extends CI_Controller
     {
         $this->order_model->del_order_img($order_id);
         $this->order_model->del_order_pdf($order_id);
+        $this->order_model->del_order_doc($order_id);
         $this->order_model->del_order($order_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('order_backend');

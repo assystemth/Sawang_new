@@ -1,23 +1,14 @@
-<div class="bg-pages-news">
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">ข้อบัญญัติควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span>
+</div>
+</div>
+
+<div class="bg-pages">
     <div class="container-pages-news">
-        <div class="page-center">
-            <div class="head-pages-three">
-                <span class="font-pages-head">ข้อบัญญัติควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="path1-1">
-                <span class="font-path-1 underline"><a href="<?php echo site_url('Home'); ?>">หน้าแรก</a></span>
-            </div>
-            <div class="path2-1">
-                <span class="font-path-2 underline"><a href="#">ข้อบัญญัติ</a></span>
-            </div>
-        </div>
-        <div style="padding-top: 40px;"></div>
         <?php
         $count = count($query);
-        $itemsPerPage = 10; // จำนวนรายการต่อหน้า
-        $totalPages = ceil($count / $itemsPerPage);
+        $itemsPerPage = 27; // จำนวนรายการต่อหน้า
+        $totacanon_rcpges = ceil($count / $itemsPerPage);
 
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -26,7 +17,7 @@
         $half = floor($numToShow / 2);
 
         $startPage = max($currentPage - $half, 1);
-        $endPage = min($startPage + $numToShow - 1, $totalPages);
+        $endPage = min($startPage + $numToShow - 1, $totacanon_rcpges);
 
         $startIndex = ($currentPage - 1) * $itemsPerPage;
         $endIndex = min($startIndex + $itemsPerPage - 1, $count - 1);
@@ -38,11 +29,7 @@
                 <div class="row">
                     <div class="col-1 style-col-img">
                         <a href="<?php echo site_url('Pages/canon_rcp_detail/' . $rs->canon_rcp_id); ?>">
-                            <?php if (!empty($rs->canon_rcp_img)) : ?>
-                                <img class="border-radius24" src="<?php echo base_url('docs/img/' . $rs->canon_rcp_img); ?>" width="94px" height="63px">
-                            <?php else : ?>
-                                <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="94px" height="63px">
-                            <?php endif; ?>
+                            <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="50px" height="50px">
                         </a>
                     </div>
                     <div class="col-9 font-pages-content">
@@ -70,10 +57,32 @@
                 </div>
             </div>
         <?php } ?>
-        <!-- แสดงปุ่ม Pagination -->
-        <div class="pagination-container d-flex justify-content-between">
+        <!-- จัดการหน้า -->
+        <div class="pagination-container d-flex justify-content-end">
             <div class="pagination-pages">
                 <ul class="pagination">
+                    <!-- ปุ่ม "กลับไปหน้าแรก" -->
+                    <?php if ($currentPage > 1) : ?>
+                        <li class="page-item pagination-item">
+                            <a class="" href="?page=1" aria-label="First">
+                                <img src="<?php echo base_url('docs/s.pages-first.png'); ?>" class="pages-first">
+                                <span aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <!-- ปุ่ม Previous -->
+                    <?php if ($currentPage > 1) : ?>
+                        <li class="page-item" style="width: 55px; margin-left: -12px;">
+                            <a class="" href="?page=<?php echo $currentPage - 1; ?>" aria-label="Previous">
+                                <img src="<?php echo base_url('docs/s.pages-pre.png'); ?>" alt="Previous" class="pages-pre">
+                                <span aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+
+
                     <!-- แสดงปุ่ม "กลับไปหน้าแรก" ถ้าหน้าปัจจุบันไม่ได้ต่อเนื่องจากหน้าแรก -->
                     <?php
                     $numToShow = 3; // จำนวนปุ่มที่ต้องการแสดง
@@ -83,17 +92,22 @@
                     $startPage = max($currentPage - $half, 1);
 
                     // ปุ่มหน้าสุดท้าย
-                    $endPage = min($startPage + $numToShow - 1, $totalPages);
+                    $endPage = min($startPage + $numToShow - 1, $totacanon_rcpges);
 
                     // แสดงปุ่ม "กลับไปหน้าแรก" ถ้าหน้าปัจจุบันไม่ได้ต่อเนื่องจากหน้าแรก
-                    if ($currentPage - $numToShow > -1) {
+                    if ($startPage > 1) {
                     ?>
                         <li class="page-item pagination-item">
                             <a class="page-link" href="?page=1">1</a>
                         </li>
-                        <li class="page-item pagination-item disabled">
-                            <span class="page-link">...</span>
-                        </li>
+                        <?php if ($startPage > 2) : ?>
+                            <li class="page-item pagination-item">
+                                <a class="page-link" href="?page=2">2</a>
+                            </li>
+                            <li class="page-item pagination-item disabled">
+                                <span class="page-link">...</span>
+                            </li>
+                        <?php endif; ?>
                     <?php
                     }
 
@@ -106,53 +120,57 @@
                     <?php
                     }
 
-                    // แสดงปุ่ม "..." ถ้าหน้าไม่ได้ต่อเนื่อง
-                    if ($endPage < $totalPages) {
+                    // แสดงปุ่ม "..." ถ้าหน้าไม่ได้ต่อเนื่อง และรองสุดท้าย
+                    if ($endPage < $totacanon_rcpges - 1) {
                     ?>
                         <li class="page-item pagination-item disabled">
                             <span class="page-link">...</span>
+                        </li>
+                        <li class="page-item pagination-item">
+                            <a class="page-link" href="?page=<?php echo $totacanon_rcpges - 1; ?>"><?php echo $totacanon_rcpges - 1; ?></a>
                         </li>
                     <?php
                     }
 
                     // แสดงปุ่มสุดท้าย
-                    if ($endPage < $totalPages) {
+                    if ($endPage < $totacanon_rcpges) {
                     ?>
-                        <li class="page-item pagination-item <?php echo ($totalPages == $currentPage) ? 'active' : ''; ?>">
-                            <a class="page-link" href="?page=<?php echo $totalPages; ?>"><?php echo $totalPages; ?></a>
+                        <li class="page-item pagination-item <?php echo ($totacanon_rcpges == $currentPage) ? 'active' : ''; ?>">
+                            <a class="page-link" href="?page=<?php echo $totacanon_rcpges; ?>"><?php echo $totacanon_rcpges; ?></a>
                         </li>
                     <?php
                     }
                     ?>
+                    <!-- ปุ่ม Next -->
+                    <?php if ($currentPage < $totacanon_rcpges) : ?>
+                        <li class="page-item" style="width: 55px; margin-left: -10px;">
+                            <a class="" href="?page=<?php echo $currentPage + 1; ?>" aria-label="Next">
+                                <img src="<?php echo base_url('docs/s.pages-next.png'); ?>" alt="Next" class="pages-next">
+                                <span aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
+                    <!-- ปุ่ม "ไปหน้าสุดท้าย" -->
+                    <?php if ($currentPage < $totacanon_rcpges) : ?>
+                        <li class="page-item pagination-item">
+                            <a class="" href="?page=<?php echo $totacanon_rcpges; ?>" aria-label="Last">
+                                <img src="<?php echo base_url('docs/s.pages-last.png'); ?>" alt="Last" class="pages-last">
+                                <span aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
-            <!-- ปุ่ม Next และ Previous -->
-            <div class="pagination-next-prev row" style="list-style-type: none;">
-                <div class="col-5">
-                    <?php if ($currentPage > 1) : ?>
-                        <li class="page-item">
-                            <a class="page-link" href="?page=<?php echo $currentPage - 1; ?>" aria-label="Previous">
-                                <img src="<?php echo base_url('docs/s.pages-pre2.png'); ?>" alt="Previous" class="pagination-icon">
-                                <span aria-hidden="true"></span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                </div>
-                <div class="col-5">
-                    <?php if ($currentPage < $totalPages) : ?>
-                        <li class="page-item">
-                            <a class="page-link" href="?page=<?php echo $currentPage + 1; ?>" aria-label="Next">
-                                <img src="<?php echo base_url('docs/s.pages-next2.png'); ?>" alt="Next" class="pagination-icon">
-                                <span aria-hidden="true"></span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                </div>
-            </div>
         </div>
-        <div class="margin-top-delete-topic d-flex justify-content-end">
-            <a href="<?php echo site_url('Home'); ?>"><img src="<?php echo base_url("docs/s.btn-back.png"); ?>"></a>
+
+        <!-- ฟอร์มกรอกหมายเลขหน้า -->
+        <div class="pagination-jump-to-page d-flex justify-content-end">
+            <form action="" method="GET" class="d-flex">
+                <label style="font-size: 24px;">ไปหน้าที่&nbsp;&nbsp;</label>
+                <input type="number" name="page" min="1" max="<?php echo $totacanon_rcpges; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;">
+                <input type="image" src="<?php echo base_url('docs/s.pages-go.png'); ?>" alt="Go" class="pages-go" style="width: 40px; height: 40px;">
+            </form>
         </div>
     </div>
 </div>

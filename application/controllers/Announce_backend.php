@@ -23,9 +23,13 @@ class Announce_backend extends CI_Controller
     {
         $announce = $this->announce_model->list_all();
 
-        foreach ($announce as $files) {
-            $files->file = $this->announce_model->list_all_pdf($files->announce_id);
+        foreach ($announce as $pdf) {
+            $pdf->pdf = $this->announce_model->list_all_pdf($pdf->announce_id);
         }
+        foreach ($announce as $doc) {
+            $doc->doc = $this->announce_model->list_all_doc($doc->announce_id);
+        }
+
 
         $this->load->view('templat/header');
         $this->load->view('asset/css');
@@ -55,7 +59,8 @@ class Announce_backend extends CI_Controller
     public function editing($announce_id)
     {
         $data['rsedit'] = $this->announce_model->read($announce_id);
-        $data['rsFile'] = $this->announce_model->read_file($announce_id);
+        $data['rsPdf'] = $this->announce_model->read_pdf($announce_id);
+        $data['rsDoc'] = $this->announce_model->read_doc($announce_id);
         $data['rsImg'] = $this->announce_model->read_img($announce_id);
         // echo '<pre>';
         // print_r($data['rsfile']);
@@ -81,10 +86,19 @@ class Announce_backend extends CI_Controller
         $this->announce_model->update_announce_status();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->announce_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->announce_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->announce_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -103,6 +117,7 @@ class Announce_backend extends CI_Controller
     {
         $this->announce_model->del_announce_img($announce_id);
         $this->announce_model->del_announce_pdf($announce_id);
+        $this->announce_model->del_announce_doc($announce_id);
         $this->announce_model->del_announce($announce_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('announce_backend');

@@ -197,8 +197,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
+		$data['rsPdf'] = $this->news_model->read_pdf($news_id);
+		$data['rsDoc'] = $this->news_model->read_doc($news_id);
 		$data['rsImg'] = $this->news_model->read_img($news_id);
-		$data['rsFile'] = $this->news_model->read_file($news_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -282,7 +283,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->announce_model->read_file($announce_id);
+		$data['rsPdf'] = $this->announce_model->read_pdf($announce_id);
+		$data['rsDoc'] = $this->announce_model->read_doc($announce_id);
 		$data['rsImg'] = $this->announce_model->read_img($announce_id);
 
 		$this->load->view('frontend_templat/header');
@@ -325,7 +327,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->procurement_model->read_file($procurement_id);
+		$data['rsPdf'] = $this->procurement_model->read_pdf($procurement_id);
+		$data['rsDoc'] = $this->procurement_model->read_doc($procurement_id);
 		$data['rsImg'] = $this->procurement_model->read_img($procurement_id);
 
 		$this->load->view('frontend_templat/header');
@@ -367,7 +370,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->mui_model->read_file($mui_id);
+
+		$data['rsPdf'] = $this->mui_model->read_pdf($mui_id);
+		$data['rsDoc'] = $this->mui_model->read_doc($mui_id);
 		$data['rsImg'] = $this->mui_model->read_img($mui_id);
 
 		$this->load->view('frontend_templat/header');
@@ -409,7 +414,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->guide_work_model->read_file($guide_work_id);
+
+		$data['rsPdf'] = $this->guide_work_model->read_pdf($guide_work_id);
+		$data['rsDoc'] = $this->guide_work_model->read_doc($guide_work_id);
 		$data['rsImg'] = $this->guide_work_model->read_img($guide_work_id);
 
 		$this->load->view('frontend_templat/header');
@@ -451,8 +458,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->loadform_model->read_file($loadform_id);
+		$data['rsPdf'] = $this->loadform_model->read_pdf($loadform_id);
+		$data['rsDoc'] = $this->loadform_model->read_doc($loadform_id);
 		$data['rsImg'] = $this->loadform_model->read_img($loadform_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -679,8 +688,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_bgps_model->read_file($canon_bgps_id);
+		$data['rsPdf'] = $this->canon_bgps_model->read_pdf($canon_bgps_id);
+		$data['rsDoc'] = $this->canon_bgps_model->read_doc($canon_bgps_id);
 		$data['rsImg'] = $this->canon_bgps_model->read_img($canon_bgps_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -721,8 +732,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_chh_model->read_file($canon_chh_id);
-		$data['rsImg'] = $this->canon_chh_model->read_Img($canon_chh_id);
+		$data['rsPdf'] = $this->canon_chh_model->read_pdf($canon_chh_id);
+		$data['rsDoc'] = $this->canon_chh_model->read_doc($canon_chh_id);
+		$data['rsImg'] = $this->canon_chh_model->read_img($canon_chh_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -763,8 +775,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_ritw_model->read_file($canon_ritw_id);
+		$data['rsPdf'] = $this->canon_ritw_model->read_pdf($canon_ritw_id);
+		$data['rsDoc'] = $this->canon_ritw_model->read_doc($canon_ritw_id);
 		$data['rsImg'] = $this->canon_ritw_model->read_img($canon_ritw_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -805,7 +819,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_market_model->read_file($canon_market_id);
+		$data['rsPdf'] = $this->canon_market_model->read_pdf($canon_market_id);
+		$data['rsDoc'] = $this->canon_market_model->read_doc($canon_market_id);
 		$data['rsImg'] = $this->canon_market_model->read_img($canon_market_id);
 
 		$this->load->view('frontend_templat/header');
@@ -847,7 +862,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_rmwp_model->read_file($canon_rmwp_id);
+		$data['rsPdf'] = $this->canon_rmwp_model->read_pdf($canon_rmwp_id);
+		$data['rsDoc'] = $this->canon_rmwp_model->read_doc($canon_rmwp_id);
 		$data['rsImg'] = $this->canon_rmwp_model->read_img($canon_rmwp_id);
 
 		$this->load->view('frontend_templat/header');
@@ -889,7 +905,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_rcsp_model->read_file($canon_rcsp_id);
+		$data['rsPdf'] = $this->canon_rcsp_model->read_pdf($canon_rcsp_id);
+		$data['rsDoc'] = $this->canon_rcsp_model->read_doc($canon_rcsp_id);
 		$data['rsImg'] = $this->canon_rcsp_model->read_img($canon_rcsp_id);
 
 		$this->load->view('frontend_templat/header');
@@ -931,8 +948,11 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->canon_rcp_model->read_file($canon_rcp_id);
+
+		$data['rsPdf'] = $this->canon_rcp_model->read_pdf($canon_rcp_id);
+		$data['rsDoc'] = $this->canon_rcp_model->read_doc($canon_rcp_id);
 		$data['rsImg'] = $this->canon_rcp_model->read_img($canon_rcp_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -999,11 +1019,11 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
-	public function plan_pc3y_detail($pc3y_id)
+	public function plan_pc3y_detail($plan_pc3y_id)
 	{
-		$this->plan_pc3y_model->increment_view($pc3y_id);
+		$this->plan_pc3y_model->increment_view($plan_pc3y_id);
 
-		$data['rsData'] = $this->plan_pc3y_model->read($pc3y_id);
+		$data['rsData'] = $this->plan_pc3y_model->read($plan_pc3y_id);
 
 		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
 		if (!$data['rsData']) {
@@ -1016,8 +1036,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsImg'] = $this->plan_pc3y_model->read_img($pc3y_id);
-		$data['rsFile'] = $this->plan_pc3y_model->read_file($pc3y_id);
+		$data['rsPdf'] = $this->plan_pc3y_model->read_pdf($plan_pc3y_id);
+		$data['rsDoc'] = $this->plan_pc3y_model->read_doc($plan_pc3y_id);
+		$data['rsImg'] = $this->plan_pc3y_model->read_img($plan_pc3y_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1058,8 +1079,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_pds3y_model->read_file($plan_pds3y_id);
+		$data['rsPdf'] = $this->plan_pds3y_model->read_pdf($plan_pds3y_id);
+		$data['rsDoc'] = $this->plan_pds3y_model->read_doc($plan_pds3y_id);
 		$data['rsImg'] = $this->plan_pds3y_model->read_img($plan_pds3y_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1100,7 +1123,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_pdpa_model->read_file($plan_pdpa_id);
+		$data['rsPdf'] = $this->plan_pdpa_model->read_pdf($plan_pdpa_id);
+		$data['rsDoc'] = $this->plan_pdpa_model->read_doc($plan_pdpa_id);
 		$data['rsImg'] = $this->plan_pdpa_model->read_img($plan_pdpa_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1142,7 +1166,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_dpy_model->read_file($plan_dpy_id);
+		$data['rsPdf'] = $this->plan_dpy_model->read_pdf($plan_dpy_id);
+		$data['rsDoc'] = $this->plan_dpy_model->read_doc($plan_dpy_id);
 		$data['rsImg'] = $this->plan_dpy_model->read_img($plan_dpy_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1184,7 +1209,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_poa_model->read_file($plan_poa_id);
+		$data['rsPdf'] = $this->plan_poa_model->read_pdf($plan_poa_id);
+		$data['rsDoc'] = $this->plan_poa_model->read_doc($plan_poa_id);
 		$data['rsImg'] = $this->plan_poa_model->read_img($plan_poa_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1225,9 +1251,10 @@ class Pages extends CI_Controller
 			$this->load->view('frontend_templat/footer_other');
 			return; // ให้จบการทำงานที่นี่
 		}
-
-		$data['rsFile'] = $this->plan_pcra_model->read_file($plan_pcra_id);
+		$data['rsPdf'] = $this->plan_pcra_model->read_pdf($plan_pcra_id);
+		$data['rsDoc'] = $this->plan_pcra_model->read_doc($plan_pcra_id);
 		$data['rsImg'] = $this->plan_pcra_model->read_img($plan_pcra_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -1268,7 +1295,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_pop_model->read_file($plan_pop_id);
+
+		$data['rsPdf'] = $this->plan_pop_model->read_pdf($plan_pop_id);
+		$data['rsDoc'] = $this->plan_pop_model->read_doc($plan_pop_id);
 		$data['rsImg'] = $this->plan_pop_model->read_img($plan_pop_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1310,7 +1339,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_paca_model->read_file($plan_paca_id);
+		$data['rsPdf'] = $this->plan_paca_model->read_pdf($plan_paca_id);
+		$data['rsDoc'] = $this->plan_paca_model->read_doc($plan_paca_id);
 		$data['rsImg'] = $this->plan_paca_model->read_img($plan_paca_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1352,7 +1382,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_psi_model->read_file($plan_psi_id);
+		$data['rsPdf'] = $this->plan_psi_model->read_pdf($plan_psi_id);
+		$data['rsDoc'] = $this->plan_psi_model->read_doc($plan_psi_id);
 		$data['rsImg'] = $this->plan_psi_model->read_img($plan_psi_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1394,7 +1425,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->plan_pmda_model->read_file($plan_pmda_id);
+		$data['rsPdf'] = $this->plan_pmda_model->read_pdf($plan_pmda_id);
+		$data['rsDoc'] = $this->plan_pmda_model->read_doc($plan_pmda_id);
 		$data['rsImg'] = $this->plan_pmda_model->read_img($plan_pmda_id);
 
 		$this->load->view('frontend_templat/header');
@@ -1833,7 +1865,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_reauf_model->read_file($operation_reauf_id);
+
+		$data['rsPdf'] = $this->operation_reauf_model->read_pdf($operation_reauf_id);
+		$data['rsDoc'] = $this->operation_reauf_model->read_doc($operation_reauf_id);
 		$data['rsImg'] = $this->operation_reauf_model->read_img($operation_reauf_id);
 
 		$this->load->view('frontend_templat/header');
@@ -2004,8 +2038,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->p_rpo_model->read_file($p_rpo_id);
+		$data['rsPdf'] = $this->p_rpo_model->read_pdf($p_rpo_id);
+		$data['rsDoc'] = $this->p_rpo_model->read_doc($p_rpo_id);
 		$data['rsImg'] = $this->p_rpo_model->read_img($p_rpo_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2046,8 +2082,11 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->p_reb_model->read_file($p_reb_id);
+
+		$data['rsPdf'] = $this->p_reb_model->read_pdf($p_reb_id);
+		$data['rsDoc'] = $this->p_reb_model->read_doc($p_reb_id);
 		$data['rsImg'] = $this->p_reb_model->read_img($p_reb_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2088,8 +2127,9 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_sap_model->read_file($operation_sap_id);
-		$data['rsImg'] = $this->operation_sap_model->read_img($operation_sap_id);
+		$data['rsPdf'] = $this->p_sopopaortsr_model->read_pdf($operation_sap_id);
+		$data['rsDoc'] = $this->p_sopopaortsr_model->read_doc($operation_sap_id);
+		$data['rsImg'] = $this->p_sopopaortsr_model->read_img($operation_sap_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2130,8 +2170,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_pm_model->read_file($operation_pm_id);
+		$data['rsPdf'] = $this->operation_pm_model->read_pdf($operation_pm_id);
+		$data['rsDoc'] = $this->operation_pm_model->read_doc($operation_pm_id);
 		$data['rsImg'] = $this->operation_pm_model->read_img($operation_pm_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2171,9 +2213,9 @@ class Pages extends CI_Controller
 			$this->load->view('frontend_templat/footer_other');
 			return; // ให้จบการทำงานที่นี่
 		}
-
-		$data['rsFile'] = $this->operation_policy_hr_model->read_file($operation_policy_hr_id);
-		$data['rsImg'] = $this->operation_policy_hr_model->read_img($operation_policy_hr_id);
+		$data['rsPdf'] = $this->operation_policy_hr_model->read_pdf($operation_policy_hr_id);
+		$data['rsDoc'] = $this->operation_policy_hr_model->read_doc($p_sopopaortsr_id);
+		$data['rsImg'] = $this->operation_policy_hr_model->read_img($p_sopopaortsr_id);
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2256,7 +2298,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_rdam_hr_model->read_file($operation_rdam_hr_id);
+		$data['rsPdf'] = $this->operation_rdam_hr_model->read_pdf($operation_rdam_hr_id);
+		$data['rsDoc'] = $this->operation_rdam_hr_model->read_doc($operation_rdam_hr_id);
 		$data['rsImg'] = $this->operation_rdam_hr_model->read_img($operation_rdam_hr_id);
 
 		$this->load->view('frontend_templat/header');
@@ -2352,8 +2395,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_po_model->read_file($operation_po_id);
+		$data['rsPdf'] = $this->operation_po_model->read_pdf($operation_po_id);
+		$data['rsDoc'] = $this->operation_po_model->read_doc($operation_po_id);
 		$data['rsImg'] = $this->operation_po_model->read_img($operation_po_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2447,8 +2492,8 @@ class Pages extends CI_Controller
 			$this->load->view('frontend_templat/footer_other');
 			return; // ให้จบการทำงานที่นี่
 		}
-
-		$data['rsFile'] = $this->operation_pgn_model->read_file($operation_pgn_id);
+		$data['rsPdf'] = $this->operation_pgn_model->read_pdf($operation_pgn_id);
+		$data['rsDoc'] = $this->operation_pgn_model->read_doc($operation_pgn_id);
 		$data['rsImg'] = $this->operation_pgn_model->read_img($operation_pgn_id);
 
 		$this->load->view('frontend_templat/header');
@@ -2490,8 +2535,11 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_mcc_model->read_file($operation_mcc_id);
+
+		$data['rsPdf'] = $this->operation_mcc_model->read_pdf($operation_mcc_id);
+		$data['rsDoc'] = $this->operation_mcc_model->read_doc($operation_mcc_id);
 		$data['rsImg'] = $this->operation_mcc_model->read_img($operation_mcc_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2532,7 +2580,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_aca_model->read_file($operation_aca_id);
+		$data['rsPdf'] = $this->operation_aca_model->read_pdf($operation_aca_id);
+		$data['rsDoc'] = $this->operation_aca_model->read_doc($operation_aca_id);
 		$data['rsImg'] = $this->operation_aca_model->read_img($operation_aca_id);
 
 		$this->load->view('frontend_templat/header');
@@ -2574,8 +2623,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->lpa_model->read_file($lpa_id);
+		$data['rsPdf'] = $this->lpa_model->read_pdf($lpa_id);
+		$data['rsDoc'] = $this->lpa_model->read_doc($lpa_id);
 		$data['rsImg'] = $this->lpa_model->read_img($lpa_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -2700,7 +2751,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_aditn_model->read_file($operation_aditn_id);
+		$data['rsPdf'] = $this->operation_aditn_model->read_pdf($operation_aditn_id);
+		$data['rsDoc'] = $this->operation_aditn_model->read_doc($operation_aditn_id);
 		$data['rsImg'] = $this->operation_aditn_model->read_img($operation_aditn_id);
 
 		$this->load->view('frontend_templat/header');
@@ -2784,8 +2836,10 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_aa_model->read_file($operation_aa_id);
+		$data['rsPdf'] = $this->operation_aa_model->read_pdf($operation_aa_id);
+		$data['rsDoc'] = $this->operation_aa_model->read_doc($operation_aa_id);
 		$data['rsImg'] = $this->operation_aa_model->read_img($operation_aa_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
@@ -3379,8 +3433,10 @@ $data['rsPdf'] = $this->newsletter_model->read_pdf($newsletter_id);
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->km_model->read_file($km_id);
+		$data['rsPdf'] = $this->p_sopopaortsr_model->read_pdf($km_id);
+		$data['rsDoc'] = $this->km_model->read_doc($km_id);
 		$data['rsImg'] = $this->km_model->read_img($km_id);
+
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
