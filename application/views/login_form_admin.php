@@ -61,7 +61,7 @@
             /* background-color: rgba(255, 255, 255, 0.0); */
             position: absolute;
             transform: translate(-50%, -50%);
-            top: 35%;
+            top: 33%;
             left: 50%;
             /* border-radius: 24px; */
             /* backdrop-filter: blur(3px);
@@ -319,7 +319,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 560px;
+            padding-top: 520px;
         }
 
         .slideshow-container {
