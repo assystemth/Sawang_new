@@ -121,9 +121,9 @@
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_ems_backend'); ?>">งานกู้ชีพ/บริการ<br>การแพทย์ฉุกเฉิน(EMS)</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_oppr_backend'); ?>">งานอาสาป้องกันภัย<br>ฝ่ายพลเรือน(อปพร.)</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_e_book_backend'); ?>">ดาวโหลดแบบฟอร์ม E-book</a>
-                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_form_backend'); ?>">เอกสารเบี้ยผู้สูงอายุ</a>
-                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_ods_backend'); ?>">คำร้องเบี้ยผู้สูงอายุ</a>
-                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_backend'); ?>">ตรวจสอบเบี้ยผู้สูงอายุ</a>
+                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_form_backend'); ?>">เอกสารเบี้ยผู้สูงอายุ / ผู้พิการ</a>
+                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_ods_backend'); ?>">คำร้องเบี้ยผู้สูงอายุ / ผู้พิการ</a>
+                <a class="collapse-item" href="<?php echo site_url('Elderly_aw_backend'); ?>">ตรวจสอบเบี้ยผู้สูงอายุ / ผู้พิการ</a>
                 <a class="collapse-item" href="<?php echo site_url('Odata_backend'); ?>">ฐานข้อมูลเปิดภาครัฐ<br>(Open Data)</a>
             </div>
         </div>
@@ -964,7 +964,7 @@
                 </li>
                 <li class="hide">
                     <a href="<?php echo site_url('Elderly_aw_backend'); ?>" class="link">
-                        <span>ตรวจสอบเบี้ยผู้สูงอายุ</span>
+                        <span>ตรวจสอบเบี้ยผู้สูงอายุ / ผู้พิการ</span>
                     </a>
                 </li>
 

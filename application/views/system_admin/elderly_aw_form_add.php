@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-7">
-            <h4>เพิ่มข้อมูลตรวจสอบเบี้ยผู้สูงอายุ</h4>
+            <h4>เพิ่มข้อมูลตรวจสอบเบี้ยผู้สูงอายุ / ผู้พิการ</h4>
             <form action=" <?php echo site_url('elderly_aw_backend/add_elderly_aw'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <div class="form-group row">
                     <div class="col-sm-4 control-label">เลขประจำตัวประชาชนผู้มีสิทธิ</div>

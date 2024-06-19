@@ -1,7 +1,7 @@
    <!-- DataTales Example -->
    <div class="card shadow mb-4">
        <div class="card-header py-3">
-           <h6 class="m-0 font-weight-bold text-black">จัดการข้อมูลคำร้องเบี้ยผู้สูงอายุ</h6>
+           <h6 class="m-0 font-weight-bold text-black">จัดการข้อมูลคำร้องเบี้ยผู้สูงอายุ / ผู้พิการ</h6>
        </div>
        <div class="card-body">
            <div class="table-responsive">
@@ -18,7 +18,7 @@
                            <th style="width: 15%;">หมายเลขประจำตัวประชาชน</th>
                            <th style="width: 17%;">ที่อยู่</th>
                            <th style="width: 10%;">เอกสารสำเนาบัตรประชาชน</th>
-                           <th style="width: 10%;">เอกสารขึ้นทะเบียนผู้พิการ/ลงทะเบียนเบี้ยยังชีพผู้สูงอายุ</th>
+                           <th style="width: 10%;">เอกสารขึ้นทะเบียนผู้พิการ/ลงทะเบียนเบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</th>
                            <th style="width: 10%;">เอกสารหนังสือมอบอำนาจ</th>
                            <th style="width: 7%;">วันที่อัพโหลด</th>
                        </tr>
