@@ -1,5 +1,5 @@
 <div class="text-center" style="padding-top: 65px">
-    <span class="font-pages-head">กิจกรรม/ผลงาน</span>
+    <span class="font-pages-head">ข่าวสาร / กิจกรรม</span>
 </div>
 </div>
 

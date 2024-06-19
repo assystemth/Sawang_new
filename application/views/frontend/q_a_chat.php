@@ -12,7 +12,7 @@
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg>&nbsp;ผู้ตั้งกระทู้</span>
                 </div>
-                <div class="col-9" style="width: 800px;">
+                <div class="col-9" style="width: 800px; margin-top:-2px;">
                     <span class="font-q-a-chat-color"><?= $rsData->q_a_by; ?> : </span><span class="font-q-a-chat-black"><?= $rsData->q_a_msg; ?></span>
                 </div>
             </div>

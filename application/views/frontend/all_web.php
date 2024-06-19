@@ -32,7 +32,7 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/newsletter'); ?>" class="font-content-all-web">จดหมายข่าว</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/activity'); ?>" class="font-content-all-web">ภาพกิจกรรม</a><br>
+                        <a href="<?php echo site_url('Pages/activity'); ?>" class="font-content-all-web">ข่าวสาร / กิจกรรม</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/travel'); ?>" class="font-content-all-web">สถานที่ท่องเที่ยว</a><br>
                         <div class="mt-1"></div>
