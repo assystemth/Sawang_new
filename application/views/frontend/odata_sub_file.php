@@ -28,7 +28,8 @@
                 $iconImage = "docs/icon-file-ppt.png";
             }
         ?>
-            <div class="border-odata">
+            <div class="pages-select-pdf underline">
+
                 <!-- <div class="bg-ita-empty">
                     <div class="row mb-2 mt-3">
                         <div class="col-10 ml-5" style="margin-left: 80px;">
@@ -63,21 +64,12 @@
                 </div> -->
 
                 <div class="row">
-                    <div class="col-10">
-                        <div class="row">
-                            <div class="col-1" style="padding-left: 20px;">
-                                <img src="<?php echo base_url($iconImage); ?>" width="50px">
-                            </div>
-                            <div class="col-11">
-                                <span class="font-ita-head"><?= $rs->odata_sub_file_name; ?></span>
-                                <br>
-                                <span class="font-doc">&nbsp;&nbsp;&nbsp;&nbsp;จำนวนดาวน์โหลด <?= $rs->odata_sub_file_download; ?> ครั้ง</span>
-                            </div>
-                        </div>
+                    <div class="col-1" style="padding-left: 40px;">
+                        <img src="<?php echo base_url($iconImage); ?>" width="50px">
                     </div>
-                    <div class="col-2" style="padding-left: 180px; padding-top: 15px;">
+                    <div class="col-11">
                         <a onclick="downloadFile(event, <?= $rs->odata_sub_file_id; ?>)" href="<?= base_url('docs/file/' . $rs->odata_sub_file_doc); ?>" download>
-                            <img src="<?php echo base_url("docs/s.download-odata.png"); ?>">
+                            <span class="font-ita-head"><?= $rs->odata_sub_file_name; ?></span>
                         </a>
                         <script>
                             function downloadFile(event, odata_sub_file_id) {
@@ -90,8 +82,11 @@
                                 window.open(event.currentTarget.href, '_blank');
                             }
                         </script>
+                        <br>
+                        <span class="font-doc">&nbsp;&nbsp;&nbsp;&nbsp;จำนวนดาวน์โหลด <?= $rs->odata_sub_file_download; ?> ครั้ง</span>
                     </div>
                 </div>
+
             </div>
         <?php } ?>
         <!-- </div> -->

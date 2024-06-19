@@ -24,13 +24,49 @@ class Login_intranet extends CI_Controller
 			redirect($previous_page); // redirect ไปยังหน้าที่เคยเข้ามาจาก
 		}
 
+		$api_data1 = $this->fetch_api_data('https://www.assystem.co.th/service_api/index.php');
+		if ($api_data1 !== FALSE) {
+		   // Merge API data with existing data
+		   $data['api_data1'] = $api_data1;
+	   } else {
+		   // Handle if API data is not fetched successfully
+		   $data['api_data1'] = []; // or any default value as needed
+	   }
+
 		// print_r($_SESSION);
 		// $this->load->view('templat/header');
 		$this->load->view('asset/css');
 		// $this->load->view('templat/navbar_login');
-		$this->load->view('login_form_intranet');
+		$this->load->view('login_form_intranet', $data);
 		$this->load->view('asset/js');
-		$this->load->view('templat/footer');
+		// $this->load->view('templat/footer');
+	}
+
+	private function fetch_api_data($api_url)
+	{
+		// Initialize cURL
+		$curl = curl_init();
+
+		// Set cURL options
+		curl_setopt($curl, CURLOPT_URL, $api_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification (for testing purposes only)
+
+		// Execute cURL request
+		$api_data = curl_exec($curl);
+
+		// Check for errors
+		if ($api_data === false) {
+			$error_message = curl_error($curl);
+			echo "Error: $error_message";
+		} else {
+			// Decode JSON data
+			$data = json_decode($api_data, true);
+			return $data;
+		}
+
+		// Close cURL session
+		curl_close($curl);
 	}
 
 	public function check2()

@@ -307,11 +307,11 @@
                           <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>
                       </div>
                       <div class="dropdown-right">
-                          <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ภาพกิจกรรม</span></a></a>
+                          <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวสาร / กิจกรรม</span></a></a>
                           <a href="<?php echo site_url('Pages/travel'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                           <a href="<?php echo site_url('Pages/otop'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/newsletter'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;จดหมายข่าว</span></a></a>
-                           <a href="<?php echo site_url('Pages/contact'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ติดต่อเรา</span></a></a>
+                          <a href="<?php echo site_url('Pages/contact'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ติดต่อเรา</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -350,13 +350,13 @@
                           <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                       </div>
                       <div class="dropdown-center">
-                          <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
+                          <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                           <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
-                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                       </div>
                       <div class="dropdown-right">
                           <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
@@ -542,7 +542,7 @@
                               <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>
                           </div>
                           <div class="dropdown-right">
-                              <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ภาพกิจกรรม</span></a></a>
+                              <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวสาร / กิจกรรม</span></a></a>
                               <a href="<?php echo site_url('Pages/travel'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                               <a href="<?php echo site_url('Pages/otop'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน</span></a></a>
                               <a href="<?php echo site_url('Pages/newsletter'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;จดหมายข่าว</span></a></a>
@@ -585,13 +585,13 @@
                               <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</span></a></a>
                           </div>
                           <div class="dropdown-center">
-                              <a href="<?php echo site_url('Pages/elderly_aw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ตรวจสอบเบี้ยผู้สูงอายุ</span></a></a>
+                              <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                               <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
+                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
-                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           </div>
                           <div class="dropdown-right">
                               <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ร้องเรียนร้องทุกข์</span></a></a>
@@ -690,28 +690,32 @@
         </div> -->
       </div>
   </div>
-
-  <div class="welcome-other">
-
-      <!-- <div class="tab-container">
+  <!-- <div class="tab-container">
         <img src="docs/item-news-top.png" width="324" height="100" style="position: absolute; z-index: 2;">
         <div id="marquee-container">
             <div class="marquee">
                 <div>
-                    <?php
-                    $maxIterations = 1000;
-                    $iteration = 0;
-                    while ($iteration < $maxIterations) {
-                        foreach ($qHotnews as $index => $hotnews) {
-                            echo '<span>' . $hotnews->hotNews_text . '</span>';
-                        }
-                        $iteration++;
+                <?php
+                $maxIterations = 1000;
+                $iteration = 0;
+                while ($iteration < $maxIterations) {
+                    foreach ($qHotnews as $index => $hotnews) {
+                        echo '<span>' . $hotnews->hotNews_text . '</span>';
                     }
-                    ?>
+                    $iteration++;
+                }
+                ?>
                 </div>
             </div>
         </div>
     </div> -->
+  <div class="welcome-other">
+      <img class="wel-other-img-cloud1" src="<?php echo base_url('docs/wel-other-cloud1.png'); ?>">
+      <img class="wel-other-img-cloud2" src="<?php echo base_url('docs/wel-other-cloud2.png'); ?>">
+      <img class="wel-other-img-cloud3" src="<?php echo base_url('docs/wel-other-cloud3v2.png'); ?>">
+
+      <img class="wel-other-img-monk" src="<?php echo base_url('docs/wel-other-monk.png'); ?>">
+      <img class="wel-other-img-hwoat" src="<?php echo base_url('docs/wel-other-hwoat.png'); ?>">
   </div>
   <div class="welcome-btm-other">
       <img class="dot-updown-animation-1" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">
