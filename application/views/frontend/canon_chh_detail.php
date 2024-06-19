@@ -1,12 +1,10 @@
-<div class="bg-pages ">
-    <div class="container-pages-detail">
-        <div class="page-center">
-            <div class="head-pages-three">
-                <span class="font-pages-head">การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
-            </div>
-        </div>
-        <div class="bg-pages">
-    <div class="container-pages-detail">
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
+</div>
+</div>
+
+<div class="bg-pages">
+    <div class="container-pages-news">
         <div class="font-pages-content-head"><?= $rsData->canon_chh_name; ?></div>
         <div class="pages-content break-word mt-2">
             <span class="font-pages-content-detail"><?= $rsData->canon_chh_detail; ?></span>

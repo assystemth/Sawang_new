@@ -7,12 +7,12 @@
     <div class="container-pages-news">
         <div class="detail-q-a">
             <div class="row">
-                <div class="col">
+                <div class="col-3" style="width: 130px;" >
                     <span class="font-q-a-chat-color"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg>&nbsp;ผู้ตั้งกระทู้</span>
                 </div>
-                <div class="col">
+                <div class="col-9" style="width: 800px;">
                     <span class="font-q-a-chat-color"><?= $rsData->q_a_by; ?> : </span><span class="font-q-a-chat-black"><?= $rsData->q_a_msg; ?></span>
                 </div>
             </div>
@@ -62,14 +62,15 @@
         for ($i = $startIndex; $i <= $endIndex; $i++) {
             $rs = $rsReply[$i];
         ?>
-            <div class="pages-select-q_a mt-4">
+            <div class="detail-q-a mt-4 mb-4">
                 <div class="row">
-                    <div class="col-2">
-                        <span class="color-q-a font-label-e-service-complainb"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <div class="col-3" style="width: 130px;" >
+                        <span class="color-q-a font-label-e-service-complainb">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>&nbsp;ผู้ตอบ</span>
                     </div>
-                    <div class="col-10" style="margin-left: -40px; margin-top: 8px;">
+                    <div class="col-9" style="width: 800px; margin-top:-6px;">
                         <span class="font-label-e-service-complain one-line-ellipsis"><?= $rs->q_a_reply_by; ?></span>
                     </div>
                 </div>

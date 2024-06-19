@@ -406,7 +406,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: 13.398px;
-    /* 66.667% */
   }
 
   /* ******************************************************************************* */
@@ -1649,7 +1648,7 @@
   }
 
   .border-q-a {
-    width: 870px;
+    width: 100%;
     height: 0.67px;
     background: #000;
   }
@@ -3009,7 +3008,7 @@
     border-radius: 17.085px;
     background: rgba(253, 245, 225, 0.80);
     box-shadow: 0px 0px 6.701px 0px rgba(0, 0, 0, 0.25);
-    height: 260px;
+    height: 400px;
     width: 1460px;
   }
 
@@ -3522,16 +3521,16 @@
   }
 
   .bg-how-e-service {
-    background-image: url('<?php echo base_url("docs/bg-how-e-service.png"); ?>');
+    /* background-image: url('<?php echo base_url("docs/bg-how-e-service.png"); ?>');
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 848px;
+    background-size: 100%; */
+    background-color: #005930;
+    width: 100%;
     height: 70px;
     display: flex;
     /* หรือใช้ display: grid; */
     align-items: center;
     /* หรือใช้ justify-content: center; ถ้าใช้ display: grid; */
-    margin-left: 15px;
     padding-left: 40px;
   }
 
@@ -3552,7 +3551,7 @@
   .bg-content-e-service {
     border-radius: 34px;
     background: #FFFCF1;
-    width: 848px;
+    width: 100%;
     height: auto;
     flex-shrink: 0;
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);

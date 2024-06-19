@@ -1,19 +1,10 @@
-<div class="bg-pages-news">
+<div class="text-center" style="padding-top: 65px">
+    <span class="font-pages-head">การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
+</div>
+</div>
+
+<div class="bg-pages">
     <div class="container-pages-news">
-        <div class="page-center">
-            <div class="head-pages-three">
-                <span class="font-pages-head">การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="path1-1">
-                <span class="font-path-1 underline"><a href="<?php echo site_url('Home'); ?>">หน้าแรก</a></span>
-            </div>
-            <div class="path2-1">
-                <span class="font-path-2 underline"><a href="#">ข้อบัญญัติ</a></span>
-            </div>
-        </div>
-        <div style="padding-top: 40px;"></div>
         <?php
         $count = count($query);
         $itemsPerPage = 10; // จำนวนรายการต่อหน้า

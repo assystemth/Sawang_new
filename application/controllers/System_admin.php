@@ -38,7 +38,7 @@ class System_admin extends CI_Controller
         $data['rs_complain'] = $this->complain_model->dashboard_Complain();
 
         // จำนวนผูเข้าชม
-        $data['rs_sum_view_news'] = $this->news_model->sum_news_views();
+        // $data['rs_sum_view_news'] = $this->news_model->sum_news_views();
         $data['rs_sum_view_activity'] = $this->activity_model->sum_activity_views();
         $data['rs_sum_view_food'] = $this->food_model->sum_food_views();
         $data['rs_sum_view_travel'] = $this->travel_model->sum_travel_views();
