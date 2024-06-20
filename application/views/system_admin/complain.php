@@ -15,7 +15,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลเรื่องร้องเรียน</h6>
+            <h6 class="m-0 font-weight-bold text-black">จัดการข้อมูลเรื่องร้องเรียน</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -26,8 +26,9 @@
                     <thead>
                         <tr>
                             <th style="width: 5%;">เคส</th>
+                            <th style="width: 5%;">วันที่แจ้ง</th>
                             <th style="width: 10%;">สถานะ</th>
-                            <th style="width: 20%;">รูปภาพ</th>
+                            <th style="width: 15%;">รูปภาพ</th>
                             <th style="width: 20%;">หัวข้อร้องเรียน</th>
                             <th style="width: 20%;">รายละเอียด</th>
                             <th style="width: 10%;">ผู้แจ้ง</th>
@@ -39,6 +40,7 @@
                         <?php foreach ($complains  as $complain) { ?>
                             <tr role="row">
                                 <td><?= $complain->complain_id; ?></td>
+                                <td><?= date('d/m/Y H:i', strtotime($complain->complain_datesave . '+543 years')) ?> น.</td>
                                 <td>
                                     <p class="small-font" style="font-size: 15px; background-color:
                 <?php if ($complain->complain_status === 'รับเรื่องแล้ว') : ?>
@@ -96,7 +98,7 @@
                                     <?php endforeach; ?>
                                 </td>
                                 <td class="limited-text"><?= $complain->complain_topic; ?></td>
-                                <td class="limited-text"><?= $complain->complain_detail; ?></td>
+                                <td class=""><?= $complain->complain_detail; ?></td>
                                 <td class="limited-text"><?= $complain->complain_by; ?></td>
                                 <td class="limited-text"><?= $complain->complain_phone; ?></td>
                                 <td><a href="<?= site_url('Complain_backend/detail/' . $complain->complain_id); ?>"><i class="bi bi-pencil-square fa-lg "></i></a></td>
