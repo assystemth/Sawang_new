@@ -28,7 +28,7 @@
                                    <?php if (!empty($rs->history_img)) : ?>
                                        <img src="<?php echo base_url('docs/img/' . $rs->history_img); ?>" width="120px" height="80px">
                                    <?php else : ?>
-                                       <img src="<?php echo base_url('docs/coverphoto.jpg'); ?>" width="120px" height="80px">
+                                       <img src="<?php echo base_url('docs/logo.png'); ?>" width="120px" height="80px">
                                    <?php endif; ?>
                                </td>
                                <td class="limited-text"><?= $rs->history_name; ?></td>

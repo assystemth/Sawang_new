@@ -372,7 +372,7 @@
                         </a>
                     <?php else : ?>
                         <a href="<?= site_url('pages/activity_detail/' . $activity->activity_id); ?>">
-                            <img src="<?php echo base_url('docs/coverphoto.png'); ?>">
+                            <img src="<?php echo base_url('docs/logo.png'); ?>">
                         </a>
                     <?php endif; ?>
                     <br>

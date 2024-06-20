@@ -92,7 +92,7 @@
                                         <?php if (!empty($rs->travel_img)) : ?>
                                             <img src="<?php echo base_url('docs/img/' . $rs->travel_img); ?>" width="100%" height="20%">
                                         <?php else : ?>
-                                            <img src="<?php echo base_url('docs/coverphoto.jpg'); ?>" width="100%" height="20%">
+                                            <img src="<?php echo base_url('docs/logo.png'); ?>" width="100%" height="20%">
                                         <?php endif; ?>
                                     </td>
                                     <td><?= $rs->travel_name; ?></td>
