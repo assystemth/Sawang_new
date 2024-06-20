@@ -39,12 +39,16 @@ class operation_eco_backend extends CI_Controller
 
     public function index_detail($operation_eco_type_id)
     {
+        // ดึงข้อมูลหลักทั้งหมด
         $query = $this->operation_eco_model->list_all($operation_eco_type_id);
 
+        // ดึงข้อมูล pdf และ doc ที่เกี่ยวข้องในแต่ละ iteration
         foreach ($query as $files) {
-            $files->file = $this->operation_eco_model->list_all_pdf($files->operation_eco_id);
+            $files->pdf = $this->operation_eco_model->list_all_pdf($files->operation_eco_id);
+            $files->doc = $this->operation_eco_model->list_all_doc($files->operation_eco_id);
         }
 
+        // โหลด views
         $this->load->view('templat/header');
         $this->load->view('asset/css');
         $this->load->view('templat/navbar_system_admin');
@@ -52,6 +56,7 @@ class operation_eco_backend extends CI_Controller
         $this->load->view('asset/js');
         $this->load->view('templat/footer');
     }
+
 
     public function adding()
     {
@@ -78,7 +83,9 @@ class operation_eco_backend extends CI_Controller
         $data['rs_type'] = $this->operation_eco_model->list_operation_eco_type();
 
         $data['rsedit'] = $this->operation_eco_model->read($operation_eco_id);
-        $data['rsFile'] = $this->operation_eco_model->read_file($operation_eco_id);
+        $data['rsPdf'] = $this->operation_eco_model->read_pdf($operation_eco_id);
+        $data['rsDoc'] = $this->operation_eco_model->read_doc($operation_eco_id);
+        $data['rsImg'] = $this->operation_eco_model->read_img($operation_eco_id);
         // echo '<pre>';
         // print_r($data['rsedit']);
         // echo '</pre>';
@@ -142,10 +149,19 @@ class operation_eco_backend extends CI_Controller
         }
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
-        $this->operation_eco_model->del_pdf($file_id);
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $pdf_id
+        $this->operation_eco_model->del_pdf($pdf_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
+    public function del_doc($doc_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $doc_id
+        $this->operation_eco_model->del_doc($doc_id);
 
         // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
         echo '<script>window.history.back();</script>';
@@ -162,17 +178,20 @@ class operation_eco_backend extends CI_Controller
 
     public function del_operation_eco($operation_eco_id)
     {
+        $this->operation_eco_model->del_operation_eco_img($operation_eco_id);
         $this->operation_eco_model->del_operation_eco_pdf($operation_eco_id);
+        $this->operation_eco_model->del_operation_eco_doc($operation_eco_id);
         $this->operation_eco_model->del_operation_eco($operation_eco_id);
         $this->session->set_flashdata('del_success', TRUE);
-        redirect('operation_eco_backend');
+        echo '<script>window.history.back();</script>';
     }
 
     public function del_operation_eco_type($operation_eco_type_id)
     {
-        $this->operation_eco_model->del_operation_eco_pdf($operation_eco_type_id);
-        $this->operation_eco_model->del_operation_eco($operation_eco_type_id);
-        $this->operation_eco_model->del_operation_eco_type($operation_eco_type_id);
+        $this->operation_eco_model->del_type_operation_eco_pdf($operation_eco_type_id);
+        $this->operation_eco_model->del_type_operation_eco_doc($operation_eco_type_id);
+        $this->operation_eco_model->del_type_operation_eco($operation_eco_type_id);
+        $this->operation_eco_model->del_type_operation_eco_type($operation_eco_type_id);
         $this->space_model->update_server_current();
         $this->session->set_flashdata('del_success', TRUE);
         redirect('operation_eco_backend');

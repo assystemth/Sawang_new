@@ -39,8 +39,11 @@
                             <td class="limited-text"><?= $rs->operation_eco_name; ?></td>
                             <td class="limit-one-font"><?= $rs->operation_eco_detail; ?></td>
                             <td>
-                                <?php foreach ($rs->file as $pdf) : ?>
-                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_eco_file_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
+                                <?php foreach ($rs->pdf as $pdf) : ?>
+                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_eco_pdf_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
+                                <?php endforeach; ?>
+                                <?php foreach ($rs->doc as $doc) : ?>
+                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $doc->operation_eco_file_doc); ?>" target="_blank">ดูไฟล์เดิม!</a>
                                 <?php endforeach; ?>
                             </td>
                             <td><?= $rs->operation_eco_by; ?></td>

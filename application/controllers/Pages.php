@@ -2457,7 +2457,8 @@ class Pages extends CI_Controller
 			return; // ให้จบการทำงานที่นี่
 		}
 
-		$data['rsFile'] = $this->operation_eco_model->read_file($operation_eco_id);
+		$data['rsPdf'] = $this->operation_eco_model->read_pdf($operation_eco_id);
+		$data['rsDoc'] = $this->operation_eco_model->read_doc($operation_eco_id);
 		$data['rsImg'] = $this->operation_eco_model->read_img($operation_eco_id);
 
 		$this->load->view('frontend_templat/header');

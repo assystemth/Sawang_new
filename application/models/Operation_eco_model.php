@@ -77,11 +77,15 @@ class operation_eco_model extends CI_Model
         $pdf_config['allowed_types'] = 'pdf';
         $this->load->library('upload', $pdf_config, 'pdf_upload');
 
-        // // Configure image upload
-        // $img_config['upload_path'] = './docs/img';
-        // $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
-        // $this->load->library('upload', $img_config, 'img_upload');
+        // Configure image upload
+        $img_config['upload_path'] = './docs/img';
+        $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $img_config, 'img_upload');
 
+        // Configure Doc upload
+        $doc_config['upload_path'] = './docs/file';
+        $doc_config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx';
+        $this->load->library('upload', $doc_config, 'doc_upload');
 
         // กำหนดค่าใน $operation_eco_data
         $operation_eco_data = array(
@@ -92,17 +96,14 @@ class operation_eco_model extends CI_Model
             'operation_eco_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
         );
 
-        // // ทำการอัปโหลดรูปภาพ
-        // $img_main = $this->img_upload->do_upload('operation_eco_img');
-        // // ตรวจสอบว่ามีการอัปโหลดรูปภาพหรือไม่
-        // if (!empty($img_main)) {
-        //     // ถ้ามีการอัปโหลดรูปภาพ
-        //     $operation_eco_data['operation_eco_img'] = $this->img_upload->data('file_name');
-        // } // else {
-        // //     // ถ้าไม่มีการอัปโหลดรูปภาพ ให้ใช้รูปภาพ default
-        // //     $operation_eco_data['operation_eco_img'] = 'coverphoto.png';
-        // // }
-        // // เพิ่มข้อมูลลงในฐานข้อมูล
+        // ทำการอัปโหลดรูปภาพ
+        $img_main = $this->img_upload->do_upload('operation_eco_img');
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพหรือไม่
+        if (!empty($img_main)) {
+            // ถ้ามีการอัปโหลดรูปภาพ
+            $operation_eco_data['operation_eco_img'] = $this->img_upload->data('file_name');
+        }
+        // เพิ่มข้อมูลลงในฐานข้อมูล
         $this->db->insert('tbl_operation_eco', $operation_eco_data);
         $operation_eco_id = $this->db->insert_id();
 
@@ -111,20 +112,29 @@ class operation_eco_model extends CI_Model
         $upload_limit = $this->space_model->get_limit_storage();
 
         $total_space_required = 0;
-        // // ตรวจสอบว่ามีข้อมูลรูปภาพเพิ่มเติมหรือไม่
-        // if (isset($_FILES['operation_eco_img_img'])) {
-        //     foreach ($_FILES['operation_eco_img_img']['name'] as $index => $name) {
-        //         if (isset($_FILES['operation_eco_img_img']['size'][$index])) {
-        //             $total_space_required += $_FILES['operation_eco_img_img']['size'][$index];
-        //         }
-        //     }
-        // }
+        // ตรวจสอบว่ามีข้อมูลรูปภาพเพิ่มเติมหรือไม่
+        if (isset($_FILES['operation_eco_img_img'])) {
+            foreach ($_FILES['operation_eco_img_img']['name'] as $index => $name) {
+                if (isset($_FILES['operation_eco_img_img']['size'][$index])) {
+                    $total_space_required += $_FILES['operation_eco_img_img']['size'][$index];
+                }
+            }
+        }
 
         // ตรวจสอบว่ามีข้อมูลไฟล์ PDF หรือไม่
-        if (isset($_FILES['operation_eco_file_pdf'])) {
-            foreach ($_FILES['operation_eco_file_pdf']['name'] as $index => $name) {
-                if (isset($_FILES['operation_eco_file_pdf']['size'][$index])) {
-                    $total_space_required += $_FILES['operation_eco_file_pdf']['size'][$index];
+        if (isset($_FILES['operation_eco_pdf_pdf'])) {
+            foreach ($_FILES['operation_eco_pdf_pdf']['name'] as $index => $name) {
+                if (isset($_FILES['operation_eco_pdf_pdf']['size'][$index])) {
+                    $total_space_required += $_FILES['operation_eco_pdf_pdf']['size'][$index];
+                }
+            }
+        }
+
+        // ตรวจสอบว่ามีข้อมูลไฟล์ doc หรือไม่
+        if (isset($_FILES['operation_eco_file_doc'])) {
+            foreach ($_FILES['operation_eco_file_doc']['name'] as $index => $name) {
+                if (isset($_FILES['operation_eco_file_doc']['size'][$index])) {
+                    $total_space_required += $_FILES['operation_eco_file_doc']['size'][$index];
                 }
             }
         }
@@ -136,48 +146,70 @@ class operation_eco_model extends CI_Model
             return;
         }
 
-        // $imgs_data = array();
-
-        // // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
-        // if (!empty($_FILES['operation_eco_img_img']['name'][0])) {
-        //     foreach ($_FILES['operation_eco_img_img']['name'] as $index => $name) {
-        //         $_FILES['operation_eco_img_img_multiple']['name'] = $name;
-        //         $_FILES['operation_eco_img_img_multiple']['type'] = $_FILES['operation_eco_img_img']['type'][$index];
-        //         $_FILES['operation_eco_img_img_multiple']['tmp_name'] = $_FILES['operation_eco_img_img']['tmp_name'][$index];
-        //         $_FILES['operation_eco_img_img_multiple']['error'] = $_FILES['operation_eco_img_img']['error'][$index];
-        //         $_FILES['operation_eco_img_img_multiple']['size'] = $_FILES['operation_eco_img_img']['size'][$index];
-
-        //         if ($this->img_upload->do_upload('operation_eco_img_img_multiple')) {
-        //             $upload_data = $this->img_upload->data();
-        //             $imgs_data[] = array(
-        //                 'operation_eco_img_ref_id' => $operation_eco_id,
-        //                 'operation_eco_img_img' => $upload_data['file_name']
-        //             );
-        //         }
-        //     }
-        //     $this->db->insert_batch('tbl_operation_eco_img', $imgs_data);
-        // }
-
-        $pdf_data = array();
+        $imgs_data = array();
 
         // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
-        if (!empty($_FILES['operation_eco_file_pdf']['name'][0])) {
-            foreach ($_FILES['operation_eco_file_pdf']['name'] as $index => $name) {
-                $_FILES['operation_eco_file_pdf_multiple']['name'] = $name;
-                $_FILES['operation_eco_file_pdf_multiple']['type'] = $_FILES['operation_eco_file_pdf']['type'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['tmp_name'] = $_FILES['operation_eco_file_pdf']['tmp_name'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['error'] = $_FILES['operation_eco_file_pdf']['error'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['size'] = $_FILES['operation_eco_file_pdf']['size'][$index];
+        if (!empty($_FILES['operation_eco_img_img']['name'][0])) {
+            foreach ($_FILES['operation_eco_img_img']['name'] as $index => $name) {
+                $_FILES['operation_eco_img_img_multiple']['name'] = $name;
+                $_FILES['operation_eco_img_img_multiple']['type'] = $_FILES['operation_eco_img_img']['type'][$index];
+                $_FILES['operation_eco_img_img_multiple']['tmp_name'] = $_FILES['operation_eco_img_img']['tmp_name'][$index];
+                $_FILES['operation_eco_img_img_multiple']['error'] = $_FILES['operation_eco_img_img']['error'][$index];
+                $_FILES['operation_eco_img_img_multiple']['size'] = $_FILES['operation_eco_img_img']['size'][$index];
 
-                if ($this->pdf_upload->do_upload('operation_eco_file_pdf_multiple')) {
-                    $upload_data = $this->pdf_upload->data();
-                    $pdf_data[] = array(
-                        'operation_eco_file_ref_id' => $operation_eco_id,
-                        'operation_eco_file_pdf' => $upload_data['file_name']
+                if ($this->img_upload->do_upload('operation_eco_img_img_multiple')) {
+                    $upload_data = $this->img_upload->data();
+                    $imgs_data[] = array(
+                        'operation_eco_img_ref_id' => $operation_eco_id,
+                        'operation_eco_img_img' => $upload_data['file_name']
                     );
                 }
             }
-            $this->db->insert_batch('tbl_operation_eco_file', $pdf_data);
+            $this->db->insert_batch('tbl_operation_eco_img', $imgs_data);
+        }
+
+        $pdf_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดไฟล์PDFเพิ่มเติมหรือไม่
+        if (!empty($_FILES['operation_eco_pdf_pdf']['name'][0])) {
+            foreach ($_FILES['operation_eco_pdf_pdf']['name'] as $index => $name) {
+                $_FILES['operation_eco_pdf_pdf_multiple']['name'] = $name;
+                $_FILES['operation_eco_pdf_pdf_multiple']['type'] = $_FILES['operation_eco_pdf_pdf']['type'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['tmp_name'] = $_FILES['operation_eco_pdf_pdf']['tmp_name'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['error'] = $_FILES['operation_eco_pdf_pdf']['error'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['size'] = $_FILES['operation_eco_pdf_pdf']['size'][$index];
+
+                if ($this->pdf_upload->do_upload('operation_eco_pdf_pdf_multiple')) {
+                    $upload_data = $this->pdf_upload->data();
+                    $pdf_data[] = array(
+                        'operation_eco_pdf_ref_id' => $operation_eco_id,
+                        'operation_eco_pdf_pdf' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_operation_eco_pdf', $pdf_data);
+        }
+
+        $doc_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดไฟล์Docเพิ่มเติมหรือไม่
+        if (!empty($_FILES['operation_eco_file_doc']['name'][0])) {
+            foreach ($_FILES['operation_eco_file_doc']['name'] as $index => $name) {
+                $_FILES['operation_eco_file_doc_multiple']['name'] = $name;
+                $_FILES['operation_eco_file_doc_multiple']['type'] = $_FILES['operation_eco_file_doc']['type'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['tmp_name'] = $_FILES['operation_eco_file_doc']['tmp_name'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['error'] = $_FILES['operation_eco_file_doc']['error'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['size'] = $_FILES['operation_eco_file_doc']['size'][$index];
+
+                if ($this->doc_upload->do_upload('operation_eco_file_doc_multiple')) {
+                    $upload_data = $this->doc_upload->data();
+                    $doc_data[] = array(
+                        'operation_eco_file_ref_id' => $operation_eco_id,
+                        'operation_eco_file_doc' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_operation_eco_file', $doc_data);
         }
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
@@ -194,11 +226,18 @@ class operation_eco_model extends CI_Model
     }
 
 
-    public function list_all_pdf($operation_eco_id)
+    public function list_all_doc($operation_eco_id)
     {
-        $this->db->select('operation_eco_file_pdf');
+        $this->db->select('operation_eco_file_doc');
         $this->db->from('tbl_operation_eco_file');
         $this->db->where('operation_eco_file_ref_id', $operation_eco_id);
+        return $this->db->get()->result();
+    }
+    public function list_all_pdf($operation_eco_id)
+    {
+        $this->db->select('operation_eco_pdf_pdf');
+        $this->db->from('tbl_operation_eco_pdf');
+        $this->db->where('operation_eco_pdf_ref_id', $operation_eco_id);
         return $this->db->get()->result();
     }
 
@@ -228,7 +267,14 @@ class operation_eco_model extends CI_Model
         return FALSE;
     }
 
-    public function read_file($operation_eco_id)
+    public function read_pdf($operation_eco_id)
+    {
+        $this->db->where('operation_eco_pdf_ref_id', $operation_eco_id);
+        $this->db->order_by('operation_eco_pdf_id', 'DESC');
+        $query = $this->db->get('tbl_operation_eco_pdf');
+        return $query->result();
+    }
+    public function read_doc($operation_eco_id)
     {
         $this->db->where('operation_eco_file_ref_id', $operation_eco_id);
         $this->db->order_by('operation_eco_file_id', 'DESC');
@@ -244,23 +290,46 @@ class operation_eco_model extends CI_Model
         return $query->result();
     }
 
-    public function del_pdf($file_id)
+    public function del_pdf($pdf_id)
     {
-        // ดึงชื่อไฟล์ PDF จากฐานข้อมูลโดยใช้ $file_id
-        $this->db->select('operation_eco_file_pdf');
-        $this->db->where('operation_eco_file_id', $file_id);
-        $query = $this->db->get('tbl_operation_eco_file');
+        // ดึงชื่อไฟล์ PDF จากฐานข้อมูลโดยใช้ $pdf_id
+        $this->db->select('operation_eco_pdf_pdf');
+        $this->db->where('operation_eco_pdf_id', $pdf_id);
+        $query = $this->db->get('tbl_operation_eco_pdf');
         $file_data = $query->row();
 
         // ลบไฟล์จากแหล่งที่เก็บไฟล์ (อาจต้องใช้ unlink หรือวิธีอื่น)
-        $file_path = './docs/file/' . $file_data->operation_eco_file_pdf;
+        $file_path = './docs/file/' . $file_data->operation_eco_pdf_pdf;
         if (file_exists($file_path)) {
             unlink($file_path);
         }
 
         // ลบข้อมูลของไฟล์จากฐานข้อมูล
-        $this->db->where('operation_eco_file_id', $file_id);
+        $this->db->where('operation_eco_pdf_id', $pdf_id);
+        $this->db->delete('tbl_operation_eco_pdf');
+        $this->space_model->update_server_current();
+        $this->session->set_flashdata('del_success', TRUE);
+    }
+    
+    public function del_doc($doc_id)
+    {
+        // ดึงชื่อไฟล์ PDF จากฐานข้อมูลโดยใช้ $doc_id
+        $this->db->select('operation_eco_file_doc');
+        $this->db->where('operation_eco_file_id', $doc_id);
+        $query = $this->db->get('tbl_operation_eco_file');
+        $file_data = $query->row();
+
+        // ลบไฟล์จากแหล่งที่เก็บไฟล์ (อาจต้องใช้ unlink หรือวิธีอื่น)
+        $file_path = './docs/file/' . $file_data->operation_eco_file_doc;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+
+        // ลบข้อมูลของไฟล์จากฐานข้อมูล
+        $this->db->where('operation_eco_file_id', $doc_id);
         $this->db->delete('tbl_operation_eco_file');
+        $this->space_model->update_server_current();
+        $this->session->set_flashdata('del_success', TRUE);
     }
 
     public function del_img($file_id)
@@ -284,7 +353,6 @@ class operation_eco_model extends CI_Model
         $this->session->set_flashdata('del_success', TRUE);
     }
 
-
     public function edit($operation_eco_id)
     {
         // Update operation_eco information
@@ -293,6 +361,7 @@ class operation_eco_model extends CI_Model
             'operation_eco_name' => $this->input->post('operation_eco_name'),
             'operation_eco_detail' => $this->input->post('operation_eco_detail'),
             'operation_eco_date' => $this->input->post('operation_eco_date'),
+            'operation_eco_link' => $this->input->post('operation_eco_link'),
             'operation_eco_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
         );
 
@@ -314,10 +383,19 @@ class operation_eco_model extends CI_Model
         }
 
         // ตรวจสอบว่ามีข้อมูลไฟล์ PDF หรือไม่
-        if (isset($_FILES['operation_eco_file_pdf'])) {
-            foreach ($_FILES['operation_eco_file_pdf']['name'] as $index => $name) {
-                if (isset($_FILES['operation_eco_file_pdf']['size'][$index])) {
-                    $total_space_required += $_FILES['operation_eco_file_pdf']['size'][$index];
+        if (isset($_FILES['operation_eco_pdf_pdf'])) {
+            foreach ($_FILES['operation_eco_pdf_pdf']['name'] as $index => $name) {
+                if (isset($_FILES['operation_eco_pdf_pdf']['size'][$index])) {
+                    $total_space_required += $_FILES['operation_eco_pdf_pdf']['size'][$index];
+                }
+            }
+        }
+
+        // ตรวจสอบว่ามีข้อมูลไฟล์ doc หรือไม่
+        if (isset($_FILES['operation_eco_file_doc'])) {
+            foreach ($_FILES['operation_eco_file_doc']['name'] as $index => $name) {
+                if (isset($_FILES['operation_eco_file_doc']['size'][$index])) {
+                    $total_space_required += $_FILES['operation_eco_file_doc']['size'][$index];
                 }
             }
         }
@@ -332,6 +410,10 @@ class operation_eco_model extends CI_Model
         $pdf_config['upload_path'] = './docs/file';
         $pdf_config['allowed_types'] = 'pdf';
         $this->load->library('upload', $pdf_config, 'pdf_upload');
+
+        $doc_config['upload_path'] = './docs/file';
+        $doc_config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx';
+        $this->load->library('upload', $doc_config, 'doc_upload');
 
         $img_config['upload_path'] = './docs/img';
         $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -389,43 +471,167 @@ class operation_eco_model extends CI_Model
 
         $pdf_data = array();
 
-        // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
-        if (!empty($_FILES['operation_eco_file_pdf']['name'][0])) {
-            foreach ($_FILES['operation_eco_file_pdf']['name'] as $index => $name) {
-                $_FILES['operation_eco_file_pdf_multiple']['name'] = $name;
-                $_FILES['operation_eco_file_pdf_multiple']['type'] = $_FILES['operation_eco_file_pdf']['type'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['tmp_name'] = $_FILES['operation_eco_file_pdf']['tmp_name'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['error'] = $_FILES['operation_eco_file_pdf']['error'][$index];
-                $_FILES['operation_eco_file_pdf_multiple']['size'] = $_FILES['operation_eco_file_pdf']['size'][$index];
+        // ตรวจสอบว่ามีการอัปโหลด pdf เพิ่มเติมหรือไม่
+        if (!empty($_FILES['operation_eco_pdf_pdf']['name'][0])) {
+            foreach ($_FILES['operation_eco_pdf_pdf']['name'] as $index => $name) {
+                $_FILES['operation_eco_pdf_pdf_multiple']['name'] = $name;
+                $_FILES['operation_eco_pdf_pdf_multiple']['type'] = $_FILES['operation_eco_pdf_pdf']['type'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['tmp_name'] = $_FILES['operation_eco_pdf_pdf']['tmp_name'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['error'] = $_FILES['operation_eco_pdf_pdf']['error'][$index];
+                $_FILES['operation_eco_pdf_pdf_multiple']['size'] = $_FILES['operation_eco_pdf_pdf']['size'][$index];
 
-                if ($this->pdf_upload->do_upload('operation_eco_file_pdf_multiple')) {
+                if ($this->pdf_upload->do_upload('operation_eco_pdf_pdf_multiple')) {
                     $upload_data = $this->pdf_upload->data();
                     $pdf_data[] = array(
-                        'operation_eco_file_ref_id' => $operation_eco_id,
-                        'operation_eco_file_pdf' => $upload_data['file_name']
+                        'operation_eco_pdf_ref_id' => $operation_eco_id,
+                        'operation_eco_pdf_pdf' => $upload_data['file_name']
                     );
                 }
             }
-            $this->db->insert_batch('tbl_operation_eco_file', $pdf_data);
+            $this->db->insert_batch('tbl_operation_eco_pdf', $pdf_data);
+        }
+
+        $doc_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลด doc เพิ่มเติมหรือไม่
+        if (!empty($_FILES['operation_eco_file_doc']['name'][0])) {
+            foreach ($_FILES['operation_eco_file_doc']['name'] as $index => $name) {
+                $_FILES['operation_eco_file_doc_multiple']['name'] = $name;
+                $_FILES['operation_eco_file_doc_multiple']['type'] = $_FILES['operation_eco_file_doc']['type'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['tmp_name'] = $_FILES['operation_eco_file_doc']['tmp_name'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['error'] = $_FILES['operation_eco_file_doc']['error'][$index];
+                $_FILES['operation_eco_file_doc_multiple']['size'] = $_FILES['operation_eco_file_doc']['size'][$index];
+
+                if ($this->doc_upload->do_upload('operation_eco_file_doc_multiple')) {
+                    $upload_data = $this->doc_upload->data();
+                    $doc_data[] = array(
+                        'operation_eco_file_ref_id' => $operation_eco_id,
+                        'operation_eco_file_doc' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_operation_eco_file', $doc_data);
         }
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
     }
 
-    public function del_operation_eco_type($operation_eco_type_id)
+    public function del_operation_eco($operation_eco_id)
+    {
+        $old_document = $this->db->get_where('tbl_operation_eco', array('operation_eco_id' => $operation_eco_id))->row();
+
+        $old_file_path = './docs/img/' . $old_document->operation_eco_img;
+        if (file_exists($old_file_path)) {
+            unlink($old_file_path);
+        }
+
+        $this->db->delete('tbl_operation_eco', array('operation_eco_id' => $operation_eco_id));
+        $this->space_model->update_server_current();
+    }
+
+    public function del_operation_eco_pdf($operation_eco_id)
+    {
+        // ดึงข้อมูลรายการ pdf ก่อน
+        $files = $this->db->get_where('tbl_operation_eco_pdf', array('operation_eco_pdf_ref_id' => $operation_eco_id))->result();
+
+        // ลบ pdf จากตาราง tbl_operation_eco_pdf
+        $this->db->where('operation_eco_pdf_ref_id', $operation_eco_id);
+        $this->db->delete('tbl_operation_eco_pdf');
+
+        // ลบไฟล์ pdf ที่เกี่ยวข้อง
+        foreach ($files as $files) {
+            $file_path = './docs/file/' . $files->operation_eco_pdf_pdf;
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        }
+    }
+
+    public function del_operation_eco_doc($operation_eco_id)
+    {
+        // ดึงข้อมูลรายการ doc ก่อน
+        $files = $this->db->get_where('tbl_operation_eco_file', array('operation_eco_file_ref_id' => $operation_eco_id))->result();
+
+        // ลบ doc จากตาราง tbl_operation_eco_file
+        $this->db->where('operation_eco_file_ref_id', $operation_eco_id);
+        $this->db->delete('tbl_operation_eco_file');
+
+        // ลบไฟล์ doc ที่เกี่ยวข้อง
+        foreach ($files as $files) {
+            $file_path = './docs/file/' . $files->operation_eco_file_doc;
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        }
+    }
+
+    public function del_operation_eco_img($operation_eco_id)
+    {
+        // ดึงข้อมูลรายการรูปภาพก่อน
+        $files = $this->db->get_where('tbl_operation_eco_img', array('operation_eco_img_ref_id' => $operation_eco_id))->result();
+
+        // ลบรูปภาพจากตาราง tbl_operation_eco_file
+        $this->db->where('operation_eco_img_ref_id', $operation_eco_id);
+        $this->db->delete('tbl_operation_eco_img');
+
+        // ลบไฟล์รูปภาพที่เกี่ยวข้อง
+        foreach ($files as $files) {
+            $file_path = './docs/img/' . $files->operation_eco_img_img;
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+        }
+    }
+
+    
+    public function del_type_operation_eco_type($operation_eco_type_id)
     {
         $this->db->delete('tbl_operation_eco_type', array('operation_eco_type_id' => $operation_eco_type_id));
         $this->space_model->update_server_current();
     }
 
-
-    public function del_operation_eco($operation_eco_type_id)
+    public function del_type_operation_eco($operation_eco_type_id)
     {
-        $this->db->delete('tbl_operation_eco', array('operation_eco_ref_id' => $operation_eco_type_id));
+        $old_document = $this->db->get_where('tbl_operation_eco', array('operation_eco_ref_id' => $operation_eco_type_id))->row();
+
+        $old_file_path = './docs/img/' . $old_document->operation_eco_img;
+        if (file_exists($old_file_path)) {
+            unlink($old_file_path);
+        }
+
+        $this->db->delete('tbl_operation_eco', array('operation_eco_id' => $operation_eco_id));
         $this->space_model->update_server_current();
     }
 
-    public function del_operation_eco_pdf($operation_eco_type_id)
+    public function del_type_operation_eco_pdf($operation_eco_type_id)
+    {
+        $operation_eco_ids = $this->get_operation_eco_id($operation_eco_type_id);
+
+        if ($operation_eco_ids) {
+            // แปลง array เป็น string โดยคั่นด้วย ','
+            $operation_eco_ids_string = implode(',', $operation_eco_ids);
+
+            // สร้าง SQL query โดยใส่ ' รอบแต่ละค่า
+            $sql = "SELECT * FROM `tbl_operation_eco_pdf` WHERE operation_eco_pdf_ref_id IN ($operation_eco_ids_string)";
+
+            // ดึงข้อมูลรายการรูปภาพที่ต้องการลบ
+            $files = $this->db->query($sql)->result();
+
+            // ลบรูปภาพจากตาราง tbl_operation_eco_pdf
+            $this->db->where_in('operation_eco_pdf_ref_id', $operation_eco_ids);
+            $this->db->delete('tbl_operation_eco_pdf');
+
+            // ลบไฟล์รูปภาพที่เกี่ยวข้อง
+            foreach ($files as $file) {
+                $file_path = './docs/file/' . $file->operation_eco_pdf_pdf;
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+            }
+        }
+    }
+    
+    public function del_type_operation_eco_doc($operation_eco_type_id)
     {
         $operation_eco_ids = $this->get_operation_eco_id($operation_eco_type_id);
 
@@ -445,7 +651,35 @@ class operation_eco_model extends CI_Model
 
             // ลบไฟล์รูปภาพที่เกี่ยวข้อง
             foreach ($files as $file) {
-                $file_path = './docs/file/' . $file->operation_eco_file_pdf;
+                $file_path = './docs/file/' . $file->operation_eco_file_doc;
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+            }
+        }
+    }
+
+    public function del_type_operation_eco_img($operation_eco_type_id)
+    {
+        $operation_eco_ids = $this->get_operation_eco_id($operation_eco_type_id);
+
+        if ($operation_eco_ids) {
+            // แปลง array เป็น string โดยคั่นด้วย ','
+            $operation_eco_ids_string = implode(',', $operation_eco_ids);
+
+            // สร้าง SQL query โดยใส่ ' รอบแต่ละค่า
+            $sql = "SELECT * FROM `tbl_operation_eco_img` WHERE operation_eco_img_ref_id IN ($operation_eco_ids_string)";
+
+            // ดึงข้อมูลรายการรูปภาพที่ต้องการลบ
+            $files = $this->db->query($sql)->result();
+
+            // ลบรูปภาพจากตาราง tbl_operation_eco_img
+            $this->db->where_in('operation_eco_img_ref_id', $operation_eco_ids);
+            $this->db->delete('tbl_operation_eco_img');
+
+            // ลบไฟล์รูปภาพที่เกี่ยวข้อง
+            foreach ($files as $file) {
+                $file_path = './docs/img/' . $file->operation_eco_img_img;
                 if (file_exists($file_path)) {
                     unlink($file_path);
                 }
@@ -470,25 +704,6 @@ class operation_eco_model extends CI_Model
             return null; // หรือค่าที่เหมาะสมเมื่อไม่พบข้อมูล
         }
     }
-
-    public function del_operation_eco_img($operation_eco_id)
-    {
-        // ดึงข้อมูลรายการรูปภาพก่อน
-        $files = $this->db->get_where('tbl_operation_eco_img', array('operation_eco_img_ref_id' => $operation_eco_id))->result();
-
-        // ลบรูปภาพจากตาราง tbl_operation_eco_file
-        $this->db->where('operation_eco_img_ref_id', $operation_eco_id);
-        $this->db->delete('tbl_operation_eco_img');
-
-        // ลบไฟล์รูปภาพที่เกี่ยวข้อง
-        foreach ($files as $files) {
-            $file_path = './docs/img/' . $files->operation_eco_img_img;
-            if (file_exists($file_path)) {
-                unlink($file_path);
-            }
-        }
-    }
-
 
     public function operation_eco_topic_frontend()
     {
