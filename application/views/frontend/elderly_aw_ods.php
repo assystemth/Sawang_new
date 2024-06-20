@@ -72,7 +72,7 @@
             </div>
             <br>
             <div class="form-group">
-                <div class="col-sm-7 control-label font-e-service-complain">แนบสำเนาบัตรประชาชน <span class="red-font">*</span></div>
+                <div class="col-sm-7 control-label font-e-service-complain">แนบสำเนาบัตรประชาชน <span class="red-font">* (เอกสารต้องเซ็นสำเนาถูกต้อง)</span></div>
                 <div class="col-sm-12 mt-2">
                     <input type="file" name="elderly_aw_ods_file1" class="form-control" accept="all/*">
                 </div>

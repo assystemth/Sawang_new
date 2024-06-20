@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <div class="col-sm-7 control-label font-e-service-complain">รูปภาพเพิ่มเติม(สามารถเพิ่มได้หลายรูป) </div>
                     <div class="col-sm-12 mt-2">
-                        <input type="file" name="suggestions_imgs[]" class="form-control " accept="image/*" multiple>
+                        <input type="file" name="suggestions_img_img[]" class="form-control " accept="image/*" multiple>
                     </div>
                 </div>
         </div>

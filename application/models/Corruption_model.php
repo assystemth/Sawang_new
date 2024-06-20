@@ -241,6 +241,34 @@ class Corruption_model extends CI_Model
 
             // Insert image data into database
             $this->db->insert_batch('tbl_corruption_img', $image_data);
+            $this->db->trans_complete();
+        } else {
+            // If no image uploaded, just insert text data
+            $this->db->insert('tbl_corruption', $corruption_data);
+            $corruption_id = $this->db->insert_id();
+        }
+
+        // ดึงข้อมูลจาก tbl_corruption หลังจากอัปเดต
+        $corruptionData = $this->db->get_where('tbl_corruption', array('corruption_id' => $corruption_id))->row();
+
+        if ($corruptionData) {
+            $message = "แจ้งเรื่องทุจริตหน่วยงานภาครัฐ ใหม่ !" . "\n";
+            $message .= "case: " . $corruptionData->corruption_id . "\n";
+            // $message .= "สถานะ: " . $corruptionData->corruption_status . "\n";
+            $message .= "เรื่อง: " . $corruptionData->corruption_topic . "\n";
+            $message .= "รายละเอียด: " . $corruptionData->corruption_detail . "\n";
+            $message .= "ชื่อผู้อัพเดตข้อมูล: " . $corruptionData->corruption_by . "\n";
+            $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $corruptionData->corruption_phone . "\n";
+            $message .= "ที่อยู่: " . $corruptionData->corruption_address . "\n";
+            $message .= "อีเมล: " . $corruptionData->corruption_email . "\n";
+            // เพิ่มข้อมูลอื่น ๆ ตามที่คุณต้องการ
+        }
+
+        // Send notification
+        if (!empty($upload_data['full_path'])) {
+            $this->sendLineNotifyImg($message, $upload_data['full_path']);
+        } else {
+            $this->sendLineNotify($message);
         }
 
         $this->db->trans_complete();
@@ -250,5 +278,37 @@ class Corruption_model extends CI_Model
 
         // Set flash message for success
         $this->session->set_flashdata('save_success', TRUE);
+
+        return $corruption_id;
     }
+
+    private function sendLineNotifyImg($message, $imagePath = null)
+    {
+        $headers = [
+            'Authorization: Bearer ' . $this->lineNotifyAccessToken,
+        ];
+
+        $data = [
+            'message' => $message,
+        ];
+
+        if ($imagePath) {
+            $data['imageFile'] = curl_file_create($imagePath, 'image/png', 'imageFile');
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->lineNotifyApiUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Handle the response as needed
+        echo "Line Notify API Response: $response";
+    }
+    private $lineNotifyApiUrl = 'https://notify-api.line.me/api/notify';
+    private $lineNotifyAccessToken = 'Iff0yJEZxd1xtZQDhWGKHltb455decobtxXQlDjlWST'; // Replace with your Line Notify access token
 }

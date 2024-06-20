@@ -101,7 +101,7 @@ class Suggestions_model extends CI_Model
     private function sendLineNotify($message)
     {
         define('LINE_API', "https://notify-api.line.me/api/notify");
-        $token = "Iff0yJEZxd1xtZQDhWGKHltb455decobtxXQlDjlWST"; // ใส่ Token ที่คุณได้รับ
+        $token = "ziHhjoKhdgWBAOSV8LiwhKm7LZxqfqP52esG3pYkNlK"; // ใส่ Token ที่คุณได้รับ
 
         $queryData = array('message' => $message);
         $queryData = http_build_query($queryData, '', '&');
@@ -247,9 +247,69 @@ class Suggestions_model extends CI_Model
                 }
             }
             $this->db->insert_batch('tbl_suggestions_img', $imgs_data);
+            $this->db->trans_complete();
+        } else {
+            // If no image uploaded, just insert text data
+            $this->db->insert('tbl_suggestions', $suggestions_data);
+            $suggestions_id = $this->db->insert_id();
+        }
+
+        // ดึงข้อมูลจาก tbl_suggestions หลังจากอัปเดต
+        $suggestionsData = $this->db->get_where('tbl_suggestions', array('suggestions_id' => $suggestions_id))->row();
+
+        if ($suggestionsData) {
+            $message = "รับฟังความคิดเห็น ใหม่ !" . "\n";
+            $message .= "case: " . $suggestionsData->suggestions_id . "\n";
+            // $message .= "สถานะ: " . $suggestionsData->suggestions_status . "\n";
+            $message .= "เรื่อง: " . $suggestionsData->suggestions_topic . "\n";
+            $message .= "รายละเอียด: " . $suggestionsData->suggestions_detail . "\n";
+            $message .= "ชื่อผู้อัพเดตข้อมูล: " . $suggestionsData->suggestions_by . "\n";
+            $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $suggestionsData->suggestions_phone . "\n";
+            $message .= "ที่อยู่: " . $suggestionsData->suggestions_address . "\n";
+            $message .= "อีเมล: " . $suggestionsData->suggestions_email . "\n";
+            // เพิ่มข้อมูลอื่น ๆ ตามที่คุณต้องการ
+        }
+
+        // Send notification
+        if (!empty($upload_data['full_path'])) {
+            $this->sendLineNotifyImg($message, $upload_data['full_path']);
+        } else {
+            $this->sendLineNotify($message);
         }
 
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
+
+        return $suggestions_id;
     }
+
+    private function sendLineNotifyImg($message, $imagePath = null)
+    {
+        $headers = [
+            'Authorization: Bearer ' . $this->lineNotifyAccessToken,
+        ];
+
+        $data = [
+            'message' => $message,
+        ];
+
+        if ($imagePath) {
+            $data['imageFile'] = curl_file_create($imagePath, 'image/png', 'imageFile');
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->lineNotifyApiUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Handle the response as needed
+        echo "Line Notify API Response: $response";
+    }
+    private $lineNotifyApiUrl = 'https://notify-api.line.me/api/notify';
+    private $lineNotifyAccessToken = 'Iff0yJEZxd1xtZQDhWGKHltb455decobtxXQlDjlWST'; // Replace with your Line Notify access token
 }
