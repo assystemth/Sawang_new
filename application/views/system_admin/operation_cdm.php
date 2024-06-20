@@ -32,15 +32,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                     foreach ($query as $rs) { ?>
                         <tr role="row">
                             <td align="center"><?= $Index; ?></td>
                             <td class="limited-text"><?= $rs->operation_cdm_name; ?></td>
                             <td class="limit-one-font"><?= $rs->operation_cdm_detail; ?></td>
                             <td>
-                                <?php foreach ($rs->file as $pdf) : ?>
-                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_cdm_file_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
+                                <?php foreach ($rs->pdf as $pdf) : ?>
+                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $pdf->operation_cdm_pdf_pdf); ?>" target="_blank">ดูไฟล์เดิม!</a>
+                                <?php endforeach; ?>
+                                <?php foreach ($rs->doc as $doc) : ?>
+                                    <a class="btn btn-info btn-sm mt-1" href="<?php echo base_url('docs/file/' . $doc->operation_cdm_file_doc); ?>" target="_blank">ดูไฟล์เดิม!</a>
                                 <?php endforeach; ?>
                             </td>
                             <td><?= $rs->operation_cdm_by; ?></td>

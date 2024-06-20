@@ -1,5 +1,5 @@
 <?php
-class operation_eco_model extends CI_Model
+class Operation_eco_model extends CI_Model
 {
     public function __construct()
     {
