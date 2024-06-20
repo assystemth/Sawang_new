@@ -27,7 +27,7 @@
             <div class="form-group row">
                 <div class="col-sm-2 control-label">ไฟล์เอกสาร</div>
                 <div class="col-sm-5">
-                    <input type="file" name="odata_sub_file_doc" class="form-control" accept=".pdf, .docx, .xls, .doc, .xlsx" required>
+                    <input type="file" name="odata_sub_file_doc" class="form-control" accept=".pdf, .docx, .xls, .doc, .xlsx, .ppt, .pptx" required>
                     <span class="red-add">( ใส่เฉพาะตัวไฟล์ pdf, doc, docx, xls, xlsx, ppt, pptx)</span>
                 </div>
             </div>

@@ -71,17 +71,6 @@
                         <a onclick="downloadFile(event, <?= $rs->odata_sub_file_id; ?>)" href="<?= base_url('docs/file/' . $rs->odata_sub_file_doc); ?>" download>
                             <span class="font-ita-head"><?= $rs->odata_sub_file_name; ?></span>
                         </a>
-                        <script>
-                            function downloadFile(event, odata_sub_file_id) {
-                                // ทำการส่งคำร้องขอ AJAX ไปยัง URL ที่บันทึกการดาวน์โหลดพร้อมกับ ID
-                                var xhr = new XMLHttpRequest();
-                                xhr.open('GET', '<?= base_url('Pages/increment_download_odata_sub_file/'); ?>' + odata_sub_file_id, true);
-                                xhr.send();
-
-                                // ทำการเปิดไฟล์ PDF ในหน้าต่างใหม่
-                                window.open(event.currentTarget.href, '_blank');
-                            }
-                        </script>
                         <br>
                         <span class="font-doc">&nbsp;&nbsp;&nbsp;&nbsp;จำนวนดาวน์โหลด <?= $rs->odata_sub_file_download; ?> ครั้ง</span>
                     </div>

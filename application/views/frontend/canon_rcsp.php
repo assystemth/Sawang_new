@@ -4,11 +4,11 @@
 </div>
 
 <div class="bg-pages">
-    <div class="container-pages-news">
+    <div class="container-pages">
         <?php
         $count = count($query);
-        $itemsPerPage = 27; // จำนวนรายการต่อหน้า
-        $totacanon_rcspges = ceil($count / $itemsPerPage);
+        $itemsPerPage = 10; // จำนวนรายการต่อหน้า
+        $totalPages = ceil($count / $itemsPerPage);
 
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -17,7 +17,7 @@
         $half = floor($numToShow / 2);
 
         $startPage = max($currentPage - $half, 1);
-        $endPage = min($startPage + $numToShow - 1, $totacanon_rcspges);
+        $endPage = min($startPage + $numToShow - 1, $totalPages);
 
         $startIndex = ($currentPage - 1) * $itemsPerPage;
         $endIndex = min($startIndex + $itemsPerPage - 1, $count - 1);
@@ -29,7 +29,11 @@
                 <div class="row">
                     <div class="col-1 style-col-img">
                         <a href="<?php echo site_url('Pages/canon_rcsp_detail/' . $rs->canon_rcsp_id); ?>">
-                            <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="50px" height="50px">
+                            <?php if (!empty($rs->canon_rcsp_img)) : ?>
+                                <img class="border-radius24" src="<?php echo base_url('docs/img/' . $rs->canon_rcsp_img); ?>" width="94px" height="63px">
+                            <?php else : ?>
+                                <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="94px" height="63px">
+                            <?php endif; ?>
                         </a>
                     </div>
                     <div class="col-9 font-pages-content">
@@ -92,7 +96,7 @@
                     $startPage = max($currentPage - $half, 1);
 
                     // ปุ่มหน้าสุดท้าย
-                    $endPage = min($startPage + $numToShow - 1, $totacanon_rcspges);
+                    $endPage = min($startPage + $numToShow - 1, $totalPages);
 
                     // แสดงปุ่ม "กลับไปหน้าแรก" ถ้าหน้าปัจจุบันไม่ได้ต่อเนื่องจากหน้าแรก
                     if ($startPage > 1) {
@@ -121,28 +125,28 @@
                     }
 
                     // แสดงปุ่ม "..." ถ้าหน้าไม่ได้ต่อเนื่อง และรองสุดท้าย
-                    if ($endPage < $totacanon_rcspges - 1) {
+                    if ($endPage < $totalPages - 1) {
                     ?>
                         <li class="page-item pagination-item disabled">
                             <span class="page-link">...</span>
                         </li>
                         <li class="page-item pagination-item">
-                            <a class="page-link" href="?page=<?php echo $totacanon_rcspges - 1; ?>"><?php echo $totacanon_rcspges - 1; ?></a>
+                            <a class="page-link" href="?page=<?php echo $totalPages - 1; ?>"><?php echo $totalPages - 1; ?></a>
                         </li>
                     <?php
                     }
 
                     // แสดงปุ่มสุดท้าย
-                    if ($endPage < $totacanon_rcspges) {
+                    if ($endPage < $totalPages) {
                     ?>
-                        <li class="page-item pagination-item <?php echo ($totacanon_rcspges == $currentPage) ? 'active' : ''; ?>">
-                            <a class="page-link" href="?page=<?php echo $totacanon_rcspges; ?>"><?php echo $totacanon_rcspges; ?></a>
+                        <li class="page-item pagination-item <?php echo ($totalPages == $currentPage) ? 'active' : ''; ?>">
+                            <a class="page-link" href="?page=<?php echo $totalPages; ?>"><?php echo $totalPages; ?></a>
                         </li>
                     <?php
                     }
                     ?>
                     <!-- ปุ่ม Next -->
-                    <?php if ($currentPage < $totacanon_rcspges) : ?>
+                    <?php if ($currentPage < $totalPages) : ?>
                         <li class="page-item" style="width: 55px; margin-left: -10px;">
                             <a class="" href="?page=<?php echo $currentPage + 1; ?>" aria-label="Next">
                                 <img src="<?php echo base_url('docs/s.pages-next.png'); ?>" alt="Next" class="pages-next">
@@ -152,9 +156,9 @@
                     <?php endif; ?>
 
                     <!-- ปุ่ม "ไปหน้าสุดท้าย" -->
-                    <?php if ($currentPage < $totacanon_rcspges) : ?>
+                    <?php if ($currentPage < $totalPages) : ?>
                         <li class="page-item pagination-item">
-                            <a class="" href="?page=<?php echo $totacanon_rcspges; ?>" aria-label="Last">
+                            <a class="" href="?page=<?php echo $totalPages; ?>" aria-label="Last">
                                 <img src="<?php echo base_url('docs/s.pages-last.png'); ?>" alt="Last" class="pages-last">
                                 <span aria-hidden="true"></span>
                             </a>
@@ -163,12 +167,11 @@
                 </ul>
             </div>
         </div>
-
         <!-- ฟอร์มกรอกหมายเลขหน้า -->
         <div class="pagination-jump-to-page d-flex justify-content-end">
             <form action="" method="GET" class="d-flex">
                 <label style="font-size: 24px;">ไปหน้าที่&nbsp;&nbsp;</label>
-                <input type="number" name="page" min="1" max="<?php echo $totacanon_rcspges; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;">
+                <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;">
                 <input type="image" src="<?php echo base_url('docs/s.pages-go.png'); ?>" alt="Go" class="pages-go" style="width: 40px; height: 40px;">
             </form>
         </div>

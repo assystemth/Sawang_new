@@ -17,7 +17,7 @@
                         <?php if (!empty($rsedit->odata_sub_file_name)) { ?>
                             <a class="btn btn-info btn-sm mb-2" href="<?= base_url('docs/file/' . $rsedit->odata_sub_file_doc); ?>" target="_blank">ดูไฟล์เดิม</a>
                         <?php } ?>
-                        <input type="file" name="odata_sub_file_doc" class="form-control" accept=".pdf, .docx, .xls, .doc, .xlsx">
+                        <input type="file" name="odata_sub_file_doc" class="form-control" accept=".pdf, .docx, .xls, .doc, .xlsx, .ppt, .pptx">
                     <span class="red-add">( ใส่เฉพาะตัวไฟล์ pdf, doc, docx, xls, xlsx, ppt, pptx)</span>
                     </div>
                 </div>

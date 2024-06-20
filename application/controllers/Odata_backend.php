@@ -136,7 +136,7 @@ class Odata_backend extends CI_Controller
         if (!empty($_FILES['odata_sub_file_doc']['name'])) {
             // ตั้งค่า upload library
             $config['upload_path'] = './docs/file'; // เปลี่ยนเป็นเส้นทางที่เหมาะสมของคุณ
-            $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx'; // ประเภทไฟล์ที่อนุญาต
+            $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx|ppt|pptx'; // ประเภทไฟล์ที่อนุญาต
 
             // โหลด library upload ด้วย config ที่กำหนด
             $this->upload->initialize($config);
@@ -194,7 +194,7 @@ class Odata_backend extends CI_Controller
         if (!empty($_FILES['odata_sub_file_doc']['name'])) {
             // ตั้งค่า upload library
             $config['upload_path'] = './docs/file';
-            $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx';
+            $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx|ppt|pptx';
 
             // โหลด library upload ด้วย config ที่กำหนด
             $this->upload->initialize($config);
