@@ -425,4 +425,16 @@ class Complain_model extends CI_Model
         $query = $this->db->get();
         return $query->row()->total_complain_cancel;
     }
+
+    public function get_complain_topic($complain_id)
+    {
+        $this->db->select('complain_topic');
+        $this->db->from('tbl_complain');
+        $this->db->where('complain_id', $complain_id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->row()->complain_topic;
+        }
+        return null;
+    }
 }

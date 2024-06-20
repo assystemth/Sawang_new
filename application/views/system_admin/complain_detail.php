@@ -126,7 +126,7 @@
                 ">
                                     <?= $rs->complain_detail_status; ?>
                                 </p>
-                            <td><?= $rs->complain_detail_com; ?></td>
+                            <td><?= empty($rs->complain_detail_com) ? $complain_topic : $rs->complain_detail_com; ?></td>
                             <td><?= $rs->complain_detail_by; ?></td>
                             <td><?= date('d/m/Y H:i', strtotime($rs->complain_detail_datesave . '+543 years')) ?> น.</td>
                             <td>
