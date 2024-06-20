@@ -6,69 +6,19 @@ class Calender_model extends CI_Model
         parent::__construct();
         $this->load->model('space_model');
         $this->load->database();
-
     }
 
     public function add_calender()
     {
-        // Check used space
-        $used_space_mb = $this->space_model->get_used_space();
-        $upload_limit_mb = $this->space_model->get_limit_storage();
-
-        $total_space_required = 0;
-       
-
-        // Check if there's enough space
-        if ($used_space_mb + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit_mb) {
-            $this->session->set_flashdata('save_error', TRUE);
-            redirect('calender/adding_calender');
-            return;
-        }
-
-        $calender_data = array(
-            // 'calender_name' => $this->input->post('calender_name'),
+        $data = array(
             'calender_detail' => $this->input->post('calender_detail'),
             'calender_date' => $this->input->post('calender_date'),
             'calender_date_end' => $this->input->post('calender_date_end'),
-            'calender_refer' => $this->input->post('calender_refer'),
-            'calender_by' => $this->session->userdata('m_fname') // เพิ่มชื่อคนที่แก้ไขข้อมูล
+            'calender_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่เพิ่มข้อมูล
         );
-
-        $config['upload_path'] = './docs/img';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $this->load->library('upload', $config);
-
-
-
-        $this->db->trans_start();
-        $this->db->insert('tbl_calender', $calender_data);
-        $calender_id = $this->db->insert_id();
-
-        
-
-        // Upload main file
-        if (!$this->upload->do_upload('calender_img')) {
-            $this->session->set_flashdata('save_maxsize', TRUE);
-            redirect('calender/adding_calender'); // กลับไปหน้าเดิม
-            return; // ออกจากฟังก์ชันทันทีเมื่อขนาดเกิน
-        }
-
-        $upload_data = $this->upload->data();
-        $calender_img_file = $upload_data['file_name'];
-
-        // Update calender_img column with the uploaded image
-        $this->db->where('calender_id', $calender_id);
-
-        // Upload and insert data into tbl_calender_img
-        $image_data = array(); // Initialize the array
-        
-
-        $this->db->insert_batch('tbl_calender_img', $image_data);
+        $query = $this->db->insert('tbl_calender', $data);
 
         $this->space_model->update_server_current();
-
-        $this->db->trans_complete();
-
         $this->session->set_flashdata('save_success', TRUE);
     }
 
@@ -81,7 +31,7 @@ class Calender_model extends CI_Model
         return $query->result();
     }
 
-   
+
     //show form edit
     public function read_calender($calender_id)
     {
@@ -96,7 +46,6 @@ class Calender_model extends CI_Model
 
     public function read_img_calender($calender_id)
     {
-        
     }
 
     public function read_com_calender($calender_id)
@@ -144,7 +93,7 @@ class Calender_model extends CI_Model
     {
         $old_document = $this->db->get_where('tbl_calender', array('calender_id' => $calender_id))->row();
 
-        
+
 
         // Update calender information
         $data = array(
@@ -159,7 +108,7 @@ class Calender_model extends CI_Model
         $this->db->where('calender_id', $calender_id);
         $this->db->update('tbl_calender', $data);
 
-        
+
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
     }
@@ -169,13 +118,13 @@ class Calender_model extends CI_Model
     {
         $old_document = $this->db->get_where('tbl_calender', array('calender_id' => $calender_id))->row();
 
-       
+
 
         $this->db->delete('tbl_calender', array('calender_id' => $calender_id));
         $this->space_model->update_server_current();
     }
 
-    
+
 
     public function updatecalenderStatus()
     {
@@ -228,7 +177,7 @@ class Calender_model extends CI_Model
         return FALSE;
     }
 
-    
+
 
     public function read_user_com_calender($user_calender_id)
     {
@@ -249,7 +198,7 @@ class Calender_model extends CI_Model
     {
         $old_document = $this->db->get_where('tbl_user_calender', array('user_calender_id' => $user_calender_id))->row();
 
-        
+
         // Update user_calender information
         $data = array(
             // 'user_calender_name' => $user_calender_name,
@@ -262,7 +211,7 @@ class Calender_model extends CI_Model
         $this->db->where('user_calender_id', $user_calender_id);
         $this->db->update('tbl_user_calender', $data);
 
-        
+
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
     }
@@ -271,13 +220,13 @@ class Calender_model extends CI_Model
     {
         $old_document = $this->db->get_where('tbl_user_calender', array('user_calender_id' => $user_calender_id))->row();
 
-       
+
 
         $this->db->delete('tbl_user_calender', array('user_calender_id' => $user_calender_id));
         $this->space_model->update_server_current();
     }
 
-   
+
 
     public function updateUsercalenderStatus()
     {
@@ -339,7 +288,7 @@ class Calender_model extends CI_Model
         $this->db->from('tbl_calender_like');
         $query_calender = $this->db->get();
 
-        
+
         $total_likes = $query_calender->row()->total_likes;
 
         return $total_likes;
@@ -384,7 +333,7 @@ class Calender_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-   
+
 
     public function increment_calender_view($calender_id)
     {
@@ -395,10 +344,10 @@ class Calender_model extends CI_Model
 
 
 
-    public function get_events() {
+    public function get_events()
+    {
         $this->db->where('tbl_calender.calender_status', 'show');
         $query = $this->db->get('tbl_calender');
         return $query->result_array();
-        
     }
 }

@@ -75,7 +75,7 @@ class Calender_backend extends CI_Controller
 
     public function del_calender($calender_id)
     {
-        $this->calender_model->del_calender_img($calender_id);
+        // $this->calender_model->del_calender_img($calender_id);
         $this->calender_model->del_calender($calender_id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('calender_backend', 'refresh');
