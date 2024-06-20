@@ -48,7 +48,7 @@
                         <?php if (!empty($rsedit->p_audit_img)) : ?>
                             <img src="<?= base_url('docs/img/' . $rsedit->p_audit_img); ?>" width="180px" height="220px">
                         <?php else : ?>
-                            <img src="<?= base_url('docs/coverphoto.jpg'); ?>" width="180px" height="220px">
+                            <img src="<?= base_url('docs/logo.png'); ?>" width="180px" height="220px">
                         <?php endif; ?>
                         <br>
                         เลือกใหม่

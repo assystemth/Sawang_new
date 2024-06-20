@@ -27,12 +27,12 @@
         ?>
            <div class="pages-select-pdf underline">
                 <div class="row">
-                    <div class="col-1 style-col-img">
+                    <div class="col-1" style="margin-left: 10px;">
                         <a href="<?php echo site_url('Pages/laws_detail/' . $rs->laws_topic_id); ?>">
                             <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="50px" height="50px">
                         </a>
                     </div>
-                    <div class="col-9 font-pages-content">
+                    <div class="col-9 font-pages-content" style="">
                         <a href="<?php echo site_url('Pages/laws_detail/' . $rs->laws_topic_id); ?>">
                             <span class="one-line-ellipsis"><?= $rs->laws_topic_topic; ?></span>
                         </a>

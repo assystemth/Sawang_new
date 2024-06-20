@@ -67,7 +67,7 @@
                         <?php if (!empty($rs->otop_img)) : ?>
                             <img src="<?php echo base_url('docs/img/' . $rs->otop_img); ?>" width="auto" style="max-width: 100%;" height="310px">
                         <?php else : ?>
-                            <img src="<?php echo base_url('docs/coverphoto.png'); ?>" width="auto" style="max-width: 100%;" height="310px">
+                            <img src="<?php echo base_url('docs/logo.png'); ?>" width="auto" style="max-width: 100%;" height="310px">
                         <?php endif; ?>
                     </div>
                 </div>
