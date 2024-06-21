@@ -28,9 +28,11 @@
             <div class="pages-select-pdf underline">
                 <div class="row">
                     <div class="col-1 style-col-img">
-                        <a href="<?php echo site_url('Pages/news_detail/' . $rs->news_id); ?>">
-                            <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="50px" height="50px">
-                        </a>
+                        <?php if (!empty($rs->news_img)) : ?>
+                            <img class="border-radius24" src="<?php echo base_url('docs/img/' . $rs->news_img); ?>" width="94px" height="63px">
+                        <?php else : ?>
+                            <img class="border-radius24" src="<?php echo base_url('docs/logo.png'); ?>" width="94px" height="63px">
+                        <?php endif; ?>
                     </div>
                     <div class="col-9 font-pages-content">
                         <a href="<?php echo site_url('Pages/news_detail/' . $rs->news_id); ?>">
