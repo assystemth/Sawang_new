@@ -33,6 +33,27 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    //********** menubar ********************************************************** */
+    document.getElementById('hide-button').addEventListener('click', function() {
+        document.getElementById('wel-navbar').classList.add('hide');
+        document.getElementById('show-button').style.display = 'block';
+    });
+
+    document.getElementById('show-button').addEventListener('click', function() {
+        document.getElementById('wel-navbar').classList.remove('hide');
+        document.getElementById('show-button').style.display = 'none';
+    });
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY === 0) {
+            document.getElementById('wel-navbar').classList.remove('hide');
+            document.getElementById('show-button').style.display = 'none';
+        } else {
+            document.getElementById('wel-navbar').classList.add('hide');
+            document.getElementById('show-button').style.display = 'block';
+        }
+    });
+    //******************************************************************************* */
     $(document).ready(function() {
         var $container = $('.wel-g1-sky');
         var duration = 20000; // 10 วินาที

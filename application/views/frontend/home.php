@@ -9,6 +9,52 @@
 
 <!-- <div class="welcome" ></div> -->
 
+<nav class="wel-navbar" id="wel-navbar">
+    <div class="row">
+        <div class="col-4">
+            <div class="text-wel-menubar">
+                <span class="font-text-menubar-wel">องค์การบริหารส่วนตำบลบ้านกลาง</span>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="wel-navbar-list">
+                <a href="#">
+                    <div class="navbar-item">
+                        <img src="<?php echo base_url('docs/menubar-home.png'); ?>">
+                        <span class="font-text-icon-wel">หน้าหลัก</span>
+                    </div>
+                </a>
+                <a href="#activity">
+                    <div class="navbar-item">
+                        <img src="<?php echo base_url('docs/menubar-activity.png'); ?>">
+                        <span class="font-text-icon-wel">กิจกรรม</span>
+                    </div>
+                </a>
+                <a href="#egp">
+                    <div class="navbar-item">
+                        <img src="<?php echo base_url('docs/menubar-egp.png'); ?>">
+                        <span class="font-text-icon-wel">ข่าว e-GP</span>
+                    </div>
+                </a>
+                <a href="#oss">
+                    <div class="navbar-item">
+                        <img src="<?php echo base_url('docs/menubar-eservice.png'); ?>">
+                        <span class="font-text-icon-wel">e-Service</span>
+                    </div>
+                </a>
+                <a href="https://webmail.ban-klang.go.th/" target="_blank">
+                    <div class="navbar-item">
+                        <img src="<?php echo base_url('docs/menubar-email.png'); ?>">
+                        <span class="font-text-icon-wel">E-Mail</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button class="hide-button" id="hide-button"></button>
+</nav>
+<button class="show-button" id="show-button" style="display: none;"></button>
+
 <div class="welcome-container">
     <!-- <div class="welcome" id="welcome"></div> -->
     <div class="fade-container">

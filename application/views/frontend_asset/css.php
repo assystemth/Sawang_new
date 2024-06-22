@@ -4595,20 +4595,21 @@
     z-index: 1;
   }
 
-  .wel-other-img-monk{
+  .wel-other-img-monk {
     position: absolute;
     z-index: 2;
     left: 92px;
     top: 65px;
   }
-  .wel-other-img-hwoat{
+
+  .wel-other-img-hwoat {
     position: absolute;
     z-index: 2;
     right: 92px;
     top: 120px;
   }
 
-  .wel-other-img-cloud1{
+  .wel-other-img-cloud1 {
     top: 10px;
     position: absolute;
     z-index: 1;
@@ -4616,14 +4617,15 @@
     left: 1%;
   }
 
-  .wel-other-img-cloud2{
+  .wel-other-img-cloud2 {
     top: 10px;
     left: 25%;
     position: absolute;
     z-index: 1;
     animation: animation-wel-other-img-cloud 80s linear infinite;
   }
-  .wel-other-img-cloud3{
+
+  .wel-other-img-cloud3 {
     top: 200px;
     left: 0;
     position: absolute;
@@ -4636,12 +4638,15 @@
     0% {
       opacity: 0;
     }
+
     5% {
       opacity: 1;
     }
+
     90% {
       opacity: 1;
     }
+
     100% {
       left: 100%;
       opacity: 0;
@@ -5164,27 +5169,36 @@
 
   .fade-container {
     position: relative;
-    height: 500px; /* ปรับความสูงตามที่ต้องการ */
-    width: 100%;   /* ปรับความกว้างตามที่ต้องการ */
-}
+    height: 500px;
+    /* ปรับความสูงตามที่ต้องการ */
+    width: 100%;
+    /* ปรับความกว้างตามที่ต้องการ */
+  }
 
-.fade-content {
+  .fade-content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.6; /* เริ่มต้นที่ความโปร่งใส */
-    transition: opacity 1s linear; /* ใช้ transition เพื่อทำให้การเปลี่ยนแปลงความโปร่งใสเนียนขึ้น */
-    z-index: 0; /* ซ่อน div ที่ไม่ได้แสดงอยู่ */
-    display: none; /* ซ่อน div ที่ไม่ได้ active */
-}
+    opacity: 0.6;
+    /* เริ่มต้นที่ความโปร่งใส */
+    transition: opacity 1s linear;
+    /* ใช้ transition เพื่อทำให้การเปลี่ยนแปลงความโปร่งใสเนียนขึ้น */
+    z-index: 0;
+    /* ซ่อน div ที่ไม่ได้แสดงอยู่ */
+    display: none;
+    /* ซ่อน div ที่ไม่ได้ active */
+  }
 
-.fade-content.active {
-    opacity: 1; /* ความโปร่งใสเต็มที่เมื่อ div มีคลาส active */
-    z-index: 1; /* ทำให้ div ที่ active อยู่เหนือ div อื่นๆ */
-    display: block; /* แสดง div ที่กำลังใช้งาน */
-}
+  .fade-content.active {
+    opacity: 1;
+    /* ความโปร่งใสเต็มที่เมื่อ div มีคลาส active */
+    z-index: 1;
+    /* ทำให้ div ที่ active อยู่เหนือ div อื่นๆ */
+    display: block;
+    /* แสดง div ที่กำลังใช้งาน */
+  }
 
   .wel-g1-bg {
     background-image: url('<?php echo base_url("docs/bg-welcome2.png"); ?>');
@@ -5535,5 +5549,147 @@
     /* box-shadow: 1px 2px 4px 0px rgba(172, 219, 133, 0.25); */
     box-shadow: 1px 2px 4px 0px rgba(234, 186, 72, 0.25);
     margin-top: 10px;
+  }
+
+  .wel-navbar {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+    /* เริ่มต้นด้วยการแสดง */
+    background-image: url('<?php echo base_url("docs/menu-bar1.png"); ?>');
+    width: 235px;
+    height: 700px;
+    z-index: 9999;
+    /* เพิ่ม z-index เพื่อให้มั่นใจว่าอยู่ข้างบนสุด */
+  }
+
+  .wel-navbar.hide {
+    left: -235px;
+  }
+
+  .text-wel-menubar {
+    position: absolute;
+    /* ใช้ fixed เพื่อให้ไม่ขยับ */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    /* หมุนข้อความ 90 องศา */
+    transform-origin: left center;
+    /* ตำแหน่งจุดหมุน */
+    margin-left: 30px;
+    margin-top: -240px;
+  }
+
+  .font-text-menubar-wel {
+    color: #FFF;
+    text-align: center;
+    /* font-family: "Noto Looped Thai UI"; */
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    white-space: nowrap;
+    /* ป้องกันไม่ให้ข้อความแตกบรรทัด */
+  }
+
+  .hide-button {
+    position: absolute;
+    margin-top: 620px;
+    /* เพิ่มระยะห่างระหว่างปุ่มกับข้อความ */
+    margin-left: 5px;
+    padding: 0;
+    width: 37px;
+    /* กำหนดขนาดของปุ่ม */
+    height: 52px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    /* เอาพื้นหลังออก */
+    background-image: url('<?php echo base_url("docs/hide.png"); ?>');
+    /* เปลี่ยนเป็น URL รูปภาพของคุณ */
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.6s ease;
+  }
+
+  .hide-button:hover {
+    background-image: url('<?php echo base_url("docs/hide_over.png"); ?>');
+  }
+
+  .show-button {
+    position: fixed;
+    top: 80%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 0;
+    width: 36px;
+    /* กำหนดขนาดของปุ่ม */
+    height: 36px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    /* เอาพื้นหลังออก */
+    background-image: url('<?php echo base_url("docs/shownavbar.png"); ?>');
+    /* เปลี่ยนเป็น URL รูปภาพของคุณ */
+    background-size: cover;
+    background-position: center;
+    z-index: 10000;
+    transition: background-image 0.6s ease;
+  }
+
+  .show-button:hover {
+    background-image: url('<?php echo base_url("docs/shownavbar_over.png"); ?>');
+  }
+
+  .wel-navbar-list {
+    margin-top: 45px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+
+  }
+
+  .navbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    transition: transform 0.5s ease, font-size 0.5s ease;
+  }
+
+  .navbar-item:hover {
+    transform: scale(1.10);
+    /* ปรับขนาดการขยาย */
+  }
+
+  .navbar-item img {
+    transition: transform 0.5s ease;
+  }
+
+  .navbar-item:hover img {
+    transform: scale(1.10);
+    /* ปรับขนาดการขยาย */
+  }
+
+
+  .font-text-icon-wel {
+    color: #FFF;
+    text-align: center;
+    font-family: "Noto Looped Thai";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    padding-top: 10px;
   }
 </style>
