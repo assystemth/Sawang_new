@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-4">
             <div class="text-wel-menubar">
-                <span class="font-text-menubar-wel">องค์การบริหารส่วนตำบลบ้านกลาง</span>
+                <span class="font-text-menubar-wel">องค์การบริหารส่วนตำบลสว่าง</span>
             </div>
         </div>
         <div class="col-8">
@@ -404,7 +404,7 @@
     </div>
 </div>
 
-<div class="bg-activity2">
+<div class="bg-activity2" id="activity">
     <div class="crop">
         <div class="d-flex justify-content-center" style="padding-top: 3%;">
             <span class="font-header-activity">ข่าวสาร / กิจกรรม</span>
@@ -764,7 +764,7 @@
     </div>
 </div>
 
-<div class="bg-public-news2">
+<div class="bg-public-news2" id="egp">
     <div class="container-star-news-animation">
         <img class="star-news-animation-1" src="docs/animation-star-1.png">
         <img class="star-news-animation-2" src="docs/animation-star-2.png">
