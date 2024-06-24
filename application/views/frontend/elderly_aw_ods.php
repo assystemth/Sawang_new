@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">หมายเลขประจำตัวประชาชน <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="elderly_aw_ods_address" name="elderly_aw_ods_number" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
+                            <input type="number" name="elderly_aw_ods_number" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
                         </div>
                     </div>
                 </div>
