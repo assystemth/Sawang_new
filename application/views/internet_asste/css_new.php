@@ -358,7 +358,7 @@
     }
 
     .bg-top-nav {
-        background-image: url('<?php echo base_url("docs/intranet/intra-top-nav.png"); ?>');
+        background-image: url('<?php echo base_url("docs/intranet/intra-top-nav2.png"); ?>');
         background-repeat: no-repeat;
         background-size: 100%;
         width: 1920px;
@@ -367,17 +367,18 @@
     }
 
     .font-top-nav {
-        background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%));
-        background-size: 1000% 1000%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        /* background: var(--Gold2, linear-gradient(90deg, #D9AA58 4.04%, #F2B940 27.1%, #DEAE3F 46.15%, #E0B344 52.16%, #E7C354 61.19%, #F2DE6F 70.21%, #FFFC8D 78.23%, #FFE875 82.24%, #FFD55E 88.25%, #AA7100 100.28%)); */
+        color: #fff;
+        /* background-size: 1000% 1000%; */
+        /* background-clip: text; */
+        /* -webkit-background-clip: text; */
+        /* -webkit-text-fill-color: transparent; */
         font-size: 36px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
         z-index: 1;
-        animation: gradient-font 10s linear infinite;
+        /* animation: gradient-font 10s linear infinite; */
     }
 
     @keyframes gradient-font {
@@ -496,17 +497,13 @@
     }
 
     .welcome-other {
-        /* background-image: url('<?php echo base_url("docs/s.welcome-other.png"); ?>'); */
+        background-image: url('<?php echo base_url("docs/s.welcome-other3.png"); ?>');
         background-repeat: no-repeat;
-        background-size: 100% 1000px;
-        /* ขนาดเต็ม 1920px x 600px */
+        background-size: cover;
         width: 1920px;
-        height: 600px;
-        /* แสดงความสูงที่คุณต้องการ */
-        overflow: hidden;
+        height: 700px;
         position: absolute;
-        background-position: top;
-        /* เริ่มจากด้านบน */
+        z-index: 1;
     }
 
     .wel-nav-sky {
@@ -551,11 +548,18 @@
     }
 
     .wel-nav-home {
-        background-image: url('<?php echo base_url("docs/b.wel-home-center.png"); ?>');
+        background-image: url('<?php echo base_url("docs/s.welcome-other3.png"); ?>');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 1920px;
+        height: 700px;
+        position: absolute;
+        z-index: 1;
+        /* background-image: url('<?php echo base_url("docs/b.wel-home-center.png"); ?>');
         position: relative;
         z-index: 3;
         width: 1920px;
-        height: 534px;
+        height: 534px; */
     }
 
     .wel-g2-animation-cloud-1 {
@@ -614,14 +618,14 @@
     }
 
     .welcome-btm-other {
-        background-image: url('<?php echo base_url("docs/b.welcome-btm-other3.png"); ?>');
+        background-image: url('<?php echo base_url("docs/s.welcome-btm-other2.png"); ?>');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 3;
         width: 1920px;
-        height: 527px;
+        height: 731px;
         position: relative;
-        margin-top: 390px;
+        margin-top: 198px;
     }
 
     .dot-updown-animation-1,
@@ -673,8 +677,8 @@
         z-index: 1;
         position: relative;
         animation: gradient-move-font 20s linear infinite;
-        text-shadow: 2px 2px 4px black;
-        margin-left: -551px;
+        text-shadow: 2px 2px 4px gray;
+        margin-left: -476px;
     }
 
     @keyframes gradient-move-font {
@@ -798,7 +802,7 @@
         /* 138.889% */
         position: relative;
         z-index: 4;
-        padding-top: 45px;
+        padding-top: 75px;
     }
 
     /* .font-head-top1 {
@@ -1590,251 +1594,307 @@
     }
 
     .bg-link-other {
-    background-image: url('<?php echo base_url("docs/b.bg-footer-other.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 925px;
-    width: 1920px;
-    margin: auto;
-    z-index: 1;
-    /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
-    /* margin-top: 200px; */
+        background-image: url('<?php echo base_url("docs/s.bg-links-other2.png"); ?>');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 925px;
+        width: 1920px;
+        margin: auto;
+        z-index: 1;
+        /* นี้จะทำให้ element อยู่ตรงกลางตามแนวนอน */
+        /* margin-top: 200px; */
 
-  }
-
-  .dot-news-animation-1 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 370px; */
-    /* margin-left: 20px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-2 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 720px; */
-    /* margin-left: 68px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-3 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 40px; */
-    /* margin-left: 115px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-4 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 120px; */
-    /* margin-left: 300px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-5 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 732px; */
-    /* margin-left: 720px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-6 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 423px; */
-    /* margin-left: 1030px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-7 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 305px; */
-    /* margin-left: 1120px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-8 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 717px; */
-    /* margin-left: 1180px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-9 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 745px; */
-    /* margin-left: 1500px; */
-  }
-
-  .dot-news-animation-10 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 730px; */
-    /* margin-left: 1740px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-11 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 370px; */
-    /* margin-left: 1810px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-12 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 60px; */
-    /* margin-left: 1880px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-13 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 605px; */
-    /* margin-left: 1870px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-14 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 605px; */
-    /* margin-left: 1870px; */
-    z-index: 3;
-  }
-
-  .dot-news-animation-15 {
-    animation: blink-2 4s both infinite;
-    position: absolute;
-    /* margin-top: 605px; */
-    /* margin-left: 1870px; */
-    z-index: 3;
-  }
-
-  /* แสงวิบวับ fade in fade out  */
-  @-webkit-keyframes blink-2 {
-    0% {
-      opacity: 1;
     }
 
-    50% {
-      opacity: 0.1;
+    .dot-news-animation-1 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 370px; */
+        /* margin-left: 20px; */
+        z-index: 3;
     }
 
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .font-link {
-    color: #fff;
-    text-align: center;
-    font-family: "Noto Looped Thai UI";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 33.366px;
-    /* 139.024% */
-  }
-
-  @keyframes fadeinleftoutright {
-    0% {
-      left: -100px;
-      opacity: 0;
-      visibility: hidden;
+    .dot-news-animation-2 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 720px; */
+        /* margin-left: 68px; */
+        z-index: 3;
     }
 
-    5% {
-      left: 5%;
-      opacity: 0;
-      visibility: visible;
+    .dot-news-animation-3 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 40px; */
+        /* margin-left: 115px; */
+        z-index: 3;
     }
 
-    50% {
-      left: 50%;
-      opacity: 1;
+    .dot-news-animation-4 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 120px; */
+        /* margin-left: 300px; */
+        z-index: 3;
     }
 
-    90% {
-      left: 90%;
-      opacity: 0;
+    .dot-news-animation-5 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 732px; */
+        /* margin-left: 720px; */
+        z-index: 3;
     }
 
-    100% {
-      left: 100%;
-      opacity: 0;
-      visibility: hidden;
+    .dot-news-animation-6 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 423px; */
+        /* margin-left: 1030px; */
+        z-index: 3;
     }
-  }
 
-  .cloud-animation {
-    position: absolute;
-    white-space: nowrap;
-    animation: fadeinleftoutright 30s linear infinite;
-    z-index: 1;
-    visibility: hidden;
-  }
+    .dot-news-animation-7 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 305px; */
+        /* margin-left: 1120px; */
+        z-index: 3;
+    }
 
-  .cloud-animation-1 {
-    margin-top: -20px;
-  }
+    .dot-news-animation-8 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 717px; */
+        /* margin-left: 1180px; */
+        z-index: 3;
+    }
 
-  .cloud-animation-2 {
-    margin-top: 30px;
-    animation-delay: 2.5s;
-  }
+    .dot-news-animation-9 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 745px; */
+        /* margin-left: 1500px; */
+    }
 
-  .cloud-animation-3 {
-    margin-top: 95px;
-    animation-delay: 6s;
-  }
+    .dot-news-animation-10 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 730px; */
+        /* margin-left: 1740px; */
+        z-index: 3;
+    }
 
-  .cloud-animation-4 {
-    margin-top: -50px;
-    animation-delay: 7.9s;
-  }
+    .dot-news-animation-11 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 370px; */
+        /* margin-left: 1810px; */
+        z-index: 3;
+    }
 
-  .cloud-animation-5 {
-    margin-top: 100px;
-    animation-delay: 11.6s;
-  }
+    .dot-news-animation-12 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 60px; */
+        /* margin-left: 1880px; */
+        z-index: 3;
+    }
 
-  .cloud-animation-6 {
-    margin-top: 80px;
-    animation-delay: 15s;
-  }
+    .dot-news-animation-13 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 605px; */
+        /* margin-left: 1870px; */
+        z-index: 3;
+    }
 
-  
-  .footer {
-    background-image: url('<?php echo base_url("docs/b.bg-bar-footer.png"); ?>');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    min-height: 75px;
-    width: 1920px;
-    position: absolute;
-    z-index: 1;
-    padding-top: 25px;
-    padding-left: 350px;
-  }
+    .dot-news-animation-14 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 605px; */
+        /* margin-left: 1870px; */
+        z-index: 3;
+    }
 
-  .font-footer {
-    color: #fff;
-    text-align: center;
+    .dot-news-animation-15 {
+        animation: blink-2 4s both infinite;
+        position: absolute;
+        /* margin-top: 605px; */
+        /* margin-left: 1870px; */
+        z-index: 3;
+    }
 
-    font-size: 20px;
-    font-style: normal;
-    line-height: 33.366px;
-    /* 178.571% */
-  }
+    /* แสงวิบวับ fade in fade out  */
+    @-webkit-keyframes blink-2 {
+        0% {
+            opacity: 1;
+        }
 
+        50% {
+            opacity: 0.1;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .font-link {
+        color: #000;
+        text-align: center;
+        font-family: "Noto Looped Thai UI";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 33.366px;
+        /* 139.024% */
+    }
+
+    @keyframes fadeinleftoutright {
+        0% {
+            left: -100px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        5% {
+            left: 5%;
+            opacity: 0;
+            visibility: visible;
+        }
+
+        50% {
+            left: 50%;
+            opacity: 1;
+        }
+
+        90% {
+            left: 90%;
+            opacity: 0;
+        }
+
+        100% {
+            left: 100%;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    .cloud-animation {
+        position: absolute;
+        white-space: nowrap;
+        animation: fadeinleftoutright 30s linear infinite;
+        z-index: 1;
+        visibility: hidden;
+    }
+
+    .cloud-animation-1 {
+        margin-top: -20px;
+    }
+
+    .cloud-animation-2 {
+        margin-top: 30px;
+        animation-delay: 2.5s;
+    }
+
+    .cloud-animation-3 {
+        margin-top: 95px;
+        animation-delay: 6s;
+    }
+
+    .cloud-animation-4 {
+        margin-top: -50px;
+        animation-delay: 7.9s;
+    }
+
+    .cloud-animation-5 {
+        margin-top: 100px;
+        animation-delay: 11.6s;
+    }
+
+    .cloud-animation-6 {
+        margin-top: 80px;
+        animation-delay: 15s;
+    }
+
+
+    .footer {
+        background-image: url('<?php echo base_url("docs/s.bg-footer1.png"); ?>');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        min-height: 75px;
+        width: 1920px;
+        position: absolute;
+        z-index: 1;
+        padding-top: 25px;
+        padding-left: 350px;
+    }
+
+    .font-footer {
+        color: #693708;
+        text-align: center;
+        font-size: 20px;
+        font-style: normal;
+        line-height: 33.366px;
+        /* 178.571% */
+    }
+
+    .wel-other-img-cloud1 {
+        top: 10px;
+        position: absolute;
+        z-index: 1;
+        animation: animation-wel-other-img-cloud 95s linear infinite;
+        left: 1%;
+    }
+
+    .wel-other-img-cloud2 {
+        top: 10px;
+        left: 25%;
+        position: absolute;
+        z-index: 1;
+        animation: animation-wel-other-img-cloud 80s linear infinite;
+    }
+
+    .wel-other-img-cloud3 {
+        top: 200px;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+        animation: animation-wel-other-img-cloud 120s linear infinite;
+        animation-delay: 3s;
+    }
+
+    @keyframes animation-wel-other-img-cloud {
+        0% {
+            opacity: 0;
+        }
+
+        5% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            left: 100%;
+            opacity: 0;
+        }
+    }
+
+    .wel-other-img-monk {
+        position: absolute;
+        z-index: 2;
+        left: 92px;
+        top: 65px;
+    }
+
+    .wel-other-img-hwoat {
+        position: absolute;
+        z-index: 2;
+        right: 92px;
+        top: 120px;
+    }
 </style>

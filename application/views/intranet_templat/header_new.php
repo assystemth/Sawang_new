@@ -155,17 +155,12 @@
             </div>
         </div>
         <div class="welcome-other">
-            <!-- <div class="fade-content active" id="div1"> -->
-            <div class="wel-nav-sky">
-                <div class="light-nav-haeder">
-                    <img class="wel-light-nav" src="<?php echo base_url("docs/b.light-nav2.png"); ?>">
-                </div>
-            </div>
-            <div class="wel-nav-home"></div>
-            <img class="wel-g2-animation-cloud-1" src="<?php echo base_url("docs/b.wel-g2-cloud1.png"); ?>">
-            <img class="wel-g2-animation-cloud-2" src="<?php echo base_url("docs/b.wel-g2-cloud2.png"); ?>">
-            <img class="wel-g2-animation-cloud-3" src="<?php echo base_url("docs/b.wel-g2-cloud2.png"); ?>">
-            <img class="wel-g2-animation-cloud-4" src="<?php echo base_url("docs/b.wel-g2-cloud4.png"); ?>">
+            <img class="wel-other-img-cloud1" src="<?php echo base_url('docs/wel-other-cloud1.png'); ?>">
+            <img class="wel-other-img-cloud2" src="<?php echo base_url('docs/wel-other-cloud2.png'); ?>">
+            <img class="wel-other-img-cloud3" src="<?php echo base_url('docs/wel-other-cloud3v2.png'); ?>">
+
+            <img class="wel-other-img-monk" src="<?php echo base_url('docs/wel-other-monk.png'); ?>">
+            <img class="wel-other-img-hwoat" src="<?php echo base_url('docs/wel-other-hwoat.png'); ?>">
         </div>
         <div class="welcome-btm-other">
             <img class="dot-updown-animation-1" src="<?php echo base_url('docs/lightv2.png'); ?>" width="25" height="25">
@@ -178,7 +173,7 @@
             <img class="dot-updown-animation-8" src="<?php echo base_url('docs/lightv2.png'); ?>" width="15" height="15">
             <img class="dot-updown-animation-9" src="<?php echo base_url('docs/lightv2.png'); ?>" width="45" height="45">
             <img class="dot-updown-animation-10" src="<?php echo base_url('docs/lightv2.png'); ?>" width="65" height="65">
-            <div class="text-center" style="padding-top: 150px;">
-                <span class="font-welcome-btm-other1">องค์การบริหารส่วนตำบลบ้านกลาง</span>
-                <span class="font-welcome-btm-other2">องค์การบริหารส่วนตำบลบ้านกลาง</span>
+            <div class="text-center" style="padding-top: 310px;">
+                <span class="font-welcome-btm-other1">องค์การบริหารส่วนตำบลสว่าง</span>
+                <span class="font-welcome-btm-other2">องค์การบริหารส่วนตำบลสว่าง</span>
             </div>
