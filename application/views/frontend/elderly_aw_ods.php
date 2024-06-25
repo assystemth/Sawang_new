@@ -92,15 +92,14 @@
                 </div>
             </div>
     </div>
-    <div class="row mt-4" style="margin-left: 80px;">
-        <div class="col-6 font-note-elderly-aw d-flex justify-content-center">
+    <div class="row mt-4" style="margin-left: 200px;">
+        <div class="col-8 font-note-elderly-aw d-flex justify-content-center">
             <span>หมายเหตุ<br>
-                1.ผู้ยื่นคำขอดาวน์โหลดเอกสารเพื่อกรอกข้อมูล<br>
-                ในใบคำขอต่างๆและแนบเอกสารในช่องส่งฟอร์มเอกสาร<br>
-                2.เจ้าหน้าที่รับเรื่อง พิจารณาเอกสาร<br>
-                3.แจ้งผลการดำเนินงานทางเบอร์โทรหรืออีเมลที่ผู้ยื่นคำขอแจ้งใว้</span>
+                1.ผู้ประสงค์ลงทะเบียนสามารถดำเนินการได้ทั้งแบบ ยื่นเอกสารออนไลน์และดำเนินการ ณ ที่ทำการ<br>
+                2.การยื่นเอกสารออนไลน์ต้องมี การลงลายมือรับรองพร้อมข้อความ "สำเนาถูกต้องประกอบการลงทะเบียนรับเบี้ยยังชีพ"<br>
+                3.การกรอกข้อมูลต้องถูกต้องและครบถ้วน เพื่อเป็นการรักษาสิทธิ์ของผู้รับสิทธิ์เอง</span>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <div class="d-flex justify-content-center">
                 <!-- <button type="submit" id="loginBtn" class="btn" disabled><img src="<?php echo base_url("docs/s.btn-add-q-a.png"); ?>"></button> -->
                 <button data-action='submit' data-callback='onSubmit' data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" id="loginBtn" class="btn g-recaptcha"><img src="<?php echo base_url("docs/s.btn-add-q-a.png"); ?>"></button>

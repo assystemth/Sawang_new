@@ -91,27 +91,43 @@ class Calender_model extends CI_Model
 
     public function edit_calender($calender_id)
     {
-        $old_document = $this->db->get_where('tbl_calender', array('calender_id' => $calender_id))->row();
+        // Get the input data
+        $calender_detail = $this->input->post('calender_detail');
+        $calender_date = $this->input->post('calender_date');
+        $calender_date_end = $this->input->post('calender_date_end');
+        $calender_by = $this->session->userdata('m_fname');
 
+        // Check if the input data is valid
+        if (empty($calender_detail) || empty($calender_date) || empty($calender_date_end) || empty($calender_by)) {
+            $this->session->set_flashdata('error', 'All fields are required.');
+            return false;
+        }
 
-
-        // Update calender information
+        // Update calendar information
         $data = array(
-            // 'calender_name' => $this->input->post('calender_name'),
-            'calender_detail' => $this->input->post('calender_detail'),
-            'calender_date' => $this->input->post('calender_date'),
-            'calender_date_end' => $this->input->post('calender_date_end'),
-            'calender_refer' => $this->input->post('calender_refer'),
-            'calender_by' => $this->session->userdata('m_fname') // เพิ่มชื่อคนที่แก้ไขข้อมูล
+            'calender_detail' => $calender_detail,
+            'calender_date' => $calender_date,
+            'calender_date_end' => $calender_date_end,
+            'calender_by' => $calender_by
         );
 
         $this->db->where('calender_id', $calender_id);
-        $this->db->update('tbl_calender', $data);
+        $update = $this->db->update('tbl_calender', $data);
 
-
-        $this->space_model->update_server_current();
-        $this->session->set_flashdata('save_success', TRUE);
+        if ($update) {
+            // Update server current
+            $this->space_model->update_server_current();
+            $this->session->set_flashdata('save_success', TRUE);
+            return true;
+        } else {
+            // Log the error message
+            $error = $this->db->error();
+            log_message('error', 'Failed to update calendar: ' . print_r($error, true));
+            $this->session->set_flashdata('error', 'Failed to update calendar.');
+            return false;
+        }
     }
+
 
 
     public function del_calender($calender_id)

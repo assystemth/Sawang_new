@@ -7,7 +7,7 @@
     <div class="container-pages-news">
         <div class="detail-q-a">
             <div class="row">
-                <div class="col-3" style="width: 130px;" >
+                <div class="col-3" style="width: 130px;">
                     <span class="font-q-a-chat-color"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg>&nbsp;ผู้ตั้งกระทู้</span>
@@ -64,7 +64,7 @@
         ?>
             <div class="detail-q-a mt-4 mb-4">
                 <div class="row">
-                <div class="col-3" style="width: 130px;" >
+                    <div class="col-3" style="width: 130px;">
                         <span class="color-q-a font-label-e-service-complainb">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />

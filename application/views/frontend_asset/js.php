@@ -34,55 +34,66 @@
 
 <script>
     //********** menubar ********************************************************** */
-    document.getElementById('hide-button').addEventListener('click', function() {
-        document.getElementById('wel-navbar').classList.add('hide');
-        document.getElementById('show-button').style.display = 'block';
-    });
-
-    document.getElementById('show-button').addEventListener('click', function() {
-        document.getElementById('wel-navbar').classList.remove('hide');
-        document.getElementById('show-button').style.display = 'none';
-    });
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY === 0) {
-            document.getElementById('wel-navbar').classList.remove('hide');
-            document.getElementById('show-button').style.display = 'none';
-        } else {
-            document.getElementById('wel-navbar').classList.add('hide');
-            document.getElementById('show-button').style.display = 'block';
-        }
-    });
-    //******************************************************************************* */
     $(document).ready(function() {
-        var $container = $('.wel-g1-sky');
-        var duration = 20000; // 10 วินาที
-        var pauseDuration = 2000; // 3 วินาทีสำหรับการค้างไว้
-        var start = null;
+        $('#hide-button').click(function() {
+            $('#wel-navbar').addClass('hide');
+            $('#show-button').show();
+        });
 
-        function slideBackground(timestamp) {
-            if (!start) start = timestamp;
-            var elapsed = timestamp - start;
+        $('#show-button').click(function() {
+            $('#wel-navbar').removeClass('hide');
+            $('#show-button').hide();
+        });
 
-            // คำนวณตำแหน่งใหม่ของ background
-            var position = (elapsed / duration) * 100;
-
-            // ตั้งค่าตำแหน่ง background ของ container
-            $container.css('background-position', 'center ' + position + '%');
-
-            // ดำเนินการ animation จนกระทั่งเวลาครบกำหนด
-            if (elapsed < duration) {
-                requestAnimationFrame(slideBackground);
+        $(window).scroll(function() {
+            if ($(this).scrollTop() === 0) {
+                $('#wel-navbar').removeClass('hide');
+                $('#show-button').hide();
             } else {
-                // เมื่อถึงตำแหน่งสุดท้าย ค้างไว้ 3 วินาทีแล้วเริ่มใหม่
-                setTimeout(function() {
-                    start = null;
-                    requestAnimationFrame(slideBackground);
-                }, pauseDuration);
+                $('#wel-navbar').addClass('hide');
+                $('#show-button').show();
+            }
+        });
+    });
+    //***** ตัวหนังสือขึ้นทีละตัว ************************************************************************ */
+    function wrapText(selector, delayMultiplier = 0) {
+        const element = $(selector);
+        const text = element.html();
+        element.html('');
+
+        let index = 0;
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === '<' && text.substring(i, i + 4) === '<br>') {
+                const br = $('<br>');
+                element.append(br);
+                i += 3; // Skip <br>
+            } else {
+                const span = $('<span>').text(text[i]);
+                span.css('animationDelay', `${(index * 0.05) + delayMultiplier}s`);
+                element.append(span);
+                index++;
             }
         }
+        return index * 0.05; // Return the total duration
+    }
 
-        requestAnimationFrame(slideBackground);
+    function animateText1And2() {
+        const text1Duration = wrapText('#text-1');
+        const text2Duration = wrapText('#text-2', text1Duration);
+
+        const totalDuration = (text1Duration + text2Duration + 0.5) * 1000; // Include a little buffer
+    }
+
+    function animateText3And4() {
+        const text3Duration = wrapText('#text-3');
+        const text4Duration = wrapText('#text-4', text3Duration);
+
+        const totalDuration = (text3Duration + text4Duration + 0.5) * 1000; // Include a little buffer
+    }
+
+    $(document).ready(function() {
+        animateText1And2();
+        animateText3And4();
     });
 
     // สลับหน้า welcome  ********************************************************************************
