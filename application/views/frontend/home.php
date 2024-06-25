@@ -878,7 +878,7 @@
                 <div id="tab2" class="tab-content">
                     <?php foreach ($qEgp as $egp) { ?>
                         <div class="content-news2-detail">
-                            <a href="<?php echo site_url('Pages/egp_detail/' . $egp->id); ?>">
+                            <a href="https://process3.gprocurement.go.th/egp2procmainWeb/jsp/procsearch.sch?servlet=gojsp&proc_id=ShowHTMLFile&processFlows=Procure&projectId=<?= $egp->project_id; ?>&templateType=W2&temp_Announ=A&temp_itemNo=0&seqNo=1" target="_blank">
                                 <div class="row">
                                     <div class="col-10">
                                         <span class="text-news"><img src="docs/e-gp.png" width="40px" style="margin-top: -5px;">&nbsp;&nbsp;<?= strip_tags($egp->project_name); ?></span>
