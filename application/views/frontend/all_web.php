@@ -89,6 +89,9 @@
                         <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>" class="font-content-all-web">งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>" class="font-content-all-web">ดาวน์โหลดแบบฟอร์ม E-Book</a><br>
+                        <a href="<?php echo site_url('Pages/odata'); ?>" class="font-content-all-web">ฐานข้อมูลเปิดภาครัฐ (Open Data)</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>" class="font-content-all-web">เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</a><br>
                     </div>
                 </div>
                 <div class="content-all-web mt-4">

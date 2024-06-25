@@ -30,14 +30,12 @@ class Intra_gallery extends CI_Controller
         $data['storage'] = $this->space_model->list_all();
         $data['query'] = $this->Intra_gallery_model->list_all();
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/gallery', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function search()
@@ -54,14 +52,12 @@ class Intra_gallery extends CI_Controller
             $data['query'] = $this->Intra_gallery_model->list_all();
         }
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/gallery', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function add()
@@ -74,7 +70,7 @@ class Intra_gallery extends CI_Controller
         // echo '</pre>';
         // exit;
         $this->Intra_gallery_model->add();
-        redirect('Intra_gallery');
+        echo '<script>window.history.back();</script>';
     }
 
     public function del_intra_gallery($gallery_id)
@@ -83,7 +79,7 @@ class Intra_gallery extends CI_Controller
         $this->Intra_gallery_model->del_intra_gallery_img($gallery_id);
         $this->Intra_gallery_model->del_intra_gallery_video($gallery_id);
         $this->session->set_flashdata('del_success', TRUE);
-        redirect('Intra_gallery');
+        echo '<script>window.history.back();</script>';
     }
 
     // ดาวโหลดรูปภาพทั้งหมดจากคลัง
@@ -114,14 +110,12 @@ class Intra_gallery extends CI_Controller
         $data['rsimg'] = $this->Intra_gallery_model->read_img($intra_gallery_id);
         $data['rsvideo'] = $this->Intra_gallery_model->read_video($intra_gallery_id);
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/gallery_detail', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function del_img($file_id)
@@ -151,6 +145,6 @@ class Intra_gallery extends CI_Controller
         // echo '</pre>';
         // exit;
         $this->Intra_gallery_model->add_img($intra_gallery_id);
-        redirect('Intra_gallery');
+        echo '<script>window.history.back();</script>';
     }
 }

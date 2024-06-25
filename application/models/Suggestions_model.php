@@ -101,7 +101,7 @@ class Suggestions_model extends CI_Model
     private function sendLineNotify($message)
     {
         define('LINE_API', "https://notify-api.line.me/api/notify");
-        $token = "ziHhjoKhdgWBAOSV8LiwhKm7LZxqfqP52esG3pYkNlK"; // ใส่ Token ที่คุณได้รับ
+        $token = "DG8gxIGbFKR44QTFF23qEwazkBRl0k6iq5vfBiqzflG"; // ใส่ Token ที่คุณได้รับ
 
         $queryData = array('message' => $message);
         $queryData = http_build_query($queryData, '', '&');
@@ -312,4 +312,9 @@ class Suggestions_model extends CI_Model
     }
     private $lineNotifyApiUrl = 'https://notify-api.line.me/api/notify';
     private $lineNotifyAccessToken = 'Iff0yJEZxd1xtZQDhWGKHltb455decobtxXQlDjlWST'; // Replace with your Line Notify access token
+
+    public function del($suggestions_id)
+    {
+        $this->db->delete('tbl_suggestions', array('suggestions_id' => $suggestions_id));
+    }
 }

@@ -49,29 +49,25 @@ class System_intranet extends CI_Controller
     }
     public function index()
     {
+
         $data['query'] = $this->Intra_news_model->list_all();
-		$data['qBanner'] = $this->banner_model->banner_frontend();
 
-        $this->load->view('intranet_templat/header', $data);
-                        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function adding()
     {
-        $this->load->view('intranet_templat/header');
-                        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news_form_add');
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function add()
@@ -89,14 +85,13 @@ class System_intranet extends CI_Controller
         // print_r($data['rsedit']);
         // echo '</pre>';
         // exit();
-        $this->load->view('intranet_templat/header');
-                        // $this->load->view('intranet_templat/btm_header');
 
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news_form_detail', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function editing($intra_news_id)
@@ -105,14 +100,12 @@ class System_intranet extends CI_Controller
         $data['rsFile'] = $this->Intra_news_model->read_file($intra_news_id);
         $data['rsImg'] = $this->Intra_news_model->read_img($intra_news_id);
 
-        $this->load->view('intranet_templat/header');
-                        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news_form_edit', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function del_pdf($file_id)
@@ -159,13 +152,11 @@ class System_intranet extends CI_Controller
             $data['query'] = $this->Intra_news_model->list_all();
         }
 
-        $this->load->view('intranet_templat/header');
-                        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news', $data);
-        $this->load->view('internet_asste/js');
+        $this->load->view('internet_asste/js_new');
         $this->load->view('intranet_templat/footer');
     }
 
@@ -185,7 +176,7 @@ class System_intranet extends CI_Controller
         // exit;
 
         $this->load->view('intranet_templat/header');
-                        // $this->load->view('intranet_templat/btm_header');
+        // $this->load->view('intranet_templat/btm_header');
 
         $this->load->view('internet_asste/css');
         $this->load->view('intranet_templat/navbar');

@@ -28,14 +28,12 @@ class Intra_announce extends CI_Controller
     {
         $data['query'] = $this->Intra_announce_model->list_all();
 
-        $this->load->view('intranet_templat/header');
-        //  $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/announce', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function add()
@@ -70,28 +68,24 @@ class Intra_announce extends CI_Controller
             $data['query'] = $this->Intra_announce_model->list_all();
         }
 
-        $this->load->view('intranet_templat/header');
-        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/announce', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function announce_detail($intra_announce_id)
     {
         $data['rsedit'] = $this->Intra_announce_model->read($intra_announce_id);
 
-        $this->load->view('intranet_templat/header');
-        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/announce_detail', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function increment_download($intra_announce_id)

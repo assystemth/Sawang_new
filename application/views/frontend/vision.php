@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">วิสัยทัศน์และพันธกิจ</span>
 </div>
 <div class="text-center" style="padding-top: 50px">

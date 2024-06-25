@@ -7,32 +7,11 @@
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-2 control-label">รายละเอียด</div>
-                    <div class="col-sm-8">
-                        <textarea name="hotNews_text" id="hotNews_text"><?= $rsedit->hotNews_text; ?></textarea>
-                        <script>
-                            ClassicEditor
-                                .create(document.querySelector('#hotNews_text'), {
-                                    toolbar: {
-                                        items: [
-                                            'undo', 'redo',
-                                            '|', 'heading',
-                                            '|', 'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor',
-                                            '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
-                                            '|', 'alignment',
-                                            '|', 'bulletedList', 'numberedList', 'todoList',
-                                            '|', 'insertTable', 'horizontalLine',
-                                            '|', 'removeFormat', 'insertImage', 'insertVideo', 'insertFile',
-                                            '|', 'undo', 'redo'
-                                        ]
-                                    },
-                                    shouldNotGroupWhenFull: true
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                });
-                        </script>
+                    <div class="col-sm-10">
+                        <textarea name="hotNews_text" id="hotNews_text" class="form-control large-textarea"><?= $rsedit->hotNews_text; ?></textarea>
                     </div>
                 </div>
+
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-2 control-label"></div>

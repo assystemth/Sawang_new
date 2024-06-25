@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">กระทู้ถาม - ตอบ</span>
 </div>
 </div>
@@ -9,18 +9,20 @@
             <form id="reCAPTCHA3" action=" <?php echo site_url('Pages/add_q_a'); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group">
-                    <div class="col-sm-12 control-label font-e-service-complain">หัวข้อคำถาม</div>
+                    <div class="col-sm-12 control-label font-e-service-complain">หัวข้อคำถาม<span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="text" name="q_a_msg" class="form-control font-label-e-service-complain" required placeholder="กรอกคำถาม...">
+                        <span class="red"><?= form_error('q_a_msg'); ?></span>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <div class="col-sm-2 control-label font-e-service-complain">ชื่อ</div>
+                            <div class="col-sm-2 control-label font-e-service-complain">ชื่อ<span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
                                 <input type="text" name="q_a_by" class="form-control font-label-e-service-complain" required placeholder="กรอกชื่อผู้ตั้งกระทู้">
+                                <span class="red"><?= form_error('q_a_by'); ?></span>
                             </div>
                         </div>
                     </div>

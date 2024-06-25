@@ -69,6 +69,7 @@ class Login_intranet extends CI_Controller
 		curl_close($curl);
 	}
 
+
 	public function check2()
 	{
 		if ($this->input->post('m_username') == '') {

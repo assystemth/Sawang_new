@@ -155,7 +155,7 @@ class Background_personnel_model extends CI_Model
 
         $old_file_path = './docs/img/' . $old_document->background_personnel_img;
         if (file_exists($old_file_path)) {
-            unrank($old_file_path);
+            unlink($old_file_path);
         }
 
         $this->db->delete('tbl_background_personnel', array('background_personnel_id' => $background_personnel_id));

@@ -33,7 +33,6 @@ class Home extends CI_Controller
 
 		$this->load->model('publicize_ita_model');
 		$this->load->model('prov_local_doc_model');
-
 		$this->load->model('intra_egp_model');
 	}
 
@@ -156,7 +155,7 @@ class Home extends CI_Controller
 	// private function loadApiData()
 	// {
 	// 	// URL of the Open API
-	// 	$api_url = 'https://opend.data.go.th/govspending/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&year=2566&dept_code=6450704&budget_start=0&budget_end=1000000000&offset=0&limit=500&keyword=&winner_tin=';
+	// 	$api_url = 'https://govspending.data.go.th/api/service/cgdcontract?api-key=TH3JFBwJZlaXdDCpcVfSFGuoofCJ1heX&dept_code=6810509&year=2567&limit=500';
 
 	// 	// Configure options for the HTTP request
 	// 	$options = [
@@ -187,6 +186,61 @@ class Home extends CI_Controller
 	// 	// ในกรณีที่มีปัญหาในการโหลดหรือประมวลผลข้อมูล
 	// 	return FALSE; // แก้ไขให้ฟังก์ชันนี้คืนค่า FALSE แทน []
 	// }
+
+	public function addLike()
+	{
+		$data = array(
+			'like_name' => $this->input->post('like_name')
+		);
+
+		$this->like_model->addLike($data);
+		$this->session->set_flashdata('save_success', TRUE);
+		echo '<script>window.history.back();</script>';
+	}
+
+	public function login()
+	{
+
+        $api_data1 = $this->fetch_api_data('https://www.assystem.co.th/service_api/index.php');
+		 if ($api_data1 !== FALSE) {
+            // Merge API data with existing data
+            $data['api_data1'] = $api_data1;
+        } else {
+            // Handle if API data is not fetched successfully
+            $data['api_data1'] = []; // or any default value as needed
+        }
+		
+		$this->load->view('login', $data);
+
+	}
+
+	private function fetch_api_data($api_url)
+	{
+		// Initialize cURL
+		$curl = curl_init();
+
+		// Set cURL options
+		curl_setopt($curl, CURLOPT_URL, $api_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification (for testing purposes only)
+
+		// Execute cURL request
+		$api_data = curl_exec($curl);
+
+		// Check for errors
+		if ($api_data === false) {
+			$error_message = curl_error($curl);
+			echo "Error: $error_message";
+		} else {
+			// Decode JSON data
+			$data = json_decode($api_data, true);
+			return $data;
+		}
+
+		// Close cURL session
+		curl_close($curl);
+	}
+
 
 	private function loadNewsDlaData()
 	{
@@ -255,58 +309,5 @@ class Home extends CI_Controller
 
 		// Return the array of documents
 		return $documents;
-	}
-
-
-	public function addLike()
-	{
-		$data = array(
-			'like_name' => $this->input->post('like_name')
-		);
-
-		$this->like_model->addLike($data);
-		$this->session->set_flashdata('save_success', TRUE);
-		echo '<script>window.history.back();</script>';
-	}
-
-	public function login()
-	{
-
-		$api_data1 = $this->fetch_api_data('https://www.assystem.co.th/service_api/index.php');
-		if ($api_data1 !== FALSE) {
-			// Merge API data with existing data
-			$data['api_data1'] = $api_data1;
-		} else {
-			// Handle if API data is not fetched successfully
-			$data['api_data1'] = []; // or any default value as needed
-		}
-
-		$this->load->view('login', $data);
-	}
-	private function fetch_api_data($api_url)
-	{
-		// Initialize cURL
-		$curl = curl_init();
-
-		// Set cURL options
-		curl_setopt($curl, CURLOPT_URL, $api_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification (for testing purposes only)
-
-		// Execute cURL request
-		$api_data = curl_exec($curl);
-
-		// Check for errors
-		if ($api_data === false) {
-			$error_message = curl_error($curl);
-			echo "Error: $error_message";
-		} else {
-			// Decode JSON data
-			$data = json_decode($api_data, true);
-			return $data;
-		}
-
-		// Close cURL session
-		curl_close($curl);
 	}
 }

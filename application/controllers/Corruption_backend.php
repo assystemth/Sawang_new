@@ -137,5 +137,10 @@ class Corruption_backend extends CI_Controller
     //     redirect('corruption_backend/detail/' . $corruption_detail_case_id);
     // }
 
-
+    public function del($corruption_id)
+    {
+        // print_r($_POST);
+        $this->corruption_model->del($corruption_id);
+        redirect('Corruption_backend', 'refresh');
+    }
 }

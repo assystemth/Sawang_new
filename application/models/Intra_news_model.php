@@ -12,6 +12,149 @@ class Intra_news_model extends CI_Model
         // Configure PDF upload
         $pdf_config['upload_path'] = './docs/intranet/file';
         $pdf_config['allowed_types'] = 'pdf';
+        $this->load->library('upload', $pdf_config, 'pdf_upload');
+
+        // Configure image upload
+        $img_config['upload_path'] = './docs/intranet/img';
+        $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $img_config, 'img_upload');
+
+        //   // Configure Doc upload
+        //   $doc_config['upload_path'] = './docs/file';
+        //   $doc_config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx';
+        //   $this->load->library('upload', $doc_config, 'doc_upload');
+
+        // กำหนดค่าใน $intra_news_data
+        $intra_news_data = array(
+            'intra_news_topic' => $this->input->post('intra_news_topic'),
+            'intra_news_detail' => $this->input->post('intra_news_detail'),
+            'intra_news_by' => $this->session->userdata('m_fname'),
+        );
+
+        // ทำการอัปโหลดรูปภาพ
+        $img_main = $this->img_upload->do_upload('intra_news_img');
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพหรือไม่
+        if (!empty($img_main)) {
+            // ถ้ามีการอัปโหลดรูปภาพ
+            $intra_news_data['intra_news_img'] = $this->img_upload->data('file_name');
+        }
+        // เพิ่มข้อมูลลงในฐานข้อมูล
+        $this->db->insert('tbl_intra_news', $intra_news_data);
+        $intra_news_id = $this->db->insert_id();
+
+        // หาพื้นที่ว่าง และอัพโหลดlimit จากฐานข้อมูล
+        $used_space = $this->space_model->get_used_space();
+        $upload_limit = $this->space_model->get_limit_storage();
+
+        $total_space_required = 0;
+        // ตรวจสอบว่ามีข้อมูลรูปภาพเพิ่มเติมหรือไม่
+        if (isset($_FILES['intra_news_img_img'])) {
+            foreach ($_FILES['intra_news_img_img']['name'] as $index => $name) {
+                if (isset($_FILES['intra_news_img_img']['size'][$index])) {
+                    $total_space_required += $_FILES['intra_news_img_img']['size'][$index];
+                }
+            }
+        }
+
+        // ตรวจสอบว่ามีข้อมูลไฟล์ PDF หรือไม่
+        if (isset($_FILES['intra_news_file_pdf'])) {
+            foreach ($_FILES['intra_news_file_pdf']['name'] as $index => $name) {
+                if (isset($_FILES['intra_news_file_pdf']['size'][$index])) {
+                    $total_space_required += $_FILES['intra_news_file_pdf']['size'][$index];
+                }
+            }
+        }
+
+        // ตรวจสอบว่ามีข้อมูลไฟล์ doc หรือไม่
+        if (isset($_FILES['intra_news_file_doc'])) {
+            foreach ($_FILES['intra_news_file_doc']['name'] as $index => $name) {
+                if (isset($_FILES['intra_news_file_doc']['size'][$index])) {
+                    $total_space_required += $_FILES['intra_news_file_doc']['size'][$index];
+                }
+            }
+        }
+
+        // เช็คค่าว่าง
+        if ($used_space + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit) {
+            $this->session->set_flashdata('save_error', TRUE);
+            redirect('intra_news_backend/adding');
+            return;
+        }
+
+        $imgs_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
+        if (!empty($_FILES['intra_news_img_img']['name'][0])) {
+            foreach ($_FILES['intra_news_img_img']['name'] as $index => $name) {
+                $_FILES['intra_news_img_img_multiple']['name'] = $name;
+                $_FILES['intra_news_img_img_multiple']['type'] = $_FILES['intra_news_img_img']['type'][$index];
+                $_FILES['intra_news_img_img_multiple']['tmp_name'] = $_FILES['intra_news_img_img']['tmp_name'][$index];
+                $_FILES['intra_news_img_img_multiple']['error'] = $_FILES['intra_news_img_img']['error'][$index];
+                $_FILES['intra_news_img_img_multiple']['size'] = $_FILES['intra_news_img_img']['size'][$index];
+
+                if ($this->img_upload->do_upload('intra_news_img_img_multiple')) {
+                    $upload_data = $this->img_upload->data();
+                    $imgs_data[] = array(
+                        'intra_news_img_ref_id' => $intra_news_id,
+                        'intra_news_img_img' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_intra_news_img', $imgs_data);
+        }
+
+        $pdf_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดไฟล์PDFเพิ่มเติมหรือไม่
+        if (!empty($_FILES['intra_news_file_pdf']['name'][0])) {
+            foreach ($_FILES['intra_news_file_pdf']['name'] as $index => $name) {
+                $_FILES['intra_news_file_pdf_multiple']['name'] = $name;
+                $_FILES['intra_news_file_pdf_multiple']['type'] = $_FILES['intra_news_file_pdf']['type'][$index];
+                $_FILES['intra_news_file_pdf_multiple']['tmp_name'] = $_FILES['intra_news_file_pdf']['tmp_name'][$index];
+                $_FILES['intra_news_file_pdf_multiple']['error'] = $_FILES['intra_news_file_pdf']['error'][$index];
+                $_FILES['intra_news_file_pdf_multiple']['size'] = $_FILES['intra_news_file_pdf']['size'][$index];
+
+                if ($this->pdf_upload->do_upload('intra_news_file_pdf_multiple')) {
+                    $upload_data = $this->pdf_upload->data();
+                    $pdf_data[] = array(
+                        'intra_news_file_ref_id' => $intra_news_id,
+                        'intra_news_file_pdf' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_intra_news_file', $pdf_data);
+        }
+
+        // $doc_data = array();
+
+        // // ตรวจสอบว่ามีการอัปโหลดไฟล์Docเพิ่มเติมหรือไม่
+        // if (!empty($_FILES['intra_news_file_doc']['name'][0])) {
+        //     foreach ($_FILES['intra_news_file_doc']['name'] as $index => $name) {
+        //         $_FILES['intra_news_file_doc_multiple']['name'] = $name;
+        //         $_FILES['intra_news_file_doc_multiple']['type'] = $_FILES['intra_news_file_doc']['type'][$index];
+        //         $_FILES['intra_news_file_doc_multiple']['tmp_name'] = $_FILES['intra_news_file_doc']['tmp_name'][$index];
+        //         $_FILES['intra_news_file_doc_multiple']['error'] = $_FILES['intra_news_file_doc']['error'][$index];
+        //         $_FILES['intra_news_file_doc_multiple']['size'] = $_FILES['intra_news_file_doc']['size'][$index];
+
+        //         if ($this->doc_upload->do_upload('intra_news_file_doc_multiple')) {
+        //             $upload_data = $this->doc_upload->data();
+        //             $doc_data[] = array(
+        //                 'intra_news_file_ref_id' => $intra_news_id,
+        //                 'intra_news_file_doc' => $upload_data['file_name']
+        //             );
+        //         }
+        //     }
+        //     $this->db->insert_batch('tbl_intra_news_file', $doc_data);
+        // }
+        // $this->space_model->update_server_current();
+        // $this->session->set_flashdata('save_success', TRUE);
+    }
+
+    public function add_old()
+    {
+        // Configure PDF upload
+        $pdf_config['upload_path'] = './docs/intranet/file';
+        $pdf_config['allowed_types'] = 'pdf';
         $pdf_config['overwrite'] = FALSE; // Add this line to prevent overwriting
         $this->load->library('upload', $pdf_config, 'pdf_upload');
 

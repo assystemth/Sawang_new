@@ -10,7 +10,7 @@ class Intra_announce_model extends CI_Model
     public function add()
     {
         $config['upload_path'] = './docs/intranet/file';
-        $config['allowed_types'] = 'pdf|doc|docx|xls|';
+        $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx|ppt|pptx';
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('intra_announce_pdf')) {

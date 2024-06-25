@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>แก้ไขข้อมูลนโยบายไม่รับของขวัญ no gift policy</h4>
-              <form action=" <?php echo site_url('operation_pgn_backend/edit/' . $rsedit->operation_pgn_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action=" <?php echo site_url('operation_pgn_backend/edit/' . $rsedit->operation_pgn_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">เรื่อง</div>

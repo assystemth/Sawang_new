@@ -1,37 +1,37 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">คำถามที่พบบ่อย</span>
 </div>
 </div>
 
 <div class="bg-pages">
     <div class="container-pages">
-        <?php
-        $count = count($query);
-        $itemsPerPage = 10; // จำนวนรายการต่อหน้า
-        $totalPages = ceil($count / $itemsPerPage);
+            <?php
+            $count = count($query);
+            $itemsPerPage = 10; // จำนวนรายการต่อหน้า
+            $totalPages = ceil($count / $itemsPerPage);
 
-        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
-        // ปรับตำแหน่งที่กำหนดค่า $numToShow
-        $numToShow = 3; // จำนวนปุ่มที่ต้องการแสดง
-        $half = floor($numToShow / 2);
+            // ปรับตำแหน่งที่กำหนดค่า $numToShow
+            $numToShow = 3; // จำนวนปุ่มที่ต้องการแสดง
+            $half = floor($numToShow / 2);
 
-        $startPage = max($currentPage - $half, 1);
-        $endPage = min($startPage + $numToShow - 1, $totalPages);
+            $startPage = max($currentPage - $half, 1);
+            $endPage = min($startPage + $numToShow - 1, $totalPages);
 
-        $startIndex = ($currentPage - 1) * $itemsPerPage;
-        $endIndex = min($startIndex + $itemsPerPage - 1, $count - 1);
+            $startIndex = ($currentPage - 1) * $itemsPerPage;
+            $endIndex = min($startIndex + $itemsPerPage - 1, $count - 1);
 
-        for ($i = $startIndex; $i <= $endIndex; $i++) {
-            $rs = $query[$i];
-        ?>
-            <div class="pages-select-pdf underline mt-5">
-                <span class="font-q-a-chat-black">ถาม : <?= $rs->questions_ask; ?></span>
-                <br>
-                <span class="font-q-a-chat-color">ตอบ : <?= $rs->questions_reply; ?></span>
-            </div>
-        <?php } ?>
-        <!-- จัดการหน้า -->
+            for ($i = $startIndex; $i <= $endIndex; $i++) {
+                $rs = $query[$i];
+            ?>
+                <div class="pages-select-pdf underline mt-5">
+                    <span class="font-q-a-chat-black">ถาม : <?= $rs->questions_ask; ?></span>
+                    <br>
+                    <span class="font-q-a-chat-color">ตอบ : <?= $rs->questions_reply; ?></span>
+                </div>
+            <?php } ?>
+<!-- จัดการหน้า -->
         <div class="pagination-container d-flex justify-content-end">
             <div class="pagination-pages">
                 <ul class="pagination">
@@ -139,9 +139,10 @@
         </div>
         <!-- ฟอร์มกรอกหมายเลขหน้า -->
         <div class="pagination-jump-to-page d-flex justify-content-end">
-            <form action="" method="GET" class="d-flex">
+                            <form action="" method="GET" class="d-flex" id="pageForm" onsubmit="return validatePageInput();">
+
                 <label style="font-size: 24px;">ไปหน้าที่&nbsp;&nbsp;</label>
-                <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;">
+                <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;" id="pageInput">
                 <input type="image" src="<?php echo base_url('docs/s.pages-go.png'); ?>" alt="Go" class="pages-go" style="width: 40px; height: 40px;">
             </form>
         </div>

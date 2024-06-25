@@ -33,6 +33,20 @@
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
 <script>
+    //********** ค่าว่างเลขหน้า ******************************************************* */
+    $(document).ready(function() {
+        $('#pageForm').submit(function(event) {
+            var pageInput = $('#pageInput').val();
+            if (pageInput === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'กรุณากรอกหมายเลขหน้าก่อนที่จะไปหน้า',
+                    confirmButtonText: 'ตกลง'
+                });
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    });
     //********** menubar ********************************************************** */
     $(document).ready(function() {
         $('#hide-button').click(function() {

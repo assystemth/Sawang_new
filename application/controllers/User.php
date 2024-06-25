@@ -142,13 +142,13 @@ class User extends CI_Controller
 	public function forgotPassword()
 	{
 		$api_data1 = $this->fetch_api_data('https://www.assystem.co.th/service_api/index.php');
-		if ($api_data1 !== FALSE) {
-		   // Merge API data with existing data
-		   $data['api_data1'] = $api_data1;
-	   } else {
-		   // Handle if API data is not fetched successfully
-		   $data['api_data1'] = []; // or any default value as needed
-	   }
+		 if ($api_data1 !== FALSE) {
+            // Merge API data with existing data
+            $data['api_data1'] = $api_data1;
+        } else {
+            // Handle if API data is not fetched successfully
+            $data['api_data1'] = []; // or any default value as needed
+        }
 
 		$this->load->view('asset/css');
 		$this->load->view('forgotPassword',$data);
@@ -176,7 +176,7 @@ class User extends CI_Controller
 
 		$reset_link = base_url('user/resetPassword/' . $reset_token);
 
-		$this->email->from('no-reply@sawang.go.th', 'Admin');
+		$this->email->from('changepw@mukdahan-smartcity.com', 'Admin');
 		$this->email->to($email);
 		$this->email->subject('Reset Password');
 		$this->email->message('คลิก <a href="' . $reset_link . '">ที่นี่</a> เพื่อรีเซ็ตรหัสผ่านของคุณ');

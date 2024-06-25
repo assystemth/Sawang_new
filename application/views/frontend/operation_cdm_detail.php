@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">หลักเกณฑ์การบริหารและพัฒนา</span>
 </div>
 </div>
@@ -11,8 +11,27 @@
             <br>
             <a class="font-26" href="<?= $rsData->operation_cdm_link; ?>" target="_blank"><?= $rsData->operation_cdm_link; ?></a>
             <?php if (!empty($rsDoc)) { ?>
-                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>&nbsp;&nbsp; : &nbsp;
-                <?php foreach ($rsDoc as $doc) { ?>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม:</span>
+                <?php foreach ($rsDoc as $doc) {
+                    // ดึงข้อมูลของไฟล์
+                    $fileInfo = pathinfo($doc->operation_cdm_file_doc);
+
+                    // ตรวจสอบลงท้ายของไฟล์
+                    $fileExtension = strtolower($fileInfo['extension']);
+
+                    // กำหนดรูปภาพตามลงท้ายของไฟล์
+                    $iconImage = "";
+                    if ($fileExtension === 'pdf') {
+                        $iconImage = "docs/icon-file-pdf.png";
+                    } elseif ($fileExtension === 'doc' || $fileExtension === 'docx') {
+                        $iconImage = "docs/icon-file-doc.png";
+                    } elseif ($fileExtension === 'xls' || $fileExtension === 'xlsx') {
+                        $iconImage = "docs/icon-file-xls.png";
+                    } elseif ($fileExtension === 'pptx' || $fileExtension === 'ppt') {
+                        $iconImage = "docs/icon-file-ppt.png";
+                    }
+                ?>
+                 <br><img src="<?php echo base_url($iconImage); ?>" style="padding: 0 30px;">
                     <a class="font-doc" href="<?= base_url('docs/file/' . $doc->operation_cdm_file_doc); ?>" target="_blank"><?= $doc->operation_cdm_file_doc; ?></a> , &nbsp;
                 <?php } ?>
             <?php } ?>

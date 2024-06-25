@@ -71,7 +71,7 @@ class Member_backend extends CI_Controller
 
 	public function adddata()
 	{
-		// 		echo '<pre>';
+		// echo '<pre>';
 		// print_r($_POST);
 		// echo '</pre>';
 		// exit;

@@ -130,5 +130,10 @@ class Esv_ods_backend extends CI_Controller
     //     redirect('esv_ods_backend/detail/' . $esv_ods_detail_case_id);
     // }
 
-
+    public function del($esv_ods_id)
+    {
+        // print_r($_POST);
+        $this->esv_ods_model->del($esv_ods_id);
+        redirect('esv_ods_backend', 'refresh');
+    }
 }

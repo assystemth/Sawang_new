@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">นโยบายของผู้บริหาร</span>
 </div>
 <div class="text-center" style="padding-top: 50px">
@@ -9,9 +9,8 @@
 <div class="bg-pages">
     <div class="container-pages-detail">
         <div class="mt-gi">
-
             <?php foreach ($qExecutivepolicy as $rs) { ?>
-                <div class="pages-content break-word">
+                <div class="pages-content break-word ">
                     <span class="font-gi-head">เรื่อง <?= $rs->executivepolicy_name; ?></span>
                     <br>
                     <span class="font-pages-content"><?= $rs->executivepolicy_detail; ?></span>

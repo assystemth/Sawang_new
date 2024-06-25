@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">รับฟังความคิดเห็น</span>
 </div>
 </div>
@@ -25,6 +25,7 @@
                     <div class="col-sm-4 control-label font-e-service-complain">เรื่องที่ต้องการเสนอแนะ <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="text" name="suggestions_topic" class="form-control font-label-e-service-complain" required placeholder="กรอกเรื่องร้องเรียน...">
+                        <span class="red"><?= form_error('suggestions_topic'); ?></span>
                     </div>
                 </div>
                 <br>
@@ -34,6 +35,7 @@
                             <div class="col-sm-12 control-label  font-e-service-complain">ชื่อ-นามสกุล <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
                                 <input type="text" name="suggestions_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
+                                <span class="red"><?= form_error('suggestions_by'); ?></span>
                             </div>
                         </div>
                     </div>
@@ -42,6 +44,7 @@
                             <div class="col-sm-12 control-label  font-e-service-complain">เบอร์โทรศัพท์ <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
                                 <input type="tel" name="suggestions_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
+                                <span class="red"><?= form_error('suggestions_phone'); ?></span>
                             </div>
                         </div>
                     </div>
@@ -59,6 +62,7 @@
                     <div class="col-sm-2 control-label font-e-service-complain">ที่อยู่ <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="text" name="suggestions_address" class="form-control font-label-e-service-complain" required placeholder="กรอกข้อมูลที่อยู่ของคุณ">
+                        <span class="red"><?= form_error('suggestions_address'); ?></span>
                     </div>
                 </div>
                 <br>
@@ -66,6 +70,7 @@
                     <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด <span class="red-font">*</span></label>
                     <div class="col-sm-12 mt-2">
                         <textarea name="suggestions_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
+                        <span class="red"><?= form_error('suggestions_detail'); ?></span>
                     </div>
                 </div>
                 <br>

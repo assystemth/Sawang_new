@@ -7,35 +7,19 @@ class Intra_form extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // if (
-        //     $this->session->userdata('m_level') != 1 &&
-        //     $this->session->userdata('m_level') != 2 &&
-        //     $this->session->userdata('m_level') != 3 &&
-        //     $this->session->userdata('m_level') != 4 &&
-        //     $this->session->userdata('m_level') != 5 &&
-        //     $this->session->userdata('m_level') != 6 &&
-        //     $this->session->userdata('m_level') != 7 &&
-        //     $this->session->userdata('m_level') != 8 &&
-        //     $this->session->userdata('m_level') != 9 &&
-        //     $this->session->userdata('m_level') != 10 &&
-        //     $this->session->userdata('m_level') != 11
-        // ) {
-        //     redirect('user', 'refresh');
-        // }
+
         $this->load->model('Intra_form_model');
     }
     public function index()
     {
         $data['query'] = $this->Intra_form_model->list_all();
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/form', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function add()
@@ -70,28 +54,24 @@ class Intra_form extends CI_Controller
             $data['query'] = $this->Intra_form_model->list_all();
         }
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/form', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function form_detail($intra_form_id)
     {
         $data['rsedit'] = $this->Intra_form_model->read($intra_form_id);
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/form_detail', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function increment_download($intra_form_id)

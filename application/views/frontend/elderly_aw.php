@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span>
 </div>
 </div>

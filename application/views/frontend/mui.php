@@ -1,5 +1,5 @@
-<div class="text-center" style="padding-top: 65px">
-    <span class="font-pages-head">มาตราการภายในหน่วย</span>
+<div class="text-center pages-head">
+    <span class="font-pages-head">มาตรการภายในหน่วย</span>
 </div>
 </div>
 
@@ -166,9 +166,10 @@
 
         <!-- ฟอร์มกรอกหมายเลขหน้า -->
         <div class="pagination-jump-to-page d-flex justify-content-end">
-            <form action="" method="GET" class="d-flex">
+                            <form action="" method="GET" class="d-flex" id="pageForm" onsubmit="return validatePageInput();">
+
                 <label style="font-size: 24px;">ไปหน้าที่&nbsp;&nbsp;</label>
-                <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;">
+                <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;" id="pageInput">
                 <input type="image" src="<?php echo base_url('docs/s.pages-go.png'); ?>" alt="Go" class="pages-go" style="width: 40px; height: 40px;">
             </form>
         </div>

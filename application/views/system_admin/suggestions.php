@@ -15,9 +15,10 @@
                             <th style="width: 5%;">เคส</th>
                             <th style="width: 20%;">รูปภาพ</th>
                             <th style="width: 20%;">หัวข้อร้องเรียน</th>
-                            <th style="width: 35%;">รายละเอียด</th>
+                            <th style="width: 30%;">รายละเอียด</th>
                             <th style="width: 10%;">ผู้แจ้ง</th>
                             <th style="width: 10%;">ติดต่อ</th>
+                            <th style="width: 5%;">จัดการ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,13 +27,36 @@
                                 <td><?= $suggestions->suggestions_id; ?></td>
                                 <td>
                                     <?php foreach ($suggestions->images as $image) : ?>
-                                        <img src="<?= base_url('docs/img/' . $image->suggestions_img_img); ?>" alt="suggestions Image" width="100">
+                                        <a href="<?php echo base_url('docs/img/' . $image->suggestions_img_img); ?>" data-lightbox="image-<?php echo $suggestions->suggestions_id; ?>">
+                                            <img src="<?= base_url('docs/img/' . $image->suggestions_img_img); ?>" alt="suggestions Image" width="100">
+                                        </a>
                                     <?php endforeach; ?>
                                 </td>
                                 <td class="limited-text"><?= $suggestions->suggestions_topic; ?></td>
                                 <td class="limited-text"><?= $suggestions->suggestions_detail; ?></td>
                                 <td class="limited-text"><?= $suggestions->suggestions_by; ?></td>
                                 <td class="limited-text"><?= $suggestions->suggestions_phone; ?></td>
+                                <td>
+                                    <a href="#" role="button" onclick="confirmDelete(<?= $suggestions->suggestions_id; ?>);"><i class="bi bi-trash fa-lg "></i></a>
+                                    <script>
+                                        function confirmDelete(suggestions_id) {
+                                            Swal.fire({
+                                                title: 'กดเพื่อยืนยัน?',
+                                                text: "คุณจะไม่สามรถกู้คืนได้อีก!",
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonColor: '#3085d6',
+                                                cancelButtonColor: '#d33',
+                                                confirmButtonText: 'ใช่, ต้องการลบ!',
+                                                cancelButtonText: 'ยกเลิก' // เปลี่ยนข้อความปุ่ม Cancel เป็นภาษาไทย
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.href = "<?= site_url('suggestions_backend/del/'); ?>" + suggestions_id;
+                                                }
+                                            });
+                                        }
+                                    </script>
+                                </td>
                             </tr>
                         <?php
                             $Index++;

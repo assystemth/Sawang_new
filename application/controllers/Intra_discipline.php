@@ -28,14 +28,12 @@ class Intra_discipline extends CI_Controller
     {
         $data['query'] = $this->Intra_discipline_model->list_all();
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/discipline', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function add()
@@ -70,28 +68,24 @@ class Intra_discipline extends CI_Controller
             $data['query'] = $this->Intra_discipline_model->list_all();
         }
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/discipline', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function discipline_detail($intra_discipline_id)
     {
         $data['rsedit'] = $this->Intra_discipline_model->read($intra_discipline_id);
 
-        $this->load->view('intranet_templat/header');
-                // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/discipline_detail', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function increment_download($intra_discipline_id)

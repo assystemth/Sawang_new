@@ -27,7 +27,7 @@ class Esv_ods_model extends CI_Model
 
         // Upload configuration
         $config['upload_path'] = './docs/file';
-        $config['allowed_types'] = 'doc|docx|pdf';
+        $config['allowed_types'] = 'doc|docx|pdf|jpg|jpeg|png';
         $this->load->library('upload', $config);
 
         // Upload main file
@@ -60,10 +60,11 @@ class Esv_ods_model extends CI_Model
             $message = "ยื่นเรื่องออนไลน์ ใหม่ !" . "\n";
             $message .= "เรื่อง: " . $esv_odsData->esv_ods_topic . "\n";
             $message .= "รายละเอียด: " . $esv_odsData->esv_ods_detail . "\n";
-            $message .= "ชื่อผู้: " . $esv_odsData->esv_ods_by . "\n";
+            $message .= "ชื่อผู้ยื่นคำร้อง: " . $esv_odsData->esv_ods_by . "\n";
             $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $esv_odsData->esv_ods_phone . "\n";
             $message .= "ที่อยู่: " . $esv_odsData->esv_ods_address . "\n";
             $message .= "อีเมล: " . $esv_odsData->esv_ods_email . "\n";
+            $message .= "เอกสารแนบ: " . $esv_odsData->esv_ods_file . "\n";
             // เพิ่มข้อมูลอื่น ๆ ตามที่คุณต้องการ
         }
 
@@ -115,5 +116,10 @@ class Esv_ods_model extends CI_Model
         $this->db->order_by('tbl_esv_ods.esv_ods_datesave', 'asc');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function del($esv_ods_id)
+    {
+        $this->db->delete('tbl_esv_ods', array('esv_ods_id' => $esv_ods_id));
     }
 }

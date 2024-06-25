@@ -1,4 +1,4 @@
-<div class="text-center pages-head" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">ฐานข้อมูลเปิดภาครัฐ (Open Data)</span>
 </div>
 </div>
@@ -64,7 +64,7 @@
                 </div> -->
 
                 <div class="row">
-                    <div class="col-1" style="padding-left: 40px;">
+                    <div class="col-1" style="padding-left: 30px;">
                         <img src="<?php echo base_url($iconImage); ?>" width="50px">
                     </div>
                     <div class="col-11">

@@ -2,7 +2,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-black">จัดการข้อมูลช่องทางแจ้งเรื่องทุจริตหน่วยงานภาครัฐ  </h6>
+            <h6 class="m-0 font-weight-bold text-black">จัดการข้อมูลช่องทางแจ้งเรื่องทุจริตหน่วยงานภาครัฐ </h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,9 +15,10 @@
                             <th style="width: 5%;">เคส</th>
                             <th style="width: 20%;">รูปภาพ</th>
                             <th style="width: 20%;">หัวข้อร้องเรียน</th>
-                            <th style="width: 35%;">รายละเอียด</th>
+                            <th style="width: 30%;">รายละเอียด</th>
                             <th style="width: 10%;">ผู้แจ้ง</th>
                             <th style="width: 10%;">ติดต่อ</th>
+                            <th style="width: 5%;">จัดการ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,13 +27,36 @@
                                 <td><?= $corruption->corruption_id; ?></td>
                                 <td>
                                     <?php foreach ($corruption->images as $image) : ?>
-                                        <img src="<?= base_url('docs/img/' . $image->corruption_img_img); ?>" alt="corruption Image" width="100">
+                                        <a href="<?php echo base_url('docs/img/' . $image->corruption_img_img); ?>" data-lightbox="image-<?php echo $corruption->corruption_id; ?>">
+                                            <img src="<?= base_url('docs/img/' . $image->corruption_img_img); ?>" alt="corruption Image" width="100">
+                                        </a>
                                     <?php endforeach; ?>
                                 </td>
                                 <td class="limited-text"><?= $corruption->corruption_topic; ?></td>
                                 <td class="limited-text"><?= $corruption->corruption_detail; ?></td>
                                 <td class="limited-text"><?= $corruption->corruption_by; ?></td>
                                 <td class="limited-text"><?= $corruption->corruption_phone; ?></td>
+                                <td>
+                                    <a href="#" role="button" onclick="confirmDelete(<?= $corruption->corruption_id; ?>);"><i class="bi bi-trash fa-lg "></i></a>
+                                    <script>
+                                        function confirmDelete(corruption_id) {
+                                            Swal.fire({
+                                                title: 'กดเพื่อยืนยัน?',
+                                                text: "คุณจะไม่สามรถกู้คืนได้อีก!",
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonColor: '#3085d6',
+                                                cancelButtonColor: '#d33',
+                                                confirmButtonText: 'ใช่, ต้องการลบ!',
+                                                cancelButtonText: 'ยกเลิก' // เปลี่ยนข้อความปุ่ม Cancel เป็นภาษาไทย
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.href = "<?= site_url('corruption_backend/del/'); ?>" + corruption_id;
+                                                }
+                                            });
+                                        }
+                                    </script>
+                                </td>
                             </tr>
                         <?php
                             $Index++;

@@ -1,5 +1,5 @@
-<div class="text-center" style="padding-top: 65px">
-    <span class="font-pages-head">สมาชิกสภาตำบล</span>
+<div class="text-center pages-head">
+    <span class="font-pages-head">สมาชิกสภา</span>
 </div>
 </div>
 

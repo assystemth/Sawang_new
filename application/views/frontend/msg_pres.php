@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">สารจากนายก</span>
 </div>
 <div class="text-center" style="padding-top: 50px">
@@ -6,7 +6,7 @@
 </div>
 </div>
 
-<div class="bg-pages ">
+<div class="bg-pages " style="margin-top: 20px;">
     <div class="container-pages-detail">
         <?php foreach ($query as $rs) { ?>
             <div class="pages-content break-word mt-5">

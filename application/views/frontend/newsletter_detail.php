@@ -1,4 +1,4 @@
-<div class="text-center" style="padding-top: 65px">
+<div class="text-center pages-head">
     <span class="font-pages-head">จดหมายข่าว</span>
 </div>
 </div>
@@ -10,12 +10,34 @@
             <span class="font-pages-content-detail"><?= $rsData->newsletter_detail; ?></span>
             <br>
             <a class="font-26" href="<?= $rsData->newsletter_link; ?>" target="_blank"><?= $rsData->newsletter_link; ?></a>
-            <?php if (!empty($rsDoc)) { ?>
-                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม</span>&nbsp;&nbsp; : &nbsp;
-                <?php foreach ($rsDoc as $doc) { ?>
-                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->newsletter_file_doc); ?>" target="_blank"><?= $doc->newsletter_file_doc; ?></a> , &nbsp;
-                <?php } ?>
-            <?php } ?>
+            <?php if (!empty($rsDoc)) : ?>
+                <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม:</span>
+                <?php foreach ($rsDoc as $doc) :
+                    $fileInfo = pathinfo($doc->newsletter_file_doc);
+                    $fileExtension = strtolower($fileInfo['extension']);
+                    $iconImage = "";
+                    switch ($fileExtension) {
+                        case 'pdf':
+                            $iconImage = "docs/icon-file-pdf.png";
+                            break;
+                        case 'doc':
+                        case 'docx':
+                            $iconImage = "docs/icon-file-doc.png";
+                            break;
+                        case 'xls':
+                        case 'xlsx':
+                            $iconImage = "docs/icon-file-xls.png";
+                            break;
+                        case 'ppt':
+                        case 'pptx':
+                            $iconImage = "docs/icon-file-ppt.png";
+                            break;
+                    }
+                ?>
+                    <br><img src="<?= base_url($iconImage); ?>" style="padding: 0 30px;">
+                    <a class="font-doc" href="<?= base_url('docs/file/' . $doc->newsletter_file_doc); ?>" target="_blank"><?= $doc->newsletter_file_doc; ?></a>, &nbsp;
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
         <?php foreach ($rsImg as $img) { ?>

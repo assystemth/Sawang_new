@@ -134,12 +134,12 @@ class Intra_egp extends CI_Controller
         // echo '</pre>';
         // exit;
 
-        $this->load->view('intranet_templat/header');
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/egp', $data);
-        $this->load->view('internet_asste/js');
+        $this->load->view('internet_asste/js_new');
         $this->load->view('internet_asste/php');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('intranet_templat/footer_new');
     }
 }

@@ -16,6 +16,7 @@ class Q_a_backend extends CI_Controller
         }
         $this->load->model('member_model');
         $this->load->model('q_a_model');
+        $this->load->library('form_validation');
     }
 
     public function index()

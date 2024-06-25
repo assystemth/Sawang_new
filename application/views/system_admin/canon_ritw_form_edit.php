@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>แก้ไขข้อมูลข้อบัญญัติการติดตั้งระบบบำบัดน้ำเสียในอาคาร</h4>
-               <form action=" <?php echo site_url('canon_ritw_backend/edit/' . $rsedit->canon_ritw_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action=" <?php echo site_url('canon_ritw_backend/edit/' . $rsedit->canon_ritw_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">เรื่อง</div>

@@ -1,7 +1,7 @@
 <?php
 class Elderly_aw_ods_model extends CI_Model
 {
-    private $line_token = 'DG8gxIGbFKR44QTFF23qEwazkBRl0k6iq5vfBiqzflG'; // เปลี่ยน 'YOUR_LINE_NOTIFY_TOKEN' เป็น LINE Notify token ของคุณ
+    private $line_token = 'Iff0yJEZxd1xtZQDhWGKHltb455decobtxXQlDjlWST'; // เปลี่ยน 'YOUR_LINE_NOTIFY_TOKEN' เป็น LINE Notify token ของคุณ
 
     public function __construct()
     {
@@ -119,11 +119,11 @@ class Elderly_aw_ods_model extends CI_Model
 
             // สร้างข้อความแจ้งเตือน
             $message = "เอกสารเบี้ยยังชีพผู้สูงอายุ/ผู้พิการ ใหม่:\n";
-            $message .= "ชื่อผู้บันทึก: " . $latest_entry->elderly_aw_ods_by . "\n";
+            $message .= "ชื่อผู้ยื่นคำร้อง: " . $latest_entry->elderly_aw_ods_by . "\n";
             $message .= "โทรศัพท์: " . $latest_entry->elderly_aw_ods_phone . "\n";
             $message .= "ที่อยู่: " . $latest_entry->elderly_aw_ods_address . "\n";
-            $message .= "เอกสารแนบ: " . $latest_entry->elderly_aw_ods_file1 . "\n";
-            // $message .= "เอกสารแนบ: " . $latest_entry->elderly_aw_ods_file2 . "\n";
+            // $message .= "เอกสารแนบ: " . $latest_entry->elderly_aw_ods_file1 . "\n";
+            $message .= "เอกสารแนบ: " . $latest_entry->elderly_aw_ods_file2 . "\n";
             // $message .= "เอกสารแนบ: " . $latest_entry->elderly_aw_ods_file3 . "\n";
 
             // ส่งแจ้งเตือนผ่าน LINE Notify

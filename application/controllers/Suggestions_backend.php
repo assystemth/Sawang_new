@@ -134,5 +134,10 @@ class suggestions_backend extends CI_Controller
     //     redirect('suggestions_backend/detail/' . $suggestions_detail_case_id);
     // }
 
-
+    public function del($suggestions_id)
+    {
+        // print_r($_POST);
+        $this->suggestions_model->del($suggestions_id);
+        redirect('suggestions_backend', 'refresh');
+    }
 }

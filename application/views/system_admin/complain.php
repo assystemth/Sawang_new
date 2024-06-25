@@ -94,10 +94,12 @@
                                 </td>
                                 <td>
                                     <?php foreach ($complain->images as $image) : ?>
-                                        <img src="<?= base_url('docs/img/' . $image->complain_img_img); ?>" alt="Complain Image" width="100">
+                                        <a href="<?php echo base_url('docs/img/' . $image->complain_img_img); ?>" data-lightbox="image-<?php echo $complain->complain_id; ?>">
+                                            <img src="<?= base_url('docs/img/' . $image->complain_img_img); ?>" alt="Complain Image" width="100">
+                                        </a>
                                     <?php endforeach; ?>
                                 </td>
-                                <td class="limited-text"><?= $complain->complain_topic; ?></td>
+                                <td class=""><?= $complain->complain_topic; ?></td>
                                 <td class=""><?= $complain->complain_detail; ?></td>
                                 <td class="limited-text"><?= $complain->complain_by; ?></td>
                                 <td class="limited-text"><?= $complain->complain_phone; ?></td>

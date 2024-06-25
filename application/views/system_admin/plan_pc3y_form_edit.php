@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <h4>แก้ไขข้อมูลแผนอัตรากำลัง 3 ปี</h4>
-               <form action=" <?php echo site_url('plan_pc3y_backend/edit/' . $rsedit->plan_pc3y_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action=" <?php echo site_url('plan_pc3y_backend/edit/' . $rsedit->plan_pc3y_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label">เรื่อง</div>

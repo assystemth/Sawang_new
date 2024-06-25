@@ -23,7 +23,7 @@ class Complain_backend extends CI_Controller
     public function index()
     {
         $complain_status = $this->input->get('complain_status');
-
+    
         if (!$complain_status) {
             // ถ้าไม่มีการกรองด้วย complain_status ให้ดึงทั้งหมด
             $complains = $this->complain_model->get_complains();
@@ -31,11 +31,11 @@ class Complain_backend extends CI_Controller
             // ถ้ามีการกรองด้วย complain_status ให้ดึงตามเงื่อนไข
             $complains = $this->complain_model->get_complains($complain_status);
         }
-
+    
         foreach ($complains as $complain) {
             $complain->images = $this->complain_model->get_images_for_complain($complain->complain_id);
         }
-
+    
         $this->load->view('templat/header');
         $this->load->view('asset/css');
         $this->load->view('templat/navbar_system_admin');
@@ -43,7 +43,7 @@ class Complain_backend extends CI_Controller
         $this->load->view('asset/js');
         $this->load->view('templat/footer');
     }
-
+    
 
     // public function updateComplainStatus()
     // {
@@ -104,10 +104,10 @@ class Complain_backend extends CI_Controller
         $data['query'] = $this->complain_model->read_detail($complain_id);
         $data['qcomplain'] = $this->complain_model->read($complain_id);
         $data['latest_query'] = $this->complain_model->getLatestDetail($complain_id);
-
+    
         // เพิ่มบรรทัดนี้เพื่อส่งข้อมูลหัวข้อร้องเรียนไปยัง view
         $data['complain_topic'] = $this->complain_model->get_complain_topic($complain_id);
-        
+    
         $this->load->view('templat/header');
         $this->load->view('asset/css');
         $this->load->view('templat/navbar_system_admin');

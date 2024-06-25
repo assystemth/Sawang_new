@@ -101,35 +101,44 @@ class Q_a_model extends CI_Model
         $query = $this->db->get('tbl_q_a_reply');
         $result = $query->result();
 
-        // ลอง print ค่าที่ได้
-        // print_r($result);
-        // print_r(exit);
+        log_message('debug', 'Query Result: ' . print_r($result, true));
 
         return $result;
     }
 
+
     public function add_reply_q_a()
     {
-
-        // ถ้าไม่มีข้อมูลในฐานข้อมูลให้ทำการเพิ่มข้อมูล
         $data = array(
             'q_a_reply_ref_id' => $this->input->post('q_a_reply_ref_id'),
             'q_a_reply_by' => $this->input->post('q_a_reply_by'),
             'q_a_reply_email' => $this->input->post('q_a_reply_email'),
-            'q_a_reply_detail' => $this->input->post('q_a_reply_detail'),
+            'q_a_reply_detail' => $this->input->post('q_a_reply_detail')
         );
 
         $query = $this->db->insert('tbl_q_a_reply', $data);
-        $this->space_model->update_server_current();
 
         if ($query) {
-            $this->session->set_flashdata('save_success', TRUE);
+            $insert_id = $this->db->insert_id();
+            $QaData = $this->db->get_where('tbl_q_a', array('q_a_id' => $data['q_a_reply_ref_id']))->row();
+
+            if ($QaData) {
+                $message = "กระทู้ถาม-ตอบ ใหม่ !" . "\n";
+                $message .= "หัวข้อคำถาม: " . $QaData->q_a_msg . "\n";
+                $message .= "รายละเอียด: " . $QaData->q_a_detail . "\n";
+                $message .= "ชื่อผู้ตอบ: " . $data['q_a_reply_by'] . "\n";
+                $message .= "รายละเอียดการตอบ: " . $data['q_a_reply_detail'] . "\n";
+
+                $this->sendLineNotify($message);
+                $this->session->set_flashdata('save_success', TRUE);
+            }
         } else {
-            echo "<script>";
-            echo "alert('เกิดข้อผิดพลาดในการเพิ่มข้อมูลใหม่ !');";
-            echo "</script>";
+            echo "<script>alert('เกิดข้อผิดพลาดในการเพิ่มข้อมูลใหม่ !');</script>";
         }
     }
+
+
+
 
     public function del_com($q_a_id)
     {

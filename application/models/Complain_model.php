@@ -19,13 +19,19 @@ class Complain_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_complain');
-
+    
+        // ตรวจสอบและเพิ่มเงื่อนไขสถานะคำร้องเรียน ถ้ามี
         if ($complain_status) {
             $this->db->where('complain_status', $complain_status);
         }
-
+    
+        // เรียงลำดับตาม complain_datesave จากใหม่ไปเก่า (DESC)
+        $this->db->order_by('complain_datesave', 'DESC');
+    
+        // ดึงข้อมูลและส่งกลับ
         return $this->db->get()->result();
     }
+    
 
     public function get_images_for_complain($complain_id)
     {
@@ -81,7 +87,7 @@ class Complain_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_complain as c');
-        $this->db->limit(5);
+        $this->db->limit(15);
         $this->db->order_by('c.complain_id', 'DESC');
         $query = $this->db->get();
         return $query->result();
@@ -112,7 +118,7 @@ class Complain_model extends CI_Model
             $message .= "สถานะ: " . $complainData->complain_status . "\n";
             $message .= "เรื่อง: " . $complainData->complain_topic . "\n";
             $message .= "รายละเอียด: " . $complainData->complain_detail . "\n";
-            $message .= "ชื่อผู้อัพเดตข้อมูล: " . $complainData->complain_by . "\n";
+            $message .= "ผู้แจ้งเรื่อง: " . $complainData->complain_by . "\n";
             $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $complainData->complain_phone . "\n";
             $message .= "ที่อยู่: " . $complainData->complain_address . "\n";
             $message .= "อีเมล: " . $complainData->complain_email . "\n";
@@ -175,7 +181,7 @@ class Complain_model extends CI_Model
             $message .= "สถานะ: " . $complainData->complain_status . "\n";
             $message .= "เรื่อง: " . $complainData->complain_topic . "\n";
             $message .= "รายละเอียด: " . $complainData->complain_detail . "\n";
-            $message .= "ชื่อผู้อัพเดตข้อมูล: " . $complainData->complain_by . "\n";
+            $message .= "ผู้แจ้งเรื่อง: " . $complainData->complain_by . "\n";
             $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $complainData->complain_phone . "\n";
             $message .= "ที่อยู่: " . $complainData->complain_address . "\n";
             $message .= "อีเมล: " . $complainData->complain_email . "\n";
@@ -297,7 +303,7 @@ class Complain_model extends CI_Model
             $message .= "สถานะ: " . $complainData->complain_status . "\n";
             $message .= "เรื่อง: " . $complainData->complain_topic . "\n";
             $message .= "รายละเอียด: " . $complainData->complain_detail . "\n";
-            $message .= "ชื่อผู้อัพเดตข้อมูล: " . $complainData->complain_by . "\n";
+            $message .= "ผู้แจ้งเรื่อง: " . $complainData->complain_by . "\n";
             $message .= "เบอร์โทรศัพท์ผู้แจ้ง: " . $complainData->complain_phone . "\n";
             $message .= "ที่อยู่: " . $complainData->complain_address . "\n";
             $message .= "อีเมล: " . $complainData->complain_email . "\n";

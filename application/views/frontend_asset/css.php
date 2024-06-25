@@ -4710,6 +4710,10 @@
     line-height: normal;
   }
 
+  .pages-head {
+    padding-top: 65px;
+  }
+
   .font-other-head {
     color: #000;
     font-size: 32px;

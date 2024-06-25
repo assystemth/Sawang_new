@@ -57,14 +57,10 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <?php
-            $Index = 1;
-            ?>
             <table id="newdataTables" class="table">
                 <thead>
                     <tr>
                         <th style="width: 5%;">ลำดับ</th>
-                        <!-- <th style="width: 10%;">case id</th> -->
                         <th style="width: 15%;">สถานะ</th>
                         <th style="width: 45%;">ข้อความ</th>
                         <th style="width: 15%;">จัดการโดย</th>
@@ -73,57 +69,59 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($query  as $rs) { ?>
+                    <?php
+                    $Index = 1;
+                    foreach ($query as $rs) { ?>
                         <tr role="row" class="data-row">
                             <td align="center"><?= $Index; ?></td>
                             <td>
                                 <p class="small-font" style="font-size: 15px; background-color:
-                <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
-                    #D9EAFF;
-                <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
-                    #CFD7FE;
-                <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
-                    #FFECE7;
-                <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
-                    #DBFFDD;
-                <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
-                    #FFE3E3;
-                <?php else : ?>
-                    #FFFBDC; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
-                <?php endif; ?>
-                ; color:
-                <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
-                    #4C97EE;
-                <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
-                    #3D5AF1;
-                <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
-                    #E05A33;
-                <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
-                    #00B73E;
-                <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
-                    #FF0202;
-                <?php else : ?>
-                    #FFC700; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
-                <?php endif; ?>
-                border: 1.3px solid
-                <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
-                    #4C97EE;
-                <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
-                    #3D5AF1;
-                <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
-                    #E05A33;
-                <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
-                    #00B73E;
-                <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
-                    #FF0202;
-                <?php else : ?>
-                    #FFC700; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
-                <?php endif; ?>
-                ;
-                border-radius: 20px; /* เพิ่มเส้นโค้ง */
-                padding: 5px; /* เพิ่มขอบรอบตัวอักษร */
-                text-align: center; /* ปรับตำแหน่งข้อความให้อยู่กลาง */
-                ">
+                                    <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
+                                        #D9EAFF;
+                                    <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
+                                        #CFD7FE;
+                                    <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
+                                        #FFECE7;
+                                    <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
+                                        #DBFFDD;
+                                    <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
+                                        #FFE3E3;
+                                    <?php else : ?>
+                                        #FFFBDC; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
+                                    <?php endif; ?>
+                                ; color:
+                                    <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
+                                        #4C97EE;
+                                    <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
+                                        #3D5AF1;
+                                    <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
+                                        #E05A33;
+                                    <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
+                                        #00B73E;
+                                    <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
+                                        #FF0202;
+                                    <?php else : ?>
+                                        #FFC700; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
+                                    <?php endif; ?>
+                                border: 1.3px solid
+                                    <?php if ($rs->complain_detail_status === 'รับเรื่องแล้ว') : ?>
+                                        #4C97EE;
+                                    <?php elseif ($rs->complain_detail_status === 'กำลังดำเนินการ') : ?>
+                                        #3D5AF1;
+                                    <?php elseif ($rs->complain_detail_status === 'รอดำเนินการ') : ?>
+                                        #E05A33;
+                                    <?php elseif ($rs->complain_detail_status === 'ดำเนินการเรียบร้อย') : ?>
+                                        #00B73E;
+                                    <?php elseif ($rs->complain_detail_status === 'ยกเลิก') : ?>
+                                        #FF0202;
+                                    <?php else : ?>
+                                        #FFC700; /* สีเริ่มต้นหากไม่ตรงกับเงื่อนไขใดๆ */
+                                    <?php endif; ?>
+                                ;
+                                border-radius: 20px; /* เพิ่มเส้นโค้ง */
+                                padding: 5px; /* เพิ่มขอบรอบตัวอักษร */
+                                text-align: center; /* ปรับตำแหน่งข้อความให้อยู่กลาง */
+                                ">
                                     <?= $rs->complain_detail_status; ?>
                                 </p>
                             <td><?= empty($rs->complain_detail_com) ? $complain_topic : $rs->complain_detail_com; ?></td>
@@ -135,14 +133,16 @@
                                 <?php endif; ?>
                             </td>
                         </tr>
-                    <?php
-                        $Index++;
-                    } ?>
+                        <?php
+                        $Index++; // เพิ่มค่า $Index ในทุกๆ รอบของลูป
+                        ?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 
 <div id="popupStatus" class="popup">
     <div class="popup-content">
