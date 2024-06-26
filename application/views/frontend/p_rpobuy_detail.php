@@ -5,7 +5,7 @@
 
 <div class="bg-pages">
     <div class="container-pages-detail">
-        <div class="font-pages-content-head"><?= $rsData->p_rpobuybuy_name; ?></div>
+        <div class="font-pages-content-head"><?= $rsData->p_rpobuy_name; ?></div>
         <div class="pages-content break-word mt-2">
             <span class="font-pages-content-detail"><?= $rsData->p_rpobuy_detail; ?></span>
             <br>
@@ -80,7 +80,7 @@
             </div>
         <?php } ?>
         <div class="d-flex justify-content-start">
-            <span class="font-page-detail-view-news">จำนวนผู้เข้าชม <?= $rsData->p_rpobuybuy_view; ?> ครั้ง</span>
+            <span class="font-page-detail-view-news">จำนวนผู้เข้าชม <?= $rsData->p_rpobuy_view; ?> ครั้ง</span>
         </div>
     </div>
 </div>
