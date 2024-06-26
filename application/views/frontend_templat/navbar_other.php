@@ -365,6 +365,7 @@
                           <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
                           <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
                           <a href="<?php echo site_url('Pages/questions'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
+                          <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -600,6 +601,7 @@
                               <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
                               <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
                               <a href="<?php echo site_url('Pages/questions'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
+                              <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
                           </div>
                       </ul>
                   </div>

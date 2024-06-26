@@ -934,6 +934,28 @@
     });
 
     $(document).ready(function() {
+        <?php if ($this->session->flashdata('save_required')) { ?>
+            Swal.fire({
+                icon: 'warning',
+                title: 'ตรวจพบปัญหา',
+                text: 'กรุณากรอกข้อมูลที่มี ให้ครบทุกช่อง',
+                footer: '<a href="#">ติดต่อผู้ดูแลระบบ?</a>'
+            })
+        <?php } ?>
+    });
+
+    $(document).ready(function() {
+        <?php if ($this->session->flashdata('save_id_crad')) { ?>
+            Swal.fire({
+                icon: 'warning',
+                title: 'ตรวจพบปัญหา',
+                text: 'กรุณากรอก หมายเลขประจำตัวประชาชน',
+                footer: '<a href="#">ติดต่อผู้ดูแลระบบ?</a>'
+            })
+        <?php } ?>
+    });
+
+    $(document).ready(function() {
         <?php if ($this->session->flashdata('save_error')) { ?>
             Swal.fire({
                 icon: 'error',

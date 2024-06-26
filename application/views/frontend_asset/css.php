@@ -4081,15 +4081,25 @@
     line-height: normal;
   }
 
+  .services-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* สามารถใช้ center หรือ space-between เพื่อการจัดเรียงที่ต้องการ */
+  }
+
+
   .service-box {
     z-index: 1;
-    /* margin-left: 7%; */
-    /* margin-top: 80px; */
     background-image: url('<?php echo base_url("docs/eservice-menu.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 226px;
     height: 116px;
     margin-top: 5%;
+    text-align: center;
+    padding-top: 50px;
+    margin-right: 10px;
+    /* เพิ่มระยะห่างระหว่างกล่อง หากต้องการ */
   }
 
   .font-service {
@@ -4101,18 +4111,16 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: font-size 0.3s ease;
+    /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
   }
 
   .font-service:hover {
-    color: #fff;
-    -webkit-text-stroke-width: 0.4259740114212036;
-    -webkit-text-stroke-color: #000;
-    font-family: Inter;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 26px;
+    /* ขนาดตัวหนังสือที่ต้องการเมื่อเอาเมาส์ชี้ */
   }
+
+
 
   .font-service {
     display: block;
@@ -5448,7 +5456,8 @@
     z-index: 4;
     font-size: 32px;
     color: #fff;
-    padding-left: 75px;
+    /* padding-left: 75px; */
+    text-align: center;
     padding-top: 13px;
   }
 
@@ -5470,7 +5479,8 @@
     z-index: 4;
     font-size: 32px;
     color: #fff;
-    padding-left: 75px;
+    /* padding-left: 75px; */
+    text-align: center;
     padding-top: 13px;
   }
 

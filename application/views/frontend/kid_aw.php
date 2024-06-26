@@ -1,21 +1,21 @@
 <div class="text-center pages-head">
-    <span class="font-pages-head">เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span>
+    <span class="font-pages-head">เงินอุดหนุนเด็กแรกเกิด</span>
 </div>
 </div>
 
 <div class="bg-pages" style="margin-top: -50px;">
     <div class="row">
         <div class="col-6 d-flex justify-content-end underline">
-            <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>">
+            <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>">
                 <div class="bg-btn-head-elderly-aw">
-                    <span>ยื่นเอกสารเบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span>
+                    <span>ยื่นเอกสารเงินอุดหนุนเด็กแรกเกิด</span>
                 </div>
             </a>
         </div>
         <div class="col-6 d-flex justify-content-start underline">
             <a href="#">
                 <div class="bg-btn-head-elderly-aw-active">
-                    <span>ตรวจสอบเบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span>
+                    <span>ตรวจสอบเงินอุดหนุนเด็กแรกเกิด</span>
                 </div>
             </a>
         </div>
@@ -36,23 +36,23 @@
         </div> -->
         <div class="pages-follow-elderly-aw underline">
             <!-- ฟอร์มกรอกข้อมูล -->
-            <form id="reCAPTCHA3" action="<?php echo site_url('Pages/elderly_aw'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form id="reCAPTCHA3" action="<?php echo site_url('Pages/kid_aw'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                 <div class="form-group">
                     <br>
                     <!-- กรอกหมายเลขประจำตัวประชาชนของผู้มีสิทธิ -->
-                    <div class="col-sm-12 control-label font-e-service-elderly_aw text-center">กรุณากรอกหมายเลขประจำตัวประชาชนของผู้มีสิทธิ</div>
+                    <div class="col-sm-12 control-label font-e-service-kid_aw text-center">กรุณากรอกหมายเลขประจำตัวประชาชนของผู้มีสิทธิ</div>
                     <div class="center-center mt-4">
                         <div class="col-sm-4 mb-4">
-                            <input type="text" name="elderly_aw_id_num_eligible" class="form-control font-label-elderly_aw input-radius" required placeholder="เลขประจำตัวประชาชน 13 หลัก" pattern="\d{10}" title="กรุณากรอกเป็นตัวเลข" value="<?php echo set_value('elderly_aw_id_num_eligible'); ?>">
-                            <span class="red"><?= form_error('elderly_aw_id_num_eligible'); ?></span>
+                            <input type="text" name="kid_aw_id_num_eligible" class="form-control font-label-kid_aw input-radius" required placeholder="เลขประจำตัวประชาชน 13 หลัก" value="<?php echo set_value('kid_aw_id_num_eligible'); ?>">
+                            <span class="red"><?= form_error('kid_aw_id_num_eligible'); ?></span>
                         </div>
                     </div>
 
                     <!-- เลือกงวดเงินที่จ่าย (ปี พ.ศ.) -->
-                    <div class="col-sm-12 control-label font-e-service-elderly_aw text-center">กรุณาเลือกงวดเงินที่จ่าย (ปี พ.ศ.)</div>
+                    <div class="col-sm-12 control-label font-e-service-kid_aw text-center">กรุณาเลือกงวดเงินที่จ่าย (ปี พ.ศ.)</div>
                     <div class="center-center mt-4">
                         <div class="col-sm-4 mb-4">
-                            <select name="elderly_aw_period_payment" class="form-control font-label-elderly_aw input-radius" required>
+                            <select name="kid_aw_period_payment" class="form-control font-label-kid_aw input-radius" required value="<?php echo set_value('kid_aw_id_num_eligible'); ?>">
                                 <option value="">ทุกปี</option>
                                 <?php
                                 // เริ่มต้นปีในพ.ศ.
@@ -79,8 +79,8 @@
 
         </div>
 
-        <div class="pages-follow-elderly-aw-detail" <?php if (!empty($elderly_aw_data) || isset($_POST['elderly_aw_id_num_eligible'])) : ?>style="display: block;" <?php else : ?>style="display: none;" <?php endif; ?>>
-            <?php if (!empty($elderly_aw_data)) : ?>
+        <div class="pages-follow-elderly-aw-detail" <?php if (!empty($kid_aw_data) || isset($_POST['kid_aw_id_num_eligible'])) : ?>style="display: block;" <?php else : ?>style="display: none;" <?php endif; ?>>
+            <?php if (!empty($kid_aw_data)) : ?>
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="">
@@ -98,19 +98,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($elderly_aw_data as $row) : ?>
+                        <?php foreach ($kid_aw_data as $row) : ?>
                             <tr role="row">
-                                <td><?php echo $row['elderly_aw_id_num_eligible']; ?></td>
-                                <td><?php echo $row['elderly_aw_name_eligible']; ?></td>
-                                <!-- <td><?php echo $row['elderly_aw_id_num_owner']; ?></td> -->
-                                <td><?php echo $row['elderly_aw_name_owner']; ?></td>
-                                <td><?php echo $row['elderly_aw_agency']; ?></td>
-                                <td><?php echo $row['elderly_aw_bank']; ?></td>
-                                <td><?php echo $row['elderly_aw_type_payment']; ?></td>
-                                <!-- <td><?php echo $row['elderly_aw_bank_num']; ?></td> -->
-                                <td><?php echo $row['elderly_aw_period_payment']; ?></td>
-                                <td><?php echo $row['elderly_aw_money']; ?></td>
-                                <td><?php echo $row['elderly_aw_note']; ?></td>
+                                <td><?php echo $row['kid_aw_id_num_eligible']; ?></td>
+                                <td><?php echo $row['kid_aw_name_eligible']; ?></td>
+                                <!-- <td><?php echo $row['kid_aw_id_num_owner']; ?></td> -->
+                                <td><?php echo $row['kid_aw_name_owner']; ?></td>
+                                <td><?php echo $row['kid_aw_agency']; ?></td>
+                                <td><?php echo $row['kid_aw_bank']; ?></td>
+                                <td><?php echo $row['kid_aw_type_payment']; ?></td>
+                                <!-- <td><?php echo $row['kid_aw_bank_num']; ?></td> -->
+                                <td><?php echo $row['kid_aw_period_payment']; ?></td>
+                                <td><?php echo $row['kid_aw_money']; ?></td>
+                                <td><?php echo $row['kid_aw_note']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -125,11 +125,11 @@
     </div>
 </div>
 
-<!-- <?php if (!empty($elderly_aw_data)) : ?>
+<!-- <?php if (!empty($kid_aw_data)) : ?>
             <div class="results">
                 <h3>ข้อมูลจากฐานข้อมูล:</h3>
-                <p>หมายเลขประจำตัวประชาชน: <?php echo $elderly_aw_data['elderly_aw_id_num_eligible']; ?></p>
-                <p>ชื่อ: <?php echo $elderly_aw_data['elderly_aw_name_eligible']; ?></p>
+                <p>หมายเลขประจำตัวประชาชน: <?php echo $kid_aw_data['kid_aw_id_num_eligible']; ?></p>
+                <p>ชื่อ: <?php echo $kid_aw_data['kid_aw_name_eligible']; ?></p>
             </div>
             <?php elseif (!empty($error_message)) : ?>
             <div class="error-message">

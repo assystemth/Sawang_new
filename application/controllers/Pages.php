@@ -116,6 +116,8 @@ class Pages extends CI_Controller
 
 		$this->load->model('elderly_aw_form_model');
 		$this->load->model('elderly_aw_ods_model');
+		$this->load->model('kid_aw_form_model');
+		$this->load->model('kid_aw_ods_model');
 		$this->load->model('odata_model');
 
 		$this->load->model('intra_egp_model');
@@ -3855,20 +3857,20 @@ class Pages extends CI_Controller
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_by',
 			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'trim|required|min_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูล')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_phone',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'เบอร์โทรศัพท์',
+			'trim|required|exact_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_number',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกหมายเลขประจำตัวประชาชนให้ครบ 13 หลัก')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_address',
@@ -3876,27 +3878,10 @@ class Pages extends CI_Controller
 			'trim|required|min_length[1]',
 			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
 		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file1',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file2',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file3',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
 
 
 		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('save_required', 'กรุณากรอกข้อมูลที่มี ให้ครบทุกช่อง');
 			$data['elderly_aw_form'] = $this->elderly_aw_form_model->elderly_aw_form_frontend();
 
 			$this->load->view('frontend_templat/header');
@@ -3913,12 +3898,32 @@ class Pages extends CI_Controller
 
 	public function elderly_aw()
 	{
+		// Load form validation library
+		$this->load->library('form_validation');
+
+		// Set validation rules
+		$this->form_validation->set_rules(
+			'elderly_aw_id_num_eligible',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array(
+				'required' => 'กรุณากรอก %s.',
+				'exact_length' => 'กรุณากรอก %s ให้ครบ 13 หลัก'
+			)
+		);
+
 		// รับค่าจากฟอร์ม
 		$elderly_aw_id_num_eligible = $this->input->post('elderly_aw_id_num_eligible');
 		$elderly_aw_period_payment = $this->input->post('elderly_aw_period_payment');
 
-		// ตรวจสอบว่าได้รับค่าหมายเลขประชาชนและคำค้นหาหรือไม่
-		if (!empty($elderly_aw_id_num_eligible) && !empty($elderly_aw_period_payment)) {
+		// ตรวจสอบว่าแบบฟอร์มผ่านการตรวจสอบหรือไม่
+		if ($this->form_validation->run() == FALSE) {
+			// กรณีแบบฟอร์มไม่ผ่านการตรวจสอบ
+			$data['elderly_aw_data'] = array();
+			$data['error_message'] = validation_errors();
+			// Set flashdata for JavaScript alert
+			// $this->session->set_flashdata('save_id_crad', TRUE);
+		} else {
 			// Query เพื่อดึงข้อมูลจาก tbl_elderly_aw
 			$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
 			$this->db->where('elderly_aw_id_num_eligible', $elderly_aw_id_num_eligible);
@@ -3929,21 +3934,135 @@ class Pages extends CI_Controller
 				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
 				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
 				$elderly_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+			} else {
+				$data['error_message'] = '';
 			}
-		} else {
-			// ถ้าไม่ได้รับค่าหรือมีค่าว่างจากฟอร์ม
-			$elderly_aw_data = array();
-			$data['error_message'] = 'กรุณากรอกข้อมูลให้ครบถ้วน';
-		}
 
-		// ส่งข้อมูลไปยัง View
-		$data['elderly_aw_data'] = $elderly_aw_data;
+			// ส่งข้อมูลไปยัง View
+			$data['elderly_aw_data'] = $elderly_aw_data;
+		}
 
 		// โหลด View
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
 		$this->load->view('frontend_templat/navbar_other');
 		$this->load->view('frontend/elderly_aw', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function kid_aw_ods()
+	{
+		$data['kid_aw_form'] = $this->kid_aw_form_model->kid_aw_form_frontend();
+
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/kid_aw_ods', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function add_kid_aw_ods()
+	{
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
+		// exit;
+		$this->form_validation->set_rules(
+			'kid_aw_ods_by',
+			'รายละเอียด',
+			'trim|required|min_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูล')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_phone',
+			'เบอร์โทรศัพท์',
+			'trim|required|exact_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_number',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกหมายเลขประจำตัวประชาชนให้ครบ 13 หลัก')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_address',
+			'รายละเอียด',
+			'trim|required|min_length[1]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+		);
+
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('save_required', 'กรุณากรอกข้อมูลที่มี ให้ครบทุกช่อง');
+			$data['kid_aw_form'] = $this->kid_aw_form_model->kid_aw_form_frontend();
+
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/kid_aw_ods', $data);
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+		} else {
+			$this->kid_aw_ods_model->add_kid_aw_ods();
+			redirect('Pages/add_kid_aw_ods');
+		}
+	}
+
+	public function kid_aw()
+	{
+		// Load form validation library
+		$this->load->library('form_validation');
+
+		// Set validation rules
+		$this->form_validation->set_rules(
+			'kid_aw_id_num_eligible',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array(
+				'required' => 'กรุณากรอก %s.',
+				'exact_length' => 'กรุณากรอก %s ให้ครบ 13 หลัก'
+			)
+		);
+
+		// รับค่าจากฟอร์ม
+		$kid_aw_id_num_eligible = $this->input->post('kid_aw_id_num_eligible');
+		$kid_aw_period_payment = $this->input->post('kid_aw_period_payment');
+
+		// ตรวจสอบว่าแบบฟอร์มผ่านการตรวจสอบหรือไม่
+		if ($this->form_validation->run() == FALSE) {
+			// กรณีแบบฟอร์มไม่ผ่านการตรวจสอบ
+			$data['kid_aw_data'] = array();
+			$data['error_message'] = validation_errors();
+			// Set flashdata for JavaScript alert
+			// $this->session->set_flashdata('save_id_crad', TRUE);
+		} else {
+			// Query เพื่อดึงข้อมูลจาก tbl_kid_aw
+			$this->db->like('kid_aw_period_payment', $kid_aw_period_payment);
+			$this->db->where('kid_aw_id_num_eligible', $kid_aw_id_num_eligible);
+			$query = $this->db->get('tbl_kid_aw');
+			$kid_aw_data = $query->result_array();
+
+			if (empty($kid_aw_data)) {
+				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
+				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
+				$kid_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+			} else {
+				$data['error_message'] = '';
+			}
+
+			// ส่งข้อมูลไปยัง View
+			$data['kid_aw_data'] = $kid_aw_data;
+		}
+
+		// โหลด View
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/kid_aw', $data);
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}

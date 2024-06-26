@@ -124,6 +124,9 @@
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_form_backend'); ?>">เอกสารเบี้ยผู้สูงอายุ/ผู้พิการ</a>
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_ods_backend'); ?>">คำร้องเบี้ยผู้สูงอายุ/ผู้พิการ</a>
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_backend'); ?>">ตรวจสอบเบี้ยผู้สูงอายุ/ผู้พิการ</a>
+                <a class="collapse-item" href="<?php echo site_url('Kid_aw_form_backend'); ?>">เอกสารเงินอุดหนุนเด็กแรกเกิด</a>
+                <a class="collapse-item" href="<?php echo site_url('Kid_aw_ods_backend'); ?>">คำร้องเงินอุดหนุนเด็กแรกเกิด</a>
+                <a class="collapse-item" href="<?php echo site_url('kid_aw_backend'); ?>">ตรวจสอบเงินอุดหนุนเด็ก<br>แรกเกิด</a>
                 <a class="collapse-item" href="<?php echo site_url('Odata_backend'); ?>">ฐานข้อมูลเปิดภาครัฐ<br>(Open Data)</a>
             </div>
         </div>
@@ -965,6 +968,21 @@
                 <li class="hide">
                     <a href="<?php echo site_url('Elderly_aw_backend'); ?>" class="link">
                         <span>ตรวจสอบเบี้ยผู้สูงอายุ / ผู้พิการ</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('Kid_aw_form_backend'); ?>" class="link">
+                        <span>เอกสารเงินอุดหนุนเด็กแรกเกิด</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('Kid_aw_ods_backend'); ?>" class="link">
+                        <span>คำร้องเงินอุดหนุนเด็กแรกเกิด</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('kid_aw_backend'); ?>" class="link">
+                        <span>ตรวจสอบเงินอุดหนุนเด็กแรกเกิด</span>
                     </a>
                 </li>
 
