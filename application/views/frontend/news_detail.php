@@ -9,51 +9,61 @@
         <div class="pages-content break-word mt-2">
             <span class="font-pages-content-detail"><?= $rsData->news_detail; ?></span>
             <br>
-            <?php if ($rsData->news_link != ""): ?>
-                <?php if (preg_match("/youtu\.be\/|youtube\.com\/watch/", $rsData->news_link)):
-                    parse_str(parse_url($rsData->news_link, PHP_URL_QUERY), $query);
-                    $video_id = $query['v'] ?? '';
-                    if (!empty($video_id)):
-                ?>
-                    <iframe width="840" height="473" src="https://www.youtube-nocookie.com/embed/<?= $video_id; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <?php else: ?>
-                    <span class="font-pages-content-detail">ลิ้งค์เพิ่มเติม:</span>&nbsp;<a class="font-26" href="<?= $rsData->news_link; ?>" target="_blank"><?= $rsData->news_link; ?></a>
-                <?php endif; ?>
-                <?php else: ?>
-                    <span class="font-pages-content-detail">ลิ้งค์เพิ่มเติม:</span>&nbsp;<a class="font-26" href="<?= $rsData->news_link; ?>" target="_blank"><?= $rsData->news_link; ?></a>
-                <?php endif; ?>
-            <?php endif; ?>
-            <br>
-            <?php if (!empty($rsDoc)): ?>
+            <?php if (!empty($rsDoc)) : ?>
                 <span class="font-pages-content-detail">ไฟล์เอกสารเพิ่มเติม:</span>
-                <?php foreach ($rsDoc as $doc):
+                <?php foreach ($rsDoc as $doc) :
                     $fileInfo = pathinfo($doc->news_file_doc);
                     $fileExtension = strtolower($fileInfo['extension']);
                     $iconImage = "";
                     switch ($fileExtension) {
-                        case 'pdf': $iconImage = "docs/icon-file-pdf.png"; break;
+                        case 'pdf':
+                            $iconImage = "docs/icon-file-pdf.png";
+                            break;
                         case 'doc':
-                        case 'docx': $iconImage = "docs/icon-file-doc.png"; break;
+                        case 'docx':
+                            $iconImage = "docs/icon-file-doc.png";
+                            break;
                         case 'xls':
-                        case 'xlsx': $iconImage = "docs/icon-file-xls.png"; break;
+                        case 'xlsx':
+                            $iconImage = "docs/icon-file-xls.png";
+                            break;
                         case 'ppt':
-                        case 'pptx': $iconImage = "docs/icon-file-ppt.png"; break;
+                        case 'pptx':
+                            $iconImage = "docs/icon-file-ppt.png";
+                            break;
                     }
                 ?>
-                    <br><img src="<?= base_url($iconImage); ?>" style="padding: 0 30px;">
+                    <br>
+                    <img src="<?= base_url($iconImage); ?>" style="padding: 0 30px;">
                     <a class="font-doc" href="<?= base_url('docs/file/' . $doc->news_file_doc); ?>" target="_blank"><?= $doc->news_file_doc; ?></a>, &nbsp;
                 <?php endforeach; ?>
             <?php endif; ?>
+            <?php if ($rsData->news_link != "") : ?>
+                <?php if (preg_match("/youtu\.be\/|youtube\.com\/watch/", $rsData->news_link)) :
+                    parse_str(parse_url($rsData->news_link, PHP_URL_QUERY), $query);
+                    $video_id = $query['v'] ?? '';
+                    if (!empty($video_id)) : ?>
+                        <div class="text-center">
+                            <iframe width="840" height="473" src="https://www.youtube-nocookie.com/embed/<?= $video_id; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    <?php else : ?>
+                        <span class="font-pages-content-detail">ลิงค์เพิ่มเติม:</span>&nbsp;<a class="font-26" href="<?= $rsData->news_link; ?>" target="_blank"><?= $rsData->news_link; ?></a>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <span class="font-pages-content-detail">ลิงค์เพิ่มเติม:</span>&nbsp;<a class="font-26" href="<?= $rsData->news_link; ?>" target="_blank"><?= $rsData->news_link; ?></a>
+                <?php endif; ?>
+            <?php endif; ?>
+            <br>
         </div>
 
-        <?php foreach ($rsImg as $img): ?>
+        <?php foreach ($rsImg as $img) : ?>
             <div class="text-center">
                 <img class="rounded-all" src="<?= base_url('docs/img/' . $img->news_img_img); ?>" width="1035" height="100%">
             </div>
             <br>
         <?php endforeach; ?>
 
-        <?php foreach ($rsPdf as $file): ?>
+        <?php foreach ($rsPdf as $file) : ?>
             <div class="row">
                 <div class="col-6 mt-2">
                     <div class="d-flex justify-content-start">

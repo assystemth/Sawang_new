@@ -32,6 +32,8 @@
 <!-- รูปภาพ preview -->
 <script src="<?= base_url('asset/'); ?>lightbox2/src/js/lightbox.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
 <script>
     //********** ค่าว่างเลขหน้า ******************************************************* */
     $(document).ready(function() {
@@ -314,21 +316,32 @@
     //   ********************************************************************************
 
     // scrolltotop เลื่อนไปบนสุดของจอ  ********************************************************************************
+    // scrolltotop เลื่อนไปบนสุดของจอ  ********************************************************************************
     $(document).ready(function() {
         var scrollTopButton = $("#scroll-to-top");
+        var scrollTopButtonOther = $("#scroll-to-top-other");
         var scrollBackButton = $("#scroll-to-back");
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > 20) {
                 scrollTopButton.fadeIn();
+                scrollTopButtonOther.fadeIn();
                 scrollBackButton.fadeIn();
             } else {
                 scrollTopButton.fadeOut();
+                scrollTopButtonOther.fadeOut();
                 scrollBackButton.fadeOut();
             }
         });
 
         scrollTopButton.click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'slow');
+            return false;
+        });
+
+        scrollTopButtonOther.click(function() {
             $('html, body').animate({
                 scrollTop: 0
             }, 'slow');
@@ -397,16 +410,17 @@
 
                 const currentDay = new Date(year, month, i);
                 const hasEvent = qCalender.some(event => {
-                    const eventDate = new Date(event.calender_date);
+                    const eventStartDate = new Date(event.calender_date);
+                    eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+                    const eventEndDate = new Date(event.calender_date_end);
                     return (
-                        eventDate.getFullYear() === currentDay.getFullYear() &&
-                        eventDate.getMonth() === currentDay.getMonth() &&
-                        eventDate.getDate() === currentDay.getDate()
+                        currentDay >= eventStartDate &&
+                        currentDay <= eventEndDate
                     );
                 });
 
                 const eventDot = hasEvent ? '<span class="event-dot"></span>' : '';
-                $daysContainer.append(`<div class="${dayClass}" data-date="${year}-${month + 1}-${i}">${i}${eventDot}</div>`);
+                $daysContainer.append(`<div class="${dayClass}" data-date="${year}-${month + 1}-${i}"><span>${i}</span>${eventDot}</div>`);
             }
 
             const totalDays = firstDayOfMonth + lastDateOfMonth;
@@ -442,28 +456,34 @@
             $qCalenderContainer.empty();
 
             const filteredEvents = qCalender.filter(event => {
-                const eventDate = new Date(event.calender_date);
+                const eventStartDate = new Date(event.calender_date);
+                eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+                const eventEndDate = new Date(event.calender_date_end);
                 return (
-                    eventDate.getFullYear() === selectedDate.getFullYear() &&
-                    eventDate.getMonth() === selectedDate.getMonth() &&
-                    eventDate.getDate() === selectedDate.getDate()
+                    selectedDate >= eventStartDate &&
+                    selectedDate <= eventEndDate
                 );
             });
 
             if (filteredEvents.length > 0) {
                 filteredEvents.forEach(event => {
-                    const date = new Date(event.calender_date);
-                    const day_th = date.getDate();
-                    const month_th = date.toLocaleString('th-TH', {
-                        month: 'long'
-                    });
-                    const year_th = date.getFullYear() + 543;
+                    const eventStartDate = new Date(event.calender_date);
+                    eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+                    const eventEndDate = new Date(event.calender_date_end);
 
-                    const formattedDate = `${day_th} ${month_th} ${year_th}`;
-                    $qCalenderContainer.append(`
-                    <span class="font-calender2">วันที่ ${formattedDate}</span><br>
-                    <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
-                `);
+                    if (selectedDate >= eventStartDate && selectedDate <= eventEndDate) {
+                        const day_th = selectedDate.getDate();
+                        const month_th = selectedDate.toLocaleString('th-TH', {
+                            month: 'long'
+                        });
+                        const year_th = selectedDate.getFullYear() + 543;
+
+                        const formattedDate = `${day_th} ${month_th} ${year_th}`;
+                        $qCalenderContainer.append(`
+                        <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+                        <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
+                    `);
+                    }
                 });
             } else {
                 const day_th = selectedDate.getDate();

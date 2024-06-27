@@ -131,19 +131,51 @@
                     </div>
                 </div>
                 <br>
-                <!-- <div class="form-group row">
-                    <div class="col-sm-3 control-label">รูปภาพเพิ่มเติม(สามารถเพิ่มได้หลายรูป)</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 control-label">รูปภาพเพิ่มเติม</div>
                     <div class="col-sm-6">
                         รูปภาพเก่า: <br>
-                        <?php foreach ($qimg as $img) { ?>
-                            <img src="<?= base_url('docs/img/' . $img->otop_img_img); ?>" width="140px" height="100px">&nbsp;
+                        <?php if (!empty($qimg)) { ?>
+                            <?php foreach ($qimg as $img) { ?>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <img src="<?= base_url('docs/img/' . $img->otop_img_img); ?>" width="140px" height="100px">
+                                        <a class="btn btn-danger btn-sm mb-2" href="#" role="button" onclick="confirmDeleteImg(<?= $img->otop_img_id; ?>, '<?= $img->otop_img_img; ?>');">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                            </svg> ลบไฟล์
+                                        </a>
+                                    </div>
+                                </div>
+                                <script>
+                                    function confirmDeleteImg(file_id, file_name) {
+                                        Swal.fire({
+                                            title: 'คุณแน่ใจหรือไม่?',
+                                            text: 'คุณต้องการลบไฟล์ ' + file_name + ' ใช่หรือไม่?',
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'ใช่, ต้องการลบ!',
+                                            cancelButtonText: 'ยกเลิก'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                // หลังจากคลิกยืนยันให้เรียก Controller ที่ใช้ในการลบไฟล์ PDF
+                                                window.location.href = "<?= site_url('otop_backend/del_img/'); ?>" + file_id;
+                                            }
+                                        });
+                                    }
+                                </script>
+                            <?php } ?>
                         <?php } ?>
-                        <br>
                         เลือกใหม่: <br>
                         <input type="file" name="otop_img_img[]" class="form-control" accept="image/*" multiple>
+                        <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
+                        <br>
+                        <span class="red-add">(เฉพาะไฟล์ .JPG/.JPEG/.PNG)</span>
                     </div>
                 </div>
-                <br> -->
+                <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label"></div>
                     <div class="col-sm-6">

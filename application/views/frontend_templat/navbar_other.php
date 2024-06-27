@@ -296,6 +296,7 @@
                           <a href="<?php echo site_url('Pages/history'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ประวัติความเป็นมา</span></a></a>
                           <a href="<?php echo site_url('Pages/ci'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อมูลชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/gci'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อมูลสภาพทั่วไป</span></a></a>
+                          <a href="<?php echo site_url('Pages/msg_pres'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สารจากนายก (MES)</span></a></a>
                           <a href="<?php echo site_url('Pages/mission'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ภารกิจและความรับผิดชอบ</span></a></a>
                           <a href="<?php echo site_url('Pages/si'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</span></a></a>
                       </div>
@@ -305,9 +306,12 @@
                           <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
                           <a href="<?php echo site_url('Pages/news_dla'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.</span></a></a>
                           <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>
+                          <a href="<?php echo site_url('Pages/egp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวจัดซื้อจัดจ้าง e-GP</span></a></a>
                       </div>
                       <div class="dropdown-right">
+                          <a href="<?php echo site_url('Pages/news'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวประชาสัมพันธ์</span></a></a>
                           <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวสาร / กิจกรรม</span></a></a>
+                          <a href="<?php echo site_url('Pages/procurement'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวจัดซื้อจัดจ้าง</span></a></a>
                           <a href="<?php echo site_url('Pages/travel'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                           <a href="<?php echo site_url('Pages/otop'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/newsletter'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;จดหมายข่าว</span></a></a>
@@ -341,6 +345,7 @@
               <div class="dropdown-content">
                   <ul class="no-bullets mt-2" style="margin-left: 200px">
                       <div class="dropdown-left">
+                          <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูประโภค</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>
@@ -351,10 +356,10 @@
                       </div>
                       <div class="dropdown-center">
                           <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span></a></a>
+                          <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                           <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
-                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
                       </div>
@@ -365,7 +370,7 @@
                           <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
                           <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
                           <a href="<?php echo site_url('Pages/questions'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
-                          <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
+                          <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                       </div>
                   </ul>
               </div>
@@ -389,6 +394,10 @@
                           <a href="<?php echo site_url('Pages/plan_pdpa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากรประจำปี</span></a></a>
                           <a href="<?php echo site_url('Pages/plan_pcra'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แผนการจัดเก็บรายได้ประจำปี</span></a></a>
                       </div>
+                      <div class="dropdown-right">
+                          <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;IIT แบบวัดการรับรู้ภายใน</span></a></a>
+                          <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;EIT แบบวัดการรับรู้ภายนอก</span></a></a>
+                      </div>
                   </ul>
               </div>
           </li>
@@ -404,7 +413,7 @@
                           <a href="<?php echo site_url('Pages/operation_po'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การเปิดโอกาสให้มีส่วนร่วม</span></a></a>
                           <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
                           <a href="<?php echo site_url('Pages/operation_eco_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การเสริมสร้างวัฒนธรรมองค์กร</span></a></a>
-
+                          <a href="<?php echo site_url('Pages/operation_mr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การบริหารจัดการความเสี่ยง</span></a></a>
                       </div>
                       <div class="dropdown-center">
                           <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การประเมินคุณธรรมและความโปร่งใส ITA</span></a></a>
@@ -438,6 +447,21 @@
                           <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
                           <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
                           <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                          <a href="<?php echo site_url('Pages/pppw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;พรบ./พรก ที่ใช้การปฏิบัติงาน</span></a></a>
+                      </div>
+                      <div class="dropdown-center">
+                          <a href="<?php echo site_url('Pages/canon_bgps'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติงบประมาณ</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_chh'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_ritw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติการติดตั้งระบบบำบัดน้ำเสียในอาคาร</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_market'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติตลาด</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_rmwp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติการจัดการสิ่งปฏิกูลและมูลฝอย</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_rcsp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติหลักเกณฑ์การคัดมูลฝอย</span></a></a>
+                          <a href="<?php echo site_url('Pages/canon_rcp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span></a></a>
+                      </div>
+                      <div class="dropdown-right">
+                          <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;E-service</span></a></a>
+                          <a href="<?php echo site_url('Pages/p_reb'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานใช้จ่ายงบประมาณจัดซื้อจัดจ้าง</span></a></a>
+                          <a href="<?php echo site_url('Pages/p_rpo'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานผลการดำเนินงานจัดซื้อจัดจ้าง</span></a></a>
                           <a href="<?php echo site_url('Pages/km'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
                       </div>
                   </ul>
@@ -532,6 +556,7 @@
                               <a href="<?php echo site_url('Pages/history'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ประวัติความเป็นมา</span></a></a>
                               <a href="<?php echo site_url('Pages/ci'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อมูลชุมชน</span></a></a>
                               <a href="<?php echo site_url('Pages/gci'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อมูลสภาพทั่วไป</span></a></a>
+                              <a href="<?php echo site_url('Pages/msg_pres'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สารจากนายก (MES)</span></a></a>
                               <a href="<?php echo site_url('Pages/mission'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ภารกิจและความรับผิดชอบ</span></a></a>
                               <a href="<?php echo site_url('Pages/si'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</span></a></a>
                           </div>
@@ -541,9 +566,12 @@
                               <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
                               <a href="<?php echo site_url('Pages/news_dla'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.</span></a></a>
                               <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>
+                              <a href="<?php echo site_url('Pages/egp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวจัดซื้อจัดจ้าง e-GP</span></a></a>
                           </div>
                           <div class="dropdown-right">
+                              <a href="<?php echo site_url('Pages/news'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวประชาสัมพันธ์</span></a></a>
                               <a href="<?php echo site_url('Pages/activity'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวสาร / กิจกรรม</span></a></a>
+                              <a href="<?php echo site_url('Pages/procurement'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข่าวจัดซื้อจัดจ้าง</span></a></a>
                               <a href="<?php echo site_url('Pages/travel'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สถานที่ท่องเที่ยว</span></a></a>
                               <a href="<?php echo site_url('Pages/otop'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ผลิตภัณฑ์ชุมชน</span></a></a>
                               <a href="<?php echo site_url('Pages/newsletter'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;จดหมายข่าว</span></a></a>
@@ -577,6 +605,7 @@
                   <div class="dropdown-content" style="margin-top: 80px;">
                       <ul class="no-bullets mt-2" style="margin-left: 200px">
                           <div class="dropdown-left">
+                              <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูประโภค</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>
@@ -587,10 +616,10 @@
                           </div>
                           <div class="dropdown-center">
                               <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</span></a></a>
+                              <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_gup'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือสำหรับประชาชน</span></a></a>
                               <a href="https://dbdregcom.dbd.go.th/mainsite/index.php?id=28" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือจดทะเบียนพาณิชย์</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_sags'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือและมาตรฐานการให้บริการ</span></a></a>
-                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_ems'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานกู้ชีพ / การบริการการแพทย์ฉุกเฉิน (EMS)</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</span></a></a>
                           </div>
@@ -601,7 +630,7 @@
                               <a href="<?php echo site_url('Pages/adding_corruption'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แจ้งเรื่องทุจริตหน่วยงานภาครัฐ</span></a></a>
                               <a href="<?php echo site_url('Pages/q_a'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กระทู้ ถาม-ตอบ (Q&A)</span></a></a>
                               <a href="<?php echo site_url('Pages/questions'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำถามที่พบบ่อย (FAQ)</span></a></a>
-                              <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;เงินอุดหนุนเด็กแรกเกิด</span></a></a>
+                              <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม E-Book</span></a></a>
                           </div>
                       </ul>
                   </div>
@@ -625,6 +654,10 @@
                               <a href="<?php echo site_url('Pages/plan_pdpa'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แผนพัฒนาบุคลากรประจำปี</span></a></a>
                               <a href="<?php echo site_url('Pages/plan_pcra'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แผนการจัดเก็บรายได้ประจำปี</span></a></a>
                           </div>
+                          <div class="dropdown-right">
+                              <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;IIT แบบวัดการรับรู้ภายใน</span></a></a>
+                              <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;EIT แบบวัดการรับรู้ภายนอก</span></a></a>
+                          </div>
                       </ul>
                   </div>
               </li>
@@ -640,7 +673,7 @@
                               <a href="<?php echo site_url('Pages/operation_po'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การเปิดโอกาสให้มีส่วนร่วม</span></a></a>
                               <a href="<?php echo site_url('Pages/operation_pm'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การมีส่วนร่วมของผู้บริหาร</span></a></a>
                               <a href="<?php echo site_url('Pages/operation_eco_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การเสริมสร้างวัฒนธรรมองค์กร</span></a></a>
-
+                              <a href="<?php echo site_url('Pages/operation_mr'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การบริหารจัดการความเสี่ยง</span></a></a>
                           </div>
                           <div class="dropdown-center">
                               <a href="<?php echo site_url('Pages/ita_all'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การประเมินคุณธรรมและความโปร่งใส ITA</span></a></a>
@@ -674,6 +707,21 @@
                               <a href="<?php echo site_url('Pages/guide_work'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คู่มือการปฏิบัติงาน</span></a></a>
                               <a href="<?php echo site_url('Pages/laws_topic'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;กฏหมายที่เกี่ยวข้อง</span></a></a>
                               <a href="<?php echo site_url('Pages/loadform'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ดาวน์โหลดแบบฟอร์ม</span></a></a>
+                              <a href="<?php echo site_url('Pages/pppw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;พรบ./พรก ที่ใช้การปฏิบัติงาน</span></a></a>
+                          </div>
+                          <div class="dropdown-center">
+                              <a href="<?php echo site_url('Pages/canon_bgps'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติงบประมาณ</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_chh'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การควบคุมกิจการที่เป็นอันตรายต่อสุขภาพ</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_ritw'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติการติดตั้งระบบบำบัดน้ำเสียในอาคาร</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_market'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติตลาด</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_rmwp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติการจัดการสิ่งปฏิกูลและมูลฝอย</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_rcsp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติหลักเกณฑ์การคัดมูลฝอย</span></a></a>
+                              <a href="<?php echo site_url('Pages/canon_rcp'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ข้อบัญญัติควบคุมการเลี้ยงหรือปล่อยสุนัขและแมว</span></a></a>
+                          </div>
+                          <div class="dropdown-right">
+                              <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;E-service</span></a></a>
+                              <a href="<?php echo site_url('Pages/p_reb'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานใช้จ่ายงบประมาณจัดซื้อจัดจ้าง</span></a></a>
+                              <a href="<?php echo site_url('Pages/p_rpo'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานผลการดำเนินงานจัดซื้อจัดจ้าง</span></a></a>
                               <a href="<?php echo site_url('Pages/km'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;knowledge Management: KM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดการความรู้ของท้องถิ่น</span></a></a>
                           </div>
                       </ul>

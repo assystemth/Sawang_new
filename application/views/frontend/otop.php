@@ -7,7 +7,7 @@
     <div class="container-pages-news" style="z-index: 10; position: relative;">
         <div class="pages-content break-word">
             <?php
-            $count = count($qOtop);
+            $count = count($otops); // เปลี่ยน $qOtop เป็น $otops
             $itemsPerPage = 5; // จำนวนรายการต่อหน้า
             $totalPages = ceil($count / $itemsPerPage);
 
@@ -17,20 +17,20 @@
             $endIndex = min($startIndex + $itemsPerPage - 1, $count - 1);
 
             for ($i = $startIndex; $i <= $endIndex; $i++) {
-                $rs = $qOtop[$i];
+                $otop = $otops[$i];
             ?>
-                <div class="row page-border-otop">
+                <div class=" row page-border-otop">
                     <div class="col-8">
                         <div class="scrollable-container-otop">
-                            <span class="font-otop-head"><?= $rs->otop_name; ?></span>
+                            <span class="font-otop-head"><?= $otop->otop_name; ?></span>
                             <div class="border-gray-332"></div>
                             <div style="padding-bottom: 10px;">
-                                <span class="span-time-pages-news"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
+                                <span class="span-time-pages-news">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-calendar-minus-fill" viewBox="0 0 16 16">
                                         <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z" />
                                     </svg>
                                     <?php
-                                    // ในการใช้งาน setThaiMonth
-                                    $date = new DateTime($rs->otop_date);
+                                    $date = new DateTime($otop->otop_date);
                                     $day_th = $date->format('d');
                                     $month_th = setThaiMonth($date->format('F')); // เรียกใช้ setThaiMonth สำหรับชื่อเดือน
                                     $year_th = $date->format('Y') + 543; // เพิ่มขึ้น 543 ปี
@@ -43,32 +43,49 @@
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
                                     </svg>
                                     <?php
-                                    $date = new DateTime($rs->otop_date);
+                                    $date = new DateTime($otop->otop_date);
                                     $formattedTime = $date->format('H:i'); // เวลา
                                     echo $formattedTime;
                                     ?>
-                                    น.</span>
+                                    น.
+                                </span>
                             </div>
                             <div style="padding-bottom: 10px;">
-                                <span class="font-otop-content"><?= $rs->otop_detail; ?></span>
+                                <span class="font-otop-content"><?= $otop->otop_detail; ?></span>
                             </div>
                             <div class="font-otop-content">
-                                <span>ประเภทสินค้า : <?= $rs->otop_type; ?></span><br>
-                                <span>ขนาด : <?= $rs->otop_size; ?> เซนติเมตร</span><br>
-                                <span>น้ำหนัก : <?= $rs->otop_weight; ?> กิโลกรัม</span><br>
-                                <span>ราคา : <?= $rs->otop_price; ?> บาท</span><br>
-                                <span>ที่อยู่ : <?= $rs->otop_location; ?></span><br>
-                                <span>เบอร์ติดต่อ : <?= $rs->otop_phone; ?></span><br>
-                                <span>Facebook : <?= $rs->otop_fb; ?></span><br>
+                                <span>ประเภทสินค้า : <?= $otop->otop_type; ?></span><br>
+                                <span>ขนาด : <?= $otop->otop_size; ?> เซนติเมตร</span><br>
+                                <span>น้ำหนัก : <?= $otop->otop_weight; ?> กิโลกรัม</span><br>
+                                <span>ราคา : <?= $otop->otop_price; ?> บาท</span><br>
+                                <span>ที่อยู่ : <?= $otop->otop_location; ?></span><br>
+                                <span>เบอร์ติดต่อ : <?= $otop->otop_phone; ?></span><br>
+                                <span>Facebook : <?= $otop->otop_fb; ?></span><br>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <?php if (!empty($rs->otop_img)) : ?>
-                            <img src="<?php echo base_url('docs/img/' . $rs->otop_img); ?>" width="auto" style="max-width: 100%;" height="310px">
-                        <?php else : ?>
-                            <img src="<?php echo base_url('docs/logo.png'); ?>" width="auto" style="max-width: 100%;" height="310px">
-                        <?php endif; ?>
+                    <div class="col-4 ">
+                        <div class="text-center">
+                            <?php if (!empty($otop->otop_img)) : ?>
+                                <img src="<?php echo base_url('docs/img/' . $otop->otop_img); ?>" width="auto" style="max-width: 100%;" height="310px">
+                            <?php endif; ?>
+                        </div>
+                        <br>
+                        <!-- <?php foreach ($otop->images as $image) : ?>
+                                    <a href="<?php echo base_url('docs/img/' . $image->otop_img_img); ?>" data-lightbox="image-<?php echo $otop->otop_id; ?>">
+                                        <img src="<?= base_url('docs/img/' . $image->otop_img_img); ?>" alt="otop Image" width="100">
+                                    </a>
+                                <?php endforeach; ?> -->
+                        <swiper-container class="mySwiperOtop" slides-per-view="3" centered-slides="true" space-between="30" pagination="true" pagination-type="fraction" navigation="true">
+                            <?php foreach ($otop->images as $image) : ?>
+                                <swiper-slide>
+                                    <a href="<?php echo base_url('docs/img/' . $image->otop_img_img); ?>" data-lightbox="image-<?php echo $otop->otop_id; ?>">
+                                        <img src="<?= base_url('docs/img/' . $image->otop_img_img); ?>" alt="otop Image" width="100">
+                                    </a>
+                                </swiper-slide>
+                            <?php endforeach; ?>
+                        </swiper-container>
+
                     </div>
                 </div>
                 <div style="margin-top: 50px;"></div>
@@ -181,7 +198,7 @@
             </div>
 
             <!-- ฟอร์มกรอกหมายเลขหน้า -->
-                       <div class="pagination-jump-to-page d-flex justify-content-end">
+            <div class="pagination-jump-to-page d-flex justify-content-end">
                 <form action="" method="GET" class="d-flex" id="pageForm" onsubmit="return validatePageInput();">
                     <label style="font-size: 24px;">ไปหน้าที่&nbsp;&nbsp;</label>
                     <input type="number" name="page" min="1" max="<?php echo $totalPages; ?>" value="<?php echo $currentPage; ?>" class="form-control" style="width: 60px; margin-right: 10px;" id="pageInput">

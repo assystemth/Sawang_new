@@ -231,7 +231,7 @@
                             </div>
                             <div class="col-6">
                                 <div style="padding: 5px; margin-left: -510px;">
-                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฏิทินกิจกรรม</a>
                                 </div>
                             </div>
                             <div id="carouselExampleAutoplayingv2" class="carousel slide" data-bs-ride="carousel" style="z-index: 10; margin-top: -50px; margin-left: 5px">

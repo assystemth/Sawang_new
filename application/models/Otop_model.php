@@ -9,39 +9,17 @@ class Otop_model extends CI_Model
 
     public function add()
     {
-        // Check used space
-        $used_space_mb = $this->space_model->get_used_space();
-        $upload_limit_mb = $this->space_model->get_limit_storage();
+        // Configure image upload
+        $img_config['upload_path'] = './docs/img';
+        $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $img_config, 'img_upload');
 
-        // Calculate the total space required for all files
-        $total_space_required = 0;
-        if (!empty($_FILES['otop_img']['name'])) {
-            $total_space_required += $_FILES['otop_img']['size'];
-        }
+        // Configure Doc upload
+        $doc_config['upload_path'] = './docs/file';
+        $doc_config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx';
+        $this->load->library('upload', $doc_config, 'doc_upload');
 
-        // Check if there's enough space
-        if ($used_space_mb + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit_mb) {
-            $this->session->set_flashdata('save_error', TRUE);
-            redirect('otop/adding_otop');
-            return;
-        }
-
-        // Upload configuration
-        $config['upload_path'] = './docs/img';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $this->load->library('upload', $config);
-
-        // Upload main file
-        if (!$this->upload->do_upload('otop_img')) {
-            // If the file size exceeds the max_size, set flash data and redirect
-            $this->session->set_flashdata('save_maxsize', TRUE);
-            redirect('otop/adding_otop');
-            return;
-        }
-
-        $data = $this->upload->data();
-        $filename = $data['file_name'];
-
+        // กำหนดค่าใน $data
         $data = array(
             'otop_name' => $this->input->post('otop_name'),
             'otop_price' => $this->input->post('otop_price'),
@@ -55,22 +33,129 @@ class Otop_model extends CI_Model
             'otop_phone' => $this->input->post('otop_phone'),
             'otop_date' => $this->input->post('otop_date'),
             'otop_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
-            'otop_img' => $filename
         );
 
-        $query = $this->db->insert('tbl_otop', $data);
+        // ทำการอัปโหลดรูปภาพ
+        $img_main = $this->img_upload->do_upload('otop_img');
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพหรือไม่
+        if (!empty($img_main)) {
+            // ถ้ามีการอัปโหลดรูปภาพ
+            $data['otop_img'] = $this->img_upload->data('file_name');
+        }
+        // เพิ่มข้อมูลลงในฐานข้อมูล
+        $this->db->insert('tbl_otop', $data);
+        $otop_id = $this->db->insert_id();
+
+        // หาพื้นที่ว่าง และอัพโหลดlimit จากฐานข้อมูล
+        $used_space = $this->space_model->get_used_space();
+        $upload_limit = $this->space_model->get_limit_storage();
+
+        $total_space_required = 0;
+        // ตรวจสอบว่ามีข้อมูลรูปภาพเพิ่มเติมหรือไม่
+        if (isset($_FILES['otop_img_img'])) {
+            foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
+                if (isset($_FILES['otop_img_img']['size'][$index])) {
+                    $total_space_required += $_FILES['otop_img_img']['size'][$index];
+                }
+            }
+        }
+
+        // เช็คค่าว่าง
+        if ($used_space + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit) {
+            $this->session->set_flashdata('save_error', TRUE);
+            redirect('otop_backend/adding');
+            return;
+        }
+
+        $imgs_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
+        if (!empty($_FILES['otop_img_img']['name'][0])) {
+            foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
+                $_FILES['otop_img_img_multiple']['name'] = $name;
+                $_FILES['otop_img_img_multiple']['type'] = $_FILES['otop_img_img']['type'][$index];
+                $_FILES['otop_img_img_multiple']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
+                $_FILES['otop_img_img_multiple']['error'] = $_FILES['otop_img_img']['error'][$index];
+                $_FILES['otop_img_img_multiple']['size'] = $_FILES['otop_img_img']['size'][$index];
+
+                if ($this->img_upload->do_upload('otop_img_img_multiple')) {
+                    $upload_data = $this->img_upload->data();
+                    $imgs_data[] = array(
+                        'otop_img_ref_id' => $otop_id,
+                        'otop_img_img' => $upload_data['file_name']
+                    );
+                }
+            }
+            $this->db->insert_batch('tbl_otop_img', $imgs_data);
+        }
 
         $this->space_model->update_server_current();
-
-        if ($query) {
-            $this->session->set_flashdata('save_success', TRUE);
-        } else {
-            echo "<script>";
-            echo "alert('Error !');";
-            echo "</script>";
-        }
+        $this->session->set_flashdata('save_success', TRUE);
     }
 
+    // public function add_old()
+    // {
+    //     // Check used space
+    //     $used_space_mb = $this->space_model->get_used_space();
+    //     $upload_limit_mb = $this->space_model->get_limit_storage();
+
+    //     // Calculate the total space required for all files
+    //     $total_space_required = 0;
+    //     if (!empty($_FILES['otop_img']['name'])) {
+    //         $total_space_required += $_FILES['otop_img']['size'];
+    //     }
+
+    //     // Check if there's enough space
+    //     if ($used_space_mb + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit_mb) {
+    //         $this->session->set_flashdata('save_error', TRUE);
+    //         redirect('otop/adding_otop');
+    //         return;
+    //     }
+
+    //     // Upload configuration
+    //     $config['upload_path'] = './docs/img';
+    //     $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    //     $this->load->library('upload', $config);
+
+    //     // Upload main file
+    //     if (!$this->upload->do_upload('otop_img')) {
+    //         // If the file size exceeds the max_size, set flash data and redirect
+    //         $this->session->set_flashdata('save_maxsize', TRUE);
+    //         redirect('otop/adding_otop');
+    //         return;
+    //     }
+
+    //     $data = $this->upload->data();
+    //     $filename = $data['file_name'];
+
+    //     $data = array(
+    //         'otop_name' => $this->input->post('otop_name'),
+    //         'otop_price' => $this->input->post('otop_price'),
+    //         'otop_type' => $this->input->post('otop_type'),
+    //         'otop_size' => $this->input->post('otop_size'),
+    //         'otop_weight' => $this->input->post('otop_weight'),
+    //         'otop_detail' => $this->input->post('otop_detail'),
+    //         'otop_location' => $this->input->post('otop_location'),
+    //         'otop_seller' => $this->input->post('otop_seller'),
+    //         'otop_fb' => $this->input->post('otop_fb'),
+    //         'otop_phone' => $this->input->post('otop_phone'),
+    //         'otop_date' => $this->input->post('otop_date'),
+    //         'otop_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
+    //         'otop_img' => $filename
+    //     );
+
+    //     $query = $this->db->insert('tbl_otop', $data);
+
+    //     $this->space_model->update_server_current();
+
+    //     if ($query) {
+    //         $this->session->set_flashdata('save_success', TRUE);
+    //     } else {
+    //         echo "<script>";
+    //         echo "alert('Error !');";
+    //         echo "</script>";
+    //     }
+    // }
 
     public function list_admin()
     {
@@ -125,65 +210,29 @@ class Otop_model extends CI_Model
         return $query->result();
     }
 
-    public function read_com_otop($otop_id)
+    public function del_img($file_id)
     {
-        $this->db->where('otop_com_ref_id', $otop_id);
-        $this->db->order_by('otop_com_ref_id', 'DESC');
-        $query = $this->db->get('tbl_otop_com');
-        return $query->result();
-    }
+        // ดึงชื่อไฟล์ PDF จากฐานข้อมูลโดยใช้ $file_id
+        $this->db->select('otop_img_img');
+        $this->db->where('otop_img_id', $file_id);
+        $query = $this->db->get('tbl_otop_img');
+        $file_data = $query->row();
 
-    public function read_com_reply_otop($otop_com_id)
-    {
-        $this->db->where('otop_com_reply_ref_id', $otop_com_id);
-        $query = $this->db->get('tbl_otop_com_reply');
-        return $query->result();
+        // ลบไฟล์จากแหล่งที่เก็บไฟล์ (อาจต้องใช้ unlink หรือวิธีอื่น)
+        $file_path = './docs/img/' . $file_data->otop_img_img;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+
+        // ลบข้อมูลของไฟล์จากฐานข้อมูล
+        $this->db->where('otop_img_id', $file_id);
+        $this->db->delete('tbl_otop_img');
+        $this->space_model->update_server_current();
+        $this->session->set_flashdata('del_success', TRUE);
     }
 
     public function edit($otop_id)
     {
-        $old_document = $this->db->get_where('tbl_otop', array('otop_id' => $otop_id))->row();
-
-        $update_doc_file = !empty($_FILES['otop_img']['name']) && $old_document->otop_img != $_FILES['otop_img']['name'];
-
-        // ตรวจสอบว่ามีการอัพโหลดรูปภาพใหม่หรือไม่
-        if ($update_doc_file) {
-            $old_file_path = './docs/img/' . $old_document->otop_img;
-            if (file_exists($old_file_path)) {
-                unlink($old_file_path);
-            }
-
-            // Check used space
-            $used_space_mb = $this->space_model->get_used_space();
-            $upload_limit_mb = $this->space_model->get_limit_storage();
-
-            $total_space_required = 0;
-            if (!empty($_FILES['otop_img']['name'])) {
-                $total_space_required += $_FILES['otop_img']['size'];
-            }
-
-            if ($used_space_mb + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit_mb) {
-                $this->session->set_flashdata('save_error', TRUE);
-                redirect('otop/editing');
-                return;
-            }
-
-            $config['upload_path'] = './docs/img';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('otop_img')) {
-                echo $this->upload->display_errors();
-                return;
-            }
-
-            $data = $this->upload->data();
-            $filename = $data['file_name'];
-        } else {
-            // ใช้รูปภาพเดิม
-            $filename = $old_document->otop_img;
-        }
-
         // Update otop information
         $data = array(
             'otop_name' => $this->input->post('otop_name'),
@@ -198,89 +247,246 @@ class Otop_model extends CI_Model
             'otop_phone' => $this->input->post('otop_phone'),
             'otop_date' => $this->input->post('otop_date'),
             'otop_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
-            'otop_img' => $filename
         );
 
         $this->db->where('otop_id', $otop_id);
         $this->db->update('tbl_otop', $data);
 
-        // อัปโหลดและบันทึกไฟล์ใหม่ลงโฟลเดอร์
-        if (!empty($_FILES['otop_img_img']['name'])) {
-            $upload_config['upload_path'] = './docs/img';
-            $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $this->load->library('upload', $upload_config);
+        // หาพื้นที่ว่าง และอัพโหลดlimit จากฐานข้อมูล
+        $used_space = $this->space_model->get_used_space();
+        $upload_limit = $this->space_model->get_limit_storage();
 
-            $upload_success = true; // ตั้งค่าเริ่มต้นเป็น true
+        $total_space_required = 0;
+        // ตรวจสอบว่ามีข้อมูลรูปภาพเพิ่มเติมหรือไม่
+        if (isset($_FILES['otop_img_img'])) {
+            foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
+                if (isset($_FILES['otop_img_img']['size'][$index])) {
+                    $total_space_required += $_FILES['otop_img_img']['size'][$index];
+                }
+            }
+        }
+
+        // เช็คค่าว่าง
+        if ($used_space + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit) {
+            $this->session->set_flashdata('save_error', TRUE);
+            redirect('otop_backend/adding');
+            return;
+        }
+
+        $img_config['upload_path'] = './docs/img';
+        $img_config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $img_config, 'img_upload');
+
+        // ทำการอัปโหลดรูปภาพ
+        $img_main = $this->img_upload->do_upload('otop_img');
+
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพหรือไม่
+        if (!empty($img_main)) {
+            $this->db->trans_start(); // เริ่ม Transaction
+
+            // ดึงข้อมูลรูปเก่า
+            $old_document = $this->db->get_where('tbl_otop', array('otop_id' => $otop_id))->row();
+
+            // ตรวจสอบว่ามีไฟล์เก่าหรือไม่
+            if ($old_document && $old_document->otop_img) {
+                $old_file_path = './docs/img/' . $old_document->otop_img;
+
+                if (file_exists($old_file_path)) {
+                    unlink($old_file_path); // ลบไฟล์เก่า
+                }
+            }
+
+            // ถ้ามีการอัปโหลดรูปภาพใหม่
+            $img_data['otop_img'] = $this->img_upload->data('file_name');
+            $this->db->where('otop_id', $otop_id);
+            $this->db->update('tbl_otop', $img_data);
+
+            $this->db->trans_complete(); // สิ้นสุด Transaction
+        }
+
+        $imgs_data = array();
+
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพเพิ่มเติมหรือไม่
+        if (!empty($_FILES['otop_img_img']['name'][0])) {
 
             foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
-                $_FILES['otop_img']['name'] = $name;
-                $_FILES['otop_img']['type'] = $_FILES['otop_img_img']['type'][$index];
-                $_FILES['otop_img']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
-                $_FILES['otop_img']['error'] = $_FILES['otop_img_img']['error'][$index];
-                $_FILES['otop_img']['size'] = $_FILES['otop_img_img']['size'][$index];
+                $_FILES['otop_img_img_multiple']['name'] = $name;
+                $_FILES['otop_img_img_multiple']['type'] = $_FILES['otop_img_img']['type'][$index];
+                $_FILES['otop_img_img_multiple']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
+                $_FILES['otop_img_img_multiple']['error'] = $_FILES['otop_img_img']['error'][$index];
+                $_FILES['otop_img_img_multiple']['size'] = $_FILES['otop_img_img']['size'][$index];
 
-                if (!$this->upload->do_upload('otop_img')) {
-                    // echo $this->upload->display_errors();
-                    $upload_success = false; // หากเกิดข้อผิดพลาดในการอัปโหลด ตั้งค่าเป็น false
-                    break; // หยุดการทำงานลูป
-                }
-
-                $upload_data = $this->upload->data();
-                $image_path = $upload_data['file_name'];
-
-                // สร้างข้อมูลสำหรับบันทึกลงฐานข้อมูล tbl_otop_img
-                $image_data = array(
-                    'otop_img_ref_id' => $otop_id,
-                    'otop_img_img' => $image_path
-                );
-
-                $this->db->insert('tbl_otop_img', $image_data);
-            }
-
-            if ($upload_success) {
-                // ลบรูปภาพเก่าที่เกี่ยวข้องกับกิจกรรม
-                $this->db->where('otop_img_ref_id', $otop_id);
-                $existing_images = $this->db->get('tbl_otop_img')->result();
-
-                foreach ($existing_images as $existing_image) {
-                    $old_file_path = './docs/img/' . $existing_image->otop_img_img;
-                    if (file_exists($old_file_path)) {
-                        unlink($old_file_path);
-                    }
-                }
-
-                $this->db->where('otop_img_ref_id', $otop_id);
-                $this->db->delete('tbl_otop_img');
-
-                // เพิ่มรูปภาพใหม่ลงไป
-                foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
-                    $_FILES['otop_img']['name'] = $name;
-                    $_FILES['otop_img']['type'] = $_FILES['otop_img_img']['type'][$index];
-                    $_FILES['otop_img']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
-                    $_FILES['otop_img']['error'] = $_FILES['otop_img_img']['error'][$index];
-                    $_FILES['otop_img']['size'] = $_FILES['otop_img_img']['size'][$index];
-
-                    if (!$this->upload->do_upload('otop_img')) {
-                        // echo $this->upload->display_errors();
-                        break; // หยุดการทำงานลูปหากรูปภาพมีปัญหา
-                    }
-
-                    $upload_data = $this->upload->data();
-                    $image_path = $upload_data['file_name'];
-
-                    // สร้างข้อมูลสำหรับบันทึกลงฐานข้อมูล tbl_otop_img
-                    $image_data = array(
+                if ($this->img_upload->do_upload('otop_img_img_multiple')) {
+                    $upload_data = $this->img_upload->data();
+                    $imgs_data[] = array(
                         'otop_img_ref_id' => $otop_id,
-                        'otop_img_img' => $image_path
+                        'otop_img_img' => $upload_data['file_name']
                     );
-
-                    $this->db->insert('tbl_otop_img', $image_data);
                 }
             }
+            $this->db->insert_batch('tbl_otop_img', $imgs_data);
         }
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
     }
+
+
+    // public function read_com_otop($otop_id)
+    // {
+    //     $this->db->where('otop_com_ref_id', $otop_id);
+    //     $this->db->order_by('otop_com_ref_id', 'DESC');
+    //     $query = $this->db->get('tbl_otop_com');
+    //     return $query->result();
+    // }
+
+    // public function read_com_reply_otop($otop_com_id)
+    // {
+    //     $this->db->where('otop_com_reply_ref_id', $otop_com_id);
+    //     $query = $this->db->get('tbl_otop_com_reply');
+    //     return $query->result();
+    // }
+
+    // public function edit($otop_id)
+    // {
+    //     $old_document = $this->db->get_where('tbl_otop', array('otop_id' => $otop_id))->row();
+
+    //     $update_doc_file = !empty($_FILES['otop_img']['name']) && $old_document->otop_img != $_FILES['otop_img']['name'];
+
+    //     // ตรวจสอบว่ามีการอัพโหลดรูปภาพใหม่หรือไม่
+    //     if ($update_doc_file) {
+    //         $old_file_path = './docs/img/' . $old_document->otop_img;
+    //         if (file_exists($old_file_path)) {
+    //             unlink($old_file_path);
+    //         }
+
+    //         // Check used space
+    //         $used_space_mb = $this->space_model->get_used_space();
+    //         $upload_limit_mb = $this->space_model->get_limit_storage();
+
+    //         $total_space_required = 0;
+    //         if (!empty($_FILES['otop_img']['name'])) {
+    //             $total_space_required += $_FILES['otop_img']['size'];
+    //         }
+
+    //         if ($used_space_mb + ($total_space_required / (1024 * 1024 * 1024)) >= $upload_limit_mb) {
+    //             $this->session->set_flashdata('save_error', TRUE);
+    //             redirect('otop/editing');
+    //             return;
+    //         }
+
+    //         $config['upload_path'] = './docs/img';
+    //         $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    //         $this->load->library('upload', $config);
+
+    //         if (!$this->upload->do_upload('otop_img')) {
+    //             echo $this->upload->display_errors();
+    //             return;
+    //         }
+
+    //         $data = $this->upload->data();
+    //         $filename = $data['file_name'];
+    //     } else {
+    //         // ใช้รูปภาพเดิม
+    //         $filename = $old_document->otop_img;
+    //     }
+
+    //     // Update otop information
+    //     $data = array(
+    //         'otop_name' => $this->input->post('otop_name'),
+    //         'otop_price' => $this->input->post('otop_price'),
+    //         'otop_type' => $this->input->post('otop_type'),
+    //         'otop_size' => $this->input->post('otop_size'),
+    //         'otop_weight' => $this->input->post('otop_weight'),
+    //         'otop_detail' => $this->input->post('otop_detail'),
+    //         'otop_location' => $this->input->post('otop_location'),
+    //         'otop_seller' => $this->input->post('otop_seller'),
+    //         'otop_fb' => $this->input->post('otop_fb'),
+    //         'otop_phone' => $this->input->post('otop_phone'),
+    //         'otop_date' => $this->input->post('otop_date'),
+    //         'otop_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่แก้ไขข้อมูล
+    //         'otop_img' => $filename
+    //     );
+
+    //     $this->db->where('otop_id', $otop_id);
+    //     $this->db->update('tbl_otop', $data);
+
+    //     // อัปโหลดและบันทึกไฟล์ใหม่ลงโฟลเดอร์
+    //     if (!empty($_FILES['otop_img_img']['name'])) {
+    //         $upload_config['upload_path'] = './docs/img';
+    //         $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
+    //         $this->load->library('upload', $upload_config);
+
+    //         $upload_success = true; // ตั้งค่าเริ่มต้นเป็น true
+
+    //         foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
+    //             $_FILES['otop_img']['name'] = $name;
+    //             $_FILES['otop_img']['type'] = $_FILES['otop_img_img']['type'][$index];
+    //             $_FILES['otop_img']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
+    //             $_FILES['otop_img']['error'] = $_FILES['otop_img_img']['error'][$index];
+    //             $_FILES['otop_img']['size'] = $_FILES['otop_img_img']['size'][$index];
+
+    //             if (!$this->upload->do_upload('otop_img')) {
+    //                 // echo $this->upload->display_errors();
+    //                 $upload_success = false; // หากเกิดข้อผิดพลาดในการอัปโหลด ตั้งค่าเป็น false
+    //                 break; // หยุดการทำงานลูป
+    //             }
+
+    //             $upload_data = $this->upload->data();
+    //             $image_path = $upload_data['file_name'];
+
+    //             // สร้างข้อมูลสำหรับบันทึกลงฐานข้อมูล tbl_otop_img
+    //             $image_data = array(
+    //                 'otop_img_ref_id' => $otop_id,
+    //                 'otop_img_img' => $image_path
+    //             );
+
+    //             $this->db->insert('tbl_otop_img', $image_data);
+    //         }
+
+    //         if ($upload_success) {
+    //             // ลบรูปภาพเก่าที่เกี่ยวข้องกับกิจกรรม
+    //             $this->db->where('otop_img_ref_id', $otop_id);
+    //             $existing_images = $this->db->get('tbl_otop_img')->result();
+
+    //             foreach ($existing_images as $existing_image) {
+    //                 $old_file_path = './docs/img/' . $existing_image->otop_img_img;
+    //                 if (file_exists($old_file_path)) {
+    //                     unlink($old_file_path);
+    //                 }
+    //             }
+
+    //             $this->db->where('otop_img_ref_id', $otop_id);
+    //             $this->db->delete('tbl_otop_img');
+
+    //             // เพิ่มรูปภาพใหม่ลงไป
+    //             foreach ($_FILES['otop_img_img']['name'] as $index => $name) {
+    //                 $_FILES['otop_img']['name'] = $name;
+    //                 $_FILES['otop_img']['type'] = $_FILES['otop_img_img']['type'][$index];
+    //                 $_FILES['otop_img']['tmp_name'] = $_FILES['otop_img_img']['tmp_name'][$index];
+    //                 $_FILES['otop_img']['error'] = $_FILES['otop_img_img']['error'][$index];
+    //                 $_FILES['otop_img']['size'] = $_FILES['otop_img_img']['size'][$index];
+
+    //                 if (!$this->upload->do_upload('otop_img')) {
+    //                     // echo $this->upload->display_errors();
+    //                     break; // หยุดการทำงานลูปหากรูปภาพมีปัญหา
+    //                 }
+
+    //                 $upload_data = $this->upload->data();
+    //                 $image_path = $upload_data['file_name'];
+
+    //                 // สร้างข้อมูลสำหรับบันทึกลงฐานข้อมูล tbl_otop_img
+    //                 $image_data = array(
+    //                     'otop_img_ref_id' => $otop_id,
+    //                     'otop_img_img' => $image_path
+    //                 );
+
+    //                 $this->db->insert('tbl_otop_img', $image_data);
+    //             }
+    //         }
+    //     }
+    //     $this->space_model->update_server_current();
+    //     $this->session->set_flashdata('save_success', TRUE);
+    // }
 
 
     public function del_otop($otop_id)
@@ -338,20 +544,104 @@ class Otop_model extends CI_Model
         }
     }
 
-    public function del_com($otop_com_id)
+    public function get_otops()
     {
-        return $this->db->where('otop_com_id', $otop_com_id)->delete('tbl_otop_com');
+        $this->db->select('*');
+        $this->db->from('tbl_otop');
+        $this->db->order_by('otop_datesave', 'DESC');
+        return $this->db->get()->result();
     }
 
-    public function del_reply($otop_com_id)
+
+    public function get_images_for_otop($otop_id)
     {
-        return $this->db->where('otop_com_reply_ref_id', $otop_com_id)->delete('tbl_otop_com_reply');
+        $this->db->select('otop_img_img');
+        $this->db->from('tbl_otop_img');
+        $this->db->where('otop_img_ref_id', $otop_id);
+        return $this->db->get()->result();
     }
 
-    public function del_com_reply($otop_com_reply_id)
+    public function sum_food_views()
     {
-        return $this->db->where('otop_com_reply_id', $otop_com_reply_id)->delete('tbl_otop_com_reply');
+        // คำนวณผลรวมของ tbl_food
+        $this->db->select('SUM(food_view) as total_views');
+        $this->db->from('tbl_food');
+        $query_food = $this->db->get();
+
+        // คำนวณผลรวมของ tbl_user_food
+        $this->db->select('SUM(user_food_view) as total_user_views');
+        $this->db->from('tbl_user_food');
+        $query_user_food = $this->db->get();
+
+        // นำผลรวมของทั้งสองตารางมาบวกกัน
+        $total_views = $query_food->row()->total_views + $query_user_food->row()->total_user_views;
+
+        return $total_views;
     }
+
+    public function sum_food_likes()
+    {
+        // คำนวณผลรวมของ tbl_food
+        $this->db->select('SUM(food_like_like) as total_likes');
+        $this->db->from('tbl_food_like');
+        $query_food = $this->db->get();
+
+        // คำนวณผลรวมของ tbl_user_food
+        $this->db->select('SUM(user_food_like_like) as total_user_likes');
+        $this->db->from('tbl_user_food_like');
+        $query_user_food = $this->db->get();
+
+        // นำผลรวมของทั้งสองตารางมาบวกกัน
+        $total_likes = $query_food->row()->total_likes + $query_user_food->row()->total_user_likes;
+
+        return $total_likes;
+    }
+
+    public function otop_frontend()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_otop');
+        $this->db->where('tbl_otop.otop_status', 'show');
+        $this->db->order_by('tbl_otop.otop_id', 'DESC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function search($searchTerm)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_otop');
+        $this->db->where('tbl_otop.otop_status', 'show');
+        $this->db->like('tbl_otop.otop_name', $searchTerm);  // แทน 'otop_name' ด้วยฟิลด์ที่คุณต้องการค้นหา
+        $this->db->or_like('tbl_otop.otop_datesave', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_detail', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_type', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_size', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_weight', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_price', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_location', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_phone', $searchTerm);
+        $this->db->or_like('tbl_otop.otop_fb', $searchTerm);
+        $this->db->order_by('tbl_otop.otop_id', 'DESC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+    // public function del_com($otop_com_id)
+    // {
+    //     return $this->db->where('otop_com_id', $otop_com_id)->delete('tbl_otop_com');
+    // }
+
+    // public function del_reply($otop_com_id)
+    // {
+    //     return $this->db->where('otop_com_reply_ref_id', $otop_com_id)->delete('tbl_otop_com_reply');
+    // }
+
+    // public function del_com_reply($otop_com_reply_id)
+    // {
+    //     return $this->db->where('otop_com_reply_id', $otop_com_reply_id)->delete('tbl_otop_com_reply');
+    // }
 
     // ส่วนของ user ***************************************************************************************************************************************************************************************************************************************************************
     // public function read_user_food($user_food_id)
@@ -602,69 +892,5 @@ class Otop_model extends CI_Model
 
     // ************************************************************************************************************
 
-    public function sum_food_views()
-    {
-        // คำนวณผลรวมของ tbl_food
-        $this->db->select('SUM(food_view) as total_views');
-        $this->db->from('tbl_food');
-        $query_food = $this->db->get();
-
-        // คำนวณผลรวมของ tbl_user_food
-        $this->db->select('SUM(user_food_view) as total_user_views');
-        $this->db->from('tbl_user_food');
-        $query_user_food = $this->db->get();
-
-        // นำผลรวมของทั้งสองตารางมาบวกกัน
-        $total_views = $query_food->row()->total_views + $query_user_food->row()->total_user_views;
-
-        return $total_views;
-    }
-
-    public function sum_food_likes()
-    {
-        // คำนวณผลรวมของ tbl_food
-        $this->db->select('SUM(food_like_like) as total_likes');
-        $this->db->from('tbl_food_like');
-        $query_food = $this->db->get();
-
-        // คำนวณผลรวมของ tbl_user_food
-        $this->db->select('SUM(user_food_like_like) as total_user_likes');
-        $this->db->from('tbl_user_food_like');
-        $query_user_food = $this->db->get();
-
-        // นำผลรวมของทั้งสองตารางมาบวกกัน
-        $total_likes = $query_food->row()->total_likes + $query_user_food->row()->total_user_likes;
-
-        return $total_likes;
-    }
-
-    public function otop_frontend()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_otop');
-        $this->db->where('tbl_otop.otop_status', 'show');
-        $this->db->order_by('tbl_otop.otop_id', 'DESC');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    public function search($searchTerm)
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_otop');
-        $this->db->where('tbl_otop.otop_status', 'show');
-        $this->db->like('tbl_otop.otop_name', $searchTerm);  // แทน 'otop_name' ด้วยฟิลด์ที่คุณต้องการค้นหา
-        $this->db->or_like('tbl_otop.otop_datesave', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_detail', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_type', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_size', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_weight', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_price', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_location', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_phone', $searchTerm);
-        $this->db->or_like('tbl_otop.otop_fb', $searchTerm);
-        $this->db->order_by('tbl_otop.otop_id', 'DESC');
-        $query = $this->db->get();
-        return $query->result();
-    }
+   
 }

@@ -25,7 +25,7 @@
                     <div class="col-sm-6 control-label font-e-service-complain">เรื่องที่ต้องการยื่นเอกสาร <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="text" name="esv_ods_topic" class="form-control font-label-e-service-complain" required placeholder="กรอกเรื่องร้องเรียน...">
-                        <span class="red"><?= form_error('esv_ods_topic'); ?></span>
+                        <!-- <span class="red"><?= form_error('esv_ods_topic'); ?></span> -->
                     </div>
                 </div>
                 <br>
@@ -35,7 +35,7 @@
                             <div class="col-sm-12 control-label  font-e-service-complain">ชื่อ-นามสกุล <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
                                 <input type="text" name="esv_ods_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
-                                <span class="red"><?= form_error('esv_ods_by'); ?></span>
+                                <!-- <span class="red"><?= form_error('esv_ods_by'); ?></span> -->
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                             <div class="col-sm-12 control-label  font-e-service-complain">เบอร์โทรศัพท์ <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
                                 <input type="tel" name="esv_ods_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
-                                <span class="red"><?= form_error('esv_ods_phone'); ?></span>
+                                <!-- <span class="red"><?= form_error('esv_ods_phone'); ?></span> -->
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="col-sm-2 control-label font-e-service-complain">ที่อยู่ <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="text" name="esv_ods_address" class="form-control font-label-e-service-complain" required placeholder="กรอกข้อมูลที่อยู่ของคุณ">
-                        <span class="red"><?= form_error('esv_ods_address'); ?></span>
+                        <!-- <span class="red"><?= form_error('esv_ods_address'); ?></span> -->
                     </div>
                 </div>
                 <br>
@@ -70,7 +70,7 @@
                     <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด <span class="red-font">*</span></label>
                     <div class="col-sm-12">
                         <textarea name="esv_ods_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
-                        <span class="red"><?= form_error('esv_ods_detail'); ?></span>
+                        <!-- <span class="red"><?= form_error('esv_ods_detail'); ?></span> -->
                     </div>
                 </div>
                 <br>
@@ -78,7 +78,7 @@
                     <div class="col-sm-7 control-label font-e-service-complain">แนบเอกสาร <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
                         <input type="file" name="esv_ods_file" class="form-control" accept=".pdf, .docx, .doc, .jpg, .jpeg, .png" required>
-                        <span class="red"><?= form_error('esv_ods_file'); ?></span>
+                        <!-- <span class="red"><?= form_error('esv_ods_file'); ?></span> -->
                     </div>
                 </div>
         </div>
