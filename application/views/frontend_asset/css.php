@@ -644,23 +644,31 @@
 
   .banner-button-green {
     z-index: 1;
-    margin-left: 7%;
+    margin-left: 30px;
     /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green.png"); ?>');
+    background-image: url('<?php echo base_url("docs/banner_button_greenv3.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 325px;
     height: 71px;
+    border-radius: 50px 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    /* Add black shadow */
   }
 
   .banner-button-green:hover {
     z-index: 1;
-    margin-left: 7%;
+    margin-left: 30px;
     /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green_hover.png"); ?>');
+    background-image: url('<?php echo base_url("docs/banner_button_greenv3hover.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 325px;
     height: 71px;
+    border-radius: 50px 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    /* Add black shadow */
   }
+
+
 
   .font-banner-button-green {
     color: #FFF;
