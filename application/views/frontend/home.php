@@ -231,7 +231,7 @@
                             </div>
                             <div class="col-6">
                                 <div style="padding: 5px; margin-left: -510px;">
-                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฏิทินกิจกรรม</a>
                                 </div>
                             </div>
                             <div id="carouselExampleAutoplayingv2" class="carousel slide" data-bs-ride="carousel" style="z-index: 10; margin-top: -50px; margin-left: 5px">
@@ -1573,49 +1573,42 @@
             </div>
         </div>
         <div class="service-content underline">
-            <div class="row">
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/adding_complain'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 30px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">แจ้งเรื่อง ร้องเรียน</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/adding_corruption'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 50px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">แจ้งเรื่องทุจริต</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/adding_suggestions'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 30px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">รับฟังความคิดเห็น</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/q_a'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 40px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">กระทู้ ถาม-ตอบ</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/adding_esv_ods'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 25px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">ยื่นเอกสารออนไลน์</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a href="<?php echo site_url('Pages/e_service'); ?>">
-                        <div class="service-box" style="padding: 50px 0px 0px 60px;"> <!-- เปลี่ยน padding-top เป็น 50px -->
-                            <span class="font-service">แบบฟอร์ม</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="services-container d-flex justify-content-center">
+                <a href="<?php echo site_url('Pages/adding_complain'); ?>">
+                    <div class="service-box">
+                        <span class="font-service">แจ้งเรื่อง ร้องเรียน</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/adding_corruption'); ?>">
+                    <div class="service-box">
+                        <span class="font-service">แจ้งเรื่องทุจริต</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/adding_suggestions'); ?>">
+                    <div class="service-box" style="">
+                        <span class="font-service">รับฟังความคิดเห็น</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>">
+                    <div class="service-box" style="">
+                        <span class="font-service">เด็กแรกเกิด</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>">
+                    <div class="service-box" style="">
+                        <span class="font-service">ผู้สูงอายุ/ผู้พิการ</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/adding_esv_ods'); ?>">
+                    <div class="service-box" style="padding-right: 10px;">
+                        <span class="font-service">ยื่นเอกสารออนไลน์</span>
+                    </div>
+                </a>
+                <a href="<?php echo site_url('Pages/e_service'); ?>">
+                    <div class="service-box" style="">
+                        <span class="font-service">แบบฟอร์ม</span>
+                    </div>
+                </a>
             </div>
             <div class="row">
                 <div class="col-6">

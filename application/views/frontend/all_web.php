@@ -20,6 +20,8 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/gci'); ?>" class="font-content-all-web">ข้อมูลสภาพทั่วไป</a><br>
                         <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/msg_pres'); ?>" class="font-content-all-web">สารจากนายก (MES)</a><br>
+                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/mission'); ?>" class="font-content-all-web">ภารกิจและความรับผิดชอบ</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/si'); ?>" class="font-content-all-web">ยุทธศาสตร์การพัฒนาด้านโครงสร้างพื้นฐาน</a><br>
@@ -30,15 +32,25 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/executivepolicy'); ?>" class="font-content-all-web">นโยบายของผู้บริหาร</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/newsletter'); ?>" class="font-content-all-web">จดหมายข่าว</a><br>
+                        <a href="<?php echo site_url('Pages/news_dla'); ?>" class="font-content-all-web">หนังสือราชการ สถ.</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/prov_local_doc'); ?>" class="font-content-all-web">หนังสือราชการ สถ.จ.ร้อยเอ็ด</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/egp'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง e-GP</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/news'); ?>" class="font-content-all-web">ข่าวประชาสัมพันธ์</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/activity'); ?>" class="font-content-all-web">ข่าวสาร / กิจกรรม</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/procurement'); ?>" class="font-content-all-web">ข่าว / ประกาศจัดซื้อจัดจ้าง</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/travel'); ?>" class="font-content-all-web">สถานที่ท่องเที่ยว</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/otop'); ?>" class="font-content-all-web">ผลิตภัณฑ์ชุมชน</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/contact'); ?>" class="font-content-all-web">ติดต่อ อบต.</a><br>
+                        <a href="<?php echo site_url('Pages/newsletter'); ?>" class="font-content-all-web">จดหมายข่าว</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/contact'); ?>" class="font-content-all-web">ติดต่อเรา</a><br>
                     </div>
                 </div>
                 <div class="content-all-web mt-4">
@@ -66,6 +78,8 @@
                 <div class="content-all-web mt-4">
                     <span class="font-head-all-web">บริการประชาชน</span><br>
                     <div class="underline pad-left-35 mt-2 mb-2">
+                        <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>" class="font-content-all-web">สาธารณูประโภค</a><br>
+                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>" class="font-content-all-web">ศูนย์ยุติธรรมชุมชน</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_cac'); ?>" class="font-content-all-web">ศูนย์ช่วยเหลือประชาชน</a><br>
@@ -76,7 +90,13 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_ahs'); ?>" class="font-content-all-web">หลักประกันสุขภาพตำบลสว่าง</a><br>
                         <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/odata'); ?>" class="font-content-all-web">ฐานข้อมูลเปิดภาครัฐ (Open Data)</a><br>
+                        <div class="mt-1"></div>
                         <a href="https://www.nacc.go.th/NACCPPWFC?" target="_blank" class="font-content-all-web">ยกระดับเจตจำนงทางการเมืองในการต่อต้านการทุจริต</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>" class="font-content-all-web">เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</a><br>
+                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/kid_aw_ods'); ?>" class="font-content-all-web">เงินอุดหนุนเด็กแรกเกิด</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_gup'); ?>" class="font-content-all-web">คู่มือสำหรับประชาชน</a><br>
                         <div class="mt-1"></div>
@@ -89,9 +109,6 @@
                         <a href="<?php echo site_url('Pages/pbsv_oppr'); ?>" class="font-content-all-web">งานอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.)</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/pbsv_e_book'); ?>" class="font-content-all-web">ดาวน์โหลดแบบฟอร์ม E-Book</a><br>
-                        <a href="<?php echo site_url('Pages/odata'); ?>" class="font-content-all-web">ฐานข้อมูลเปิดภาครัฐ (Open Data)</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/elderly_aw_ods'); ?>" class="font-content-all-web">เบี้ยยังชีพผู้สูงอายุ / ผู้พิการ</a><br>
                     </div>
                 </div>
                 <div class="content-all-web mt-4">
@@ -118,6 +135,10 @@
                         <a href="<?php echo site_url('Pages/plan_pdpa'); ?>" class="font-content-all-web">แผนพัฒนาบุคลากรประจำปี</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/plan_pcra'); ?>" class="font-content-all-web">แผนการจัดเก็บรายได้ประจำปี</a><br>
+                        <div class="mt-1"></div>
+                        <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank" class="font-content-all-web">แบบวัดการรับรู้ภายใน IIT</a><br>
+                        <div class="mt-1"></div>
+                        <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" class="font-content-all-web">แบบวัดการรับรู้ภายนอก EIT</a><br>
                     </div>
                 </div>
                 <div class="content-all-web mt-4">
@@ -160,6 +181,8 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/operation_eco'); ?>" class="font-content-all-web">การเสริมสร้างวัฒนธรรมองค์กร</a><br>
                         <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/operation_mr'); ?>" class="font-content-all-web">การบริหารจัดการความเสี่ยง</a><br>
+                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/ita'); ?>" class="font-content-all-web">การประเมินคุณธรรมของหน่วยงานภาครัฐ ITA</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/lpa'); ?>" class="font-content-all-web">การประเมินประสิทธิภาพขององค์กร LPA</a><br>
@@ -172,7 +195,7 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/operation_cdm_topic'); ?>" class="font-content-all-web dot-laws">หลักเกณฑ์การบริหารและพัฒนา</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>" class="font-content-all-web dot-laws">รายงานผลการบริหารและพัฒนาทรัพยากรบุคคลประจำปี</a><br>
+                        <a href="<?php echo site_url('Pages/operation_rdam_hr'); ?>" class="font-content-all-web dot-laws">รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/operation_aa'); ?>" class="font-content-all-web">กิจการสภา</a><br>
                         <div class="mt-1"></div>
@@ -187,20 +210,13 @@
                         <a href="<?php echo site_url('Pages/p_sopopip'); ?>" class="font-content-all-web dot-laws">รายงานความก้าวหน้าการจัดซื้อจัดจ้าง<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หรือการจัดหาพัสดุ</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>" class="font-content-all-web dot-laws">รายงานสรุปผลการจัดซื้อจัดจ้าง<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หรือการจัดหาพัสดุประจำปี</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/news'); ?>" class="font-content-all-web">ข่าวประชาสัมพันธ์</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/procurement'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง</a><br>
-                        <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/egp'); ?>" class="font-content-all-web">ข่าวจัดซื้อจัดจ้าง e-GP</a><br>
-                        <div class="mt-1"></div>
+                        <!-- <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/p_rpo'); ?>" class="font-content-all-web">รายงานผลการดำเนินงานจัดซื้อจัดจ้าง</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/p_reb'); ?>" class="font-content-all-web">รายงานการใช้จ่ายงบประมาณจัดซื้อจัดจ้าง</a><br>
-                        <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/p_reb'); ?>" class="font-content-all-web">รายงานการใช้จ่ายงบประมาณจัดซื้อจัดจ้าง</a><br> -->
                     </div>
                 </div>
-                
+
                 <div class="content-all-web mt-4">
                     <span class="font-head-all-web">E-service</span><br>
                     <div class="underline pad-left-35">
@@ -230,21 +246,21 @@
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/announce'); ?>" class="font-content-all-web">คู่มือปฏิบัติงาน</a><br>
                         <div class="mt-1"></div>
+                        <a href="<?php echo site_url('Pages/laws_all'); ?>" class="font-content-all-web">กฏหมายที่เกี่ยวข้อง</a><br>
+                        <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/loadform'); ?>" class="font-content-all-web">ดาวน์โหลดแบบฟอร์ม</a><br>
                         <div class="mt-1"></div>
-                        <a href="<?php echo site_url('Pages/laws_all'); ?>" class="font-content-all-web">กฏหมายที่เกี่ยวข้อง</a><br>
+                        <a href="<?php echo site_url('Pages/pppw'); ?>" class="font-content-all-web">พรบ./พรก ที่ใช้การปฏิบัติงาน</a><br>
                         <div class="mt-1"></div>
                         <a href="<?php echo site_url('Pages/km'); ?>" class="font-content-all-web">knowledge Management: KM<br>การจัดการความรู้ของท้องถิ่น</a><br>
                     </div>
                 </div>
-                <div class="content-all-web mt-4">
+                <!-- <div class="content-all-web mt-4">
                     <span class="font-head-all-web">อื่นๆ</span><br>
                     <div class="underline pad-left-35">
-                        <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank" class="font-content-all-web">แบบวัดการรับรู้ภายใน IIT</a><br>
-                        <div class="mt-1"></div>
-                        <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" class="font-content-all-web">แบบวัดการรับรู้ภายนอก EIT</a><br>
+                        
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

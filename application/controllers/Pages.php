@@ -14,6 +14,7 @@ class Pages extends CI_Controller
 		$this->load->model('mui_model');
 		$this->load->model('guide_work_model');
 		$this->load->model('loadform_model');
+		$this->load->model('pppw_model');
 		$this->load->model('msg_pres_model');
 
 		$this->load->model('history_model');
@@ -62,6 +63,7 @@ class Pages extends CI_Controller
 		$this->load->model('pbsv_cac_model');
 		$this->load->model('pbsv_cig_model');
 		$this->load->model('pbsv_cjc_model');
+		$this->load->model('pbsv_utilities_model');
 		$this->load->model('pbsv_sags_model');
 		$this->load->model('pbsv_ahs_model');
 		$this->load->model('pbsv_oppr_model');
@@ -77,6 +79,7 @@ class Pages extends CI_Controller
 		$this->load->model('p_reb_model');
 		$this->load->model('operation_sap_model');
 		$this->load->model('operation_pm_model');
+		$this->load->model('operation_mr_model');
 		$this->load->model('operation_policy_hr_model');
 		$this->load->model('operation_am_hr_model');
 		$this->load->model('operation_rdam_hr_model');
@@ -116,6 +119,8 @@ class Pages extends CI_Controller
 
 		$this->load->model('elderly_aw_form_model');
 		$this->load->model('elderly_aw_ods_model');
+		$this->load->model('kid_aw_form_model');
+		$this->load->model('kid_aw_ods_model');
 		$this->load->model('odata_model');
 
 		$this->load->model('intra_egp_model');
@@ -476,6 +481,49 @@ class Pages extends CI_Controller
 	{
 		$this->loadform_model->increment_download_loadform($loadform_file_id);
 	}
+	public function pppw()
+	{
+		$data['query'] = $this->pppw_model->pppw_frontend_list();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/pppw', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function pppw_detail($pppw_id)
+	{
+		$this->pppw_model->increment_view($pppw_id);
+
+		$data['rsData'] = $this->pppw_model->read($pppw_id);
+
+		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
+		if (!$data['rsData']) {
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/empty_detail_pages');
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+			return; // ให้จบการทำงานที่นี่
+		}
+
+		$data['rsPdf'] = $this->pppw_model->read_pdf($pppw_id);
+		$data['rsDoc'] = $this->pppw_model->read_doc($pppw_id);
+		$data['rsImg'] = $this->pppw_model->read_img($pppw_id);
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/pppw_detail', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function increment_download_pppw($pppw_file_id)
+	{
+		$this->pppw_model->increment_download_pppw($pppw_file_id);
+	}
 	public function egp()
 	{
 		// // URL of the Open API
@@ -511,12 +559,17 @@ class Pages extends CI_Controller
 	}
 	public function otop()
 	{
-		$data['qOtop'] = $this->otop_model->otop_frontend();
+
+		$otops = $this->otop_model->get_otops();
+
+		foreach ($otops as $otop) {
+			$otop->images = $this->otop_model->get_images_for_otop($otop->otop_id);
+		}
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
 		$this->load->view('frontend_templat/navbar_other');
-		$this->load->view('frontend/otop', $data);
+		$this->load->view('frontend/otop', ['otops' => $otops]);
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}
@@ -1571,6 +1624,49 @@ class Pages extends CI_Controller
 	{
 		$this->pbsv_cjc_model->increment_download_pbsv_cjc($pbsv_cjc_file_id);
 	}
+	public function pbsv_utilities()
+	{
+		$data['query'] = $this->pbsv_utilities_model->pbsv_utilities_frontend();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/pbsv_utilities', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function pbsv_utilities_detail($pbsv_utilities_id)
+	{
+		$this->pbsv_utilities_model->increment_view($pbsv_utilities_id);
+
+		$data['rsData'] = $this->pbsv_utilities_model->read($pbsv_utilities_id);
+
+		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
+		if (!$data['rsData']) {
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/empty_detail_pages');
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+			return; // ให้จบการทำงานที่นี่
+		}
+
+		$data['rsPdf'] = $this->pbsv_utilities_model->read_pdf($pbsv_utilities_id);
+		$data['rsDoc'] = $this->pbsv_utilities_model->read_doc($pbsv_utilities_id);
+		$data['rsImg'] = $this->pbsv_utilities_model->read_img($pbsv_utilities_id);
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/pbsv_utilities_detail', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function increment_download_pbsv_utilities($pbsv_utilities_file_id)
+	{
+		$this->pbsv_utilities_model->increment_download_pbsv_utilities($pbsv_utilities_file_id);
+	}
 	public function pbsv_sags()
 	{
 		$data['query'] = $this->pbsv_sags_model->pbsv_sags_frontend();
@@ -2172,6 +2268,49 @@ class Pages extends CI_Controller
 	public function increment_download_operation_pm($operation_pm_file_id)
 	{
 		$this->operation_pm_model->increment_download_operation_pm($operation_pm_file_id);
+	}
+	public function operation_mr()
+	{
+		$data['query'] = $this->operation_mr_model->operation_mr_frontend();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/operation_mr', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function operation_mr_detail($operation_mr_id)
+	{
+		$this->operation_mr_model->increment_view($operation_mr_id);
+
+		$data['rsData'] = $this->operation_mr_model->read($operation_mr_id);
+
+		// เพิ่มเงื่อนไขเพื่อตรวจสอบว่ามีข้อมูลหรือไม่
+		if (!$data['rsData']) {
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/empty_detail_pages');
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+			return; // ให้จบการทำงานที่นี่
+		}
+
+		$data['rsPdf'] = $this->operation_mr_model->read_pdf($operation_mr_id);
+		$data['rsDoc'] = $this->operation_mr_model->read_doc($operation_mr_id);
+		$data['rsImg'] = $this->operation_mr_model->read_img($operation_mr_id);
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/operation_mr_detail', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function increment_download_operation_mr($operation_mr_file_id)
+	{
+		$this->operation_mr_model->increment_download_operation_mr($operation_mr_file_id);
 	}
 	public function operation_policy_hr()
 	{
@@ -2922,6 +3061,12 @@ class Pages extends CI_Controller
 			'trim|required|min_length[4]',
 			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
 		);
+		$this->form_validation->set_rules(
+			'q_a_detail',
+			'รายละเอียด',
+			'trim|required|min_length[4]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
+		);
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('frontend_templat/header');
 			$this->load->view('frontend_asset/css');
@@ -3229,61 +3374,12 @@ class Pages extends CI_Controller
 
 	public function add_esv_ods()
 	{
-		$this->form_validation->set_rules(
-			'esv_ods_topic',
-			'หัวข้อร้องเรียน',
-			'trim|required|min_length[4]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'esv_ods_by',
-			'ชื่อผู้ร้องเรียน',
-			'trim|required|min_length[4]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'esv_ods_phone',
-			'เบอร์โทรศัพท์',
-			'trim|required|min_length[9]|max_length[10]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 9 ตัว', 'max_length' => 'กรุณากรอกข้อมูลไม่เกิน 10 ตัว')
-		);
-
-		$this->form_validation->set_rules(
-			'esv_ods_address',
-			'ที่อยู่',
-			'trim|required|min_length[4]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'esv_ods_detail',
-			'รายละเอียด',
-			'trim|required|min_length[4]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'esv_ods_file',
-			'แนบเอกสาร',
-			'trim|required|min_length[1y]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
-		);
-
-
-
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('frontend_templat/header');
-			$this->load->view('frontend_asset/css');
-			$this->load->view('frontend_templat/navbar_other');
-			$this->load->view('frontend/esv_ods');
-			$this->load->view('frontend_asset/js');
-			$this->load->view('frontend_templat/footer_other');
-			$this->load->library('form_validation');
-		} else {
-			$esv_ods_id = $this->esv_ods_model->add_esv_ods();
-			// ตั้งค่า flash data สำหรับ esv_ods_id
-			$this->session->set_flashdata('esv_ods_id', $esv_ods_id);
-
-			redirect('Pages/adding_esv_ods');
-		}
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
+		// exit;
+		$this->esv_ods_model->add_esv_ods();
+		redirect('Pages/adding_esv_ods');
 	}
 
 	public function questions()
@@ -3855,20 +3951,20 @@ class Pages extends CI_Controller
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_by',
 			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'trim|required|min_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูล')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_phone',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'เบอร์โทรศัพท์',
+			'trim|required|exact_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_number',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกหมายเลขประจำตัวประชาชนให้ครบ 13 หลัก')
 		);
 		$this->form_validation->set_rules(
 			'elderly_aw_ods_address',
@@ -3876,27 +3972,10 @@ class Pages extends CI_Controller
 			'trim|required|min_length[1]',
 			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
 		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file1',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file2',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
-		$this->form_validation->set_rules(
-			'elderly_aw_ods_file3',
-			'รายละเอียด',
-			'trim|required|min_length[1]',
-			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
-		);
 
 
 		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('save_required', 'กรุณากรอกข้อมูลที่มี ให้ครบทุกช่อง');
 			$data['elderly_aw_form'] = $this->elderly_aw_form_model->elderly_aw_form_frontend();
 
 			$this->load->view('frontend_templat/header');
@@ -3913,12 +3992,32 @@ class Pages extends CI_Controller
 
 	public function elderly_aw()
 	{
+		// Load form validation library
+		$this->load->library('form_validation');
+
+		// Set validation rules
+		$this->form_validation->set_rules(
+			'elderly_aw_id_num_eligible',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array(
+				'required' => 'กรุณากรอก %s.',
+				'exact_length' => 'กรุณากรอก %s ให้ครบ 13 หลัก'
+			)
+		);
+
 		// รับค่าจากฟอร์ม
 		$elderly_aw_id_num_eligible = $this->input->post('elderly_aw_id_num_eligible');
 		$elderly_aw_period_payment = $this->input->post('elderly_aw_period_payment');
 
-		// ตรวจสอบว่าได้รับค่าหมายเลขประชาชนและคำค้นหาหรือไม่
-		if (!empty($elderly_aw_id_num_eligible) && !empty($elderly_aw_period_payment)) {
+		// ตรวจสอบว่าแบบฟอร์มผ่านการตรวจสอบหรือไม่
+		if ($this->form_validation->run() == FALSE) {
+			// กรณีแบบฟอร์มไม่ผ่านการตรวจสอบ
+			$data['elderly_aw_data'] = array();
+			$data['error_message'] = validation_errors();
+			// Set flashdata for JavaScript alert
+			// $this->session->set_flashdata('save_id_crad', TRUE);
+		} else {
 			// Query เพื่อดึงข้อมูลจาก tbl_elderly_aw
 			$this->db->like('elderly_aw_period_payment', $elderly_aw_period_payment);
 			$this->db->where('elderly_aw_id_num_eligible', $elderly_aw_id_num_eligible);
@@ -3929,21 +4028,135 @@ class Pages extends CI_Controller
 				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
 				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
 				$elderly_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+			} else {
+				$data['error_message'] = '';
 			}
-		} else {
-			// ถ้าไม่ได้รับค่าหรือมีค่าว่างจากฟอร์ม
-			$elderly_aw_data = array();
-			$data['error_message'] = 'กรุณากรอกข้อมูลให้ครบถ้วน';
-		}
 
-		// ส่งข้อมูลไปยัง View
-		$data['elderly_aw_data'] = $elderly_aw_data;
+			// ส่งข้อมูลไปยัง View
+			$data['elderly_aw_data'] = $elderly_aw_data;
+		}
 
 		// โหลด View
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
 		$this->load->view('frontend_templat/navbar_other');
 		$this->load->view('frontend/elderly_aw', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function kid_aw_ods()
+	{
+		$data['kid_aw_form'] = $this->kid_aw_form_model->kid_aw_form_frontend();
+
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/kid_aw_ods', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+
+	public function add_kid_aw_ods()
+	{
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
+		// exit;
+		$this->form_validation->set_rules(
+			'kid_aw_ods_by',
+			'รายละเอียด',
+			'trim|required|min_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูล')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_phone',
+			'เบอร์โทรศัพท์',
+			'trim|required|exact_length[10]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_number',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'exact_length' => 'กรุณากรอกหมายเลขประจำตัวประชาชนให้ครบ 13 หลัก')
+		);
+		$this->form_validation->set_rules(
+			'kid_aw_ods_address',
+			'รายละเอียด',
+			'trim|required|min_length[1]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว')
+		);
+
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('save_required', 'กรุณากรอกข้อมูลที่มี ให้ครบทุกช่อง');
+			$data['kid_aw_form'] = $this->kid_aw_form_model->kid_aw_form_frontend();
+
+			$this->load->view('frontend_templat/header');
+			$this->load->view('frontend_asset/css');
+			$this->load->view('frontend_templat/navbar_other');
+			$this->load->view('frontend/kid_aw_ods', $data);
+			$this->load->view('frontend_asset/js');
+			$this->load->view('frontend_templat/footer_other');
+		} else {
+			$this->kid_aw_ods_model->add_kid_aw_ods();
+			redirect('Pages/add_kid_aw_ods');
+		}
+	}
+
+	public function kid_aw()
+	{
+		// Load form validation library
+		$this->load->library('form_validation');
+
+		// Set validation rules
+		$this->form_validation->set_rules(
+			'kid_aw_id_num_eligible',
+			'หมายเลขประจำตัวประชาชน',
+			'trim|required|exact_length[13]',
+			array(
+				'required' => 'กรุณากรอก %s.',
+				'exact_length' => 'กรุณากรอก %s ให้ครบ 13 หลัก'
+			)
+		);
+
+		// รับค่าจากฟอร์ม
+		$kid_aw_id_num_eligible = $this->input->post('kid_aw_id_num_eligible');
+		$kid_aw_period_payment = $this->input->post('kid_aw_period_payment');
+
+		// ตรวจสอบว่าแบบฟอร์มผ่านการตรวจสอบหรือไม่
+		if ($this->form_validation->run() == FALSE) {
+			// กรณีแบบฟอร์มไม่ผ่านการตรวจสอบ
+			$data['kid_aw_data'] = array();
+			$data['error_message'] = validation_errors();
+			// Set flashdata for JavaScript alert
+			// $this->session->set_flashdata('save_id_crad', TRUE);
+		} else {
+			// Query เพื่อดึงข้อมูลจาก tbl_kid_aw
+			$this->db->like('kid_aw_period_payment', $kid_aw_period_payment);
+			$this->db->where('kid_aw_id_num_eligible', $kid_aw_id_num_eligible);
+			$query = $this->db->get('tbl_kid_aw');
+			$kid_aw_data = $query->result_array();
+
+			if (empty($kid_aw_data)) {
+				// ไม่มีข้อมูลที่ตรงกันในฐานข้อมูล
+				$data['error_message'] = 'ไม่พบข้อมูลสำหรับหมายเลขประจำตัวประชาชนและคำค้นหาที่ใกล้เคียง';
+				$kid_aw_data = array(); // กำหนดข้อมูลเป็น array ว่าง
+			} else {
+				$data['error_message'] = '';
+			}
+
+			// ส่งข้อมูลไปยัง View
+			$data['kid_aw_data'] = $kid_aw_data;
+		}
+
+		// โหลด View
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/kid_aw', $data);
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}

@@ -112,6 +112,7 @@
         <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?php echo site_url('Pbsv_utilities_backend'); ?>">สาธารณูประโภค</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cjc_backend'); ?>">ศูนย์ยุติธรรมชุมชน</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cac_backend'); ?>">ศูนย์ช่วยเหลือประชาชน</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cig_backend'); ?>">ศูนย์ข้อมูลข่าวสารทางราชการ</a>
@@ -124,6 +125,9 @@
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_form_backend'); ?>">เอกสารเบี้ยผู้สูงอายุ/ผู้พิการ</a>
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_ods_backend'); ?>">คำร้องเบี้ยผู้สูงอายุ/ผู้พิการ</a>
                 <a class="collapse-item" href="<?php echo site_url('Elderly_aw_backend'); ?>">ตรวจสอบเบี้ยผู้สูงอายุ/ผู้พิการ</a>
+                <a class="collapse-item" href="<?php echo site_url('Kid_aw_form_backend'); ?>">เอกสารเงินอุดหนุนเด็กแรกเกิด</a>
+                <a class="collapse-item" href="<?php echo site_url('Kid_aw_ods_backend'); ?>">คำร้องเงินอุดหนุนเด็กแรกเกิด</a>
+                <a class="collapse-item" href="<?php echo site_url('kid_aw_backend'); ?>">ตรวจสอบเงินอุดหนุนเด็ก<br>แรกเกิด</a>
                 <a class="collapse-item" href="<?php echo site_url('Odata_backend'); ?>">ฐานข้อมูลเปิดภาครัฐ<br>(Open Data)</a>
             </div>
         </div>
@@ -167,6 +171,7 @@
                 <a class="collapse-item" href="<?php echo site_url('Operation_po_backend'); ?>">การเปิดโอกาสให้มีส่วนร่วม</a>
                 <a class="collapse-item" href="<?php echo site_url('Operation_pm_backend'); ?>">การมีส่วนร่วมของผู้บริหาร</a>
                 <a class="collapse-item" href="<?php echo site_url('Operation_eco_backend'); ?>">การเสริมสร้าง<br>วัฒนธรรมองค์กร</a>
+                <a class="collapse-item" href="<?php echo site_url('Operation_mr_backend'); ?>">การบริหารจัดการความเสี่ยง</a>
                 <a class="collapse-item" href="<?php echo site_url('Ita_year_backend'); ?>">ITA ประจำปี</a>
                 <a class="collapse-item" href="<?php echo site_url('Ita_backend'); ?>">การประเมินคุณธรรม<br>ของหน่วยงานภาครัฐ ITA</a>
                 <a class="collapse-item" href="<?php echo site_url('Lpa_backend'); ?>">LPA การประเมินประสิทธิภาพ<br>ขององค์กร</a>
@@ -199,6 +204,7 @@
                 <a class="collapse-item" href="<?php echo site_url('Mui_backend'); ?>">มาตราการภายในหน่วยงาน</a>
                 <a class="collapse-item" href="<?php echo site_url('Guide_work_backend'); ?>">คู่มือการปฏิบัติงาน</a>
                 <a class="collapse-item" href="<?php echo site_url('Loadform_backend'); ?>">ดาวน์โหลดแบบฟอร์ม</a>
+                <a class="collapse-item" href="<?php echo site_url('Pppw_backend'); ?>">พรบ./พรก ที่ใช้การปฏิบัติงาน</a>
                 <a class="collapse-item" href="<?php echo site_url('Km_backend'); ?>">การจัดการความรู้ท้องถิ่น KM</a>
             </div>
         </div>
@@ -223,7 +229,7 @@
             </div>
         </div>
     </li>
-    
+
     <li class="nav-item">
         <a class="nav-link collapsed" style="color: #000;" data-toggle="collapse" aria-expanded="true" href="javascript:void(0);" onclick="toggleCollapse('collapseeight')">
             <img src="<?= base_url('docs/btn-bend10v2-black.png'); ?>">
@@ -925,6 +931,13 @@
                     </li>
                 </a>
 
+                <a href="<?php echo site_url('Pbsv_utilities_backend'); ?>" class="link">
+
+                    <li class="hide">
+                        <span>สาธารณูประโภค</span>
+                    </li>
+                </a>
+
                 <a href="<?php echo site_url('Pbsv_ahs_backend'); ?>" class="link">
 
                     <li class="hide">
@@ -965,6 +978,21 @@
                 <li class="hide">
                     <a href="<?php echo site_url('Elderly_aw_backend'); ?>" class="link">
                         <span>ตรวจสอบเบี้ยผู้สูงอายุ / ผู้พิการ</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('Kid_aw_form_backend'); ?>" class="link">
+                        <span>เอกสารเงินอุดหนุนเด็กแรกเกิด</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('Kid_aw_ods_backend'); ?>" class="link">
+                        <span>คำร้องเงินอุดหนุนเด็กแรกเกิด</span>
+                    </a>
+                </li>
+                <li class="hide">
+                    <a href="<?php echo site_url('kid_aw_backend'); ?>" class="link">
+                        <span>ตรวจสอบเงินอุดหนุนเด็กแรกเกิด</span>
                     </a>
                 </li>
 
@@ -1041,6 +1069,13 @@
 
                     <li class="hide">
                         <span>การเสริมสร้างวัฒนธรรมองค์กร</span>
+                    </li>
+                </a>
+
+                <a href="<?php echo site_url('Operation_mr_backend'); ?>" class="link">
+
+                    <li class="hide">
+                        <span>การบริหารจัดการความเสี่ยง</span>
                     </li>
                 </a>
 
@@ -1147,6 +1182,13 @@
 
                     <li class="hide">
                         <span>ดาวน์โหลดแบบฟอร์ม</span>
+                    </li>
+                </a>
+
+                <a href="<?php echo site_url('Pppw_backend'); ?>" class="link">
+
+                    <li class="hide">
+                        <span>พรบ./พรก ที่ใช้การปฏิบัติงาน</span>
                     </li>
                 </a>
 

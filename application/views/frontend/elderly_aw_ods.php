@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">ชื่อ-นามสกุล <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="text" name="elderly_aw_ods_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
+                            <input type="text" name="elderly_aw_ods_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน" value="<?php echo set_value('elderly_aw_ods_by'); ?>">
                             <span class="red"><?= form_error('elderly_aw_ods_by'); ?></span>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">เบอร์โทรศัพท์ <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="tel" name="elderly_aw_ods_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
+                            <input type="text" name="elderly_aw_ods_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว" value="<?php echo set_value('elderly_aw_ods_phone'); ?>">
                             <span class="red"><?= form_error('elderly_aw_ods_phone'); ?></span>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 control-label  font-e-service-complain">หมายเลขประจำตัวประชาชน <span class="red-font">*</span></div>
                         <div class="col-sm-12 mt-2">
-                            <input type="number" name="elderly_aw_ods_number" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน">
+                            <input type="text" name="elderly_aw_ods_number" class="form-control font-label-e-service-complain" placeholder="เลขบัตรประจำตัวประชาชน" pattern="\d{10}" title="กรุณากรอกเป็นตัวเลข" value="<?php echo set_value('elderly_aw_ods_number'); ?>">
                             <span class="red"><?= form_error('elderly_aw_ods_number'); ?></span>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">ที่อยู่ <span class="red-font">*</span></label>
                 <div class="col-sm-12">
-                    <textarea name="elderly_aw_ods_address" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
+                    <textarea name="elderly_aw_ods_address" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."><?php echo set_value('elderly_aw_ods_address'); ?></textarea>
                     <span class="red"><?= form_error('elderly_aw_ods_address'); ?></span>
                 </div>
             </div>
@@ -95,7 +95,6 @@
                 <div class="col-sm-7 control-label font-e-service-complain">แนบแบบฟอร์มหนังสือมอบอำนาจ <span class="red-font">(ถ้ามี)</span></div>
                 <div class="col-sm-12 mt-2">
                     <input type="file" name="elderly_aw_ods_file3" class="form-control" accept="all/*">
-                    <span class="red"><?= form_error('elderly_aw_ods_file3'); ?></span>
                 </div>
             </div>
     </div>

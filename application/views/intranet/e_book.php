@@ -103,7 +103,7 @@
 
             <div id="popupInsert" class="popup">
                <div class="popup-content">
-                  <h4 class="black"><b>เพิ่มข้อมูลระเบียบ</b></h4>
+                  <h4 class="black"><b>เพิ่มข้อมูล E-book</b></h4>
                   <form action="<?php echo site_url('intra_e_book/add'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                      <br>
                      <div class="form-group row container">
@@ -205,7 +205,7 @@
                      </td>
                      <td class="font-20 limit-font-one" align="center"><?= $rs->intra_e_book_by ?></td>
                      <td class="font-20" align="center">
-                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rsedit->intra_e_book_by) : ?>
+                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rs->intra_e_book_by) : ?>
                            <a class="red" href="#" role="button" onclick="confirmDelete(<?= $rs->intra_e_book_id; ?>);"><i class="bi bi-trash fa-lg"></i></a>
                            <script>
                               function confirmDelete(intra_e_book_id) {

@@ -1,5 +1,5 @@
 <div class="text-center font-head-top">
-    <span>คณะผู้บริหาร</span>
+    <span>หัวหน้าส่วนราชการ</span>
 </div>
 </div>
 

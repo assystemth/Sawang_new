@@ -1,5 +1,5 @@
 <div class="text-center font-head-top">
-   <span>คณะผู้บริหาร</span>
+   <span>สมาชิกสภาตำบล</span>
 </div>
 </div>
 
@@ -101,7 +101,7 @@
 
             <div id="popupInsert" class="popup">
                <div class="popup-content">
-                  <h4 class="black"><b>เพิ่มข้อมูลแบบฟอร์ม</b></h4>
+                  <h4 class="black"><b>เพิ่มเอกสาร/แบบฟอร์ม</b></h4>
                   <form action="<?php echo site_url('intra_share_file/add_intra_sf_council'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                      <br>
                      <div class="form-group row container">
@@ -203,7 +203,7 @@
                      </td>
                      <td class="font-20 limit-font-one" align="center"><?= $rs->intra_sf_council_by ?></td>
                      <td class="font-20" align="center">
-                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rsedit->intra_sf_council_by) : ?>
+                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rs->intra_sf_council_by) : ?>
                            <a class="red" href="#" role="button" onclick="confirmDelete(<?= $rs->intra_sf_council_id; ?>);"><i class="bi bi-trash fa-lg"></i></a>
                            <script>
                               function confirmDelete(intra_sf_council_id) {

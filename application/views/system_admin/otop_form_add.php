@@ -121,16 +121,16 @@
                     </div>
                 </div>
                 <br>
-                <!-- <div class="form-group row">
+                <div class="form-group row">
                     <div class="col-sm-3 control-label">รูปภาพเพิ่มเติม</div>
                     <div class="col-sm-6">
-                        <input type="file" name="otop_imgs[]" class="form-control" accept="image/*" multiple>
+                        <input type="file" name="otop_img_img[]" class="form-control" accept="image/*" multiple>
                         <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                         <br>
                         <span class="red-add">(เฉพาะไฟล์ .JPG/.JPEG/.PNG)</span>
                     </div>
                 </div>
-                <br> -->
+                <br>
                 <div class="form-group row">
                     <div class="col-sm-3 control-label"></div>
                     <div class="col-sm-6">

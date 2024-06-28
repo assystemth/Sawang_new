@@ -3138,7 +3138,6 @@
     margin-bottom: 40px;
   }
 
-
   .scrollable-container-news {
     max-height: 1250px;
     overflow-y: scroll;
@@ -3161,12 +3160,46 @@
     margin-bottom: 40px;
   }
 
+
   .scrollable-container-otop {
     max-height: 450px;
     overflow-y: scroll;
     overflow-x: hidden;
     margin-bottom: 40px;
     margin-top: 10px;
+  }
+
+  /* ปรับแต่งการเลื่อน */
+  .scrollable-container-otop::-webkit-scrollbar {
+    width: 10px;
+    /* ความกว้างของแถบเลื่อน */
+  }
+
+  .scrollable-container-otop::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* สีของแถบเลื่อน */
+    border-radius: 5px;
+    /* ทำให้แถบเลื่อนโค้งมน */
+    border: 2px solid #f9f9f9;
+    /* ขอบรอบ ๆ แถบเลื่อน */
+  }
+
+  .scrollable-container-otop::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* สีของแถบเลื่อนเมื่อวางเมาส์ */
+  }
+
+  .scrollable-container-otop::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* สีของพื้นหลังแถบเลื่อน */
+    border-radius: 5px;
+    /* ทำให้พื้นหลังแถบเลื่อนโค้งมน */
+  }
+
+  /* เพิ่มการเลื่อนที่เนียน */
+  .scrollable-container-otop {
+    scroll-behavior: smooth;
+    /* การเลื่อนที่ราบรื่น */
   }
 
   .scrollable-container-eGP {
@@ -4081,15 +4114,25 @@
     line-height: normal;
   }
 
+  .services-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* สามารถใช้ center หรือ space-between เพื่อการจัดเรียงที่ต้องการ */
+  }
+
+
   .service-box {
     z-index: 1;
-    /* margin-left: 7%; */
-    /* margin-top: 80px; */
     background-image: url('<?php echo base_url("docs/eservice-menu.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 226px;
     height: 116px;
     margin-top: 5%;
+    text-align: center;
+    padding-top: 50px;
+    margin-right: 10px;
+    /* เพิ่มระยะห่างระหว่างกล่อง หากต้องการ */
   }
 
   .font-service {
@@ -4101,17 +4144,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: font-size 0.3s ease;
+    /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
   }
 
   .font-service:hover {
-    color: #fff;
-    -webkit-text-stroke-width: 0.4259740114212036;
-    -webkit-text-stroke-color: #000;
-    font-family: Inter;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 26px;
+    /* ขนาดตัวหนังสือที่ต้องการเมื่อเอาเมาส์ชี้ */
   }
 
   .font-service {
@@ -5448,7 +5487,8 @@
     z-index: 4;
     font-size: 32px;
     color: #fff;
-    padding-left: 75px;
+    /* padding-left: 75px; */
+    text-align: center;
     padding-top: 13px;
   }
 
@@ -5470,7 +5510,8 @@
     z-index: 4;
     font-size: 32px;
     color: #fff;
-    padding-left: 75px;
+    /* padding-left: 75px; */
+    text-align: center;
     padding-top: 13px;
   }
 
@@ -5696,4 +5737,152 @@
     transition: transform 0.3s ease, font-size 0.3s ease;
     padding-top: 10px;
   }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    color: #333333;
+    border-radius: 10px;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #dddddd;
+    width: 50%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.5s, shake 0.5s ease-in-out 0.5s 1;
+    text-align: center;
+  }
+
+  .close-button {
+    color: #aaaaaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .close-button:hover,
+  .close-button:focus {
+    color: #333333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-title {
+    font-size: 28px;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #dddddd;
+  }
+
+  .modal-message {
+    font-size: 26px;
+    margin-top: 20px;
+    color: #000;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(10px);
+    }
+  }
+
+  /** swiper otop ******************************************************* */
+  .mySwiperOtop {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0px;
+    z-index: 1;
+    display: block;
+  }
+
+  swiper-container {
+    width: 100%;
+    height: auto;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  swiper-container {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+  }
+
+  /** ************************************************************************ */
 </style>

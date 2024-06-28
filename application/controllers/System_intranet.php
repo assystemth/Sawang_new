@@ -157,7 +157,7 @@ class System_intranet extends CI_Controller
         $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/news', $data);
         $this->load->view('internet_asste/js_new');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function profile()
@@ -175,14 +175,12 @@ class System_intranet extends CI_Controller
         // echo '</pre>';
         // exit;
 
-        $this->load->view('intranet_templat/header');
-        // $this->load->view('intranet_templat/btm_header');
-
-        $this->load->view('internet_asste/css');
-        $this->load->view('intranet_templat/navbar');
+        $this->load->view('intranet_templat/header_new');
+        $this->load->view('internet_asste/css_new');
+        $this->load->view('intranet_templat/navbar_new');
         $this->load->view('intranet/profile', $data);
-        $this->load->view('internet_asste/js');
-        $this->load->view('intranet_templat/footer');
+        $this->load->view('internet_asste/js_new');
+        $this->load->view('intranet_templat/footer_new');
     }
 
     public function edit_Member($m_id)

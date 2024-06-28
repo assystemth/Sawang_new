@@ -205,7 +205,7 @@
                      </td>
                      <td class="font-20 limit-font-one" align="center"><?= $rs->intra_announce_by ?></td>
                      <td class="font-20" align="center">
-                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rsedit->intra_announce_by) : ?>
+                        <?php if ($_SESSION['m_level'] == 1 || $_SESSION['m_level'] == 2 || $_SESSION['m_fname'] == $rs->intra_announce_by) : ?>
                            <a class="red" href="#" role="button" onclick="confirmDelete(<?= $rs->intra_announce_id; ?>);"><i class="bi bi-trash fa-lg"></i></a>
                            <script>
                               function confirmDelete(intra_announce_id) {

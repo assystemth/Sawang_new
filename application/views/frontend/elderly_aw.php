@@ -43,7 +43,8 @@
                     <div class="col-sm-12 control-label font-e-service-elderly_aw text-center">กรุณากรอกหมายเลขประจำตัวประชาชนของผู้มีสิทธิ</div>
                     <div class="center-center mt-4">
                         <div class="col-sm-4 mb-4">
-                            <input type="text" name="elderly_aw_id_num_eligible" class="form-control font-label-elderly_aw input-radius" required placeholder="เลขประจำตัวประชาชน 13 หลัก">
+                            <input type="text" name="elderly_aw_id_num_eligible" class="form-control font-label-elderly_aw input-radius" required placeholder="เลขประจำตัวประชาชน 13 หลัก" pattern="\d{10}" title="กรุณากรอกเป็นตัวเลข" value="<?php echo set_value('elderly_aw_id_num_eligible'); ?>">
+                            <span class="red"><?= form_error('elderly_aw_id_num_eligible'); ?></span>
                         </div>
                     </div>
 
@@ -52,7 +53,7 @@
                     <div class="center-center mt-4">
                         <div class="col-sm-4 mb-4">
                             <select name="elderly_aw_period_payment" class="form-control font-label-elderly_aw input-radius" required>
-                                <option value="">เลือกปี</option>
+                                <option value="">ทุกปี</option>
                                 <?php
                                 // เริ่มต้นปีในพ.ศ.
                                 $current_year = date('Y') + 543; // แปลงจาก ค.ศ. เป็น พ.ศ.

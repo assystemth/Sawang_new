@@ -72,6 +72,15 @@ class Otop_backend extends CI_Controller
         $this->load->view('templat/footer');
     }
 
+    public function del_img($file_id)
+    {
+        // เรียกใช้ฟังก์ชันใน Model เพื่อลบไฟล์ PDF ด้วย $file_id
+        $this->otop_model->del_img($file_id);
+
+        // ใส่สคริปต์ JavaScript เพื่อรีเฟรชหน้าเดิม
+        echo '<script>window.history.back();</script>';
+    }
+
     public function edit($otop_id)
     {
         $this->otop_model->edit($otop_id);

@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <div class="col-sm-3 control-label font-e-service-complain">เรื่องเหตุการทุจริต <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
-                        <input type="text" name="corruption_topic" class="form-control font-label-e-service-complain" required placeholder="กรอกเรื่องร้องเรียน...">
+                        <input type="text" name="corruption_topic" class="form-control font-label-e-service-complain" required placeholder="กรอกเรื่องร้องเรียน..." value="<?php echo set_value('corruption_topic'); ?>">
                         <span class="red"><?= form_error('corruption_topic'); ?></span>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <div class="col-sm-12 control-label  font-e-service-complain">ชื่อ-นามสกุล <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
-                                <input type="text" name="corruption_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน">
+                                <input type="text" name="corruption_by" class="form-control font-label-e-service-complain" required placeholder="นางสาวน้ำใส ใจชื่นบาน" value="<?php echo set_value('corruption_by'); ?>">
                                 <span class="red"><?= form_error('corruption_by'); ?></span>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-sm-12 control-label  font-e-service-complain">เบอร์โทรศัพท์ <span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
-                                <input type="tel" name="corruption_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
+                                <input type="tel" name="corruption_phone" class="form-control font-label-e-service-complain" required placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo set_value('corruption_phone'); ?>" pattern="\d{10}" title="กรุณากรอกเบอร์มือถือเป็นตัวเลข 10 ตัว">
                                 <span class="red"><?= form_error('corruption_phone'); ?></span>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <div class="col-sm-12 control-label  font-e-service-complain">อีเมล </div>
                             <div class="col-sm-12 mt-2">
-                                <input type="email" name="corruption_email" class="form-control font-label-e-service-complain" placeholder="example@youremail.com">
+                                <input type="email" name="corruption_email" class="form-control font-label-e-service-complain" placeholder="example@youremail.com" value="<?php echo set_value('corruption_email'); ?>">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <div class="col-sm-2 control-label font-e-service-complain">ที่อยู่ <span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
-                        <input type="text" name="corruption_address" class="form-control font-label-e-service-complain" required placeholder="กรอกข้อมูลที่อยู่ของคุณ">
+                        <input type="text" name="corruption_address" class="form-control font-label-e-service-complain" required placeholder="กรอกข้อมูลที่อยู่ของคุณ" value="<?php echo set_value('corruption_address'); ?>">
                         <span class="red"><?= form_error('corruption_address'); ?></span>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด <span class="red-font">*</span></label>
                     <div class="col-sm-12">
-                        <textarea name="corruption_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
+                        <textarea name="corruption_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."><?php echo set_value('corruption_detail'); ?></textarea>
                         <span class="red"><?= form_error('corruption_detail'); ?></span>
                     </div>
                 </div>

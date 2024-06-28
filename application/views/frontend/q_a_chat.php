@@ -236,7 +236,7 @@
                         <div class="form-group">
                             <div class="col-sm-2 control-label font-e-service-complain">ชื่อ<span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
-                                <input type="text" name="q_a_reply_by" class="form-control font-label-e-service-complain" required placeholder="กรอกชื่อผู้ตอบกลับ">
+                                <input type="text" name="q_a_reply_by" class="form-control font-label-e-service-complain" required placeholder="กรอกชื่อผู้ตอบกลับ" value="<?php echo set_value('q_a_reply_by'); ?>">
                                 <span class="red"><?= form_error('q_a_reply_by'); ?></span>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                         <div class="form-group">
                             <div class="col-sm-2 control-label font-e-service-complain">อีเมล</div>
                             <div class="col-sm-12 mt-2">
-                                <input type="email" name="q_a_reply_email" class="form-control font-label-e-service-complain" required placeholder="example@youremail.com">
+                                <input type="email" name="q_a_reply_email" class="form-control font-label-e-service-complain" required placeholder="example@youremail.com" value="<?php echo set_value('q_a_reply_email'); ?>">
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด<span class="red-font">*</span></label>
                     <div class="col-sm-12 mt-2">
-                        <textarea name="q_a_reply_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..." required></textarea>
+                        <textarea name="q_a_reply_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..." required><?php echo set_value('q_a_reply_detail'); ?></textarea>
                         <span class="red"><?= form_error('q_a_reply_detail'); ?></span>
                     </div>
                 </div>
