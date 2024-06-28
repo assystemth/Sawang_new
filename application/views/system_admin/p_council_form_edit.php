@@ -53,7 +53,7 @@
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
                             <a class="btn btn-danger" href="<?php echo site_url('p_executives_backend'); ?>">ยกเลิก</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a class="btn btn-info" href="#" role="button" onclick="confirmDelete('<?= $rsedit->p_executives_id; ?>');">ลบข้อมูล</a>
+                            <a class="btn btn-info" href="#" role="button" onclick="confirmDelete('<?= $rsedit->p_council_id; ?>');">ลบข้อมูล</a>
                             <script>
                                 function confirmDelete(p_executives_id) {
                                     Swal.fire({
