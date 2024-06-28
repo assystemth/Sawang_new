@@ -3018,6 +3018,12 @@ class Pages extends CI_Controller
 			'trim|required|min_length[4]',
 			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
 		);
+		$this->form_validation->set_rules(
+			'q_a_detail',
+			'รายละเอียด',
+			'trim|required|min_length[4]',
+			array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว')
+		);
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('frontend_templat/header');
 			$this->load->view('frontend_asset/css');

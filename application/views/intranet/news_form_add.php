@@ -130,10 +130,10 @@
                     <div class="form-group row">
                         <div class="col-sm-2 control-label">ไฟล์เอกสารเพิ่มเติม</div>
                         <div class="col-sm-4">
-                            <input type="file" name="intra_news_file_pdf[]" class="form-control" accept="application/pdf" multiple>
+                            <input type="file" name="intra_news_file_pdf[]" class="form-control" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx" multiple>
                             <span class="black-add">สามารถอัพโหลดได้หลายไฟล์</span>
                             <br>
-                            <span class="red-add">(เฉพาะไฟล์ PDF)</span>
+                            <!-- <span class="red-add">(เฉพาะไฟล์ PDF)</span> -->
                         </div>
                     </div>
                     <div class="form-group row">

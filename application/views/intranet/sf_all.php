@@ -101,7 +101,7 @@
 
             <div id="popupInsert" class="popup">
                <div class="popup-content">
-                  <h4 class="black"><b>เพิ่มข้อมูลแบบฟอร์ม</b></h4>
+                  <h4 class="black"><b>เพิ่มเอกสาร/แบบฟอร์ม</b></h4>
                   <form action="<?php echo site_url('intra_share_file/add_intra_sf_all'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                      <br>
                      <div class="form-group row container">

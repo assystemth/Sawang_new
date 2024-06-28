@@ -81,10 +81,8 @@
                                         } elseif ($m_level == 8) {
                                             echo "สมาชิกสภาตำบล";
                                         } elseif ($m_level == 9) {
-                                            echo "นักบริหารงานท้องถิ่น";
-                                        } elseif ($m_level == 10) {
                                             echo "หัวหน้าส่วนราชการ";
-                                        } elseif ($m_level == 11) {
+                                        } elseif ($m_level == 10) {
                                             echo "กองสวัสดิการสังคม";
                                         } else {
                                             echo "ตำแหน่งไม่ถูกต้อง";
@@ -129,10 +127,8 @@
                                         } elseif ($m_level == 8) {
                                             echo "สมาชิกสภาตำบล";
                                         } elseif ($m_level == 9) {
-                                            echo "นักบริหารงานท้องถิ่น";
-                                        } elseif ($m_level == 10) {
                                             echo "หัวหน้าส่วนราชการ";
-                                        } elseif ($m_level == 11) {
+                                        } elseif ($m_level == 10) {
                                             echo "กองสวัสดิการสังคม";
                                         } else {
                                             echo "ตำแหน่งไม่ถูกต้อง";

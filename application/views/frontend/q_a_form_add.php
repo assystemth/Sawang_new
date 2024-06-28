@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <div class="col-sm-12 control-label font-e-service-complain">หัวข้อคำถาม<span class="red-font">*</span></div>
                     <div class="col-sm-12 mt-2">
-                        <input type="text" name="q_a_msg" class="form-control font-label-e-service-complain" required placeholder="กรอกคำถาม...">
+                        <input type="text" name="q_a_msg" class="form-control font-label-e-service-complain" required placeholder="กรอกคำถาม..." value="<?php echo set_value('q_a_msg'); ?>">
                         <span class="red"><?= form_error('q_a_msg'); ?></span>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <div class="col-sm-2 control-label font-e-service-complain">ชื่อ<span class="red-font">*</span></div>
                             <div class="col-sm-12 mt-2">
-                                <input type="text" name="q_a_by" class="form-control font-label-e-service-complain" required placeholder="กรอกชื่อผู้ตั้งกระทู้">
+                                <input type="text" name="q_a_by" class="form-control font-label-e-service-complain" required placeholder="กรอกชื่อผู้ตั้งกระทู้" value="<?php echo set_value('q_a_by'); ?>">
                                 <span class="red"><?= form_error('q_a_by'); ?></span>
                             </div>
                         </div>
@@ -30,16 +30,17 @@
                         <div class="form-group">
                             <div class="col-sm-2 control-label font-e-service-complain">อีเมล</div>
                             <div class="col-sm-12 mt-2">
-                                <input type="email" name="q_a_email" class="form-control font-label-e-service-complain" required placeholder="example@youremail.com">
+                                <input type="email" name="q_a_email" class="form-control font-label-e-service-complain" required placeholder="example@youremail.com" value="<?php echo set_value('q_a_email'); ?>">
                             </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด</label>
+                    <label for="exampleFormControlTextarea1" class="form-label font-e-service-complain">รายละเอียด<span class="red-font">*</span></label>
                     <div class="col-sm-12">
-                        <textarea name="q_a_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."></textarea>
+                        <textarea name="q_a_detail" class="form-control font-label-e-service-complain" id="exampleFormControlTextarea1" rows="6" placeholder="กรอกรายละเอียดเพิ่มเติม..."><?php echo set_value('q_a_detail'); ?></textarea>
+                        <span class="red"><?= form_error('q_a_detail'); ?></span>
                     </div>
                 </div>
                 <br>
