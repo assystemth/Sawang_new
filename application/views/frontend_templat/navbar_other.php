@@ -655,8 +655,8 @@
                               <a href="<?php echo site_url('Pages/plan_pcra'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แผนการจัดเก็บรายได้ประจำปี</span></a></a>
                           </div>
                           <div class="dropdown-right">
-                              <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;IIT แบบวัดการรับรู้ภายใน</span></a></a>
-                              <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;EIT แบบวัดการรับรู้ภายนอก</span></a></a>
+                              <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แบบวัดการรับรู้ภายใน IIT</span></a></a>
+                              <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;แบบวัดการรับรู้ภายนอก EIT</span></a></a>
                           </div>
                       </ul>
                   </div>
