@@ -443,11 +443,15 @@
                         </div>
                     </div>
                 </div>
-                <span style="color: #C0C0C0; font-size: 13px;">หมายเหตุ อ้างอิงแหล่งที่มาจาก ระบบข้อมูลการใช้จ่ายภาครัฐ Thailand Government Spending
-                    <a href="https://govspending.data.go.th/">
-                        <span style="color: #C0C0C0; font-size: 13px;">(https://govspending.data.go.th/)</span>
-                    </a>
-                </span>
+                <div style="color: #707070; font-size: 13px; margin-top: 30px;">
+                    <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก ระบบข้อมูลการใช้จ่ายภาครัฐ Thailand Government Spending
+                        <a href="https://govspending.data.go.th/">
+                            <span style="color: #707070;">(https://govspending.data.go.th/)</span>
+                        </a>
+                    </span>
+                </div>
+
+
 
                 <!-- วิธีจัดซื้อจัดจ้าง ********************************************************* -->
                 <script>
