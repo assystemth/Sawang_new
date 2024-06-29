@@ -1,11 +1,18 @@
 <?php foreach ($qPublicize_ita as $rs) { ?>
     <div class="image-slide-stick-mid">
         <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" rel="noopener noreferrer">
-            <img src="docs/<?= $rs->publicize_ita_img; ?>">
+            <img src="<?php echo base_url('docs/img/' . $rs->publicize_ita_img); ?>">
         </a>
         <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
     </div>
 <?php } ?>
+
+<div id="messenger-icon">
+    <a href="" target="_blank">
+        <img src="<?php echo base_url('docs/messenger_facebook.png'); ?>" alt="Messenger Icon">
+    </a>
+    <span class="tooltip">Messenger</span>
+</div>
 
 <!-- <div class="welcome" ></div> -->
 
@@ -1627,7 +1634,7 @@
                                             </div>
                                             <div class="col-3 one-line-ellipsis" style="padding-top: 8px;">
                                                 <span class="font-qa-list-content-name">ผู้ตั้งกระทู้ :
-                                                    <?= $rs->q_a_by; ?>y
+                                                    <?= $rs->q_a_by; ?>
                                                 </span>
                                             </div>
                                         </div>

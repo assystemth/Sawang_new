@@ -5893,4 +5893,54 @@
   }
 
   /** ************************************************************************ */
+
+  #messenger-icon {
+    position: fixed;
+    bottom: 70px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #0078FF;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 999;
+    /* position: relative; */
+    /* เพิ่มเพื่อให้ tooltip ติดกับ icon */
+  }
+
+  #messenger-icon:hover {
+    transform: scale(1.1);
+  }
+
+  #messenger-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  #messenger-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 </style>

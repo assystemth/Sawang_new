@@ -306,8 +306,8 @@
 
                 <body>
                     <?php
-                    $url = "https://assystem.co.th/Day/demoassystem/main.php";
-                    $base_url = "https://assystem.co.th/Day/demoassystem/";
+                    $url = "https://assystem.co.th/Day/Sawang/main.php";
+                    $base_url = "https://assystem.co.th/Day/Sawang/";
 
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, $url);
