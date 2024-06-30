@@ -181,7 +181,7 @@
             <img class="dot-updown-animation-8" src="<?php echo base_url('docs/lightv2.png'); ?>" width="15" height="15">
             <img class="dot-updown-animation-9" src="<?php echo base_url('docs/lightv2.png'); ?>" width="45" height="45">
             <img class="dot-updown-animation-10" src="<?php echo base_url('docs/lightv2.png'); ?>" width="65" height="65">
-            <div class="text-center" style="padding-top: 310px;">
+            <div class="d-flex justify-content-center" style="padding-top: 310px;">
                 <span class="font-welcome-btm-other1">องค์การบริหารส่วนตำบลสว่าง</span>
                 <span class="font-welcome-btm-other2">องค์การบริหารส่วนตำบลสว่าง</span>
             </div>

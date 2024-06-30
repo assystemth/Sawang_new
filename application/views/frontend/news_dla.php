@@ -93,6 +93,13 @@
                 <?php endif; ?>
             </div>
         </div>
+        <div class="d-flex justify-content-end" style="margin-top: 30px; color: #707070; font-size: 13px;">
+            <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก กรมส่งเสริมการปกครองส่วนท้องถิ่น
+                <a href="https://www.dla.go.th/" target="_blank">
+                    <span style="color: #707070;">(https://www.dla.go.th/)</span>
+                </a>
+            </span>
+        </div>
         <div class="d-flex justify-content-end" style="margin-top: 2%; margin-right: 80px;">
             <a href="https://www.dla.go.th/servlet/DocumentServlet" target="_blank">
                 <div class="button-activity-all">

@@ -664,8 +664,8 @@
         font-style: normal;
         font-weight: 800;
         line-height: normal;
-        z-index: 2;
         position: relative;
+        z-index: 2;
         animation: gradient-move-font 20s linear infinite;
     }
 
@@ -674,12 +674,11 @@
         font-style: normal;
         font-weight: 800;
         line-height: normal;
+        position: absolute;
         z-index: 1;
-        position: relative;
-        animation: gradient-move-font 20s linear infinite;
         text-shadow: 2px 2px 4px gray;
-        margin-left: -476px;
     }
+
 
     @keyframes gradient-move-font {
         0% {

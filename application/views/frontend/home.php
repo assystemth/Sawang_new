@@ -1333,7 +1333,14 @@
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <div class="d-flex justify-content-center underline" style="margin-top: 70px;">
+        <div class="d-flex justify-content-center" style="margin-left: 900px; color: #707070; font-size: 13px;">
+            <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก กรมส่งเสริมการปกครองส่วนท้องถิ่น
+                <a href="https://www.dla.go.th/" target="_blank">
+                    <span style="color: #707070;">(https://www.dla.go.th/)</span>
+                </a>
+            </span>
+        </div>
+        <div class="d-flex justify-content-center underline" style="margin-top: 60px;">
             <a href="https://www.dla.go.th/servlet/DocumentServlet" target="_blank">
                 <div class="bt-all-dla2" style="margin-top: -50px;">
                     <span class="font-all-dla">ดูทั้งหมด</span>

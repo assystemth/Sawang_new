@@ -445,7 +445,7 @@
                 </div>
                 <div style="color: #707070; font-size: 13px; margin-top: 30px;">
                     <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก ระบบข้อมูลการใช้จ่ายภาครัฐ Thailand Government Spending
-                        <a href="https://govspending.data.go.th/">
+                        <a href="https://govspending.data.go.th/" target="_blank">
                             <span style="color: #707070;">(https://govspending.data.go.th/)</span>
                         </a>
                     </span>
