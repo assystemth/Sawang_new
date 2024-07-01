@@ -3357,14 +3357,19 @@ class Pages extends CI_Controller
 
 	public function e_service()
 	{
-		$data['query1'] = $this->form_esv_model->form_esv_frontend_1();
-		$data['query2'] = $this->form_esv_model->form_esv_frontend_2();
-		$data['query3'] = $this->form_esv_model->form_esv_frontend_3();
-		$data['query4'] = $this->form_esv_model->form_esv_frontend_4();
-		$data['query5'] = $this->form_esv_model->form_esv_frontend_5();
-		$data['query6'] = $this->form_esv_model->form_esv_frontend_6();
-		$data['query7'] = $this->form_esv_model->form_esv_frontend_7();
-		$data['query8'] = $this->form_esv_model->form_esv_frontend_8();
+		$topics = $this->form_esv_model->list_all_topic_with_details();
+
+		$data['grouped_topics'] = [];
+		foreach ($topics as $topic) {
+			$topic_name = $topic->form_esv_topic_name;
+			if (!array_key_exists($topic_name, $data['grouped_topics'])) {
+				$data['grouped_topics'][$topic_name] = [];
+			}
+			$data['grouped_topics'][$topic_name][] = [
+				'form_esv_name' => $topic->form_esv_name,
+				'form_esv_file' => $topic->form_esv_file,
+			];
+		}
 
 		$this->load->view('frontend_templat/header');
 		$this->load->view('frontend_asset/css');
