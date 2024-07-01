@@ -23,6 +23,7 @@ class Pages extends CI_Controller
 		$this->load->model('vision_model');
 		$this->load->model('authority_model');
 		$this->load->model('mission_model');
+		$this->load->model('motto_model');
 		$this->load->model('cmi_model');
 		$this->load->model('executivepolicy_model');
 		$this->load->model('travel_model');
@@ -625,6 +626,17 @@ class Pages extends CI_Controller
 		$this->load->view('frontend_asset/css');
 		$this->load->view('frontend_templat/navbar_other');
 		$this->load->view('frontend/mission', $data);
+		$this->load->view('frontend_asset/js');
+		$this->load->view('frontend_templat/footer_other');
+	}
+	public function motto()
+	{
+		$data['qMotto'] = $this->motto_model->motto_frontend();
+
+		$this->load->view('frontend_templat/header');
+		$this->load->view('frontend_asset/css');
+		$this->load->view('frontend_templat/navbar_other');
+		$this->load->view('frontend/motto', $data);
 		$this->load->view('frontend_asset/js');
 		$this->load->view('frontend_templat/footer_other');
 	}

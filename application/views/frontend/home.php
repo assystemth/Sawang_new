@@ -8,7 +8,7 @@
 <?php } ?>
 
 <div id="messenger-icon">
-    <a href="" target="_blank">
+    <a href="https://m.me/852452498161203" target="_blank">
         <img src="<?php echo base_url('docs/messenger_facebook.png'); ?>" alt="Messenger Icon">
     </a>
     <span class="tooltip">Messenger</span>
