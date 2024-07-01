@@ -282,7 +282,7 @@
                             </div>
                             <div class="col-6">
                                 <div style="padding: 5px; margin-left: -510px">
-                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฏิทินกิจกรรม</a>
                                 </div>
                             </div>
 
