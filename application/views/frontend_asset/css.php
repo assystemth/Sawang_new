@@ -644,23 +644,31 @@
 
   .banner-button-green {
     z-index: 1;
-    margin-left: 7%;
+    margin-left: 30px;
     /* margin-top: 80px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green.png"); ?>');
+    background-image: url('<?php echo base_url("docs/banner_button_greenv3.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 325px;
     height: 71px;
+    border-radius: 50px 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    /* Add black shadow */
   }
 
   .banner-button-green:hover {
     z-index: 1;
-    margin-left: 7%;
+    margin-left: 30px;
     /* margin-top: 65px; */
-    background-image: url('<?php echo base_url("docs/banner_button_green_hover.png"); ?>');
+    background-image: url('<?php echo base_url("docs/banner_button_greenv3hover.png"); ?>');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 325px;
     height: 71px;
+    border-radius: 50px 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    /* Add black shadow */
   }
+
+
 
   .font-banner-button-green {
     color: #FFF;
@@ -5885,4 +5893,54 @@
   }
 
   /** ************************************************************************ */
+
+  #messenger-icon {
+    position: fixed;
+    bottom: 70px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #0078FF;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 999;
+    /* position: relative; */
+    /* เพิ่มเพื่อให้ tooltip ติดกับ icon */
+  }
+
+  #messenger-icon:hover {
+    transform: scale(1.1);
+  }
+
+  #messenger-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  #messenger-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 </style>

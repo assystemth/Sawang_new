@@ -90,9 +90,15 @@
                                         ?>
                                     </span>
                                 </div>
+                                <?php
+                                $user_img = $this->session->userdata('m_img');
+                                $img_src = base_url('docs/img/' . (!empty($user_img) ? $user_img : 'default_user.png'));
+                                ?>
+
                                 <div class="col-4 mt-1" style="margin-left: -20px;">
-                                    <img class="img-profile rounded-circle" src="<?php echo base_url('docs/img/') . $this->session->userdata('m_img'); ?>">
+                                    <img class="img-profile rounded-circle" src="<?php echo $img_src; ?>">
                                 </div>
+
                             </div>
                         </a>
 
@@ -102,9 +108,15 @@
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
     </a> -->
                             <div class="row">
+                                <?php
+                                $user_img = $this->session->userdata('m_img');
+                                $img_src = base_url('docs/img/' . (!empty($user_img) ? $user_img : 'default_user.png'));
+                                ?>
+
                                 <div class="col-3" style="padding-left: 15px;">
-                                    <img class="img-profile rounded-circle" src="<?php echo base_url('docs/img/') . $this->session->userdata('m_img'); ?>">
+                                    <img class="img-profile rounded-circle" src="<?php echo $img_src; ?>">
                                 </div>
+
                                 <div class="col-9">
                                     <span class="font-dropdown-name"><?php echo $this->session->userdata('m_fname'); ?>&nbsp;<?php echo $this->session->userdata('m_lname'); ?></span>
                                     <br><span class="">
@@ -169,7 +181,7 @@
             <img class="dot-updown-animation-8" src="<?php echo base_url('docs/lightv2.png'); ?>" width="15" height="15">
             <img class="dot-updown-animation-9" src="<?php echo base_url('docs/lightv2.png'); ?>" width="45" height="45">
             <img class="dot-updown-animation-10" src="<?php echo base_url('docs/lightv2.png'); ?>" width="65" height="65">
-            <div class="text-center" style="padding-top: 310px;">
+            <div class="d-flex justify-content-center" style="padding-top: 310px;">
                 <span class="font-welcome-btm-other1">องค์การบริหารส่วนตำบลสว่าง</span>
                 <span class="font-welcome-btm-other2">องค์การบริหารส่วนตำบลสว่าง</span>
             </div>

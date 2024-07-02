@@ -73,6 +73,7 @@
                 <a class="collapse-item" href="<?php echo site_url('Si_backend'); ?>">ยุทธศาสตร์การพัฒนา<br>และแนวทางการพัฒนา</a>
                 <a class="collapse-item" href="<?php echo site_url('Authority_backend'); ?>">ข้อมูลอำนาจหน้าที่</a>
                 <a class="collapse-item" href="<?php echo site_url('Vision_backend'); ?>">วิสัยทัศน์และพันธกิจ</a>
+                <a class="collapse-item" href="<?php echo site_url('Motto_backend'); ?>">คำขวัญ</a>
                 <a class="collapse-item" href="<?php echo site_url('Executivepolicy_backend'); ?>">นโยบายผู้บริหาร</a>
                 <a class="collapse-item" href="<?php echo site_url('Activity_backend'); ?>">ข่าวสาร / กิจกรรม</a>
                 <a class="collapse-item" href="<?php echo site_url('travel_backend'); ?>">สถานที่ท่องเที่ยว</a>
@@ -525,10 +526,16 @@
 
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
+                    <?php
+                    $user_img = $this->session->userdata('m_img');
+                    $img_src = base_url('docs/img/' . (!empty($user_img) ? $user_img : 'default_user.png'));
+                    ?>
+
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('m_fname'); ?></span>
-                        <img class="img-profile rounded-circle" src="<?php echo base_url('docs/img/') . $this->session->userdata('m_img'); ?>">
+                        <img class="img-profile rounded-circle" src="<?php echo $img_src; ?>">
                     </a>
+
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="<?php echo site_url('system_admin/profile'); ?>">
@@ -686,6 +693,13 @@
 
                     <li class="hide">
                         <span>ภารกิจและความรับผิดชอบ</span>
+                    </li>
+                </a>
+
+                <a href="<?php echo site_url('Motto_backend'); ?>" class="link">
+
+                    <li class="hide">
+                        <span>คำขวัญ</span>
                     </li>
                 </a>
 

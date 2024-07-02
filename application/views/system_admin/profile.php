@@ -6,9 +6,13 @@
             <form action=" <?php echo site_url('member_backend/edit_Member/' . $rsedit->m_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <div class="form-group row">
                     <div class="col-sm-2 control-label">โปรไฟล์</div>
+                    <?php
+                    $img_path = !empty($rsedit->m_img) ? 'docs/img/' . $rsedit->m_img : 'docs/img/default_user.png';
+                    ?>
+
                     <div class="col-sm-5">
                         ภาพเก่า <br>
-                        <img src="<?= base_url('docs/img/' . $rsedit->m_img); ?>" width="220px" height="180">
+                        <img src="<?= base_url($img_path); ?>" width="220px" height="180">
                         <br>
                         เลือกใหม่
                         <br>

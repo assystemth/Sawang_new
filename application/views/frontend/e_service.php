@@ -1,4 +1,4 @@
-<div class="text-center pages-head" >
+<div class="text-center pages-head">
     <span class="font-pages-head">แบบฟอร์มออนไลน์</span>
 </div>
 </div>
@@ -7,7 +7,7 @@
     <div class="container-pages-news">
         <!-- <div class="scrollable-container-e-service"> -->
         <div class="mt-4"></div>
-        <div class="text-center" >
+        <div class="text-center">
             <span class="font-e-service-head">ดาวน์โหลดแบบฟอร์มและยื่นคำร้อง</span>
         </div>
         <div class="mt-4"></div>
@@ -15,30 +15,19 @@
         <div class="bg-how-e-service mt-4">
             <span class="font-e-service-how">ขั้นตอนที่ 1 ดาวน์โหลดเอกสารออนไลน์</span>
         </div>
-        <div class="bg-head-e-service">
+        <!-- <div class="bg-head-e-service">
             <img src="<?php echo base_url('docs/icon-topic-e-service1.png'); ?>"><span class="font-head-topic">แบบยื่นคำร้อง</span>
-        </div>
-        <div class="bg-content-e-service">
-            <!-- <?php foreach ($query1 as $rs) { ?>
-                        <div class="row">
-                            <div class="col-9 mt-2">
-                                <span class="font-e-service-content">การขอใช้ห้องประชุม หรือสถานที่ราชการ</span>
-                            </div>
-                            <div class="col-3">
-                                <a href="<?php echo base_url('docs/file/' . $rs->form_esv_file); ?>" target="_blank"><img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>"></a>
-                            </div>
-                        </div>
-                    <?php  } ?> -->
-
-            <div class="row mt-1">
+        </div>-->
+        <!-- <div class="bg-content-e-service">
+                 <div class="row mt-1">
                 <div class="col-9 mt-2">
                     <span class="font-e-service-content">เหตุร้องทุกข์</span>
                 </div>
                 <div class="col-3">
                     <a href="<?php echo site_url('Pages/adding_complain'); ?>"><img src="<?php echo base_url("docs/btn-e-service-click.png"); ?>"></a>
                 </div>
-            </div>
-            <?php foreach ($query1 as $rs) { ?>
+            </div>  -->
+        <!-- <?php foreach ($query1 as $rs) { ?>
                 <div class="row mt-1">
                     <div class="col-9 mt-2">
                         <span class="font-e-service-content">การขอข้อมูลเอกสาร</span>
@@ -47,8 +36,8 @@
                         <a href="<?php echo base_url('docs/file/' . $rs->form_esv_file); ?>" target="_blank"><img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>"></a>
                     </div>
                 </div>
-            <?php  } ?>
-            <!-- <?php foreach ($query3 as $rs) { ?>
+            <?php  } ?> -->
+        <!-- <?php foreach ($query3 as $rs) { ?>
                         <div class="row mt-1">
                             <div class="col-9 mt-2">
                                 <span class="font-e-service-content">ขอความอนุเคราะห์ตามอำนาจหน้าที่ของ อปท.</span>
@@ -58,43 +47,51 @@
                             </div>
                         </div>
                     <?php  } ?> -->
-        </div>
-        <div class="bg-head-e-service">
-            <img src="<?php echo base_url('docs/icon-topic-e-service2.png'); ?>"><span class="font-head-topic">การขอจดทะเบียนพาณิชย์</span>
-        </div>
-        <div class="bg-content-e-service">
-            <?php foreach ($query2 as $rs) { ?>
-                <div class="row">
-                    <div class="col-9 mt-2">
-                        <span class="font-e-service-content">แบบฟอร์มคำขอจดทะเบียนพาณิชย์</span>
+        <!-- </div> -->
+
+        <?php
+        $group_counter = 0; // ตัวนับสำหรับกลุ่ม
+        foreach ($grouped_topics as $topic_name => $grouped_data) :
+            $group_counter++; // เพิ่มตัวนับเมื่อเริ่มกลุ่มใหม่
+        ?>
+            <div class="bg-head-e-service">
+                <img src="<?php echo base_url('docs/icon-topic-e-service2.png'); ?>">
+                <span class="font-head-topic"><?= $topic_name; ?></span>
+            </div>
+            <div class="bg-content-e-service">
+                <?php
+                $item_counter = 0; // ตัวนับสำหรับรายการในกลุ่ม
+                foreach ($grouped_data as $data) :
+                    $item_counter++; // เพิ่มตัวนับเมื่อเริ่มรายการใหม่
+                ?>
+                    <?php if ($group_counter == 1 && $item_counter == 1) : // เงื่อนไขสำหรับกลุ่มแรกและรายการแรก 
+                    ?>
+                        <div class="row mt-1">
+                            <div class="col-9 mt-2">
+                                <span class="font-e-service-content">เหตุร้องทุกข์</span>
+                            </div>
+                            <div class="col-3">
+                                <a href="<?php echo site_url('Pages/adding_complain'); ?>">
+                                    <img src="<?php echo base_url("docs/btn-e-service-click.png"); ?>">
+                                </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="row">
+                        <div class="col-9 mt-2">
+                            <span class="font-e-service-content"><?= $data['form_esv_name']; ?></span>
+                        </div>
+                        <div class="col-3">
+                            <a href="<?php echo base_url('docs/file/' . $data['form_esv_file']); ?>" target="_blank">
+                                <img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>">
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <a href="<?php echo base_url('docs/file/' . $rs->form_esv_file); ?>" target="_blank"><img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>"></a>
-                    </div>
-                </div>
-            <?php  } ?>
-            <?php foreach ($query3 as $rs) { ?>
-                <div class="row mt-1">
-                    <div class="col-9 mt-2">
-                        <span class="font-e-service-content">เอกสารประกอบการจดทะเบียนพาณิชย์อิเล็กทรอนิกส์</span>
-                    </div>
-                    <div class="col-3">
-                        <a href="<?php echo base_url('docs/file/' . $rs->form_esv_file); ?>" target="_blank"><img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>"></a>
-                    </div>
-                </div>
-            <?php  } ?>
-            <?php foreach ($query4 as $rs) { ?>
-                <div class="row mt-1">
-                    <div class="col-9 mt-2">
-                        <span class="font-e-service-content">หนังสือมอบอำนาจ</span>
-                    </div>
-                    <div class="col-3">
-                        <a href="<?php echo base_url('docs/file/' . $rs->form_esv_file); ?>" target="_blank"><img src="<?php echo base_url("docs/btn-e-service-form.png"); ?>"></a>
-                    </div>
-                </div>
-            <?php  } ?>
-        </div>
-        <div class="bg-head-e-service">
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+
+        <!-- <div class="bg-head-e-service">
             <img src="<?php echo base_url('docs/icon-topic-e-service3.png'); ?>"><span class="font-head-topic">แบบฟอร์มลงทะเบียนผู้สูงอายุ</span>
         </div>
         <div class="bg-content-e-service">
@@ -128,7 +125,7 @@
                     </div>
                 </div>
             <?php  } ?>
-        </div>
+        </div> -->
         <div class="mt-4">
             <span class="font-e-service-danger"><b>หมายเหตุ</b> โปรดเตรียมไฟล์เอกสารแนบประกอบคำขอให้ครบถ้วน เช่น สำเนาบัตรประชาชน สำเนาทะเบียนบ้าน สำเนาหน้าบัญชีสมุดธนาคาร หนังสือมอบอำนาจพร้อมติดอากร เป็นต้น</span>
         </div>
@@ -145,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </div>
+</div>
 </div>
 </div>

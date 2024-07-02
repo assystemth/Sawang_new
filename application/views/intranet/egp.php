@@ -443,1318 +443,1327 @@
                         </div>
                     </div>
                 </div>
+                <div style="color: #707070; font-size: 13px; margin-top: 30px;">
+                    <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก ระบบข้อมูลการใช้จ่ายภาครัฐ Thailand Government Spending
+                        <a href="https://govspending.data.go.th/" target="_blank">
+                            <span style="color: #707070;">(https://govspending.data.go.th/)</span>
+                        </a>
+                    </span>
+                </div>
 
-            <!-- วิธีจัดซื้อจัดจ้าง ********************************************************* -->
-            <script>
-                // setup
-                const dataPurchaseMoney2565 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2565) ? $sum_money_by_purchase_other_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2565) ? $sum_money_by_purchase_e_bidding_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2565) ? $sum_money_by_purchase_specific_y2565 : 0); ?>],
-                        backgroundColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
 
-                // config
-                const configPurchaseMoney2565 = {
-                    type: 'pie',
-                    data: dataPurchaseMoney2565,
-                    options: {
-                        layout: {
-                            padding: 1
-                        },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+
+                <!-- วิธีจัดซื้อจัดจ้าง ********************************************************* -->
+                <script>
+                    // setup
+                    const dataPurchaseMoney2565 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2565) ? $sum_money_by_purchase_other_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2565) ? $sum_money_by_purchase_e_bidding_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2565) ? $sum_money_by_purchase_specific_y2565 : 0); ?>],
+                            backgroundColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseMoney2565 = {
+                        type: 'pie',
+                        data: dataPurchaseMoney2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseMoney2565 = new Chart(
-                    document.getElementById('ChartPurchaseMoney2565'),
-                    configPurchaseMoney2565
-                );
-
-                // setup
-                const dataPurchaseProject2565 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2565) ? $sum_project_by_purchase_other_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2565) ? $sum_project_by_purchase_e_bidding_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2565) ? $sum_project_by_purchase_specific_y2565 : 0); ?>],
-                        backgroundColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configPurchaseProject2565 = {
-                    type: 'pie',
-                    data: dataPurchaseProject2565,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseMoney2565 = new Chart(
+                        document.getElementById('ChartPurchaseMoney2565'),
+                        configPurchaseMoney2565
+                    );
+
+                    // setup
+                    const dataPurchaseProject2565 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2565) ? $sum_project_by_purchase_other_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2565) ? $sum_project_by_purchase_e_bidding_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2565) ? $sum_project_by_purchase_specific_y2565 : 0); ?>],
+                            backgroundColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseProject2565 = {
+                        type: 'pie',
+                        data: dataPurchaseProject2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseProject2565 = new Chart(
-                    document.getElementById('ChartPurchaseProject2565'),
-                    configPurchaseProject2565
-                );
-
-                //--------------------------------------------------------------------------------------------------------------------------------------------------
-
-                // setup
-                const dataPurchaseMoney2566 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2566) ? $sum_money_by_purchase_other_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2566) ? $sum_money_by_purchase_e_bidding_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2566) ? $sum_money_by_purchase_specific_y2566 : 0); ?>],
-                        backgroundColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configPurchaseMoney2566 = {
-                    type: 'pie',
-                    data: dataPurchaseMoney2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseProject2565 = new Chart(
+                        document.getElementById('ChartPurchaseProject2565'),
+                        configPurchaseProject2565
+                    );
+
+                    //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    // setup
+                    const dataPurchaseMoney2566 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2566) ? $sum_money_by_purchase_other_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2566) ? $sum_money_by_purchase_e_bidding_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2566) ? $sum_money_by_purchase_specific_y2566 : 0); ?>],
+                            backgroundColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseMoney2566 = {
+                        type: 'pie',
+                        data: dataPurchaseMoney2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseMoney2566 = new Chart(
-                    document.getElementById('ChartPurchaseMoney2566'),
-                    configPurchaseMoney2566
-                );
-
-                // setup
-                const dataPurchaseProject2566 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2566) ? $sum_project_by_purchase_other_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2566) ? $sum_project_by_purchase_e_bidding_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2566) ? $sum_project_by_purchase_specific_y2566 : 0); ?>],
-                        backgroundColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configPurchaseProject2566 = {
-                    type: 'pie',
-                    data: dataPurchaseProject2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseMoney2566 = new Chart(
+                        document.getElementById('ChartPurchaseMoney2566'),
+                        configPurchaseMoney2566
+                    );
+
+                    // setup
+                    const dataPurchaseProject2566 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2566) ? $sum_project_by_purchase_other_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2566) ? $sum_project_by_purchase_e_bidding_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2566) ? $sum_project_by_purchase_specific_y2566 : 0); ?>],
+                            backgroundColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseProject2566 = {
+                        type: 'pie',
+                        data: dataPurchaseProject2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseProject2566 = new Chart(
-                    document.getElementById('ChartPurchaseProject2566'),
-                    configPurchaseProject2566
-                );
-
-                //--------------------------------------------------------------------------------------------------------------------------------------------------
-
-                // setup
-                const dataPurchaseMoney2567 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2567) ? $sum_money_by_purchase_other_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2567) ? $sum_money_by_purchase_e_bidding_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2567) ? $sum_money_by_purchase_specific_y2567 : 0); ?>],
-                        backgroundColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configPurchaseMoney2567 = {
-                    type: 'pie',
-                    data: dataPurchaseMoney2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseProject2566 = new Chart(
+                        document.getElementById('ChartPurchaseProject2566'),
+                        configPurchaseProject2566
+                    );
+
+                    //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    // setup
+                    const dataPurchaseMoney2567 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_purchase_other_y2567) ? $sum_money_by_purchase_other_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_e_bidding_y2567) ? $sum_money_by_purchase_e_bidding_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_purchase_specific_y2567) ? $sum_money_by_purchase_specific_y2567 : 0); ?>],
+                            backgroundColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseMoney2567 = {
+                        type: 'pie',
+                        data: dataPurchaseMoney2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseMoney2567 = new Chart(
-                    document.getElementById('ChartPurchaseMoney2567'),
-                    configPurchaseMoney2567
-                );
-
-                // setup
-                const dataPurchaseProject2567 = {
-                    labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2567) ? $sum_project_by_purchase_other_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2567) ? $sum_project_by_purchase_e_bidding_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2567) ? $sum_project_by_purchase_specific_y2567 : 0); ?>],
-                        backgroundColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#D7B506',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configPurchaseProject2567 = {
-                    type: 'pie',
-                    data: dataPurchaseProject2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseMoney2567 = new Chart(
+                        document.getElementById('ChartPurchaseMoney2567'),
+                        configPurchaseMoney2567
+                    );
+
+                    // setup
+                    const dataPurchaseProject2567 = {
+                        labels: ['อื่นๆ', 'E-Bidding', 'เฉพาะเจาะจง'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_purchase_other_y2567) ? $sum_project_by_purchase_other_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_e_bidding_y2567) ? $sum_project_by_purchase_e_bidding_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_purchase_specific_y2567) ? $sum_project_by_purchase_specific_y2567 : 0); ?>],
+                            backgroundColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#D7B506',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configPurchaseProject2567 = {
+                        type: 'pie',
+                        data: dataPurchaseProject2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartPurchaseProject2567 = new Chart(
-                    document.getElementById('ChartPurchaseProject2567'),
-                    configPurchaseProject2567
-                );
-            </script>
-
-            <!-- ประเภทโครงการ ********************************************************* -->
-            <script>
-                // setup
-                const dataTypeMoney2565 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_type_rent_y2565) ? $sum_money_by_type_rent_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2565) ? $sum_money_by_type_construction_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2565) ? $sum_money_by_type_s_contractor_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2565) ? $sum_money_by_type_buy_y2565 : 0); ?>],
-                        backgroundColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeMoney2565 = {
-                    type: 'pie',
-                    data: dataTypeMoney2565,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartPurchaseProject2567 = new Chart(
+                        document.getElementById('ChartPurchaseProject2567'),
+                        configPurchaseProject2567
+                    );
+                </script>
+
+                <!-- ประเภทโครงการ ********************************************************* -->
+                <script>
+                    // setup
+                    const dataTypeMoney2565 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_type_rent_y2565) ? $sum_money_by_type_rent_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2565) ? $sum_money_by_type_construction_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2565) ? $sum_money_by_type_s_contractor_y2565 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2565) ? $sum_money_by_type_buy_y2565 : 0); ?>],
+                            backgroundColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeMoney2565 = {
+                        type: 'pie',
+                        data: dataTypeMoney2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeMoney2565 = new Chart(
-                    document.getElementById('ChartTypeMoney2565'),
-                    configTypeMoney2565
-                );
-
-                // setup
-                const dataTypeProject2565 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_type_rent_y2565) ? $sum_project_by_type_rent_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2565) ? $sum_project_by_type_construction_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2565) ? $sum_project_by_type_s_contractor_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2565) ? $sum_project_by_type_buy_y2565 : 0); ?>],
-                        backgroundColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeProject2565 = {
-                    type: 'pie',
-                    data: dataTypeProject2565,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeMoney2565 = new Chart(
+                        document.getElementById('ChartTypeMoney2565'),
+                        configTypeMoney2565
+                    );
+
+                    // setup
+                    const dataTypeProject2565 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_type_rent_y2565) ? $sum_project_by_type_rent_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2565) ? $sum_project_by_type_construction_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2565) ? $sum_project_by_type_s_contractor_y2565 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2565) ? $sum_project_by_type_buy_y2565 : 0); ?>],
+                            backgroundColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeProject2565 = {
+                        type: 'pie',
+                        data: dataTypeProject2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeProject2565 = new Chart(
-                    document.getElementById('ChartTypeProject2565'),
-                    configTypeProject2565
-                );
-
-                //--------------------------------------------------------------------------------------------------------------------------------------------------
-
-                // setup
-                const dataTypeMoney2566 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_type_rent_y2566) ? $sum_money_by_type_rent_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2566) ? $sum_money_by_type_construction_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2566) ? $sum_money_by_type_s_contractor_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2566) ? $sum_money_by_type_buy_y2566 : 0); ?>],
-                        backgroundColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeMoney2566 = {
-                    type: 'pie',
-                    data: dataTypeMoney2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeProject2565 = new Chart(
+                        document.getElementById('ChartTypeProject2565'),
+                        configTypeProject2565
+                    );
+
+                    //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    // setup
+                    const dataTypeMoney2566 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_type_rent_y2566) ? $sum_money_by_type_rent_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2566) ? $sum_money_by_type_construction_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2566) ? $sum_money_by_type_s_contractor_y2566 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2566) ? $sum_money_by_type_buy_y2566 : 0); ?>],
+                            backgroundColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeMoney2566 = {
+                        type: 'pie',
+                        data: dataTypeMoney2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeMoney2566 = new Chart(
-                    document.getElementById('ChartTypeMoney2566'),
-                    configTypeMoney2566
-                );
-
-                // setup
-                const dataTypeProject2566 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_type_rent_y2566) ? $sum_project_by_type_rent_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2566) ? $sum_project_by_type_construction_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2566) ? $sum_project_by_type_s_contractor_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2566) ? $sum_project_by_type_buy_y2566 : 0); ?>],
-                        backgroundColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeProject2566 = {
-                    type: 'pie',
-                    data: dataTypeProject2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeMoney2566 = new Chart(
+                        document.getElementById('ChartTypeMoney2566'),
+                        configTypeMoney2566
+                    );
+
+                    // setup
+                    const dataTypeProject2566 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_type_rent_y2566) ? $sum_project_by_type_rent_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2566) ? $sum_project_by_type_construction_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2566) ? $sum_project_by_type_s_contractor_y2566 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2566) ? $sum_project_by_type_buy_y2566 : 0); ?>],
+                            backgroundColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeProject2566 = {
+                        type: 'pie',
+                        data: dataTypeProject2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeProject2566 = new Chart(
-                    document.getElementById('ChartTypeProject2566'),
-                    configTypeProject2566
-                );
-
-                //--------------------------------------------------------------------------------------------------------------------------------------------------
-
-                // setup
-                const dataTypeMoney2567 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo (is_numeric($sum_money_by_type_rent_y2567) ? $sum_money_by_type_rent_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2567) ? $sum_money_by_type_construction_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2567) ? $sum_money_by_type_s_contractor_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2567) ? $sum_money_by_type_buy_y2567 : 0); ?>],
-                        backgroundColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#30E8AA',
-                            '#48B2DF',
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeMoney2567 = {
-                    type: 'pie',
-                    data: dataTypeMoney2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeProject2566 = new Chart(
+                        document.getElementById('ChartTypeProject2566'),
+                        configTypeProject2566
+                    );
+
+                    //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    // setup
+                    const dataTypeMoney2567 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo (is_numeric($sum_money_by_type_rent_y2567) ? $sum_money_by_type_rent_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_construction_y2567) ? $sum_money_by_type_construction_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_s_contractor_y2567) ? $sum_money_by_type_s_contractor_y2567 : 0); ?>, <?php echo (is_numeric($sum_money_by_type_buy_y2567) ? $sum_money_by_type_buy_y2567 : 0); ?>],
+                            backgroundColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#30E8AA',
+                                '#48B2DF',
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeMoney2567 = {
+                        type: 'pie',
+                        data: dataTypeMoney2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeMoney2567 = new Chart(
-                    document.getElementById('ChartTypeMoney2567'),
-                    configTypeMoney2567
-                );
-
-                // setup
-                const dataTypeProject2567 = {
-                    labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo (is_numeric($sum_project_by_type_rent_y2567) ? $sum_project_by_type_rent_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2567) ? $sum_project_by_type_construction_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2567) ? $sum_project_by_type_s_contractor_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2567) ? $sum_project_by_type_buy_y2567 : 0); ?>],
-                        backgroundColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#CC750F',
-                            '#FFDD87',
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configTypeProject2567 = {
-                    type: 'pie',
-                    data: dataTypeProject2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeMoney2567 = new Chart(
+                        document.getElementById('ChartTypeMoney2567'),
+                        configTypeMoney2567
+                    );
+
+                    // setup
+                    const dataTypeProject2567 = {
+                        labels: ['เช่า', 'จ้างก่อสร้าง', 'จ้างทำของ/เหมาบริการ', 'ซื้อ'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo (is_numeric($sum_project_by_type_rent_y2567) ? $sum_project_by_type_rent_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_construction_y2567) ? $sum_project_by_type_construction_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_s_contractor_y2567) ? $sum_project_by_type_s_contractor_y2567 : 0); ?>, <?php echo (is_numeric($sum_project_by_type_buy_y2567) ? $sum_project_by_type_buy_y2567 : 0); ?>],
+                            backgroundColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#CC750F',
+                                '#FFDD87',
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configTypeProject2567 = {
+                        type: 'pie',
+                        data: dataTypeProject2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartTypeProject2567 = new Chart(
-                    document.getElementById('ChartTypeProject2567'),
-                    configTypeProject2567
-                );
-            </script>
-
-            <!-- สถานะโครงการ ********************************************************* -->
-            <script>
-                // setup
-                const dataStatusMoney2565 = {
-                    labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo $sum_money_by_status_process_y2565; ?>, <?php echo $sum_money_by_status_end_y2565; ?>],
-                        backgroundColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusMoney2565 = {
-                    type: 'pie',
-                    data: dataStatusMoney2565,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartTypeProject2567 = new Chart(
+                        document.getElementById('ChartTypeProject2567'),
+                        configTypeProject2567
+                    );
+                </script>
+
+                <!-- สถานะโครงการ ********************************************************* -->
+                <script>
+                    // setup
+                    const dataStatusMoney2565 = {
+                        labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo $sum_money_by_status_process_y2565; ?>, <?php echo $sum_money_by_status_end_y2565; ?>],
+                            backgroundColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusMoney2565 = {
+                        type: 'pie',
+                        data: dataStatusMoney2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 40,
-                                // textMargin: 20,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 40,
+                                    // textMargin: 20,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'center',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'center',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartStatusMoney2565 = new Chart(
-                    document.getElementById('ChartStatusMoney2565'),
-                    configStatusMoney2565
-                );
-
-                // setup
-                const dataStatusProject2565 = {
-                    labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo $sum_project_status_process_y2565; ?>, <?php echo $sum_project_status_end_y2565; ?>],
-                        backgroundColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusProject2565 = {
-                    type: 'pie',
-                    data: dataStatusProject2565,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartStatusMoney2565 = new Chart(
+                        document.getElementById('ChartStatusMoney2565'),
+                        configStatusMoney2565
+                    );
+
+                    // setup
+                    const dataStatusProject2565 = {
+                        labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo $sum_project_status_process_y2565; ?>, <?php echo $sum_project_status_end_y2565; ?>],
+                            backgroundColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusProject2565 = {
+                        type: 'pie',
+                        data: dataStatusProject2565,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartStatusProject2565 = new Chart(
-                    document.getElementById('ChartStatusProject2565'),
-                    configStatusProject2565
-                );
-
-
-                // **************************************************************
-
-                // setup
-                const dataStatusMoney2566 = {
-                    labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo $sum_money_by_status_process_y2566; ?>, <?php echo $sum_money_by_status_end_y2566; ?>],
-                        backgroundColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusMoney2566 = {
-                    type: 'pie',
-                    data: dataStatusMoney2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartStatusProject2565 = new Chart(
+                        document.getElementById('ChartStatusProject2565'),
+                        configStatusProject2565
+                    );
+
+
+                    // **************************************************************
+
+                    // setup
+                    const dataStatusMoney2566 = {
+                        labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo $sum_money_by_status_process_y2566; ?>, <?php echo $sum_money_by_status_end_y2566; ?>],
+                            backgroundColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusMoney2566 = {
+                        type: 'pie',
+                        data: dataStatusMoney2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartStatusMoney2566 = new Chart(
-                    document.getElementById('ChartStatusMoney2566'),
-                    configStatusMoney2566
-                );
-
-                // setup
-                const dataStatusProject2566 = {
-                    labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo $sum_project_status_process_y2566; ?>, <?php echo $sum_project_status_end_y2566; ?>],
-                        backgroundColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusProject2566 = {
-                    type: 'pie',
-                    data: dataStatusProject2566,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartStatusMoney2566 = new Chart(
+                        document.getElementById('ChartStatusMoney2566'),
+                        configStatusMoney2566
+                    );
+
+                    // setup
+                    const dataStatusProject2566 = {
+                        labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo $sum_project_status_process_y2566; ?>, <?php echo $sum_project_status_end_y2566; ?>],
+                            backgroundColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusProject2566 = {
+                        type: 'pie',
+                        data: dataStatusProject2566,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartStatusProject2566 = new Chart(
-                    document.getElementById('ChartStatusProject2566'),
-                    configStatusProject2566
-                );
-
-
-                // **************************************************************
-
-                // setup
-                const dataStatusMoney2567 = {
-                    labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
-                    datasets: [{
-                        label: 'จำนวนเงิน',
-                        data: [<?php echo $sum_money_by_status_process_y2567; ?>, <?php echo $sum_money_by_status_end_y2567; ?>],
-                        backgroundColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderColor: [
-                            '#28628E',
-                            '#30A4FC'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusMoney2567 = {
-                    type: 'pie',
-                    data: dataStatusMoney2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartStatusProject2566 = new Chart(
+                        document.getElementById('ChartStatusProject2566'),
+                        configStatusProject2566
+                    );
+
+
+                    // **************************************************************
+
+                    // setup
+                    const dataStatusMoney2567 = {
+                        labels: ['ระหว่างดำเนินการ', 'สิ้นสุดสัญญา'],
+                        datasets: [{
+                            label: 'จำนวนเงิน',
+                            data: [<?php echo $sum_money_by_status_process_y2567; ?>, <?php echo $sum_money_by_status_end_y2567; ?>],
+                            backgroundColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderColor: [
+                                '#28628E',
+                                '#30A4FC'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusMoney2567 = {
+                        type: 'pie',
+                        data: dataStatusMoney2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            // return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' บาท';
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' บาท';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
-
-                // render init block
-                const ChartStatusMoney2567 = new Chart(
-                    document.getElementById('ChartStatusMoney2567'),
-                    configStatusMoney2567
-                );
-
-                // setup
-                const dataStatusProject2567 = {
-                    labels: ['สิ้นสุดสัญญา', 'ระหว่างดำเนินการ'],
-                    datasets: [{
-                        label: 'จำนวนโครงการ',
-                        data: [<?php echo $sum_project_status_process_y2567; ?>, <?php echo $sum_project_status_end_y2567; ?>],
-                        backgroundColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderColor: [
-                            '#DF4848',
-                            '#FBBC41'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                // config
-                const configStatusProject2567 = {
-                    type: 'pie',
-                    data: dataStatusProject2567,
-                    options: {
-                        layout: {
-                            padding: 1
                         },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
+                        plugins: [ChartDataLabels]
+                    };
+
+                    // render init block
+                    const ChartStatusMoney2567 = new Chart(
+                        document.getElementById('ChartStatusMoney2567'),
+                        configStatusMoney2567
+                    );
+
+                    // setup
+                    const dataStatusProject2567 = {
+                        labels: ['สิ้นสุดสัญญา', 'ระหว่างดำเนินการ'],
+                        datasets: [{
+                            label: 'จำนวนโครงการ',
+                            data: [<?php echo $sum_project_status_process_y2567; ?>, <?php echo $sum_project_status_end_y2567; ?>],
+                            backgroundColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderColor: [
+                                '#DF4848',
+                                '#FBBC41'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // config
+                    const configStatusProject2567 = {
+                        type: 'pie',
+                        data: dataStatusProject2567,
+                        options: {
+                            layout: {
+                                padding: 1
                             },
-                            labels: {
-                                // position: 'outside',
-                                // outsidePadding: 4,
-                                // textMargin: 4,
-                                // render: (ctx) => {
-                                //     console.log(ctx);
-                                // }
-                            },
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
-                                    if (value <= 0) {
-                                        return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
-                                    } else {
-                                        // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
-                                        return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
-                                    }
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                    position: 'bottom', // กำหนดให้ legend อยู่ด้านล่าง
                                 },
-                                color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
+                                labels: {
+                                    // position: 'outside',
+                                    // outsidePadding: 4,
+                                    // textMargin: 4,
+                                    // render: (ctx) => {
+                                    //     console.log(ctx);
+                                    // }
                                 },
-                                anchor: 'end',
-                                align: 'start',
-                                offset: 20
+                                datalabels: {
+                                    formatter: (value, ctx) => {
+                                        // ตรวจสอบว่าค่ามีค่าน้อยกว่าหรือเท่ากับศูนย์หรือไม่
+                                        if (value <= 0) {
+                                            return ''; // ถ้าน้อยกว่าหรือเท่ากับศูนย์ให้คืนค่าว่างกลับไป
+                                        } else {
+                                            // ถ้ามากกว่าศูนย์ให้แสดงผลค่าตามปกติ
+                                            return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value + ' โครงการ';
+                                        }
+                                    },
+                                    color: ['#000', '#000'], // กำหนดสีให้กับ datalabels ตามลำดับของข้อมูลใน labels
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    anchor: 'end',
+                                    align: 'start',
+                                    offset: 20
+                                }
                             }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                };
+                        },
+                        plugins: [ChartDataLabels]
+                    };
 
-                // render init block
-                const ChartStatusProject2567 = new Chart(
-                    document.getElementById('ChartStatusProject2567'),
-                    configStatusProject2567
-                );
-            </script>
+                    // render init block
+                    const ChartStatusProject2567 = new Chart(
+                        document.getElementById('ChartStatusProject2567'),
+                        configStatusProject2567
+                    );
+                </script>
 
-            <!-- <script>
+                <!-- <script>
     // setup 
     const data = {
         labels: ['สิ้นสุดสัญญา', 'ระหว่างดำเนินการ', 'จำนวนเงินรวม', 'จำนวนเงินรวม'],
@@ -1886,11 +1895,11 @@
 </script> -->
 
 
+            </div>
         </div>
     </div>
-</div>
 
-<!-- <div class="d-flex justify-content-end">
+    <!-- <div class="d-flex justify-content-end">
                         <a class="underline insert-vulgar-btn" data-target="#popupInsert">
                             <div class="btn-add">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">

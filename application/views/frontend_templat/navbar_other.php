@@ -303,6 +303,7 @@
                       <div class="dropdown-center">
                           <a href="<?php echo site_url('Pages/authority'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;อำนาจหน้าที่</span></a></a>
                           <a href="<?php echo site_url('Pages/vision'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;วิสัยทัศน์และพันธกิจ</span></a></a>
+                          <a href="<?php echo site_url('Pages/motto'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำขวัญ</span></a></a>
                           <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
                           <a href="<?php echo site_url('Pages/news_dla'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.</span></a></a>
                           <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>
@@ -563,6 +564,7 @@
                           <div class="dropdown-center">
                               <a href="<?php echo site_url('Pages/authority'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;อำนาจหน้าที่</span></a></a>
                               <a href="<?php echo site_url('Pages/vision'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;วิสัยทัศน์และพันธกิจ</span></a></a>
+                              <a href="<?php echo site_url('Pages/motto'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;คำขวัญ</span></a></a>
                               <a href="<?php echo site_url('Pages/executivepolicy'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;นโยบายของผู้บริหาร</span></a></a>
                               <a href="<?php echo site_url('Pages/news_dla'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.</span></a></a>
                               <a href="<?php echo site_url('Pages/prov_local_doc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;หนังสือราชการ สถ.จ.</span></a></a>

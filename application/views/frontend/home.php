@@ -1,11 +1,18 @@
 <?php foreach ($qPublicize_ita as $rs) { ?>
     <div class="image-slide-stick-mid">
         <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank" rel="noopener noreferrer">
-            <img src="docs/<?= $rs->publicize_ita_img; ?>">
+            <img src="<?php echo base_url('docs/img/' . $rs->publicize_ita_img); ?>">
         </a>
         <img src="docs/eit-slide-close.png" class="close-button-slide-mid" onclick="closeImageSlideMid()">
     </div>
 <?php } ?>
+
+<div id="messenger-icon">
+    <a href="https://m.me/852452498161203" target="_blank">
+        <img src="<?php echo base_url('docs/messenger_facebook.png'); ?>" alt="Messenger Icon">
+    </a>
+    <span class="tooltip">Messenger</span>
+</div>
 
 <!-- <div class="welcome" ></div> -->
 
@@ -275,7 +282,7 @@
                             </div>
                             <div class="col-6">
                                 <div style="padding: 5px; margin-left: -510px">
-                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฎิทินกิจกรรม</a>
+                                    <a style="cursor: pointer;" onclick="showImage('link2')">ปฏิทินกิจกรรม</a>
                                 </div>
                             </div>
 
@@ -325,10 +332,10 @@
                         <a href="<?php echo site_url('Pages/ita_all'); ?>">
                             <div class="banner-button-green" style="margin-top: 80px;">
                                 <div class="row">
-                                    <div class="col-7" style="padding: 10px 10px 0px 50px;">
+                                    <div class="col-9" style="padding: 10px 10px 0px 50px;">
                                         <span class="font-banner-button-green">การประเมินคุณธรรม<br>&nbsp;&nbsp;และความโปร่งใส</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 25px">
+                                    <div class="col" style="padding: 25px 25px; margin-left: -20px;">
                                         <span class="font-banner-button-green">ITA</span>
                                     </div>
                                 </div>
@@ -337,10 +344,10 @@
                         <a href="https://itas.nacc.go.th/go/iit/u4gpi2" target="_blank">
                             <div class="banner-button-green" style="margin-top: 45px;">
                                 <div class="row">
-                                    <div class="col-8" style="padding: 22px 10px 0px 38px;">
+                                    <div class="col-10" style="padding: 22px 10px 0px 38px;">
                                         <span class="font-banner-button-green">แบบวัดการรับรู้ภายใน</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -10px;">
+                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -20px;">
                                         <span class="font-banner-button-green">IIT</span>
                                     </div>
                                 </div>
@@ -349,10 +356,10 @@
                         <a href="https://itas.nacc.go.th/go/eit/u4gpi2" target="_blank">
                             <div class="banner-button-green" style="margin-top: 45px;">
                                 <div class="row">
-                                    <div class="col-8" style="padding: 22px 10px 0px 33px;">
+                                    <div class="col-10" style="padding: 22px 10px 0px 33px;">
                                         <span class="font-banner-button-green">แบบวัดการรับรู้ภายนอก</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -10px;">
+                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -20px;">
                                         <span class="font-banner-button-green">EIT</span>
                                     </div>
                                 </div>
@@ -363,10 +370,10 @@
                         <a href="<?php echo site_url('Pages/msg_pres'); ?>">
                             <div class="banner-button-green" style="margin-top: 80px;">
                                 <div class="row">
-                                    <div class="col-8" style="padding: 22px 10px 0px 70px;">
+                                    <div class="col-10" style="padding: 22px 10px 0px 70px;">
                                         <span class="font-banner-button-green">สารจากนายก</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -15px;">
+                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -25px;">
                                         <span class="font-banner-button-green">MES</span>
                                     </div>
                                 </div>
@@ -375,10 +382,10 @@
                         <a href="<?php echo site_url('Pages/questions'); ?>">
                             <div class="banner-button-green" style="margin-top: 45px;">
                                 <div class="row">
-                                    <div class="col-8" style="padding: 22px 10px 0px 70px;">
+                                    <div class="col-10" style="padding: 22px 10px 0px 70px;">
                                         <span class="font-banner-button-green">คำถามที่พบบ่อย</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -15px;">
+                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -25px;">
                                         <span class="font-banner-button-green">FAQ</span>
                                     </div>
                                 </div>
@@ -387,10 +394,10 @@
                         <a href="<?php echo site_url('Pages/contact'); ?>">
                             <div class="banner-button-green" style="margin-top: 45px;">
                                 <div class="row">
-                                    <div class="col-8" style="padding: 22px 10px 0px 70px;">
+                                    <div class="col-10" style="padding: 22px 10px 0px 70px;">
                                         <span class="font-banner-button-green">ติดต่อสอบถาม</span>
                                     </div>
-                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -15px;">
+                                    <div class="col" style="padding: 25px 0px 0px 0px; margin-left: -25px;">
                                         <span class="font-banner-button-green">CON</span>
                                     </div>
                                 </div>
@@ -398,7 +405,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -1327,7 +1333,14 @@
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <div class="d-flex justify-content-center underline" style="margin-top: 70px;">
+        <div class="d-flex justify-content-center" style="margin-left: 900px; color: #707070; font-size: 13px;">
+            <span>หมายเหตุ อ้างอิงแหล่งที่มาจาก กรมส่งเสริมการปกครองส่วนท้องถิ่น
+                <a href="https://www.dla.go.th/" target="_blank">
+                    <span style="color: #707070;">(https://www.dla.go.th/)</span>
+                </a>
+            </span>
+        </div>
+        <div class="d-flex justify-content-center underline" style="margin-top: 60px;">
             <a href="https://www.dla.go.th/servlet/DocumentServlet" target="_blank">
                 <div class="bt-all-dla2" style="margin-top: -50px;">
                     <span class="font-all-dla">ดูทั้งหมด</span>
@@ -1628,7 +1641,7 @@
                                             </div>
                                             <div class="col-3 one-line-ellipsis" style="padding-top: 8px;">
                                                 <span class="font-qa-list-content-name">ผู้ตั้งกระทู้ :
-                                                    <?= $rs->q_a_by; ?>y
+                                                    <?= $rs->q_a_by; ?>
                                                 </span>
                                             </div>
                                         </div>
