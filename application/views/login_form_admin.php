@@ -722,10 +722,6 @@
                         </div>
                     </div>
 
-
-
-
-
                     <div class="bg-submit-login">
                         <button data-action="submit" data-callback="onSubmit" data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="loginBtn g-recaptcha" id="loginBtn">เข้าสู่ระบบ</button>
                     </div>

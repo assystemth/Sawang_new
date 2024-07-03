@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="<?php echo base_url("docs/b-logo.png"); ?>" type="image/x-icon">
-    <title>อบต.บ้านกลาง ระบบแอดมิน</title>
+    <link rel="icon" href="<?php echo base_url("docs/logo.png"); ?>" type="image/x-icon">
+    <title>อบต.สว่าง ระบบแอดมิน</title>
     <!-- icon -->
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -708,8 +708,8 @@
                     </div>
 
                     <div class="bg-submit-login">
-                        <!-- <button data-action="submit" data-callback="onSubmit" data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="loginBtn g-recaptcha" id="loginBtn">เข้าสู่ระบบ</button> -->
-                        <button type="submit" class="loginBtn" id="loginBtn">ยืนยัน</button>
+                        <button data-action="submit" data-callback="onSubmit" data-sitekey="6LcfiLYpAAAAAI7_U3nkRRxKF7e8B_fwOGqi7g6x" type="submit" class="loginBtn g-recaptcha" id="loginBtn">เข้าสู่ระบบ</button>
+                        <!-- <button type="submit" class="loginBtn" id="loginBtn">ยืนยัน</button> -->
                     </div>
 
                     <div class="center-text" style="padding-top: 40px;">
