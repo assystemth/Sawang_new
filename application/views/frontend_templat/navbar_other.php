@@ -431,7 +431,7 @@
                           <a href="<?php echo site_url('Pages/operation_reauf'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานติดตามและประเมินผลแผน</span></a></a>
                           <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ ></span></a></a>
                           <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
-                          <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                          <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
                           <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
                       </div>
                   </ul>
@@ -692,7 +692,7 @@
                               <a href="<?php echo site_url('Pages/operation_reauf'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;รายงานติดตามและประเมินผลแผน</span></a></a>
                               <a><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ ></span></a></a>
                               <a href="<?php echo site_url('Pages/p_rpobuy'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
-                              <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจั้างหรือการจัดหาพัสดุ</span></a></a>
+                              <a href="<?php echo site_url('Pages/p_sopopaortsr'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานสรุปผลการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</span></a></a>
                               <a href="<?php echo site_url('Pages/p_sopopip'); ?>"><span class="font-nav mar-left-6"><img src="<?php echo base_url('docs/flower2.png'); ?>">&nbsp;&nbsp;รายงานความก้าวหน้าการจัดซื้อจัดจ้างหรือ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การจัดหาพัสดุ</span></a></a>
                           </div>
                       </ul>
