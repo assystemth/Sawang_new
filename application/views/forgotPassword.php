@@ -697,7 +697,7 @@
                     <span class="font-header-back">ลืมรหัสผ่าน</span>
                 </div>
 
-                <form action="<?php echo base_url('user/sendEmail'); ?>" method="post">
+                <form id="reCAPTCHA3" action="<?php echo base_url('user/sendEmail'); ?>" method="post">
                     <div class="input-group from-login" style="margin: auto; margin-top: 30px;">
                         <div class="input-icon">
                             <input type="text" name="email" id="email" placeholder="กรอกอีเมล" required>
