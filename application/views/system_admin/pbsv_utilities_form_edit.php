@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-7">
-            <h4>แก้ไขข้อมูลสาธารณูประโภค</h4>
+            <h4>แก้ไขข้อมูลสาธารณูปโภค</h4>
             <form action=" <?php echo site_url('pbsv_utilities_backend/edit/' . $rsedit->pbsv_utilities_id); ?> " method="post" class="form-horizontal" enctype="multipart/form-data">
                 <br>
                 <div class="form-group row">

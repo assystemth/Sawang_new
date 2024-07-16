@@ -1034,4 +1034,8 @@
     function closeImageSlideMid() {
         document.querySelector('.image-slide-stick-mid').style.display = 'none';
     }
+
+    function closeImageSlideMid2() {
+        document.querySelector('.messenger-container').style.display = 'none';
+    }
 </script>

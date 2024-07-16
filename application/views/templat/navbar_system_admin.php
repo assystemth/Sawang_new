@@ -113,7 +113,7 @@
         <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="<?php echo site_url('Pbsv_utilities_backend'); ?>">สาธารณูประโภค</a>
+                <a class="collapse-item" href="<?php echo site_url('Pbsv_utilities_backend'); ?>">สาธารณูปโภค</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cjc_backend'); ?>">ศูนย์ยุติธรรมชุมชน</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cac_backend'); ?>">ศูนย์ช่วยเหลือประชาชน</a>
                 <a class="collapse-item" href="<?php echo site_url('Pbsv_cig_backend'); ?>">ศูนย์ข้อมูลข่าวสารทางราชการ</a>
@@ -948,7 +948,7 @@
                 <a href="<?php echo site_url('Pbsv_utilities_backend'); ?>" class="link">
 
                     <li class="hide">
-                        <span>สาธารณูประโภค</span>
+                        <span>สาธารณูปโภค</span>
                     </li>
                 </a>
 

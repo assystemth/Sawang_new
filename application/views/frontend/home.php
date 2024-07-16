@@ -7,11 +7,13 @@
     </div>
 <?php } ?>
 
-<div id="messenger-icon">
+<div class="messenger-container underline">
     <a href="https://m.me/852452498161203" target="_blank">
-        <img src="<?php echo base_url('docs/messenger_facebook.png'); ?>" alt="Messenger Icon">
+        <div class="bg-messenger">
+            <span class="font-messenger">แชทเลย</span>
+        </div>
     </a>
-    <span class="tooltip">Messenger</span>
+    <div class="close-button-slide-messenger" onclick="closeImageSlideMid2()"></div>
 </div>
 
 <!-- <div class="welcome" ></div> -->

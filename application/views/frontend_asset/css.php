@@ -4791,8 +4791,8 @@
   #scroll-to-top {
     display: none;
     position: fixed;
-    bottom: 80px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     z-index: 99;
     font-size: 18px;
     border: none;
@@ -4816,8 +4816,8 @@
   #scroll-to-back {
     display: none;
     position: fixed;
-    bottom: 80px;
-    right: 120px;
+    bottom: 20px;
+    right: 110px;
     z-index: 99;
     font-size: 18px;
     border: none;
@@ -5894,6 +5894,63 @@
 
   /** ************************************************************************ */
 
+  .messenger-container {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+  }
+
+  .bg-messenger {
+    background-image: url('<?php echo base_url("docs/messenger.png"); ?>');
+    width: 100px;
+    height: 101px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.6s ease;
+  }
+
+  .bg-messenger:hover {
+    background-image: url('<?php echo base_url("docs/messenger_hover.png"); ?>');
+  }
+
+  .font-messenger {
+    color: #3454A5;
+    text-align: center;
+    font-family: "Noto Looped Thai";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 6px;
+    padding-top: 150px;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+  }
+
+  .close-button-slide-messenger {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    border: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    background-image: url('docs/close_messenger.png');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+    z-index: 1000;
+    /* เพิ่ม z-index */
+  }
+
+  .close-button-slide-messenger:hover {
+    background-image: url('docs/close_messenger_hover.png');
+  }
+
   #messenger-icon {
     position: fixed;
     bottom: 70px;
@@ -5942,5 +5999,10 @@
   #messenger-icon:hover .tooltip {
     visibility: visible;
     opacity: 1;
+  }
+
+  /* ซ่อน reCAPTCHA */
+  .grecaptcha-badge {
+    visibility: hidden;
   }
 </style>

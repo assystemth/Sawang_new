@@ -346,7 +346,7 @@
               <div class="dropdown-content">
                   <ul class="no-bullets mt-2" style="margin-left: 200px">
                       <div class="dropdown-left">
-                          <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูประโภค</span></a></a>
+                          <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูปโภค</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
                           <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>
@@ -531,15 +531,13 @@
       }
   </script>
   <div class="d-flex justify-content-start">
-      <div style="position: absolute; margin: 25px 25px; z-index: 101;">
-          <div class="row">
-              <div class="col-5">
-                  <img src="<?php echo base_url('docs/logo2.png'); ?>">
-              </div>
-              <div class="col-7">
-                  <span class="font-head-navbar-letf-logo1">อบต. สว่าง</span><br>
-                  <span class="font-head-navbar-letf-logo2">อ.โพนทอง จ.ร้อยเอ็ด</span>
-              </div>
+      <div class="row" style="position: absolute; margin: 25px 25px;">
+          <div class="col-5" style="z-index: 101;">
+              <img src="<?php echo base_url('docs/logo2.png'); ?>">
+          </div>
+          <div class="col-7" style="margin-top: 5px; z-index: 5;">
+              <span class="font-head-navbar-letf-logo1">อบต. สว่าง</span><br>
+              <span class="font-head-navbar-letf-logo2">อ.โพนทอง จ.ร้อยเอ็ด</span>
           </div>
       </div>
   </div>
@@ -607,7 +605,7 @@
                   <div class="dropdown-content" style="margin-top: 80px;">
                       <ul class="no-bullets mt-2" style="margin-left: 200px">
                           <div class="dropdown-left">
-                              <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูประโภค</span></a></a>
+                              <a href="<?php echo site_url('Pages/pbsv_utilities'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;สาธารณูปโภค</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cjc'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ยุติธรรมชุมชน</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cac'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ช่วยเหลือประชาชน</span></a></a>
                               <a href="<?php echo site_url('Pages/pbsv_cig'); ?>"><img src="<?php echo base_url('docs/flower2.png'); ?>"><span class="font-nav">&nbsp;&nbsp;ศูนย์ข้อมูลข่าวสารทางราชการ</span></a></a>

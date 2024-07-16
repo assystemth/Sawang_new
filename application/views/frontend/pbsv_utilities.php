@@ -1,5 +1,5 @@
 <div class="text-center pages-head">
-    <span class="font-pages-head">สาธารณูประโภค</span>
+    <span class="font-pages-head">สาธารณูปโภค</span>
 </div>
 </div>
 
