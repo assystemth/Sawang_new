@@ -75,6 +75,8 @@ class Home extends CI_Controller
 		// สถ.จ.
 		// $data['prov_local_doc'] = $this->prov_local_doc_model->get_local_docs();
 
+		$data['events'] = $this->calender_model->get_events();
+
 		// echo '<pre>';
 		// print_r($data['rssData']);
 		// echo '</pre>';

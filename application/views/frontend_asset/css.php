@@ -4488,13 +4488,14 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    padding-left: 20px;
   }
 
   .day,
   .weekday {
     width: 14.28%;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     box-sizing: border-box;
   }
 

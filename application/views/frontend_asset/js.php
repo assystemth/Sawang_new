@@ -363,127 +363,79 @@
 
     // ปฏิทิน ทั้งหมด ********************************************************************************
     $(document).ready(function() {
-        const $monthYear = $('#monthYear');
-        const $daysContainer = $('#days');
-        const $prevMonthBtn = $('#prevMonth');
-        const $nextMonthBtn = $('#nextMonth');
-        const $calendar = $('.calendar');
-        $calendar.css('marginLeft', '30px');
-
         let currentDate = new Date();
-        let selectedDayElement = null;
-        let qCalender = [];
-
-        function fetchEvents() {
-            return $.getJSON('<?= site_url('calender_backend/get_events') ?>')
-                .done(function(data) {
-                    console.log('Fetched events:', data); // ตรวจสอบข้อมูลที่ได้รับ
-                    qCalender = data;
-                    renderCalendar(currentDate);
-                })
-                .fail(function(error) {
-                    console.error('Error fetching events:', error);
-                });
-        }
+        let events = <?= json_encode($events) ?>;
 
         function renderCalendar(date) {
             const year = date.getFullYear();
             const month = date.getMonth();
-            const today = new Date();
-
             const firstDayOfMonth = new Date(year, month, 1).getDay();
             const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
 
-            $monthYear.text(date.toLocaleDateString('th-TH', {
+            $('#monthYear').text(date.toLocaleDateString('th-TH', {
                 month: 'long',
+                // year: 'numeric'
             }));
-
-            $daysContainer.empty();
+            $('#days').empty();
 
             for (let i = 0; i < firstDayOfMonth; i++) {
-                $daysContainer.append(`<div class="day"></div>`);
+                $('#days').append('<div class="day"></div>');
             }
 
             for (let i = 1; i <= lastDateOfMonth; i++) {
-                const isToday = (year === today.getFullYear() && month === today.getMonth() && i === today.getDate());
+                const day = String(i).padStart(2, '0');
+                const dateString = `${year}-${month + 1}-${day}`;
+                const isToday = (new Date().toDateString() === new Date(dateString).toDateString());
                 const dayClass = isToday ? 'day current-day' : 'day';
-
-                const currentDay = new Date(year, month, i);
-                const hasEvent = qCalender.some(event => {
+                const hasEvent = events.some(event => {
                     const eventStartDate = new Date(event.calender_date);
-                    eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+                    eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันเริ่มต้นลงหนึ่งวัน
                     const eventEndDate = new Date(event.calender_date_end);
-                    return (
-                        currentDay >= eventStartDate &&
-                        currentDay <= eventEndDate
-                    );
+                    return new Date(dateString) >= eventStartDate && new Date(dateString) <= eventEndDate;
                 });
-
                 const eventDot = hasEvent ? '<span class="event-dot"></span>' : '';
-                $daysContainer.append(`<div class="${dayClass}" data-date="${year}-${month + 1}-${i}"><span>${i}</span>${eventDot}</div>`);
-            }
-
-            const totalDays = firstDayOfMonth + lastDateOfMonth;
-            const remainingDays = 7 - (totalDays % 7);
-
-            if (remainingDays < 7) {
-                for (let i = 0; i < remainingDays; i++) {
-                    $daysContainer.append(`<div class="day"></div>`);
-                }
+                $('#days').append(`<div class="${dayClass}" data-date="${dateString}"><span>${i}</span>${eventDot}</div>`);
             }
 
             $('.day').on('click', function() {
                 const clickedDate = $(this).data('date');
                 if (clickedDate) {
-                    const [year, month, date] = clickedDate.split('-').map(Number);
-                    const selectedDate = new Date(year, month - 1, date);
-                    console.log(`Selected date: ${selectedDate}`);
-                    updateQCalenderDisplay(selectedDate);
+                    const selectedDate = new Date(clickedDate);
+                    updateQCalenderDisplay(selectedDate, events);
 
-                    if (selectedDayElement) {
-                        $(selectedDayElement).removeClass('selected-day');
-                    }
+                    $('.day').removeClass('selected-day');
                     $(this).addClass('selected-day');
-                    selectedDayElement = this;
                 }
             });
 
-            updateQCalenderDisplay(today);
+            // แสดงข้อมูลกิจกรรมของวันนี้ทันทีเมื่อโหลดหน้าเว็บ
+            updateQCalenderDisplay(new Date(), events);
         }
 
-        function updateQCalenderDisplay(selectedDate) {
+        function updateQCalenderDisplay(selectedDate, events) {
             const $qCalenderContainer = $('#qCalender');
             $qCalenderContainer.empty();
 
-            const filteredEvents = qCalender.filter(event => {
+            const filteredEvents = events.filter(event => {
                 const eventStartDate = new Date(event.calender_date);
-                eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+                eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันเริ่มต้นลงหนึ่งวัน
                 const eventEndDate = new Date(event.calender_date_end);
-                return (
-                    selectedDate >= eventStartDate &&
-                    selectedDate <= eventEndDate
-                );
+                return selectedDate >= eventStartDate && selectedDate <= eventEndDate;
             });
 
             if (filteredEvents.length > 0) {
                 filteredEvents.forEach(event => {
-                    const eventStartDate = new Date(event.calender_date);
-                    eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
-                    const eventEndDate = new Date(event.calender_date_end);
+                    const day_th = selectedDate.getDate();
+                    const month_th = selectedDate.toLocaleString('th-TH', {
+                        month: 'long'
+                    });
+                    const year_th = selectedDate.getFullYear() + 543;
+                    const formattedDate = `${day_th} ${month_th} ${year_th}`;
 
-                    if (selectedDate >= eventStartDate && selectedDate <= eventEndDate) {
-                        const day_th = selectedDate.getDate();
-                        const month_th = selectedDate.toLocaleString('th-TH', {
-                            month: 'long'
-                        });
-                        const year_th = selectedDate.getFullYear() + 543;
-
-                        const formattedDate = `${day_th} ${month_th} ${year_th}`;
-                        $qCalenderContainer.append(`
-                        <span class="font-calender2">วันที่ ${formattedDate}</span><br>
-                        <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
-                    `);
-                    }
+                    $qCalenderContainer.append(`
+                    <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+                    <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
+                `);
                 });
             } else {
                 const day_th = selectedDate.getDate();
@@ -491,24 +443,171 @@
                     month: 'long'
                 });
                 const year_th = selectedDate.getFullYear() + 543;
-
                 const formattedDate = `${day_th} ${month_th} ${year_th}`;
                 $qCalenderContainer.html(`<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`);
             }
         }
 
-        $prevMonthBtn.on('click', function() {
+        $('#prevMonth').on('click', function() {
             currentDate.setMonth(currentDate.getMonth() - 1);
             renderCalendar(currentDate);
         });
 
-        $nextMonthBtn.on('click', function() {
+        $('#nextMonth').on('click', function() {
             currentDate.setMonth(currentDate.getMonth() + 1);
             renderCalendar(currentDate);
         });
 
-        fetchEvents(); // Fetch events and render calendar
+        renderCalendar(currentDate);
     });
+
+    // $(document).ready(function() {
+    //     const $monthYear = $('#monthYear');
+    //     const $daysContainer = $('#days');
+    //     const $prevMonthBtn = $('#prevMonth');
+    //     const $nextMonthBtn = $('#nextMonth');
+    //     const $calendar = $('.calendar');
+    //     $calendar.css('marginLeft', '30px');
+
+    //     let currentDate = new Date();
+    //     let selectedDayElement = null;
+    //     let qCalender = [];
+
+    //     function fetchEvents() {
+    //         return $.getJSON('<?= site_url('calender_backend/get_events') ?>')
+    //             .done(function(data) {
+    //                 console.log('Fetched events:', data); // ตรวจสอบข้อมูลที่ได้รับ
+    //                 qCalender = data;
+    //                 renderCalendar(currentDate);
+    //             })
+    //             .fail(function(error) {
+    //                 console.error('Error fetching events:', error);
+    //             });
+    //     }
+
+    //     function renderCalendar(date) {
+    //         const year = date.getFullYear();
+    //         const month = date.getMonth();
+    //         const today = new Date();
+
+    //         const firstDayOfMonth = new Date(year, month, 1).getDay();
+    //         const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
+
+    //         $monthYear.text(date.toLocaleDateString('th-TH', {
+    //             month: 'long',
+    //         }));
+
+    //         $daysContainer.empty();
+
+    //         for (let i = 0; i < firstDayOfMonth; i++) {
+    //             $daysContainer.append(`<div class="day"></div>`);
+    //         }
+
+    //         for (let i = 1; i <= lastDateOfMonth; i++) {
+    //             const isToday = (year === today.getFullYear() && month === today.getMonth() && i === today.getDate());
+    //             const dayClass = isToday ? 'day current-day' : 'day';
+
+    //             const currentDay = new Date(year, month, i);
+    //             const hasEvent = qCalender.some(event => {
+    //                 const eventStartDate = new Date(event.calender_date);
+    //                 eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+    //                 const eventEndDate = new Date(event.calender_date_end);
+    //                 return (
+    //                     currentDay >= eventStartDate &&
+    //                     currentDay <= eventEndDate
+    //                 );
+    //             });
+
+    //             const eventDot = hasEvent ? '<span class="event-dot"></span>' : '';
+    //             $daysContainer.append(`<div class="${dayClass}" data-date="${year}-${month + 1}-${i}"><span>${i}</span>${eventDot}</div>`);
+    //         }
+
+    //         const totalDays = firstDayOfMonth + lastDateOfMonth;
+    //         const remainingDays = 7 - (totalDays % 7);
+
+    //         if (remainingDays < 7) {
+    //             for (let i = 0; i < remainingDays; i++) {
+    //                 $daysContainer.append(`<div class="day"></div>`);
+    //             }
+    //         }
+
+    //         $('.day').on('click', function() {
+    //             const clickedDate = $(this).data('date');
+    //             if (clickedDate) {
+    //                 const [year, month, date] = clickedDate.split('-').map(Number);
+    //                 const selectedDate = new Date(year, month - 1, date);
+    //                 console.log(`Selected date: ${selectedDate}`);
+    //                 updateQCalenderDisplay(selectedDate);
+
+    //                 if (selectedDayElement) {
+    //                     $(selectedDayElement).removeClass('selected-day');
+    //                 }
+    //                 $(this).addClass('selected-day');
+    //                 selectedDayElement = this;
+    //             }
+    //         });
+
+    //         updateQCalenderDisplay(today);
+    //     }
+
+    //     function updateQCalenderDisplay(selectedDate) {
+    //         const $qCalenderContainer = $('#qCalender');
+    //         $qCalenderContainer.empty();
+
+    //         const filteredEvents = qCalender.filter(event => {
+    //             const eventStartDate = new Date(event.calender_date);
+    //             eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+    //             const eventEndDate = new Date(event.calender_date_end);
+    //             return (
+    //                 selectedDate >= eventStartDate &&
+    //                 selectedDate <= eventEndDate
+    //             );
+    //         });
+
+    //         if (filteredEvents.length > 0) {
+    //             filteredEvents.forEach(event => {
+    //                 const eventStartDate = new Date(event.calender_date);
+    //                 eventStartDate.setDate(eventStartDate.getDate() - 1); // ลดวันที่เริ่มต้นลงหนึ่งวัน
+    //                 const eventEndDate = new Date(event.calender_date_end);
+
+    //                 if (selectedDate >= eventStartDate && selectedDate <= eventEndDate) {
+    //                     const day_th = selectedDate.getDate();
+    //                     const month_th = selectedDate.toLocaleString('th-TH', {
+    //                         month: 'long'
+    //                     });
+    //                     const year_th = selectedDate.getFullYear() + 543;
+
+    //                     const formattedDate = `${day_th} ${month_th} ${year_th}`;
+    //                     $qCalenderContainer.append(`
+    //                     <span class="font-calender2">วันที่ ${formattedDate}</span><br>
+    //                     <span class="font-calender2 detail-text">${event.calender_detail}</span><br><br>
+    //                 `);
+    //                 }
+    //             });
+    //         } else {
+    //             const day_th = selectedDate.getDate();
+    //             const month_th = selectedDate.toLocaleString('th-TH', {
+    //                 month: 'long'
+    //             });
+    //             const year_th = selectedDate.getFullYear() + 543;
+
+    //             const formattedDate = `${day_th} ${month_th} ${year_th}`;
+    //             $qCalenderContainer.html(`<span class="font-calender2">วันที่ ${formattedDate}</span><br><span class="font-calender2">ไม่มีข้อมูลกิจกรรมในวันนี้</span>`);
+    //         }
+    //     }
+
+    //     $prevMonthBtn.on('click', function() {
+    //         currentDate.setMonth(currentDate.getMonth() - 1);
+    //         renderCalendar(currentDate);
+    //     });
+
+    //     $nextMonthBtn.on('click', function() {
+    //         currentDate.setMonth(currentDate.getMonth() + 1);
+    //         renderCalendar(currentDate);
+    //     });
+
+    //     fetchEvents(); // Fetch events and render calendar
+    // });
 
     //   ********************************************************************************
 

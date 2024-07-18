@@ -16,7 +16,7 @@ class Calender_model extends CI_Model
             'calender_date_end' => $this->input->post('calender_date_end'),
             'calender_by' => $this->session->userdata('m_fname'), // เพิ่มชื่อคนที่เพิ่มข้อมูล
         );
-        $query = $this->db->insert('tbl_calender', $data);
+        $this->db->insert('tbl_calender', $data);
 
         $this->space_model->update_server_current();
         $this->session->set_flashdata('save_success', TRUE);
@@ -91,19 +91,19 @@ class Calender_model extends CI_Model
 
     public function edit_calender($calender_id)
     {
-        // Get the input data
+        // รับข้อมูลจากฟอร์ม
         $calender_detail = $this->input->post('calender_detail');
         $calender_date = $this->input->post('calender_date');
         $calender_date_end = $this->input->post('calender_date_end');
         $calender_by = $this->session->userdata('m_fname');
 
-        // Check if the input data is valid
+        // ตรวจสอบข้อมูล
         if (empty($calender_detail) || empty($calender_date) || empty($calender_date_end) || empty($calender_by)) {
             $this->session->set_flashdata('error', 'All fields are required.');
             return false;
         }
 
-        // Update calendar information
+        // อัปเดตข้อมูล
         $data = array(
             'calender_detail' => $calender_detail,
             'calender_date' => $calender_date,
@@ -115,12 +115,12 @@ class Calender_model extends CI_Model
         $update = $this->db->update('tbl_calender', $data);
 
         if ($update) {
-            // Update server current
+            // อัปเดต server current
             $this->space_model->update_server_current();
             $this->session->set_flashdata('save_success', TRUE);
             return true;
         } else {
-            // Log the error message
+            // บันทึกข้อความข้อผิดพลาด
             $error = $this->db->error();
             log_message('error', 'Failed to update calendar: ' . print_r($error, true));
             $this->session->set_flashdata('error', 'Failed to update calendar.');
@@ -362,7 +362,7 @@ class Calender_model extends CI_Model
 
     public function get_events()
     {
-        $this->db->where('tbl_calender.calender_status', 'show');
+        $this->db->where('calender_status', 'show');
         $query = $this->db->get('tbl_calender');
         return $query->result_array();
     }
